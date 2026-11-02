@@ -1,0 +1,6 @@
+# AgentTune writes its score log to data/scores.jsonl relative to the CWD
+# when AGENTTUNE_SCORE_LOG is unset
+data/scores.jsonl
+__pycache__/
+.venv/
+*.egg-info/
