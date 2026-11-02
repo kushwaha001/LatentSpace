@@ -37,15 +37,32 @@ A small multilingual agent for Indian public transit (train and metro search, fa
 
 Models, adapters, datasets and logs will be published as public Hugging Face collections.
 
-## Planned layout
+## Repository layout
 
 ```
-src/latentspace/rewards/   audit-grounded reward functions (AgentTune-compatible)
-src/latentspace/tools/     transit tool definitions and schemas
-data/                      eval set builder (4 languages, held-out split)
+src/audit_rewards/         AuditKIT agent metrics as AgentTune GRPO rewards (see its README)
+tests/                     unit tests (CPU): python -m pytest tests
 experiments/NN_name.py     one script per experiment -> results/NN_name.json
-tests/                     unit tests (CPU)
+results/                   experiment outputs
+docs/CODE_MAP.md           where everything lives in AgentTune and AuditKIT (file:line)
+FINDINGS.md                what works, what is broken, with file:line references
 ```
+
+## Experiments so far
+
+| # | Experiment | Result |
+|---|---|---|
+| 01 | [Reward gap](experiments/01_reward_gap.py) | `hybrid_prm_reward` scores correct / malformed / no call as 0.0 / 1.0 / 1.0. None of the 26 built-in rewards separates malformed from no call. [results](results/01_reward_gap.json) |
+| 02 | [AgentTune → AuditKIT hand-off](experiments/02_handoff.py) | AgentTune's `trajectories.jsonl` loads into AuditKIT; its metrics catch loops, invalid arguments and forbidden tools. [results](results/02_handoff.json) |
+| 03 | [Audit rewards vs default rewards](experiments/03_audit_rewards.py) | Combined audit reward catches 21 of 21 paired failure cases with 0 inverted; the best default combination catches 6 and inverts 8. [table](results/03_audit_rewards.md) |
+| 04 | [GRPO smoke run](experiments/04_grpo_smoke.py) | The rewards plug into AgentTune's agentic GRPO trainer and are called on every step (20 steps, CPU, tiny model: a plumbing test, not a learning run). [results](results/04_grpo_smoke.json) |
+
+Run any experiment from the repo root with `python experiments/NN_name.py`.
+
+## Next
+
+- Transit tool set and a 4-language eval set with a held-out split
+- Baseline Tiny Aya, distillation, then the two GRPO runs (default reward vs audit reward)
 
 ## Status
 
