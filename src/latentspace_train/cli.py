@@ -10,6 +10,7 @@ Options shared by all stages:
                            results under results/smoke/ (no network)
     --limit N              only the first N task rows
     --max-usd X            teacher_collect / api baseline: stop when estimated spend reaches X
+    --compare-only         evaluate: only summarise and compare already scored checkpoints
 """
 
 from __future__ import annotations
@@ -44,6 +45,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--limit", type=int, default=None)
     p.add_argument("--max-usd", type=float, default=None)
+    p.add_argument("--compare-only", action="store_true",
+                   help="evaluate: no rollouts; summarise + compare the scored files of every "
+                        "checkpoint (local, or the logs dataset on the Hub)")
     p.add_argument("--print-config", action="store_true", help="print the resolved config and exit")
     return p
 

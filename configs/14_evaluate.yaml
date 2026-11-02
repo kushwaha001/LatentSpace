@@ -2,6 +2,8 @@
 #   python -m latentspace_train evaluate                 # every checkpoint below
 #   python -m latentspace_train evaluate --run run_B     # one checkpoint
 extends: base.yaml
+student:
+  quantization: null       # inference only: fp16 weights (6.7 GB) fit a T4 and decode ~2x faster than 4-bit
 generation: {temperature: 0.7, max_new_tokens: 256}
 evaluate:
   split: test

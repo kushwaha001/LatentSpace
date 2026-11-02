@@ -178,9 +178,14 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         "adapter_dir": str(adapter_dir) if adapter_dir.exists() else None,
     }
     if cfg.get("push") and adapter_dir.exists():
-        out["hub"] = push_folder(cfg, f"grpo_{run_name}", out_dir,
-                                 allow_patterns=["adapter/**", "trajectories.jsonl"],
-                                 message=f"GRPO {run_name}: {reward_desc['kind']} reward")
+        # adapter at the repo root, so later stages / sessions load it by repo id
+        out["hub"] = {
+            "adapter": push_folder(cfg, f"grpo_{run_name}", adapter_dir,
+                                   message=f"GRPO {run_name}: {reward_desc['kind']} reward"),
+            "logs": push_folder(cfg, "logs", out_dir, repo_type="dataset",
+                                path_in_repo=f"grpo/{run_name}",
+                                allow_patterns=["trajectories.jsonl", "*.json", "*.yaml"]),
+        }
     return f"13_grpo_{run_name}", out
 
 

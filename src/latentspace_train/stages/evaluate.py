@@ -53,6 +53,24 @@ def _resolve_adapter(path: str | None, cfg: dict) -> tuple[str | None, bool]:
     return str(p), p.exists()
 
 
+def _scored_file(cfg: dict, name: str) -> Path | None:
+    """outputs/evaluate/<name>/scored.jsonl, else the copy pushed to the logs dataset."""
+    local = work_dir(cfg, "evaluate", name) / "scored.jsonl"
+    if local.exists():
+        return local
+    if cfg.get("dry_run"):
+        return None
+    try:
+        from huggingface_hub import hf_hub_download
+
+        from ..hub import repo_id
+
+        return Path(hf_hub_download(repo_id(cfg, "logs"), f"evaluate/{name}/scored.jsonl",
+                                    repo_type="dataset"))
+    except Exception:
+        return None
+
+
 def run(cfg: dict, args) -> tuple[str, dict]:
     e = cfg.get("evaluate", {})
     trials = int(e.get("trials", 5))
@@ -71,6 +89,17 @@ def run(cfg: dict, args) -> tuple[str, dict]:
     for ck in checkpoints:
         name = ck["name"]
         backend = ck.get("backend", "local")
+        if getattr(args, "compare_only", False):
+            scored_path = _scored_file(cfg, name)
+            if scored_path is None:
+                out["checkpoints"][name] = {"skipped": "no scored file (run evaluate --run first)"}
+            else:
+                scored = read_jsonl(scored_path)
+                out["checkpoints"][name] = {
+                    "from": str(scored_path),
+                    "summary": summarise(scored, k=trials,
+                                         independent=e.get("independent_trials", False))}
+            continue
         if cfg.get("dry_run") and backend != "local":
             out["checkpoints"][name] = {"skipped": "router checkpoint in a dry run"}
             continue
@@ -109,8 +138,8 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         free(engine, fn)
 
     for base, cand in e.get("comparisons") or []:
-        paths = [work_dir(cfg, "evaluate", n) / "scored.jsonl" for n in (base, cand)]
-        if not all(p.exists() for p in paths):
+        paths = [_scored_file(cfg, n) for n in (base, cand)]
+        if not all(paths):
             out["comparisons"][f"{base}_vs_{cand}"] = {"skipped": "scored files missing"}
             continue
         b, c = (read_jsonl(p) for p in paths)
@@ -122,4 +151,5 @@ def run(cfg: dict, args) -> tuple[str, dict]:
                                          seed=cfg.get("seed", 42)),
         }
     name = f"14_evaluate_{args.run}" if args.run else "14_evaluate"
+    out["mode"] = "compare_only" if getattr(args, "compare_only", False) else "rollouts"
     return name, out

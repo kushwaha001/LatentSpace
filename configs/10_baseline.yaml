@@ -2,6 +2,8 @@
 #   python -m latentspace_train baseline
 #   python -m latentspace_train baseline --set 'baseline.modes=[local,api]'
 extends: base.yaml
+student:
+  quantization: null       # inference only: fp16 weights (6.7 GB) fit a T4 and decode ~2x faster than 4-bit
 baseline:
   split: eval
   trials: 1

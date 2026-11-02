@@ -224,7 +224,14 @@ def _local_or_hub(path: str) -> str:
     from .config import ROOT
 
     p = Path(path)
-    return str(ROOT / p) if not p.is_absolute() and (ROOT / p).exists() else path
+    if not p.is_absolute() and (ROOT / p).exists():
+        return str(ROOT / p)
+    if p.is_absolute() or path.startswith((".", "outputs/")) or path.count("/") != 1:
+        if not p.exists():
+            raise FileNotFoundError(
+                f"{path} not found. In a fresh Kaggle/Colab session, local outputs are gone: "
+                "point to the Hub copy instead, e.g. --set student.adapter=<namespace>/<repo>")
+    return path
 
 
 def make_local_engine(spec: dict, precision: str):
