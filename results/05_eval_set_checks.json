@@ -4,7 +4,7 @@
   "python": "3.13.18",
   "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
   "auditkit": "1.1.3",
-  "latentspace_commit": "3930eda91828674e8b86220d8c80279c621de9ba"
+  "latentspace_commit": "936c4c30b15469a2e5d3f2cae99602f6fcdf89f3"
  },
  "tools": [
   "get_station_code",
@@ -16789,5 +16789,5 @@
   },
   "languages_where_reference_not_always_ranked_first": []
  },
- "seconds": 4.8
+ "seconds": 6.5
 }

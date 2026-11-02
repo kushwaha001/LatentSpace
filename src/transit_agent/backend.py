@@ -42,7 +42,8 @@ def normalize_name(text: str) -> str:
     "Pune Jn.", "PUNE junction", "पुणे स्टेशन" and "पुणे" all compare equal."""
     t = unicodedata.normalize("NFC", text or "").translate(_DEV_DIGITS).replace(_NUKTA, "")
     t = unicodedata.normalize("NFC", t).casefold()
-    t = re.sub(r"[^\w\s]", " ", t)  # \w keeps Devanagari letters and combining marks
+    # Python's \w excludes Devanagari vowel signs and virama, so keep the whole block.
+    t = re.sub(r"[^\w\s\u0900-\u0963\u0966-\u097F]", " ", t)
     words = [w for w in t.split() if w not in _STOPWORDS]
     return " ".join(words)
 

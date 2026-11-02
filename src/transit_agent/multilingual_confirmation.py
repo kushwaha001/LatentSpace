@@ -57,7 +57,7 @@ HARD_NEGATE = {
 SOFT_NEGATE = {"cancel", "stop", "abort", "रद्द", "कैंसिल", "cancel kar do"}
 
 _NUKTA = "़"
-_PUNCT = re.compile(r"[^\w\s'ऀ-ॿ]")  # keep Devanagari block incl. vowel signs
+_PUNCT = re.compile(r"[^\w\s'\u0900-\u0963\u0966-\u097F]")  # Devanagari minus danda
 
 
 def _tokens(text: str) -> list[str]:
