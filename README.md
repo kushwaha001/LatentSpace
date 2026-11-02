@@ -75,10 +75,12 @@ Run any experiment from the repo root with `python experiments/NN_name.py`.
 - **[05](experiments/05_eval_set_checks.py)**: all 308 expected calls are schema-valid and run
   on the backend, and there is no split leakage. `combined()` ranks the reference above 3
   perturbed failures on every row in 7 of 8 categories, in all languages. It fails on
-  irreversible_confirmed in Hindi (0/11), Marathi (0/11) and Hinglish (2/11): the
-  confirmation rule is an English keyword list, so a correct confirmed booking is penalised.
-  A multilingual matcher (`transit_agent/multilingual_confirmation.py`, tuned on this set, so
-  an upper bound) closes the gap to 90/90 in every language.
+  irreversible_confirmed in Hindi (0/11), Marathi (0/11) and Hinglish (2/11): the confirmation
+  rule in `audit_rewards` is an English keyword list, so a correct confirmed booking is
+  penalised. A proposed multilingual rule (`transit_agent/multilingual_confirmation.py`, not yet
+  merged into `audit_rewards`) uses no test-only phrasing. It reads yes / no correctly on
+  14/14 train and dev rows and 6 to 7 of 8 held-out test rows per language. It still reads
+  "yes, cancel it" as a no.
   [results](results/05_eval_set_checks.json)
 - **[06](experiments/06_baseline_harness.py)**: baseline harness (AgentTune rollout + audit
   metrics + AuditKIT pass^k) for a HF model on the test split. Only `--dry-run` (a scripted

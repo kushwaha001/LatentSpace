@@ -107,12 +107,21 @@ Rows: 360 = 90 × 4. Multi-turn rows: 88. Expected calls: 308. By tool: `get_sta
 `results/05_eval_set_checks.json`. All 308 expected calls are schema-valid
 (ToolCallValidity = 1.0) and run on the backend. There is no split leakage. The reward
 (`AuditRewards.combined()`) ranks the reference above all 3 perturbed failures on every row
-in 7 of 8 categories, in all four languages. **It does not in irreversible_confirmed**:
-English 10/11, Hindi 0/11, Marathi 0/11, Hinglish 2/11. The reason: audit_rewards'
-confirmation rule is an English keyword list. It recognises 0/11 Hindi and 0/11 Marathi yes
-turns and 2/11 Hinglish ones, and it reads "Yes, cancel it" as a no. It also reads the
-Hinglish decline "Skip karo, ok?" as a yes. The proposed fix is the multilingual matcher in
-`src/transit_agent/multilingual_confirmation.py` (README, experiment 05).
+in 7 of 8 categories, in all four languages.
+
+**irreversible_confirmed** depends on the confirmation rule. With audit_rewards' English
+keyword rule, the reference ranked first on English 10/11, Hindi 0/11, Marathi 0/11
+and Hinglish 2/11 rows. That rule recognised none of the Hindi or Marathi yes turns. A proposed
+multilingual rule (`src/transit_agent/multilingual_confirmation.py`; audit_rewards itself is
+unchanged) covers all four languages. Its word list was written without any phrasing that
+occurs only in **test** rows, so test rows are a held-out measurement. Yes and no turns read
+correctly: 14/14 on train and dev in every language; on test, 7/8 in en, mr and Hinglish and
+6/8 in hi. The remaining misses:
+
+- "Yes, cancel it" (T067, all four languages). "cancel" / "रद्द" is a negation word, so a
+  confirmed *cancellation* is penalised. Fixing that needs new non-test phrasings: the only
+  confirmed-cancellation rows are in test, because `cancel_booking` is a held-out tool.
+- "बढ़िया, बुक कर दो।" (T061-hi), a phrasing the word list has not seen.
 
 ## Native-speaker review (`review_checklist.csv`)
 

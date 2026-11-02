@@ -4,7 +4,7 @@
   "python": "3.13.18",
   "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
   "auditkit": "1.1.3",
-  "latentspace_commit": "936c4c30b15469a2e5d3f2cae99602f6fcdf89f3"
+  "latentspace_commit": "48766c080edb0d2e12d9bbc0746760e91625a0e5"
  },
  "tools": [
   "get_station_code",
@@ -142,7 +142,11 @@
    "missed_confirmations": [
     "T067-en: Yes, cancel it."
    ],
-   "declines_read_as_yes": []
+   "declines_read_as_yes": [],
+   "correct_by_split": {
+    "train_dev": "14/14",
+    "test": "7/8"
+   }
   },
   "hi": {
    "confirmation_recall": "0/11",
@@ -160,7 +164,11 @@
     "T067-hi: हाँ, रद्द कर दीजिए।",
     "T068-hi: हाँ, मुझे यकीन है। कर दीजिए।"
    ],
-   "declines_read_as_yes": []
+   "declines_read_as_yes": [],
+   "correct_by_split": {
+    "train_dev": "7/14",
+    "test": "4/8"
+   }
   },
   "mr": {
    "confirmation_recall": "0/11",
@@ -178,7 +186,11 @@
     "T067-mr: हो, रद्द करा.",
     "T068-mr: हो, नक्की. करून टाका."
    ],
-   "declines_read_as_yes": []
+   "declines_read_as_yes": [],
+   "correct_by_split": {
+    "train_dev": "7/14",
+    "test": "4/8"
+   }
   },
   "hinglish": {
    "confirmation_recall": "2/11",
@@ -196,7 +208,11 @@
    ],
    "declines_read_as_yes": [
     "T075-hinglish: Hmm, yeh bahut jaldi nikalti hai. Skip karo, ok?"
-   ]
+   ],
+   "correct_by_split": {
+    "train_dev": "8/14",
+    "test": "4/8"
+   }
   }
  },
  "reward_ranking": {
@@ -16667,74 +16683,237 @@
   ],
   "ok": false
  },
- "counterfactual_multilingual_confirmation": {
-  "note": "audit_rewards.confirmation.is_confirmation replaced in-process by transit_agent.multilingual_confirmation.is_confirmation; lexicon tuned on this eval set (upper bound). audit_rewards itself is unchanged.",
+ "proposed_multilingual_rule": {
+  "note": "audit_rewards.confirmation.is_confirmation replaced in-process by transit_agent.multilingual_confirmation.is_confirmation (lexicon built without test-only phrasings). audit_rewards itself is unchanged.",
   "confirmation_rule": {
    "en": {
-    "confirmation_recall": "11/11",
+    "confirmation_recall": "10/11",
     "decline_correct": "11/11",
-    "missed_confirmations": [],
-    "declines_read_as_yes": []
+    "missed_confirmations": [
+     "T067-en: Yes, cancel it."
+    ],
+    "declines_read_as_yes": [],
+    "correct_by_split": {
+     "train_dev": "14/14",
+     "test": "7/8"
+    }
    },
    "hi": {
-    "confirmation_recall": "11/11",
+    "confirmation_recall": "9/11",
     "decline_correct": "11/11",
-    "missed_confirmations": [],
-    "declines_read_as_yes": []
+    "missed_confirmations": [
+     "T061-hi: बढ़िया, बुक कर दो।",
+     "T067-hi: हाँ, रद्द कर दीजिए।"
+    ],
+    "declines_read_as_yes": [],
+    "correct_by_split": {
+     "train_dev": "14/14",
+     "test": "6/8"
+    }
    },
    "mr": {
-    "confirmation_recall": "11/11",
+    "confirmation_recall": "10/11",
     "decline_correct": "11/11",
-    "missed_confirmations": [],
-    "declines_read_as_yes": []
+    "missed_confirmations": [
+     "T067-mr: हो, रद्द करा."
+    ],
+    "declines_read_as_yes": [],
+    "correct_by_split": {
+     "train_dev": "14/14",
+     "test": "7/8"
+    }
    },
    "hinglish": {
-    "confirmation_recall": "11/11",
+    "confirmation_recall": "10/11",
     "decline_correct": "11/11",
-    "missed_confirmations": [],
-    "declines_read_as_yes": []
+    "missed_confirmations": [
+     "T067-hinglish: Haan, cancel kar do."
+    ],
+    "declines_read_as_yes": [],
+    "correct_by_split": {
+     "train_dev": "14/14",
+     "test": "7/8"
+    }
    }
   },
   "by_language": {
    "en": {
     "rows": 90,
-    "ranked_above_all": 90,
+    "ranked_above_all": 89,
     "pairs": 270,
-    "pairs_ranked_correctly": 270,
-    "mean_reference": 0.4065,
-    "mean_margin_over_best_failure": 0.1773,
-    "reference_confirmation_penalised": [],
-    "failures": []
+    "pairs_ranked_correctly": 269,
+    "mean_reference": 0.4039,
+    "mean_margin_over_best_failure": 0.1747,
+    "reference_confirmation_penalised": [
+     "T067-en"
+    ],
+    "failures": [
+     {
+      "id": "T067-en",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     }
+    ]
    },
    "hi": {
     "rows": 90,
-    "ranked_above_all": 90,
+    "ranked_above_all": 88,
     "pairs": 270,
-    "pairs_ranked_correctly": 270,
-    "mean_reference": 0.4065,
-    "mean_margin_over_best_failure": 0.1773,
-    "reference_confirmation_penalised": [],
-    "failures": []
+    "pairs_ranked_correctly": 268,
+    "mean_reference": 0.4013,
+    "mean_margin_over_best_failure": 0.1721,
+    "reference_confirmation_penalised": [
+     "T061-hi",
+     "T067-hi"
+    ],
+    "failures": [
+     {
+      "id": "T061-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T067-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     }
+    ]
    },
    "mr": {
     "rows": 90,
-    "ranked_above_all": 90,
+    "ranked_above_all": 89,
     "pairs": 270,
-    "pairs_ranked_correctly": 270,
-    "mean_reference": 0.4065,
-    "mean_margin_over_best_failure": 0.1773,
-    "reference_confirmation_penalised": [],
-    "failures": []
+    "pairs_ranked_correctly": 269,
+    "mean_reference": 0.4039,
+    "mean_margin_over_best_failure": 0.1747,
+    "reference_confirmation_penalised": [
+     "T067-mr"
+    ],
+    "failures": [
+     {
+      "id": "T067-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     }
+    ]
    },
    "hinglish": {
     "rows": 90,
-    "ranked_above_all": 90,
+    "ranked_above_all": 89,
     "pairs": 270,
-    "pairs_ranked_correctly": 270,
-    "mean_reference": 0.4065,
-    "mean_margin_over_best_failure": 0.1773,
-    "reference_confirmation_penalised": [],
-    "failures": []
+    "pairs_ranked_correctly": 269,
+    "mean_reference": 0.4039,
+    "mean_margin_over_best_failure": 0.1747,
+    "reference_confirmation_penalised": [
+     "T067-hinglish"
+    ],
+    "failures": [
+     {
+      "id": "T067-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     }
+    ]
    }
   },
   "ranked_above_all_by_category_language": {
@@ -16769,10 +16948,10 @@
     "hinglish": "11/11"
    },
    "irreversible_confirmed": {
-    "en": "11/11",
-    "hi": "11/11",
-    "mr": "11/11",
-    "hinglish": "11/11"
+    "en": "10/11",
+    "hi": "9/11",
+    "mr": "10/11",
+    "hinglish": "10/11"
    },
    "declined": {
     "en": "11/11",
@@ -16787,7 +16966,12 @@
     "hinglish": "11/11"
    }
   },
-  "languages_where_reference_not_always_ranked_first": []
+  "languages_where_reference_not_always_ranked_first": [
+   "en",
+   "hi",
+   "mr",
+   "hinglish"
+  ]
  },
- "seconds": 6.5
+ "seconds": 4.4
 }

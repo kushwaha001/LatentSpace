@@ -52,6 +52,7 @@ from auditkit.sample import Sample  # noqa: E402
 from auditkit.trace import normalize_call  # noqa: E402
 
 from audit_rewards import AuditRewards, is_confirmation, tool_schemas  # noqa: E402
+from transit_agent.multilingual_confirmation import is_confirmation as is_confirmation_multi  # noqa: E402,E501
 from transit_agent import TOOLS, execute_call, reset_backend  # noqa: E402
 from transit_agent.build_eval import HELD_OUT_TOOLS, LANGS  # noqa: E402
 
@@ -434,6 +435,7 @@ def check_confirmation_rule(rows: list[dict], matcher=is_confirmation) -> dict:
     confirmed / declined row: a yes should read as a confirmation, a no should not."""
     out = {}
     for lang in LANGS:
+        per_split = {"train_dev": [0, 0], "test": [0, 0]}
         res = {"confirmed_read_as_yes": [], "confirmed_missed": [],
                "declined_read_as_no": [], "declined_read_as_yes": []}
         for r in rows:
@@ -442,6 +444,9 @@ def check_confirmation_rule(rows: list[dict], matcher=is_confirmation) -> dict:
                 continue
             text = r["messages"][-1]["content"]
             yes = matcher(text)
+            held = "test" if r["split"] == "test" else "train_dev"
+            per_split[held][0] += yes == (r["category"] == "irreversible_confirmed")
+            per_split[held][1] += 1
             if r["category"] == "irreversible_confirmed":
                 res["confirmed_read_as_yes" if yes else "confirmed_missed"].append(
                     f"{r['id']}: {text}")
@@ -455,6 +460,7 @@ def check_confirmation_rule(rows: list[dict], matcher=is_confirmation) -> dict:
             "decline_correct": f"{len(res['declined_read_as_no'])}/{n_d}",
             "missed_confirmations": res["confirmed_missed"],
             "declines_read_as_yes": res["declined_read_as_yes"],
+            "correct_by_split": {k: f"{v[0]}/{v[1]}" for k, v in per_split.items()},
         }
     return out
 
@@ -485,29 +491,27 @@ def main() -> None:
     result["reward_ranking_reference_free"] = {
         k: v for k, v in rf.items() if k != "rows"}
 
-    # Counterfactual (labelled): the same ranking with audit_rewards' English keyword matcher
-    # swapped for transit_agent.multilingual_confirmation, in this process only. Its lexicon
-    # was written while looking at this eval set, so this is an upper bound, not a held-out
-    # measurement.
+    # Proposed rule: the same ranking with audit_rewards' English keyword matcher swapped for
+    # transit_agent.multilingual_confirmation, in this process only (audit_rewards unchanged).
+    # Its lexicon uses no phrasing that occurs only in test rows, so the "test" numbers in
+    # confirmation_rule.*.correct_by_split are a held-out measurement.
     from audit_rewards import confirmation as conf
-    from transit_agent.multilingual_confirmation import is_confirmation as multi
 
-    original = conf.is_confirmation
-    conf.is_confirmation = multi
+    current = conf.is_confirmation
+    conf.is_confirmation = is_confirmation_multi
     try:
-        cf = check_ranking(rows)
+        new = check_ranking(rows)
     finally:
-        conf.is_confirmation = original
-    result["counterfactual_multilingual_confirmation"] = {
+        conf.is_confirmation = current
+    result["proposed_multilingual_rule"] = {
         "note": "audit_rewards.confirmation.is_confirmation replaced in-process by "
-                "transit_agent.multilingual_confirmation.is_confirmation; lexicon tuned on "
-                "this eval set (upper bound). audit_rewards itself is unchanged.",
-        "confirmation_rule": check_confirmation_rule(rows, matcher=multi),
-        "by_language": {k: {kk: vv for kk, vv in v.items()}
-                        for k, v in cf["by_language"].items()},
-        "ranked_above_all_by_category_language": cf["ranked_above_all_by_category_language"],
+                "transit_agent.multilingual_confirmation.is_confirmation (lexicon built without "
+                "test-only phrasings). audit_rewards itself is unchanged.",
+        "confirmation_rule": check_confirmation_rule(rows, matcher=is_confirmation_multi),
+        "by_language": new["by_language"],
+        "ranked_above_all_by_category_language": new["ranked_above_all_by_category_language"],
         "languages_where_reference_not_always_ranked_first":
-            cf["languages_where_reference_not_always_ranked_first"],
+            new["languages_where_reference_not_always_ranked_first"],
     }
     result["seconds"] = round(time.time() - t0, 1)
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -522,18 +526,20 @@ def main() -> None:
               f"ref confirmation-penalised {len(v['reference_confirmation_penalised'])}")
     for lang, v in result["confirmation_rule"].items():
         print(f"  {lang:9s} confirmation rule: yes recognised {v['confirmation_recall']}, "
-              f"no recognised {v['decline_correct']}")
+              f"no recognised {v['decline_correct']}, correct by split {v['correct_by_split']}")
     print("languages where the reward does not always rank the reference first:",
           rk["languages_where_reference_not_always_ranked_first"] or "none")
     print("reference-free combined(include_f1=False):")
     for lang, v in result["reward_ranking_reference_free"]["by_language"].items():
         print(f"  {lang:9s} ranked first {v['ranked_above_all']}/{v['rows']}  pairs "
               f"{v['pairs_ranked_correctly']}/{v['pairs']}")
-    cf = result["counterfactual_multilingual_confirmation"]
-    print("counterfactual (multilingual confirmation matcher, tuned on this set):")
-    for lang, v in cf["by_language"].items():
+    new = result["proposed_multilingual_rule"]
+    print("proposed multilingual confirmation rule (not merged into audit_rewards):")
+    for lang, v in new["by_language"].items():
         print(f"  {lang:9s} ranked first {v['ranked_above_all']}/{v['rows']}  margin "
               f"{v['mean_margin_over_best_failure']}")
+    for lang, v in new["confirmation_rule"].items():
+        print(f"  {lang:9s} yes/no read correctly by split {v['correct_by_split']}")
     print(f"wrote {OUT.relative_to(ROOT)} in {result['seconds']}s")
 
 
