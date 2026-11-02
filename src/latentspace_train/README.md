@@ -79,6 +79,21 @@ stops a session at 12 h. Plan three sessions (stages 1-3, stage 4, stage 5) and 
 so each session can resume from the Hub. The 30 h/week Kaggle quota covers one full pass. If
 the quota meter charges per GPU rather than per session, the GPU-h column is what counts.
 
+## Hugging Face GPU Space
+
+Create a Space with the **JupyterLab** Docker template on T4 or L4 hardware, add `HF_TOKEN` as a
+Space secret (it shows up as an environment variable), open a terminal and run:
+
+```bash
+git clone -b training-pipeline https://github.com/kushwaha001/LatentSpace && cd LatentSpace
+bash scripts/install_deps.sh ~/AgentTune
+export PYTHONPATH=src
+python -m latentspace_train baseline --push
+```
+
+Then run the remaining stages in the same order (or upload `notebooks/colab_train.ipynb`
+and skip its Colab-secrets cell). Pause the Space when it is idle: Spaces bill by the minute.
+
 ## CPU dry run
 
 `--dry-run` swaps in a randomly initialised ~100k-parameter Llama with a tool-ignoring chat
