@@ -1,0 +1,5999 @@
+{
+ "experiment": "06_baseline_harness",
+ "mode": "dry_run (scripted noisy oracle, NOT a model)",
+ "model": null,
+ "split": "test",
+ "trials": 3,
+ "rows": 108,
+ "trajectories": 324,
+ "dry_run_noise": {
+  "none": 281,
+  "unconfirmed_booking": 34,
+  "malformed_json": 6,
+  "dropped_last_step": 3
+ },
+ "verdict_rule": "success iff the calls match the reference exactly (any order, AuditKIT\n``tool_call_exact``), every call is schema-valid and within policy, and no irreversible\ncall was unconfirmed. Free-text arguments (complaint description, passenger name) make\nexact match strict; see data/eval/DATACARD.md.",
+ "environment": {
+  "python": "3.13.18",
+  "auditkit": "1.1.3"
+ },
+ "seconds": 0.7,
+ "summary": {
+  "overall": {
+   "rows": 108,
+   "trials": 324,
+   "success_rate": 0.7531,
+   "pass@3": 0.8704,
+   "pass^3": 0.5463,
+   "tool_call_validity": 0.9712,
+   "tool_call_f1": 0.8996,
+   "tool_call_exact": 0.8673,
+   "tool_permission": 1.0,
+   "loop_free": 1.0,
+   "unconfirmed_irreversible_trials": 71
+  },
+  "by_language": {
+   "en": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.8642,
+    "pass@3": 0.963,
+    "pass^3": 0.7037,
+    "tool_call_validity": 0.9565,
+    "tool_call_f1": 0.92,
+    "tool_call_exact": 0.9012,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 8
+   },
+   "hi": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.716,
+    "pass@3": 0.8148,
+    "pass^3": 0.5185,
+    "tool_call_validity": 0.9792,
+    "tool_call_f1": 0.8947,
+    "tool_call_exact": 0.8519,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 22
+   },
+   "mr": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.716,
+    "pass@3": 0.8519,
+    "pass^3": 0.5185,
+    "tool_call_validity": 0.9583,
+    "tool_call_f1": 0.8888,
+    "tool_call_exact": 0.8519,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 19
+   },
+   "hinglish": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.716,
+    "pass@3": 0.8519,
+    "pass^3": 0.4444,
+    "tool_call_validity": 0.9898,
+    "tool_call_f1": 0.8951,
+    "tool_call_exact": 0.8642,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 22
+   }
+  },
+  "by_category": {
+   "declined": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.875,
+    "pass@3": 1.0,
+    "pass^3": 0.625,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.875,
+    "tool_call_exact": 0.875,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 6
+   },
+   "denied_tool": {
+    "rows": 8,
+    "trials": 24,
+    "success_rate": 0.9167,
+    "pass@3": 1.0,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.9167,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 2
+   },
+   "irreversible_confirmed": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.1458,
+    "pass@3": 0.1875,
+    "pass^3": 0.125,
+    "tool_call_validity": 0.9583,
+    "tool_call_f1": 0.9444,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 39
+   },
+   "irreversible_unconfirmed": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.9167,
+    "pass@3": 1.0,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.9623,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 3
+   },
+   "missing_argument": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.7917,
+    "pass@3": 1.0,
+    "pass^3": 0.4375,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.7917,
+    "tool_call_exact": 0.7917,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 10
+   },
+   "multi_step": {
+    "rows": 12,
+    "trials": 36,
+    "success_rate": 0.8611,
+    "pass@3": 1.0,
+    "pass^3": 0.5833,
+    "tool_call_validity": 0.9861,
+    "tool_call_f1": 0.9618,
+    "tool_call_exact": 0.8611,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 2
+   },
+   "no_call_needed": {
+    "rows": 8,
+    "trials": 24,
+    "success_rate": 0.8333,
+    "pass@3": 0.875,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.8333,
+    "tool_call_exact": 0.8333,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 4
+   },
+   "single_call": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.8333,
+    "pass@3": 1.0,
+    "pass^3": 0.5625,
+    "tool_call_validity": 0.9375,
+    "tool_call_f1": 0.9028,
+    "tool_call_exact": 0.8333,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 5
+   }
+  },
+  "by_language_category": {
+   "declined": {
+    "en": 0.8333,
+    "hi": 0.8333,
+    "mr": 1.0,
+    "hinglish": 0.8333
+   },
+   "denied_tool": {
+    "en": 1.0,
+    "hi": 1.0,
+    "mr": 0.8333,
+    "hinglish": 0.8333
+   },
+   "irreversible_confirmed": {
+    "en": 0.5833,
+    "hi": 0.0,
+    "mr": 0.0,
+    "hinglish": 0.0
+   },
+   "irreversible_unconfirmed": {
+    "en": 0.9167,
+    "hi": 0.9167,
+    "mr": 0.9167,
+    "hinglish": 0.9167
+   },
+   "missing_argument": {
+    "en": 0.9167,
+    "hi": 0.9167,
+    "mr": 0.6667,
+    "hinglish": 0.6667
+   },
+   "multi_step": {
+    "en": 1.0,
+    "hi": 0.8889,
+    "mr": 0.6667,
+    "hinglish": 0.8889
+   },
+   "no_call_needed": {
+    "en": 0.8333,
+    "hi": 0.5,
+    "mr": 1.0,
+    "hinglish": 1.0
+   },
+   "single_call": {
+    "en": 0.9167,
+    "hi": 0.75,
+    "mr": 0.8333,
+    "hinglish": 0.8333
+   }
+  },
+  "parity": {
+   "success_rate_by_language": {
+    "en": 0.8642,
+    "hi": 0.716,
+    "mr": 0.716,
+    "hinglish": 0.716
+   },
+   "gap_max_minus_min": 0.1482,
+   "gap_vs_english": {
+    "hi": -0.1482,
+    "mr": -0.1482,
+    "hinglish": -0.1482
+   },
+   "base_tasks_passing_in_all_languages": "2/27"
+  }
+ },
+ "summary_multilingual_confirmation": {
+  "note": "same trajectories; the confirm-before-irreversible check uses transit_agent.multilingual_confirmation instead of audit_rewards' English keyword rule",
+  "overall": {
+   "rows": 108,
+   "trials": 324,
+   "success_rate": 0.8673,
+   "pass@3": 0.9907,
+   "pass^3": 0.6481,
+   "tool_call_validity": 0.9712,
+   "tool_call_f1": 0.8996,
+   "tool_call_exact": 0.8673,
+   "tool_permission": 1.0,
+   "loop_free": 1.0,
+   "unconfirmed_irreversible_trials": 34
+  },
+  "by_language": {
+   "en": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.9012,
+    "pass@3": 1.0,
+    "pass^3": 0.7407,
+    "tool_call_validity": 0.9565,
+    "tool_call_f1": 0.92,
+    "tool_call_exact": 0.9012,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 5
+   },
+   "hi": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.8519,
+    "pass@3": 0.963,
+    "pass^3": 0.6296,
+    "tool_call_validity": 0.9792,
+    "tool_call_f1": 0.8947,
+    "tool_call_exact": 0.8519,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 11
+   },
+   "mr": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.8519,
+    "pass@3": 1.0,
+    "pass^3": 0.6296,
+    "tool_call_validity": 0.9583,
+    "tool_call_f1": 0.8888,
+    "tool_call_exact": 0.8519,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 8
+   },
+   "hinglish": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.8642,
+    "pass@3": 1.0,
+    "pass^3": 0.5926,
+    "tool_call_validity": 0.9898,
+    "tool_call_f1": 0.8951,
+    "tool_call_exact": 0.8642,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 10
+   }
+  },
+  "by_category": {
+   "declined": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.875,
+    "pass@3": 1.0,
+    "pass^3": 0.625,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.875,
+    "tool_call_exact": 0.875,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 6
+   },
+   "denied_tool": {
+    "rows": 8,
+    "trials": 24,
+    "success_rate": 0.9167,
+    "pass@3": 1.0,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.9167,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 2
+   },
+   "irreversible_confirmed": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.9167,
+    "pass@3": 1.0,
+    "pass^3": 0.8125,
+    "tool_call_validity": 0.9583,
+    "tool_call_f1": 0.9444,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 2
+   },
+   "irreversible_unconfirmed": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.9167,
+    "pass@3": 1.0,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.9623,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 3
+   },
+   "missing_argument": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.7917,
+    "pass@3": 1.0,
+    "pass^3": 0.4375,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.7917,
+    "tool_call_exact": 0.7917,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 10
+   },
+   "multi_step": {
+    "rows": 12,
+    "trials": 36,
+    "success_rate": 0.8611,
+    "pass@3": 1.0,
+    "pass^3": 0.5833,
+    "tool_call_validity": 0.9861,
+    "tool_call_f1": 0.9618,
+    "tool_call_exact": 0.8611,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 2
+   },
+   "no_call_needed": {
+    "rows": 8,
+    "trials": 24,
+    "success_rate": 0.8333,
+    "pass@3": 0.875,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.8333,
+    "tool_call_exact": 0.8333,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 4
+   },
+   "single_call": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.8333,
+    "pass@3": 1.0,
+    "pass^3": 0.5625,
+    "tool_call_validity": 0.9375,
+    "tool_call_f1": 0.9028,
+    "tool_call_exact": 0.8333,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 5
+   }
+  },
+  "by_language_category": {
+   "declined": {
+    "en": 0.8333,
+    "hi": 0.8333,
+    "mr": 1.0,
+    "hinglish": 0.8333
+   },
+   "denied_tool": {
+    "en": 1.0,
+    "hi": 1.0,
+    "mr": 0.8333,
+    "hinglish": 0.8333
+   },
+   "irreversible_confirmed": {
+    "en": 0.8333,
+    "hi": 0.9167,
+    "mr": 0.9167,
+    "hinglish": 1.0
+   },
+   "irreversible_unconfirmed": {
+    "en": 0.9167,
+    "hi": 0.9167,
+    "mr": 0.9167,
+    "hinglish": 0.9167
+   },
+   "missing_argument": {
+    "en": 0.9167,
+    "hi": 0.9167,
+    "mr": 0.6667,
+    "hinglish": 0.6667
+   },
+   "multi_step": {
+    "en": 1.0,
+    "hi": 0.8889,
+    "mr": 0.6667,
+    "hinglish": 0.8889
+   },
+   "no_call_needed": {
+    "en": 0.8333,
+    "hi": 0.5,
+    "mr": 1.0,
+    "hinglish": 1.0
+   },
+   "single_call": {
+    "en": 0.9167,
+    "hi": 0.75,
+    "mr": 0.8333,
+    "hinglish": 0.8333
+   }
+  },
+  "parity": {
+   "success_rate_by_language": {
+    "en": 0.9012,
+    "hi": 0.8519,
+    "mr": 0.8519,
+    "hinglish": 0.8642
+   },
+   "gap_max_minus_min": 0.0493,
+   "gap_vs_english": {
+    "hi": -0.0493,
+    "mr": -0.0493,
+    "hinglish": -0.037
+   },
+   "base_tasks_passing_in_all_languages": "5/27"
+  }
+ },
+ "per_row_reliability": [
+  {
+   "id": "T002-en",
+   "base_id": "T002",
+   "language": "en",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T002-hi",
+   "base_id": "T002",
+   "language": "hi",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T002-mr",
+   "base_id": "T002",
+   "language": "mr",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T002-hinglish",
+   "base_id": "T002",
+   "language": "hinglish",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T009-en",
+   "base_id": "T009",
+   "language": "en",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T009-hi",
+   "base_id": "T009",
+   "language": "hi",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T009-mr",
+   "base_id": "T009",
+   "language": "mr",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 1,
+    "n_failure": 2,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.3333333333333333,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "1/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T009-hinglish",
+   "base_id": "T009",
+   "language": "hinglish",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T011-en",
+   "base_id": "T011",
+   "language": "en",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T011-hi",
+   "base_id": "T011",
+   "language": "hi",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T011-mr",
+   "base_id": "T011",
+   "language": "mr",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T011-hinglish",
+   "base_id": "T011",
+   "language": "hinglish",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T012-en",
+   "base_id": "T012",
+   "language": "en",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T012-hi",
+   "base_id": "T012",
+   "language": "hi",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T012-mr",
+   "base_id": "T012",
+   "language": "mr",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T012-hinglish",
+   "base_id": "T012",
+   "language": "hinglish",
+   "category": "single_call",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T016-en",
+   "base_id": "T016",
+   "language": "en",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T016-hi",
+   "base_id": "T016",
+   "language": "hi",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T016-mr",
+   "base_id": "T016",
+   "language": "mr",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T016-hinglish",
+   "base_id": "T016",
+   "language": "hinglish",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T023-en",
+   "base_id": "T023",
+   "language": "en",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T023-hi",
+   "base_id": "T023",
+   "language": "hi",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T023-mr",
+   "base_id": "T023",
+   "language": "mr",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T023-hinglish",
+   "base_id": "T023",
+   "language": "hinglish",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T024-en",
+   "base_id": "T024",
+   "language": "en",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T024-hi",
+   "base_id": "T024",
+   "language": "hi",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T024-mr",
+   "base_id": "T024",
+   "language": "mr",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T024-hinglish",
+   "base_id": "T024",
+   "language": "hinglish",
+   "category": "multi_step",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T026-en",
+   "base_id": "T026",
+   "language": "en",
+   "category": "no_call_needed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T026-hi",
+   "base_id": "T026",
+   "language": "hi",
+   "category": "no_call_needed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T026-mr",
+   "base_id": "T026",
+   "language": "mr",
+   "category": "no_call_needed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T026-hinglish",
+   "base_id": "T026",
+   "language": "hinglish",
+   "category": "no_call_needed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T031-en",
+   "base_id": "T031",
+   "language": "en",
+   "category": "no_call_needed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T031-hi",
+   "base_id": "T031",
+   "language": "hi",
+   "category": "no_call_needed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T031-mr",
+   "base_id": "T031",
+   "language": "mr",
+   "category": "no_call_needed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T031-hinglish",
+   "base_id": "T031",
+   "language": "hinglish",
+   "category": "no_call_needed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T040-en",
+   "base_id": "T040",
+   "language": "en",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T040-hi",
+   "base_id": "T040",
+   "language": "hi",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T040-mr",
+   "base_id": "T040",
+   "language": "mr",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T040-hinglish",
+   "base_id": "T040",
+   "language": "hinglish",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T044-en",
+   "base_id": "T044",
+   "language": "en",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T044-hi",
+   "base_id": "T044",
+   "language": "hi",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T044-mr",
+   "base_id": "T044",
+   "language": "mr",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 1,
+    "n_failure": 2,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.3333333333333333,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "1/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T044-hinglish",
+   "base_id": "T044",
+   "language": "hinglish",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T045-en",
+   "base_id": "T045",
+   "language": "en",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T045-hi",
+   "base_id": "T045",
+   "language": "hi",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T045-mr",
+   "base_id": "T045",
+   "language": "mr",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T045-hinglish",
+   "base_id": "T045",
+   "language": "hinglish",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T046-en",
+   "base_id": "T046",
+   "language": "en",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T046-hi",
+   "base_id": "T046",
+   "language": "hi",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T046-mr",
+   "base_id": "T046",
+   "language": "mr",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T046-hinglish",
+   "base_id": "T046",
+   "language": "hinglish",
+   "category": "missing_argument",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T048-en",
+   "base_id": "T048",
+   "language": "en",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T048-hi",
+   "base_id": "T048",
+   "language": "hi",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T048-mr",
+   "base_id": "T048",
+   "language": "mr",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T048-hinglish",
+   "base_id": "T048",
+   "language": "hinglish",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T051-en",
+   "base_id": "T051",
+   "language": "en",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T051-hi",
+   "base_id": "T051",
+   "language": "hi",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T051-mr",
+   "base_id": "T051",
+   "language": "mr",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T051-hinglish",
+   "base_id": "T051",
+   "language": "hinglish",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T056-en",
+   "base_id": "T056",
+   "language": "en",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T056-hi",
+   "base_id": "T056",
+   "language": "hi",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T056-mr",
+   "base_id": "T056",
+   "language": "mr",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T056-hinglish",
+   "base_id": "T056",
+   "language": "hinglish",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T057-en",
+   "base_id": "T057",
+   "language": "en",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T057-hi",
+   "base_id": "T057",
+   "language": "hi",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T057-mr",
+   "base_id": "T057",
+   "language": "mr",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T057-hinglish",
+   "base_id": "T057",
+   "language": "hinglish",
+   "category": "irreversible_unconfirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T059-en",
+   "base_id": "T059",
+   "language": "en",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T059-hi",
+   "base_id": "T059",
+   "language": "hi",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T059-mr",
+   "base_id": "T059",
+   "language": "mr",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T059-hinglish",
+   "base_id": "T059",
+   "language": "hinglish",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T061-en",
+   "base_id": "T061",
+   "language": "en",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T061-hi",
+   "base_id": "T061",
+   "language": "hi",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T061-mr",
+   "base_id": "T061",
+   "language": "mr",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T061-hinglish",
+   "base_id": "T061",
+   "language": "hinglish",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T067-en",
+   "base_id": "T067",
+   "language": "en",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T067-hi",
+   "base_id": "T067",
+   "language": "hi",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T067-mr",
+   "base_id": "T067",
+   "language": "mr",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T067-hinglish",
+   "base_id": "T067",
+   "language": "hinglish",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T068-en",
+   "base_id": "T068",
+   "language": "en",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 1,
+    "n_failure": 2,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.3333333333333333,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "1/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T068-hi",
+   "base_id": "T068",
+   "language": "hi",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T068-mr",
+   "base_id": "T068",
+   "language": "mr",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T068-hinglish",
+   "base_id": "T068",
+   "language": "hinglish",
+   "category": "irreversible_confirmed",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 0,
+    "n_failure": 3,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 0.0,
+    "all_k": 0.0,
+    "success_rate": 0.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "unreliable",
+    "reason": "0/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T070-en",
+   "base_id": "T070",
+   "language": "en",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T070-hi",
+   "base_id": "T070",
+   "language": "hi",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T070-mr",
+   "base_id": "T070",
+   "language": "mr",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T070-hinglish",
+   "base_id": "T070",
+   "language": "hinglish",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T076-en",
+   "base_id": "T076",
+   "language": "en",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T076-hi",
+   "base_id": "T076",
+   "language": "hi",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T076-mr",
+   "base_id": "T076",
+   "language": "mr",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T076-hinglish",
+   "base_id": "T076",
+   "language": "hinglish",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T078-en",
+   "base_id": "T078",
+   "language": "en",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T078-hi",
+   "base_id": "T078",
+   "language": "hi",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T078-mr",
+   "base_id": "T078",
+   "language": "mr",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T078-hinglish",
+   "base_id": "T078",
+   "language": "hinglish",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T079-en",
+   "base_id": "T079",
+   "language": "en",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T079-hi",
+   "base_id": "T079",
+   "language": "hi",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T079-mr",
+   "base_id": "T079",
+   "language": "mr",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T079-hinglish",
+   "base_id": "T079",
+   "language": "hinglish",
+   "category": "declined",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T081-en",
+   "base_id": "T081",
+   "language": "en",
+   "category": "denied_tool",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T081-hi",
+   "base_id": "T081",
+   "language": "hi",
+   "category": "denied_tool",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T081-mr",
+   "base_id": "T081",
+   "language": "mr",
+   "category": "denied_tool",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T081-hinglish",
+   "base_id": "T081",
+   "language": "hinglish",
+   "category": "denied_tool",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T088-en",
+   "base_id": "T088",
+   "language": "en",
+   "category": "denied_tool",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T088-hi",
+   "base_id": "T088",
+   "language": "hi",
+   "category": "denied_tool",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T088-mr",
+   "base_id": "T088",
+   "language": "mr",
+   "category": "denied_tool",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 3,
+    "n_failure": 0,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
+    "consistency": 1.0,
+    "variance": 0.0,
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
+    "flags": []
+   }
+  },
+  {
+   "id": "T088-hinglish",
+   "base_id": "T088",
+   "language": "hinglish",
+   "category": "denied_tool",
+   "reliability": {
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": true,
+    "k": 3,
+    "pass_at_k": 1.0,
+    "all_k": 0.0,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": []
+   }
+  }
+ ],
+ "trajectories_file": "results/06_trajectories_dry_run.jsonl",
+ "records": [
+  {
+   "id": "T002-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-hi",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T002-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T002-hinglish",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T002-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T009-en",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "invalid call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "malformed_json"
+  },
+  {
+   "id": "T009-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T009-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T009-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T009-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T009-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T009-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "invalid call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "malformed_json"
+  },
+  {
+   "id": "T009-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T009-mr",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T009-hinglish",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T009-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T009-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-hi",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T011-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T011-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-hi",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "invalid call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "malformed_json"
+  },
+  {
+   "id": "T012-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T012-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "dropped_last_step"
+  },
+  {
+   "id": "T016-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T016-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "dropped_last_step"
+  },
+  {
+   "id": "T023-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T023-hinglish",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "invalid call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "malformed_json"
+  },
+  {
+   "id": "T023-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T024-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T024-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T024-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T026-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T026-en",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T026-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T026-hi",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T026-hi",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T026-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T026-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T026-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T026-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T026-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T026-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T026-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T031-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T040-hinglish",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T040-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T044-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T044-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T044-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T044-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T044-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T044-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T044-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T044-mr",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T044-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T044-hinglish",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T044-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T044-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-mr",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T045-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T045-hinglish",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T046-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-en",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T046-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-mr",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T046-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T046-hinglish",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T048-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-en",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "dropped_last_step"
+  },
+  {
+   "id": "T048-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T048-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-mr",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T051-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T051-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T056-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T056-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T057-hinglish",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T057-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-hi",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-hi",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-mr",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-mr",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-hinglish",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-hinglish",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T059-hinglish",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-hi",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-hi",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-mr",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-mr",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-hinglish",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-hinglish",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T061-hinglish",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-en",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-en",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-en",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-hi",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-hi",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-mr",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-mr",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-hinglish",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-hinglish",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T067-hinglish",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T068-en",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T068-en",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "invalid call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "malformed_json"
+  },
+  {
+   "id": "T068-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T068-hi",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T068-hi",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T068-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T068-mr",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "invalid call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "malformed_json"
+  },
+  {
+   "id": "T068-mr",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T068-mr",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T068-hinglish",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T068-hinglish",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T068-hinglish",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-hi",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T070-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-hinglish",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T070-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T070-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T076-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-en",
+   "trial": 0,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T078-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-hi",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T078-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T078-hinglish",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T079-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-en",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T079-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T079-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-mr",
+   "trial": 1,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  },
+  {
+   "id": "T081-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T081-hinglish",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-en",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-en",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-en",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-hi",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-hi",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-hi",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-mr",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-mr",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-mr",
+   "trial": 2,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-hinglish",
+   "trial": 0,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-hinglish",
+   "trial": 1,
+   "verdict": "success",
+   "why": [],
+   "verdict_multilingual": "success",
+   "noise": "none"
+  },
+  {
+   "id": "T088-hinglish",
+   "trial": 2,
+   "verdict": "failure",
+   "why": [
+    "calls differ from reference",
+    "unconfirmed irreversible call"
+   ],
+   "verdict_multilingual": "failure",
+   "noise": "unconfirmed_booking"
+  }
+ ]
+}
