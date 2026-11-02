@@ -7,7 +7,10 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 export PYTHONPATH=src HF_HUB_OFFLINE=1 CUDA_VISIBLE_DEVICES=""
 rm -rf outputs/smoke results/smoke
-run() { echo "== $*"; python -m latentspace_train "$@" --dry-run 2>&1 | grep -E "^\[|Error|Traceback" || true; }
+run() { echo "== $*"; python -m latentspace_train "$@" --dry-run 2>&1 | grep -E "^\[|Error|Traceback" | grep -v "offline-deterministic-only" || true; }
+# run_A logs litellm "LLM Provider NOT provided ... offline-deterministic-only" on every
+# reward call: upstream hybrid_prm_reward calls a judge even with use_llm_judge=False
+# (FINDINGS.md B3). Filtered above; it does not affect the score.
 run baseline
 run teacher_collect
 run distill
