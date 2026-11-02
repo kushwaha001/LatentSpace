@@ -42,7 +42,7 @@ def build_tiny_model(path: Path, seed: int = 0) -> Path:
     )
     # one sampled id puts Cohere call markup in the text, so the random policy sometimes
     # produces (malformed) call attempts and the rewards are not constant
-    fast.add_tokens(['[{"tool_name": '])
+    fast.add_tokens(['[{"tool_name": ', "<tool_call>", "</tool_call>"])
     fast.chat_template = CHAT_TEMPLATE
     fast.save_pretrained(path)
     cfg = LlamaConfig(

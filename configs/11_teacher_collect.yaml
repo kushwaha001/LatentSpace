@@ -1,0 +1,20 @@
+# Stage 2: Aya Expanse teacher trajectories on the train split, rejection-filtered.
+#   HF_TOKEN=... python -m latentspace_train teacher_collect --max-usd 5
+#   Kaggle fallback without credits (8B has no Inference Provider):
+#   python -m latentspace_train teacher_collect --set teacher.backend=local
+extends: base.yaml
+teacher:
+  backend: router          # router (default) | local (local_fallback below, on the GPU)
+  model: CohereLabs/aya-expanse-32b:cohere
+  router: {}               # per-stage overrides of the shared router settings (e.g. bill_to)
+  max_usd: 5.0             # --max-usd; collection stops once the estimate reaches it
+  price_usd_per_m: {input: 0.50, output: 1.50}   # Cohere's Aya Expanse 32B list price; verify on HF
+  local_fallback:
+    model: aya-expanse-8b
+    quantization: 4bit
+  split: train
+  samples_per_task: 2
+  generation: {temperature: 0.7, max_new_tokens: 384}
+  filter:
+    keep_correct_no_call: true   # keep "no call needed" tasks the teacher got right
+    min_f1: null                 # e.g. 1.0 to also require the reference calls

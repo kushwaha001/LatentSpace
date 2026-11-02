@@ -173,7 +173,7 @@ def load_local_model(spec: dict, precision: str, *, for_training: bool = False):
 
     from .runtime import torch_dtype
 
-    name = spec["model"]
+    name = _local_or_hub(spec["model"])
     tok = AutoTokenizer.from_pretrained(name, trust_remote_code=spec.get("trust_remote_code", False))
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
@@ -203,17 +203,28 @@ def load_local_model(spec: dict, precision: str, *, for_training: bool = False):
         else:
             raise ValueError(f"unknown quantization {q!r}")
     model = AutoModelForCausalLM.from_pretrained(name, **kwargs)
-    if spec.get("adapter"):
-        from peft import PeftModel
-
-        model = PeftModel.from_pretrained(model, spec["adapter"], is_trainable=for_training)
     if q and torch.cuda.is_available() and for_training:
         from peft import prepare_model_for_kbit_training
 
         model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
+    if spec.get("adapter"):
+        from peft import PeftModel
+
+        model = PeftModel.from_pretrained(model, _local_or_hub(spec["adapter"]),
+                                          is_trainable=for_training)
     if not for_training:
         model.eval()
     return model, tok
+
+
+def _local_or_hub(path: str) -> str:
+    """A path relative to the repo root if it exists there, else as given (a Hub id)."""
+    from pathlib import Path
+
+    from .config import ROOT
+
+    p = Path(path)
+    return str(ROOT / p) if not p.is_absolute() and (ROOT / p).exists() else path
 
 
 def make_local_engine(spec: dict, precision: str):
