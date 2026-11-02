@@ -114,7 +114,8 @@ def provenance() -> dict[str, Any]:
         pass
     return {
         "commit": _git("rev-parse", "HEAD", cwd=ROOT),
-        "dirty": bool(_git("status", "--porcelain", cwd=ROOT)),
+        # uncommitted source changes; the run's own results/ and outputs/ do not count
+        "dirty": bool(_git("status", "--porcelain", "--", ".", ":!results", ":!outputs", cwd=ROOT)),
         "branch": _git("rev-parse", "--abbrev-ref", "HEAD", cwd=ROOT),
         "agenttune_commit": _git("rev-parse", "HEAD", cwd=agenttune_dir) if agenttune_dir else None,
         "platform": platform.platform(),
