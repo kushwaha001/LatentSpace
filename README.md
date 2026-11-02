@@ -59,6 +59,31 @@ FINDINGS.md                what works, what is broken, with file:line references
 
 Run any experiment from the repo root with `python experiments/NN_name.py`.
 
+## Transit tools and eval set (experiments 05-06)
+
+- **Tools** (`src/transit_agent/`): `get_station_code`, `search_trains`, `search_metro_route`,
+  `get_fare`, `get_pnr_status`, `book_ticket`, `cancel_booking` and `file_complaint`.
+  `book_ticket` and `cancel_booking` are tagged irreversible. The tools run on a
+  deterministic mock backend (`data/backend/`). Station names and railway codes are real;
+  timetables, fares and PNRs are synthetic ([data card](data/backend/DATACARD.md)).
+  Names resolve in English, Hindi, Marathi or romanised form.
+- **Eval set** (`data/eval/`): 90 base tasks × en / hi / mr / Hinglish = 360 rows, paired by
+  `base_id`, in 8 balanced categories. It is split by base_id (47 / 16 / 27). `file_complaint`
+  and `cancel_booking` appear only in test. **The non-English text is model-generated and
+  still needs native-speaker review** ([data card](data/eval/DATACARD.md),
+  `review_checklist.csv`).
+- **[05](experiments/05_eval_set_checks.py)**: all 308 expected calls are schema-valid and run
+  on the backend, and there is no split leakage. `combined()` ranks the reference above 3
+  perturbed failures on every row in 7 of 8 categories, in all languages. It fails on
+  irreversible_confirmed in Hindi (0/11), Marathi (0/11) and Hinglish (2/11): the
+  confirmation rule is an English keyword list, so a correct confirmed booking is penalised.
+  A multilingual matcher (`transit_agent/multilingual_confirmation.py`, tuned on this set, so
+  an upper bound) closes the gap to 90/90 in every language.
+  [results](results/05_eval_set_checks.json)
+- **[06](experiments/06_baseline_harness.py)**: baseline harness (AgentTune rollout + audit
+  metrics + AuditKIT pass^k) for a HF model on the test split. Only `--dry-run` (a scripted
+  policy on CPU) has been run. [results](results/06_baseline_dry_run.json)
+
 ## Next
 
 - Transit tool set and a 4-language eval set with a held-out split
