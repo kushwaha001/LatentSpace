@@ -1,0 +1,615 @@
+{
+ "stations": [
+  {
+   "code": "CSMT",
+   "name": "Mumbai CSMT (Chhatrapati Shivaji Maharaj Terminus)",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "hi": "छत्रपति शिवाजी महाराज टर्मिनस",
+   "mr": "छत्रपती शिवाजी महाराज टर्मिनस",
+   "aliases": [
+    "csmt",
+    "cst",
+    "vt",
+    "victoria terminus",
+    "mumbai cst",
+    "mumbai csmt",
+    "सीएसएमटी",
+    "सीएसटी"
+   ]
+  },
+  {
+   "code": "MMCT",
+   "name": "Mumbai Central",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "hi": "मुंबई सेंट्रल",
+   "mr": "मुंबई सेंट्रल",
+   "aliases": [
+    "bombay central",
+    "mumbai central"
+   ]
+  },
+  {
+   "code": "LTT",
+   "name": "Lokmanya Tilak Terminus",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "hi": "लोकमान्य तिलक टर्मिनस",
+   "mr": "लोकमान्य टिळक टर्मिनस",
+   "aliases": [
+    "ltt",
+    "kurla terminus",
+    "lokmanya tilak",
+    "एलटीटी"
+   ]
+  },
+  {
+   "code": "BDTS",
+   "name": "Bandra Terminus",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "hi": "बांद्रा टर्मिनस",
+   "mr": "वांद्रे टर्मिनस",
+   "aliases": [
+    "bandra",
+    "bandra terminus"
+   ]
+  },
+  {
+   "code": "DR",
+   "name": "Dadar",
+   "city": "Mumbai",
+   "state": "Maharashtra",
+   "hi": "दादर",
+   "mr": "दादर",
+   "aliases": [
+    "dadar"
+   ]
+  },
+  {
+   "code": "TNA",
+   "name": "Thane",
+   "city": "Thane",
+   "state": "Maharashtra",
+   "hi": "ठाणे",
+   "mr": "ठाणे",
+   "aliases": [
+    "thane"
+   ]
+  },
+  {
+   "code": "KYN",
+   "name": "Kalyan Junction",
+   "city": "Kalyan",
+   "state": "Maharashtra",
+   "hi": "कल्याण",
+   "mr": "कल्याण",
+   "aliases": [
+    "kalyan"
+   ]
+  },
+  {
+   "code": "PUNE",
+   "name": "Pune Junction",
+   "city": "Pune",
+   "state": "Maharashtra",
+   "hi": "पुणे",
+   "mr": "पुणे",
+   "aliases": [
+    "pune",
+    "poona"
+   ]
+  },
+  {
+   "code": "NDLS",
+   "name": "New Delhi",
+   "city": "Delhi",
+   "state": "Delhi",
+   "hi": "नई दिल्ली",
+   "mr": "नवी दिल्ली",
+   "aliases": [
+    "new delhi",
+    "nai dilli",
+    "nayi dilli"
+   ]
+  },
+  {
+   "code": "NZM",
+   "name": "Hazrat Nizamuddin",
+   "city": "Delhi",
+   "state": "Delhi",
+   "hi": "हज़रत निज़ामुद्दीन",
+   "mr": "हजरत निजामुद्दीन",
+   "aliases": [
+    "nizamuddin",
+    "hazrat nizamuddin"
+   ]
+  },
+  {
+   "code": "DLI",
+   "name": "Delhi Junction",
+   "city": "Delhi",
+   "state": "Delhi",
+   "hi": "दिल्ली जंक्शन",
+   "mr": "दिल्ली जंक्शन",
+   "aliases": [
+    "old delhi",
+    "delhi junction",
+    "purani dilli",
+    "पुरानी दिल्ली"
+   ]
+  },
+  {
+   "code": "ANVT",
+   "name": "Anand Vihar Terminal",
+   "city": "Delhi",
+   "state": "Delhi",
+   "hi": "आनंद विहार टर्मिनल",
+   "mr": "आनंद विहार टर्मिनल",
+   "aliases": [
+    "anand vihar"
+   ]
+  },
+  {
+   "code": "HWH",
+   "name": "Howrah Junction",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "hi": "हावड़ा",
+   "mr": "हावडा",
+   "aliases": [
+    "howrah",
+    "haora"
+   ]
+  },
+  {
+   "code": "SDAH",
+   "name": "Sealdah",
+   "city": "Kolkata",
+   "state": "West Bengal",
+   "hi": "सियालदह",
+   "mr": "सियालदह",
+   "aliases": [
+    "sealdah"
+   ]
+  },
+  {
+   "code": "MAS",
+   "name": "Chennai Central (Puratchi Thalaivar Dr. M.G. Ramachandran Central)",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "hi": "चेन्नई सेंट्रल",
+   "mr": "चेन्नई सेंट्रल",
+   "aliases": [
+    "chennai central",
+    "madras central"
+   ]
+  },
+  {
+   "code": "MS",
+   "name": "Chennai Egmore",
+   "city": "Chennai",
+   "state": "Tamil Nadu",
+   "hi": "चेन्नई एगमोर",
+   "mr": "चेन्नई एगमोर",
+   "aliases": [
+    "egmore",
+    "chennai egmore"
+   ]
+  },
+  {
+   "code": "SBC",
+   "name": "KSR Bengaluru City",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "hi": "बेंगलुरु",
+   "mr": "बंगळूरु",
+   "aliases": [
+    "bengaluru",
+    "bangalore",
+    "bangalore city",
+    "ksr bengaluru",
+    "बंगलौर",
+    "बेंगलूरु"
+   ]
+  },
+  {
+   "code": "YPR",
+   "name": "Yesvantpur Junction",
+   "city": "Bengaluru",
+   "state": "Karnataka",
+   "hi": "यशवंतपुर",
+   "mr": "यशवंतपूर",
+   "aliases": [
+    "yesvantpur",
+    "yeshwantpur",
+    "yeshvantpur"
+   ]
+  },
+  {
+   "code": "SC",
+   "name": "Secunderabad Junction",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "hi": "सिकंदराबाद",
+   "mr": "सिकंदराबाद",
+   "aliases": [
+    "secunderabad",
+    "sikandrabad"
+   ]
+  },
+  {
+   "code": "HYB",
+   "name": "Hyderabad Deccan",
+   "city": "Hyderabad",
+   "state": "Telangana",
+   "hi": "हैदराबाद",
+   "mr": "हैदराबाद",
+   "aliases": [
+    "hyderabad",
+    "nampally",
+    "hyderabad deccan"
+   ]
+  },
+  {
+   "code": "ADI",
+   "name": "Ahmedabad Junction",
+   "city": "Ahmedabad",
+   "state": "Gujarat",
+   "hi": "अहमदाबाद",
+   "mr": "अहमदाबाद",
+   "aliases": [
+    "ahmedabad",
+    "amdavad"
+   ]
+  },
+  {
+   "code": "ST",
+   "name": "Surat",
+   "city": "Surat",
+   "state": "Gujarat",
+   "hi": "सूरत",
+   "mr": "सुरत",
+   "aliases": [
+    "surat"
+   ]
+  },
+  {
+   "code": "BRC",
+   "name": "Vadodara Junction",
+   "city": "Vadodara",
+   "state": "Gujarat",
+   "hi": "वडोदरा",
+   "mr": "वडोदरा",
+   "aliases": [
+    "vadodara",
+    "baroda"
+   ]
+  },
+  {
+   "code": "JP",
+   "name": "Jaipur Junction",
+   "city": "Jaipur",
+   "state": "Rajasthan",
+   "hi": "जयपुर",
+   "mr": "जयपूर",
+   "aliases": [
+    "jaipur"
+   ]
+  },
+  {
+   "code": "LKO",
+   "name": "Lucknow Charbagh",
+   "city": "Lucknow",
+   "state": "Uttar Pradesh",
+   "hi": "लखनऊ",
+   "mr": "लखनौ",
+   "aliases": [
+    "lucknow",
+    "charbagh",
+    "lakhnau"
+   ]
+  },
+  {
+   "code": "CNB",
+   "name": "Kanpur Central",
+   "city": "Kanpur",
+   "state": "Uttar Pradesh",
+   "hi": "कानपुर सेंट्रल",
+   "mr": "कानपूर सेंट्रल",
+   "aliases": [
+    "kanpur",
+    "kanpur central",
+    "कानपुर"
+   ]
+  },
+  {
+   "code": "BSB",
+   "name": "Varanasi Junction",
+   "city": "Varanasi",
+   "state": "Uttar Pradesh",
+   "hi": "वाराणसी",
+   "mr": "वाराणसी",
+   "aliases": [
+    "varanasi",
+    "banaras",
+    "benares",
+    "kashi",
+    "बनारस"
+   ]
+  },
+  {
+   "code": "PNBE",
+   "name": "Patna Junction",
+   "city": "Patna",
+   "state": "Bihar",
+   "hi": "पटना",
+   "mr": "पाटणा",
+   "aliases": [
+    "patna"
+   ]
+  },
+  {
+   "code": "BPL",
+   "name": "Bhopal Junction",
+   "city": "Bhopal",
+   "state": "Madhya Pradesh",
+   "hi": "भोपाल",
+   "mr": "भोपाळ",
+   "aliases": [
+    "bhopal"
+   ]
+  },
+  {
+   "code": "NGP",
+   "name": "Nagpur Junction",
+   "city": "Nagpur",
+   "state": "Maharashtra",
+   "hi": "नागपुर",
+   "mr": "नागपूर",
+   "aliases": [
+    "nagpur"
+   ]
+  },
+  {
+   "code": "NK",
+   "name": "Nashik Road",
+   "city": "Nashik",
+   "state": "Maharashtra",
+   "hi": "नासिक रोड",
+   "mr": "नाशिक रोड",
+   "aliases": [
+    "nashik",
+    "nasik",
+    "nashik road",
+    "नाशिक",
+    "नासिक"
+   ]
+  },
+  {
+   "code": "KOP",
+   "name": "Kolhapur (Chhatrapati Shahu Maharaj Terminus)",
+   "city": "Kolhapur",
+   "state": "Maharashtra",
+   "hi": "कोल्हापुर",
+   "mr": "कोल्हापूर",
+   "aliases": [
+    "kolhapur"
+   ]
+  },
+  {
+   "code": "SUR",
+   "name": "Solapur",
+   "city": "Solapur",
+   "state": "Maharashtra",
+   "hi": "सोलापुर",
+   "mr": "सोलापूर",
+   "aliases": [
+    "solapur",
+    "sholapur"
+   ]
+  },
+  {
+   "code": "MAO",
+   "name": "Madgaon Junction",
+   "city": "Madgaon",
+   "state": "Goa",
+   "hi": "मडगांव",
+   "mr": "मडगाव",
+   "aliases": [
+    "madgaon",
+    "margao",
+    "goa"
+   ]
+  },
+  {
+   "code": "ERS",
+   "name": "Ernakulam Junction",
+   "city": "Kochi",
+   "state": "Kerala",
+   "hi": "एर्नाकुलम",
+   "mr": "एर्नाकुलम",
+   "aliases": [
+    "ernakulam",
+    "kochi",
+    "cochin"
+   ]
+  },
+  {
+   "code": "TVC",
+   "name": "Thiruvananthapuram Central",
+   "city": "Thiruvananthapuram",
+   "state": "Kerala",
+   "hi": "तिरुवनंतपुरम",
+   "mr": "तिरुवनंतपुरम",
+   "aliases": [
+    "thiruvananthapuram",
+    "trivandrum"
+   ]
+  },
+  {
+   "code": "CBE",
+   "name": "Coimbatore Junction",
+   "city": "Coimbatore",
+   "state": "Tamil Nadu",
+   "hi": "कोयंबटूर",
+   "mr": "कोईम्बतूर",
+   "aliases": [
+    "coimbatore",
+    "kovai"
+   ]
+  },
+  {
+   "code": "GHY",
+   "name": "Guwahati",
+   "city": "Guwahati",
+   "state": "Assam",
+   "hi": "गुवाहाटी",
+   "mr": "गुवाहाटी",
+   "aliases": [
+    "guwahati",
+    "gauhati"
+   ]
+  },
+  {
+   "code": "ASR",
+   "name": "Amritsar Junction",
+   "city": "Amritsar",
+   "state": "Punjab",
+   "hi": "अमृतसर",
+   "mr": "अमृतसर",
+   "aliases": [
+    "amritsar"
+   ]
+  },
+  {
+   "code": "CDG",
+   "name": "Chandigarh",
+   "city": "Chandigarh",
+   "state": "Chandigarh",
+   "hi": "चंडीगढ़",
+   "mr": "चंदीगड",
+   "aliases": [
+    "chandigarh"
+   ]
+  },
+  {
+   "code": "BBS",
+   "name": "Bhubaneswar",
+   "city": "Bhubaneswar",
+   "state": "Odisha",
+   "hi": "भुवनेश्वर",
+   "mr": "भुवनेश्वर",
+   "aliases": [
+    "bhubaneswar"
+   ]
+  },
+  {
+   "code": "PRYJ",
+   "name": "Prayagraj Junction",
+   "city": "Prayagraj",
+   "state": "Uttar Pradesh",
+   "hi": "प्रयागराज",
+   "mr": "प्रयागराज",
+   "aliases": [
+    "prayagraj",
+    "allahabad",
+    "इलाहाबाद"
+   ]
+  },
+  {
+   "code": "AGC",
+   "name": "Agra Cantt",
+   "city": "Agra",
+   "state": "Uttar Pradesh",
+   "hi": "आगरा कैंट",
+   "mr": "आग्रा कॅन्ट",
+   "aliases": [
+    "agra",
+    "agra cantt",
+    "आगरा",
+    "आग्रा"
+   ]
+  },
+  {
+   "code": "INDB",
+   "name": "Indore Junction",
+   "city": "Indore",
+   "state": "Madhya Pradesh",
+   "hi": "इंदौर",
+   "mr": "इंदूर",
+   "aliases": [
+    "indore"
+   ]
+  },
+  {
+   "code": "GKP",
+   "name": "Gorakhpur Junction",
+   "city": "Gorakhpur",
+   "state": "Uttar Pradesh",
+   "hi": "गोरखपुर",
+   "mr": "गोरखपूर",
+   "aliases": [
+    "gorakhpur"
+   ]
+  }
+ ],
+ "ambiguous": {
+  "mumbai": [
+   "CSMT",
+   "MMCT",
+   "LTT",
+   "BDTS",
+   "DR"
+  ],
+  "bombay": [
+   "CSMT",
+   "MMCT",
+   "LTT",
+   "BDTS",
+   "DR"
+  ],
+  "मुंबई": [
+   "CSMT",
+   "MMCT",
+   "LTT",
+   "BDTS",
+   "DR"
+  ],
+  "delhi": [
+   "NDLS",
+   "NZM",
+   "DLI",
+   "ANVT"
+  ],
+  "dilli": [
+   "NDLS",
+   "NZM",
+   "DLI",
+   "ANVT"
+  ],
+  "दिल्ली": [
+   "NDLS",
+   "NZM",
+   "DLI",
+   "ANVT"
+  ],
+  "kolkata": [
+   "HWH",
+   "SDAH"
+  ],
+  "कोलकाता": [
+   "HWH",
+   "SDAH"
+  ],
+  "chennai": [
+   "MAS",
+   "MS"
+  ],
+  "चेन्नई": [
+   "MAS",
+   "MS"
+  ]
+ }
+}

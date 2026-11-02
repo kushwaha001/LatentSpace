@@ -1,0 +1,104 @@
+[
+ {
+  "pnr": "8412093355",
+  "train": "S20000",
+  "from": "CSMT",
+  "to": "PUNE",
+  "date": "2026-11-18",
+  "travel_class": "CC",
+  "passengers": 2,
+  "status": "CNF",
+  "coach": "C3",
+  "seats": [
+   "41",
+   "42"
+  ]
+ },
+ {
+  "pnr": "8420117746",
+  "train": "S20020",
+  "from": "MMCT",
+  "to": "NDLS",
+  "date": "2026-11-21",
+  "travel_class": "3A",
+  "passengers": 1,
+  "status": "WL",
+  "waitlist_position": 12
+ },
+ {
+  "pnr": "8433508120",
+  "train": "S20081",
+  "from": "NDLS",
+  "to": "BSB",
+  "date": "2026-11-25",
+  "travel_class": "SL",
+  "passengers": 3,
+  "status": "RAC",
+  "rac_position": 4
+ },
+ {
+  "pnr": "8447761092",
+  "train": "S20050",
+  "from": "PUNE",
+  "to": "SC",
+  "date": "2026-12-02",
+  "travel_class": "2A",
+  "passengers": 2,
+  "status": "CNF",
+  "coach": "A1",
+  "seats": [
+   "17",
+   "18"
+  ]
+ },
+ {
+  "pnr": "8451226638",
+  "train": "S20060",
+  "from": "LTT",
+  "to": "MAO",
+  "date": "2026-12-05",
+  "travel_class": "SL",
+  "passengers": 4,
+  "status": "WL",
+  "waitlist_position": 3
+ },
+ {
+  "pnr": "8469904417",
+  "train": "S20120",
+  "from": "MAS",
+  "to": "SBC",
+  "date": "2026-11-29",
+  "travel_class": "EC",
+  "passengers": 1,
+  "status": "CNF",
+  "coach": "E1",
+  "seats": [
+   "9"
+  ]
+ },
+ {
+  "pnr": "8472218803",
+  "train": "S20140",
+  "from": "NDLS",
+  "to": "ASR",
+  "date": "2026-12-10",
+  "travel_class": "CC",
+  "passengers": 2,
+  "status": "CNF",
+  "coach": "C5",
+  "seats": [
+   "60",
+   "61"
+  ]
+ },
+ {
+  "pnr": "8486630251",
+  "train": "S20090",
+  "from": "NDLS",
+  "to": "LKO",
+  "date": "2026-11-27",
+  "travel_class": "3A",
+  "passengers": 2,
+  "status": "CANCELLED"
+ }
+]

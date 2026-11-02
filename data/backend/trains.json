@@ -1,0 +1,4360 @@
+[
+ {
+  "number": "S20000",
+  "name": "Mumbai CSMT-Pune Junction Intercity (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "20:00",
+    "day_offset": 0
+   },
+   {
+    "code": "DR",
+    "km": 9,
+    "minute_of_journey": 15,
+    "time": "20:15",
+    "day_offset": 0
+   },
+   {
+    "code": "TNA",
+    "km": 34,
+    "minute_of_journey": 46,
+    "time": "20:46",
+    "day_offset": 0
+   },
+   {
+    "code": "KYN",
+    "km": 54,
+    "minute_of_journey": 73,
+    "time": "21:13",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 192,
+    "minute_of_journey": 226,
+    "time": "23:46",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20001",
+  "name": "Mumbai CSMT-Pune Junction Intercity (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "06:40",
+    "day_offset": 0
+   },
+   {
+    "code": "DR",
+    "km": 9,
+    "minute_of_journey": 13,
+    "time": "06:53",
+    "day_offset": 0
+   },
+   {
+    "code": "TNA",
+    "km": 34,
+    "minute_of_journey": 41,
+    "time": "07:21",
+    "day_offset": 0
+   },
+   {
+    "code": "KYN",
+    "km": 54,
+    "minute_of_journey": 64,
+    "time": "07:44",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 192,
+    "minute_of_journey": 195,
+    "time": "09:55",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20004",
+  "name": "Pune Junction-Mumbai CSMT Intercity (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "PUNE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "05:05",
+    "day_offset": 0
+   },
+   {
+    "code": "KYN",
+    "km": 138,
+    "minute_of_journey": 145,
+    "time": "07:30",
+    "day_offset": 0
+   },
+   {
+    "code": "TNA",
+    "km": 158,
+    "minute_of_journey": 171,
+    "time": "07:56",
+    "day_offset": 0
+   },
+   {
+    "code": "DR",
+    "km": 183,
+    "minute_of_journey": 201,
+    "time": "08:26",
+    "day_offset": 0
+   },
+   {
+    "code": "CSMT",
+    "km": 192,
+    "minute_of_journey": 215,
+    "time": "08:40",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20005",
+  "name": "Pune Junction-Mumbai CSMT Intercity (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "PUNE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "08:00",
+    "day_offset": 0
+   },
+   {
+    "code": "KYN",
+    "km": 138,
+    "minute_of_journey": 139,
+    "time": "10:19",
+    "day_offset": 0
+   },
+   {
+    "code": "TNA",
+    "km": 158,
+    "minute_of_journey": 163,
+    "time": "10:43",
+    "day_offset": 0
+   },
+   {
+    "code": "DR",
+    "km": 183,
+    "minute_of_journey": 192,
+    "time": "11:12",
+    "day_offset": 0
+   },
+   {
+    "code": "CSMT",
+    "km": 192,
+    "minute_of_journey": 206,
+    "time": "11:26",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20010",
+  "name": "Mumbai CSMT-Pune Junction Deccan Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "13:15",
+    "day_offset": 0
+   },
+   {
+    "code": "DR",
+    "km": 9,
+    "minute_of_journey": 14,
+    "time": "13:29",
+    "day_offset": 0
+   },
+   {
+    "code": "TNA",
+    "km": 34,
+    "minute_of_journey": 43,
+    "time": "13:58",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 192,
+    "minute_of_journey": 204,
+    "time": "16:39",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20011",
+  "name": "Mumbai CSMT-Pune Junction Deccan Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "21:15",
+    "day_offset": 0
+   },
+   {
+    "code": "DR",
+    "km": 9,
+    "minute_of_journey": 15,
+    "time": "21:30",
+    "day_offset": 0
+   },
+   {
+    "code": "TNA",
+    "km": 34,
+    "minute_of_journey": 46,
+    "time": "22:01",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 192,
+    "minute_of_journey": 221,
+    "time": "00:56",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20014",
+  "name": "Pune Junction-Mumbai CSMT Deccan Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "PUNE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "12:15",
+    "day_offset": 0
+   },
+   {
+    "code": "TNA",
+    "km": 158,
+    "minute_of_journey": 177,
+    "time": "15:12",
+    "day_offset": 0
+   },
+   {
+    "code": "DR",
+    "km": 183,
+    "minute_of_journey": 210,
+    "time": "15:45",
+    "day_offset": 0
+   },
+   {
+    "code": "CSMT",
+    "km": 192,
+    "minute_of_journey": 224,
+    "time": "15:59",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20015",
+  "name": "Pune Junction-Mumbai CSMT Deccan Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "PUNE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "16:50",
+    "day_offset": 0
+   },
+   {
+    "code": "TNA",
+    "km": 158,
+    "minute_of_journey": 171,
+    "time": "19:41",
+    "day_offset": 0
+   },
+   {
+    "code": "DR",
+    "km": 183,
+    "minute_of_journey": 203,
+    "time": "20:13",
+    "day_offset": 0
+   },
+   {
+    "code": "CSMT",
+    "km": 192,
+    "minute_of_journey": 217,
+    "time": "20:27",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20020",
+  "name": "Mumbai Central-New Delhi Rajdhani (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "MMCT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "16:15",
+    "day_offset": 0
+   },
+   {
+    "code": "ST",
+    "km": 263,
+    "minute_of_journey": 244,
+    "time": "20:19",
+    "day_offset": 0
+   },
+   {
+    "code": "BRC",
+    "km": 392,
+    "minute_of_journey": 366,
+    "time": "22:21",
+    "day_offset": 0
+   },
+   {
+    "code": "NZM",
+    "km": 1370,
+    "minute_of_journey": 1260,
+    "time": "13:15",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 1384,
+    "minute_of_journey": 1278,
+    "time": "13:33",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20021",
+  "name": "Mumbai Central-New Delhi Rajdhani (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "MMCT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "18:45",
+    "day_offset": 0
+   },
+   {
+    "code": "ST",
+    "km": 263,
+    "minute_of_journey": 255,
+    "time": "23:00",
+    "day_offset": 0
+   },
+   {
+    "code": "BRC",
+    "km": 392,
+    "minute_of_journey": 383,
+    "time": "01:08",
+    "day_offset": 1
+   },
+   {
+    "code": "NZM",
+    "km": 1370,
+    "minute_of_journey": 1320,
+    "time": "16:45",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 1384,
+    "minute_of_journey": 1338,
+    "time": "17:03",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20024",
+  "name": "New Delhi-Mumbai Central Rajdhani (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "13:10",
+    "day_offset": 0
+   },
+   {
+    "code": "NZM",
+    "km": 14,
+    "minute_of_journey": 17,
+    "time": "13:27",
+    "day_offset": 0
+   },
+   {
+    "code": "BRC",
+    "km": 992,
+    "minute_of_journey": 837,
+    "time": "03:07",
+    "day_offset": 1
+   },
+   {
+    "code": "ST",
+    "km": 1121,
+    "minute_of_journey": 949,
+    "time": "04:59",
+    "day_offset": 1
+   },
+   {
+    "code": "MMCT",
+    "km": 1384,
+    "minute_of_journey": 1173,
+    "time": "08:43",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20025",
+  "name": "New Delhi-Mumbai Central Rajdhani (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Fri",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "19:20",
+    "day_offset": 0
+   },
+   {
+    "code": "NZM",
+    "km": 14,
+    "minute_of_journey": 17,
+    "time": "19:37",
+    "day_offset": 0
+   },
+   {
+    "code": "BRC",
+    "km": 992,
+    "minute_of_journey": 825,
+    "time": "09:05",
+    "day_offset": 1
+   },
+   {
+    "code": "ST",
+    "km": 1121,
+    "minute_of_journey": 936,
+    "time": "10:56",
+    "day_offset": 1
+   },
+   {
+    "code": "MMCT",
+    "km": 1384,
+    "minute_of_journey": 1158,
+    "time": "14:38",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20030",
+  "name": "Bandra Terminus-Ahmedabad Junction Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "BDTS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:05",
+    "day_offset": 0
+   },
+   {
+    "code": "ST",
+    "km": 255,
+    "minute_of_journey": 264,
+    "time": "11:29",
+    "day_offset": 0
+   },
+   {
+    "code": "BRC",
+    "km": 384,
+    "minute_of_journey": 401,
+    "time": "13:46",
+    "day_offset": 0
+   },
+   {
+    "code": "ADI",
+    "km": 491,
+    "minute_of_journey": 514,
+    "time": "15:39",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20031",
+  "name": "Bandra Terminus-Ahmedabad Junction Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "BDTS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "12:45",
+    "day_offset": 0
+   },
+   {
+    "code": "ST",
+    "km": 255,
+    "minute_of_journey": 244,
+    "time": "16:49",
+    "day_offset": 0
+   },
+   {
+    "code": "BRC",
+    "km": 384,
+    "minute_of_journey": 370,
+    "time": "18:55",
+    "day_offset": 0
+   },
+   {
+    "code": "ADI",
+    "km": 491,
+    "minute_of_journey": 475,
+    "time": "20:40",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20034",
+  "name": "Ahmedabad Junction-Bandra Terminus Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "ADI",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:35",
+    "day_offset": 0
+   },
+   {
+    "code": "BRC",
+    "km": 107,
+    "minute_of_journey": 91,
+    "time": "09:06",
+    "day_offset": 0
+   },
+   {
+    "code": "ST",
+    "km": 236,
+    "minute_of_journey": 199,
+    "time": "10:54",
+    "day_offset": 0
+   },
+   {
+    "code": "BDTS",
+    "km": 491,
+    "minute_of_journey": 408,
+    "time": "14:23",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20035",
+  "name": "Ahmedabad Junction-Bandra Terminus Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "ADI",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:55",
+    "day_offset": 0
+   },
+   {
+    "code": "BRC",
+    "km": 107,
+    "minute_of_journey": 93,
+    "time": "09:28",
+    "day_offset": 0
+   },
+   {
+    "code": "ST",
+    "km": 236,
+    "minute_of_journey": 204,
+    "time": "11:19",
+    "day_offset": 0
+   },
+   {
+    "code": "BDTS",
+    "km": 491,
+    "minute_of_journey": 419,
+    "time": "14:54",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20040",
+  "name": "Mumbai CSMT-Howrah Junction Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "06:05",
+    "day_offset": 0
+   },
+   {
+    "code": "KYN",
+    "km": 54,
+    "minute_of_journey": 47,
+    "time": "06:52",
+    "day_offset": 0
+   },
+   {
+    "code": "NK",
+    "km": 187,
+    "minute_of_journey": 154,
+    "time": "08:39",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 837,
+    "minute_of_journey": 659,
+    "time": "17:04",
+    "day_offset": 0
+   },
+   {
+    "code": "HWH",
+    "km": 1968,
+    "minute_of_journey": 1534,
+    "time": "07:39",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20041",
+  "name": "Mumbai CSMT-Howrah Junction Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Fri",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "14:25",
+    "day_offset": 0
+   },
+   {
+    "code": "KYN",
+    "km": 54,
+    "minute_of_journey": 53,
+    "time": "15:18",
+    "day_offset": 0
+   },
+   {
+    "code": "NK",
+    "km": 187,
+    "minute_of_journey": 175,
+    "time": "17:20",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 837,
+    "minute_of_journey": 754,
+    "time": "02:59",
+    "day_offset": 1
+   },
+   {
+    "code": "HWH",
+    "km": 1968,
+    "minute_of_journey": 1756,
+    "time": "19:41",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20044",
+  "name": "Howrah Junction-Mumbai CSMT Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "HWH",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "14:40",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 1131,
+    "minute_of_journey": 1065,
+    "time": "08:25",
+    "day_offset": 1
+   },
+   {
+    "code": "NK",
+    "km": 1781,
+    "minute_of_journey": 1680,
+    "time": "18:40",
+    "day_offset": 1
+   },
+   {
+    "code": "KYN",
+    "km": 1914,
+    "minute_of_journey": 1809,
+    "time": "20:49",
+    "day_offset": 1
+   },
+   {
+    "code": "CSMT",
+    "km": 1968,
+    "minute_of_journey": 1865,
+    "time": "21:45",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20045",
+  "name": "Howrah Junction-Mumbai CSMT Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "HWH",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "11:55",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 1131,
+    "minute_of_journey": 1033,
+    "time": "05:08",
+    "day_offset": 1
+   },
+   {
+    "code": "NK",
+    "km": 1781,
+    "minute_of_journey": 1629,
+    "time": "15:04",
+    "day_offset": 1
+   },
+   {
+    "code": "KYN",
+    "km": 1914,
+    "minute_of_journey": 1755,
+    "time": "17:10",
+    "day_offset": 1
+   },
+   {
+    "code": "CSMT",
+    "km": 1968,
+    "minute_of_journey": 1809,
+    "time": "18:04",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20050",
+  "name": "Mumbai CSMT-Hyderabad Deccan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "06:15",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 192,
+    "minute_of_journey": 185,
+    "time": "09:20",
+    "day_offset": 0
+   },
+   {
+    "code": "SUR",
+    "km": 455,
+    "minute_of_journey": 437,
+    "time": "13:32",
+    "day_offset": 0
+   },
+   {
+    "code": "SC",
+    "km": 770,
+    "minute_of_journey": 737,
+    "time": "18:32",
+    "day_offset": 0
+   },
+   {
+    "code": "HYB",
+    "km": 780,
+    "minute_of_journey": 751,
+    "time": "18:46",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20051",
+  "name": "Mumbai CSMT-Hyderabad Deccan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:20",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 192,
+    "minute_of_journey": 159,
+    "time": "17:59",
+    "day_offset": 0
+   },
+   {
+    "code": "SUR",
+    "km": 455,
+    "minute_of_journey": 374,
+    "time": "21:34",
+    "day_offset": 0
+   },
+   {
+    "code": "SC",
+    "km": 770,
+    "minute_of_journey": 631,
+    "time": "01:51",
+    "day_offset": 1
+   },
+   {
+    "code": "HYB",
+    "km": 780,
+    "minute_of_journey": 644,
+    "time": "02:04",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20054",
+  "name": "Hyderabad Deccan-Mumbai CSMT Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Tue",
+   "Thu",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "HYB",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "18:20",
+    "day_offset": 0
+   },
+   {
+    "code": "SC",
+    "km": 10,
+    "minute_of_journey": 15,
+    "time": "18:35",
+    "day_offset": 0
+   },
+   {
+    "code": "SUR",
+    "km": 325,
+    "minute_of_journey": 335,
+    "time": "23:55",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 588,
+    "minute_of_journey": 603,
+    "time": "04:23",
+    "day_offset": 1
+   },
+   {
+    "code": "CSMT",
+    "km": 780,
+    "minute_of_journey": 800,
+    "time": "07:40",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20055",
+  "name": "Hyderabad Deccan-Mumbai CSMT Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "HYB",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "08:50",
+    "day_offset": 0
+   },
+   {
+    "code": "SC",
+    "km": 10,
+    "minute_of_journey": 16,
+    "time": "09:06",
+    "day_offset": 0
+   },
+   {
+    "code": "SUR",
+    "km": 325,
+    "minute_of_journey": 365,
+    "time": "14:55",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 588,
+    "minute_of_journey": 656,
+    "time": "19:46",
+    "day_offset": 0
+   },
+   {
+    "code": "CSMT",
+    "km": 780,
+    "minute_of_journey": 871,
+    "time": "23:21",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20060",
+  "name": "Lokmanya Tilak Terminus-Thiruvananthapuram Central Konkan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "LTT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:45",
+    "day_offset": 0
+   },
+   {
+    "code": "MAO",
+    "km": 765,
+    "minute_of_journey": 770,
+    "time": "20:35",
+    "day_offset": 0
+   },
+   {
+    "code": "ERS",
+    "km": 1592,
+    "minute_of_journey": 1602,
+    "time": "10:27",
+    "day_offset": 1
+   },
+   {
+    "code": "TVC",
+    "km": 1813,
+    "minute_of_journey": 1828,
+    "time": "14:13",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20061",
+  "name": "Lokmanya Tilak Terminus-Thiruvananthapuram Central Konkan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "LTT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "06:55",
+    "day_offset": 0
+   },
+   {
+    "code": "MAO",
+    "km": 765,
+    "minute_of_journey": 770,
+    "time": "19:45",
+    "day_offset": 0
+   },
+   {
+    "code": "ERS",
+    "km": 1592,
+    "minute_of_journey": 1602,
+    "time": "09:37",
+    "day_offset": 1
+   },
+   {
+    "code": "TVC",
+    "km": 1813,
+    "minute_of_journey": 1828,
+    "time": "13:23",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20064",
+  "name": "Thiruvananthapuram Central-Lokmanya Tilak Terminus Konkan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "TVC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "05:15",
+    "day_offset": 0
+   },
+   {
+    "code": "ERS",
+    "km": 221,
+    "minute_of_journey": 212,
+    "time": "08:47",
+    "day_offset": 0
+   },
+   {
+    "code": "MAO",
+    "km": 1048,
+    "minute_of_journey": 992,
+    "time": "21:47",
+    "day_offset": 0
+   },
+   {
+    "code": "LTT",
+    "km": 1813,
+    "minute_of_journey": 1715,
+    "time": "09:50",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20065",
+  "name": "Thiruvananthapuram Central-Lokmanya Tilak Terminus Konkan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Thu",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "TVC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "16:30",
+    "day_offset": 0
+   },
+   {
+    "code": "ERS",
+    "km": 221,
+    "minute_of_journey": 192,
+    "time": "19:42",
+    "day_offset": 0
+   },
+   {
+    "code": "MAO",
+    "km": 1048,
+    "minute_of_journey": 896,
+    "time": "07:26",
+    "day_offset": 1
+   },
+   {
+    "code": "LTT",
+    "km": 1813,
+    "minute_of_journey": 1547,
+    "time": "18:17",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20070",
+  "name": "Pune Junction-Kolhapur Sahyadri Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "PUNE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "05:45",
+    "day_offset": 0
+   },
+   {
+    "code": "KOP",
+    "km": 327,
+    "minute_of_journey": 312,
+    "time": "10:57",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20071",
+  "name": "Pune Junction-Kolhapur Sahyadri Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "PUNE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "20:50",
+    "day_offset": 0
+   },
+   {
+    "code": "KOP",
+    "km": 327,
+    "minute_of_journey": 343,
+    "time": "02:33",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20074",
+  "name": "Kolhapur-Pune Junction Sahyadri Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Tue",
+   "Thu",
+   "Fri",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "KOP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:35",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 327,
+    "minute_of_journey": 355,
+    "time": "21:30",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20075",
+  "name": "Kolhapur-Pune Junction Sahyadri Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "KOP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "13:25",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 327,
+    "minute_of_journey": 302,
+    "time": "18:27",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20080",
+  "name": "New Delhi-Howrah Junction Poorva Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "14:40",
+    "day_offset": 0
+   },
+   {
+    "code": "CNB",
+    "km": 440,
+    "minute_of_journey": 352,
+    "time": "20:32",
+    "day_offset": 0
+   },
+   {
+    "code": "PRYJ",
+    "km": 634,
+    "minute_of_journey": 511,
+    "time": "23:11",
+    "day_offset": 0
+   },
+   {
+    "code": "BSB",
+    "km": 756,
+    "minute_of_journey": 612,
+    "time": "00:52",
+    "day_offset": 1
+   },
+   {
+    "code": "PNBE",
+    "km": 1001,
+    "minute_of_journey": 810,
+    "time": "04:10",
+    "day_offset": 1
+   },
+   {
+    "code": "HWH",
+    "km": 1451,
+    "minute_of_journey": 1171,
+    "time": "10:11",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20081",
+  "name": "New Delhi-Howrah Junction Poorva Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "09:30",
+    "day_offset": 0
+   },
+   {
+    "code": "CNB",
+    "km": 440,
+    "minute_of_journey": 339,
+    "time": "15:09",
+    "day_offset": 0
+   },
+   {
+    "code": "PRYJ",
+    "km": 634,
+    "minute_of_journey": 492,
+    "time": "17:42",
+    "day_offset": 0
+   },
+   {
+    "code": "BSB",
+    "km": 756,
+    "minute_of_journey": 589,
+    "time": "19:19",
+    "day_offset": 0
+   },
+   {
+    "code": "PNBE",
+    "km": 1001,
+    "minute_of_journey": 780,
+    "time": "22:30",
+    "day_offset": 0
+   },
+   {
+    "code": "HWH",
+    "km": 1451,
+    "minute_of_journey": 1127,
+    "time": "04:17",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20084",
+  "name": "Howrah Junction-New Delhi Poorva Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "HWH",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "14:20",
+    "day_offset": 0
+   },
+   {
+    "code": "PNBE",
+    "km": 450,
+    "minute_of_journey": 351,
+    "time": "20:11",
+    "day_offset": 0
+   },
+   {
+    "code": "BSB",
+    "km": 695,
+    "minute_of_journey": 545,
+    "time": "23:25",
+    "day_offset": 0
+   },
+   {
+    "code": "PRYJ",
+    "km": 817,
+    "minute_of_journey": 643,
+    "time": "01:03",
+    "day_offset": 1
+   },
+   {
+    "code": "CNB",
+    "km": 1011,
+    "minute_of_journey": 798,
+    "time": "03:38",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 1451,
+    "minute_of_journey": 1141,
+    "time": "09:21",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20085",
+  "name": "Howrah Junction-New Delhi Poorva Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Tue",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "HWH",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "08:20",
+    "day_offset": 0
+   },
+   {
+    "code": "PNBE",
+    "km": 450,
+    "minute_of_journey": 463,
+    "time": "16:03",
+    "day_offset": 0
+   },
+   {
+    "code": "BSB",
+    "km": 695,
+    "minute_of_journey": 717,
+    "time": "20:17",
+    "day_offset": 0
+   },
+   {
+    "code": "PRYJ",
+    "km": 817,
+    "minute_of_journey": 846,
+    "time": "22:26",
+    "day_offset": 0
+   },
+   {
+    "code": "CNB",
+    "km": 1011,
+    "minute_of_journey": 1048,
+    "time": "01:48",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 1451,
+    "minute_of_journey": 1501,
+    "time": "09:21",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20090",
+  "name": "New Delhi-Gorakhpur Junction Gorakhdham Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "17:25",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 512,
+    "minute_of_journey": 509,
+    "time": "01:54",
+    "day_offset": 1
+   },
+   {
+    "code": "GKP",
+    "km": 783,
+    "minute_of_journey": 780,
+    "time": "06:25",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20091",
+  "name": "New Delhi-Gorakhpur Junction Gorakhdham Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "21:00",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 512,
+    "minute_of_journey": 399,
+    "time": "03:39",
+    "day_offset": 1
+   },
+   {
+    "code": "GKP",
+    "km": 783,
+    "minute_of_journey": 612,
+    "time": "07:12",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20094",
+  "name": "Gorakhpur Junction-New Delhi Gorakhdham Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Wed",
+   "Fri",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "GKP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "11:50",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 271,
+    "minute_of_journey": 301,
+    "time": "16:51",
+    "day_offset": 0
+   },
+   {
+    "code": "NDLS",
+    "km": 783,
+    "minute_of_journey": 864,
+    "time": "02:14",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20095",
+  "name": "Gorakhpur Junction-New Delhi Gorakhdham Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "GKP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "20:05",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 271,
+    "minute_of_journey": 255,
+    "time": "00:20",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 783,
+    "minute_of_journey": 733,
+    "time": "08:18",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20100",
+  "name": "New Delhi-Ahmedabad Junction Ashram Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "14:20",
+    "day_offset": 0
+   },
+   {
+    "code": "JP",
+    "km": 308,
+    "minute_of_journey": 273,
+    "time": "18:53",
+    "day_offset": 0
+   },
+   {
+    "code": "ADI",
+    "km": 934,
+    "minute_of_journey": 822,
+    "time": "04:02",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20101",
+  "name": "New Delhi-Ahmedabad Junction Ashram Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "08:05",
+    "day_offset": 0
+   },
+   {
+    "code": "JP",
+    "km": 308,
+    "minute_of_journey": 313,
+    "time": "13:18",
+    "day_offset": 0
+   },
+   {
+    "code": "ADI",
+    "km": 934,
+    "minute_of_journey": 944,
+    "time": "23:49",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20104",
+  "name": "Ahmedabad Junction-New Delhi Ashram Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Tue",
+   "Fri",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "ADI",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "20:10",
+    "day_offset": 0
+   },
+   {
+    "code": "JP",
+    "km": 626,
+    "minute_of_journey": 631,
+    "time": "06:41",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 934,
+    "minute_of_journey": 944,
+    "time": "11:54",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20105",
+  "name": "Ahmedabad Junction-New Delhi Ashram Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "ADI",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "21:35",
+    "day_offset": 0
+   },
+   {
+    "code": "JP",
+    "km": 626,
+    "minute_of_journey": 566,
+    "time": "07:01",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 934,
+    "minute_of_journey": 846,
+    "time": "11:41",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20110",
+  "name": "Hazrat Nizamuddin-Secunderabad Junction Dakshin Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NZM",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:15",
+    "day_offset": 0
+   },
+   {
+    "code": "AGC",
+    "km": 188,
+    "minute_of_journey": 157,
+    "time": "09:52",
+    "day_offset": 0
+   },
+   {
+    "code": "BPL",
+    "km": 701,
+    "minute_of_journey": 578,
+    "time": "16:53",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 1092,
+    "minute_of_journey": 900,
+    "time": "22:15",
+    "day_offset": 0
+   },
+   {
+    "code": "SC",
+    "km": 1670,
+    "minute_of_journey": 1374,
+    "time": "06:09",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20111",
+  "name": "Hazrat Nizamuddin-Secunderabad Junction Dakshin Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Fri"
+  ],
+  "stops": [
+   {
+    "code": "NZM",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "17:45",
+    "day_offset": 0
+   },
+   {
+    "code": "AGC",
+    "km": 188,
+    "minute_of_journey": 193,
+    "time": "20:58",
+    "day_offset": 0
+   },
+   {
+    "code": "BPL",
+    "km": 701,
+    "minute_of_journey": 711,
+    "time": "05:36",
+    "day_offset": 1
+   },
+   {
+    "code": "NGP",
+    "km": 1092,
+    "minute_of_journey": 1107,
+    "time": "12:12",
+    "day_offset": 1
+   },
+   {
+    "code": "SC",
+    "km": 1670,
+    "minute_of_journey": 1690,
+    "time": "21:55",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20114",
+  "name": "Secunderabad Junction-Hazrat Nizamuddin Dakshin Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "SC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "05:10",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 578,
+    "minute_of_journey": 583,
+    "time": "14:53",
+    "day_offset": 0
+   },
+   {
+    "code": "BPL",
+    "km": 969,
+    "minute_of_journey": 979,
+    "time": "21:29",
+    "day_offset": 0
+   },
+   {
+    "code": "AGC",
+    "km": 1482,
+    "minute_of_journey": 1497,
+    "time": "06:07",
+    "day_offset": 1
+   },
+   {
+    "code": "NZM",
+    "km": 1670,
+    "minute_of_journey": 1690,
+    "time": "09:20",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20115",
+  "name": "Secunderabad Junction-Hazrat Nizamuddin Dakshin Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "SC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "12:00",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 578,
+    "minute_of_journey": 574,
+    "time": "21:34",
+    "day_offset": 0
+   },
+   {
+    "code": "BPL",
+    "km": 969,
+    "minute_of_journey": 963,
+    "time": "04:03",
+    "day_offset": 1
+   },
+   {
+    "code": "AGC",
+    "km": 1482,
+    "minute_of_journey": 1473,
+    "time": "12:33",
+    "day_offset": 1
+   },
+   {
+    "code": "NZM",
+    "km": 1670,
+    "minute_of_journey": 1663,
+    "time": "15:43",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20120",
+  "name": "Chennai Central-KSR Bengaluru City Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "MAS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "12:25",
+    "day_offset": 0
+   },
+   {
+    "code": "SBC",
+    "km": 362,
+    "minute_of_journey": 299,
+    "time": "17:24",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20121",
+  "name": "Chennai Central-KSR Bengaluru City Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Wed"
+  ],
+  "stops": [
+   {
+    "code": "MAS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "05:55",
+    "day_offset": 0
+   },
+   {
+    "code": "SBC",
+    "km": 362,
+    "minute_of_journey": 361,
+    "time": "11:56",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20124",
+  "name": "KSR Bengaluru City-Chennai Central Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "SBC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "21:10",
+    "day_offset": 0
+   },
+   {
+    "code": "MAS",
+    "km": 362,
+    "minute_of_journey": 393,
+    "time": "03:43",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20125",
+  "name": "KSR Bengaluru City-Chennai Central Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "SBC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "10:25",
+    "day_offset": 0
+   },
+   {
+    "code": "MAS",
+    "km": 362,
+    "minute_of_journey": 400,
+    "time": "17:05",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20130",
+  "name": "Chennai Central-Thiruvananthapuram Central Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "MAS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "19:00",
+    "day_offset": 0
+   },
+   {
+    "code": "CBE",
+    "km": 495,
+    "minute_of_journey": 401,
+    "time": "01:41",
+    "day_offset": 1
+   },
+   {
+    "code": "ERS",
+    "km": 692,
+    "minute_of_journey": 564,
+    "time": "04:24",
+    "day_offset": 1
+   },
+   {
+    "code": "TVC",
+    "km": 913,
+    "minute_of_journey": 745,
+    "time": "07:25",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20131",
+  "name": "Chennai Central-Thiruvananthapuram Central Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "MAS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "18:55",
+    "day_offset": 0
+   },
+   {
+    "code": "CBE",
+    "km": 495,
+    "minute_of_journey": 484,
+    "time": "02:59",
+    "day_offset": 1
+   },
+   {
+    "code": "ERS",
+    "km": 692,
+    "minute_of_journey": 680,
+    "time": "06:15",
+    "day_offset": 1
+   },
+   {
+    "code": "TVC",
+    "km": 913,
+    "minute_of_journey": 899,
+    "time": "09:54",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20134",
+  "name": "Thiruvananthapuram Central-Chennai Central Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "TVC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:20",
+    "day_offset": 0
+   },
+   {
+    "code": "ERS",
+    "km": 221,
+    "minute_of_journey": 206,
+    "time": "10:46",
+    "day_offset": 0
+   },
+   {
+    "code": "CBE",
+    "km": 418,
+    "minute_of_journey": 390,
+    "time": "13:50",
+    "day_offset": 0
+   },
+   {
+    "code": "MAS",
+    "km": 913,
+    "minute_of_journey": 845,
+    "time": "21:25",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20135",
+  "name": "Thiruvananthapuram Central-Chennai Central Mail (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "TVC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "06:30",
+    "day_offset": 0
+   },
+   {
+    "code": "ERS",
+    "km": 221,
+    "minute_of_journey": 184,
+    "time": "09:34",
+    "day_offset": 0
+   },
+   {
+    "code": "CBE",
+    "km": 418,
+    "minute_of_journey": 349,
+    "time": "12:19",
+    "day_offset": 0
+   },
+   {
+    "code": "MAS",
+    "km": 913,
+    "minute_of_journey": 755,
+    "time": "19:05",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20140",
+  "name": "New Delhi-Amritsar Junction Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "21:55",
+    "day_offset": 0
+   },
+   {
+    "code": "CDG",
+    "km": 244,
+    "minute_of_journey": 195,
+    "time": "01:10",
+    "day_offset": 1
+   },
+   {
+    "code": "ASR",
+    "km": 449,
+    "minute_of_journey": 360,
+    "time": "03:55",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20141",
+  "name": "New Delhi-Amritsar Junction Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "20:30",
+    "day_offset": 0
+   },
+   {
+    "code": "CDG",
+    "km": 244,
+    "minute_of_journey": 234,
+    "time": "00:24",
+    "day_offset": 1
+   },
+   {
+    "code": "ASR",
+    "km": 449,
+    "minute_of_journey": 431,
+    "time": "03:41",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20144",
+  "name": "Amritsar Junction-New Delhi Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Tue",
+   "Thu",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "ASR",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:20",
+    "day_offset": 0
+   },
+   {
+    "code": "CDG",
+    "km": 205,
+    "minute_of_journey": 225,
+    "time": "11:05",
+    "day_offset": 0
+   },
+   {
+    "code": "NDLS",
+    "km": 449,
+    "minute_of_journey": 491,
+    "time": "15:31",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20145",
+  "name": "Amritsar Junction-New Delhi Shatabdi (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Wed",
+   "Thu",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "ASR",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "21:05",
+    "day_offset": 0
+   },
+   {
+    "code": "CDG",
+    "km": 205,
+    "minute_of_journey": 163,
+    "time": "23:48",
+    "day_offset": 0
+   },
+   {
+    "code": "NDLS",
+    "km": 449,
+    "minute_of_journey": 355,
+    "time": "03:00",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20150",
+  "name": "Howrah Junction-Chennai Central Coromandel Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Tue",
+   "Wed",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "HWH",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "21:30",
+    "day_offset": 0
+   },
+   {
+    "code": "BBS",
+    "km": 437,
+    "minute_of_journey": 442,
+    "time": "04:52",
+    "day_offset": 1
+   },
+   {
+    "code": "MAS",
+    "km": 1662,
+    "minute_of_journey": 1672,
+    "time": "01:22",
+    "day_offset": 2
+   }
+  ]
+ },
+ {
+  "number": "S20151",
+  "name": "Howrah Junction-Chennai Central Coromandel Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "HWH",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:05",
+    "day_offset": 0
+   },
+   {
+    "code": "BBS",
+    "km": 437,
+    "minute_of_journey": 421,
+    "time": "14:06",
+    "day_offset": 0
+   },
+   {
+    "code": "MAS",
+    "km": 1662,
+    "minute_of_journey": 1593,
+    "time": "09:38",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20154",
+  "name": "Chennai Central-Howrah Junction Coromandel Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed"
+  ],
+  "stops": [
+   {
+    "code": "MAS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "13:15",
+    "day_offset": 0
+   },
+   {
+    "code": "BBS",
+    "km": 1225,
+    "minute_of_journey": 1210,
+    "time": "09:25",
+    "day_offset": 1
+   },
+   {
+    "code": "HWH",
+    "km": 1662,
+    "minute_of_journey": 1645,
+    "time": "16:40",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20155",
+  "name": "Chennai Central-Howrah Junction Coromandel Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "MAS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:55",
+    "day_offset": 0
+   },
+   {
+    "code": "BBS",
+    "km": 1225,
+    "minute_of_journey": 1086,
+    "time": "02:01",
+    "day_offset": 1
+   },
+   {
+    "code": "HWH",
+    "km": 1662,
+    "minute_of_journey": 1476,
+    "time": "08:31",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20160",
+  "name": "New Delhi-Guwahati North East Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "10:35",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 512,
+    "minute_of_journey": 544,
+    "time": "19:39",
+    "day_offset": 0
+   },
+   {
+    "code": "GHY",
+    "km": 1900,
+    "minute_of_journey": 2010,
+    "time": "20:05",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20161",
+  "name": "New Delhi-Guwahati North East Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NDLS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "08:15",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 512,
+    "minute_of_journey": 426,
+    "time": "15:21",
+    "day_offset": 0
+   },
+   {
+    "code": "GHY",
+    "km": 1900,
+    "minute_of_journey": 1572,
+    "time": "10:27",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20164",
+  "name": "Guwahati-New Delhi North East Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Tue",
+   "Wed",
+   "Fri",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "GHY",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "19:45",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 1388,
+    "minute_of_journey": 1519,
+    "time": "21:04",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 1900,
+    "minute_of_journey": 2083,
+    "time": "06:28",
+    "day_offset": 2
+   }
+  ]
+ },
+ {
+  "number": "S20165",
+  "name": "Guwahati-New Delhi North East Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "GHY",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "16:45",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 1388,
+    "minute_of_journey": 1212,
+    "time": "12:57",
+    "day_offset": 1
+   },
+   {
+    "code": "NDLS",
+    "km": 1900,
+    "minute_of_journey": 1662,
+    "time": "20:27",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20170",
+  "name": "Sealdah-Guwahati Kanchan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Tue",
+   "Wed",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "SDAH",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "18:50",
+    "day_offset": 0
+   },
+   {
+    "code": "GHY",
+    "km": 1000,
+    "minute_of_journey": 805,
+    "time": "08:15",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20171",
+  "name": "Sealdah-Guwahati Kanchan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "SDAH",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "08:30",
+    "day_offset": 0
+   },
+   {
+    "code": "GHY",
+    "km": 1000,
+    "minute_of_journey": 774,
+    "time": "21:24",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20174",
+  "name": "Guwahati-Sealdah Kanchan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "GHY",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:45",
+    "day_offset": 0
+   },
+   {
+    "code": "SDAH",
+    "km": 1000,
+    "minute_of_journey": 989,
+    "time": "08:14",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20175",
+  "name": "Guwahati-Sealdah Kanchan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu"
+  ],
+  "stops": [
+   {
+    "code": "GHY",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "14:00",
+    "day_offset": 0
+   },
+   {
+    "code": "SDAH",
+    "km": 1000,
+    "minute_of_journey": 1076,
+    "time": "07:56",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20180",
+  "name": "Indore Junction-Nagpur Junction Intercity (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Wed",
+   "Thu",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "INDB",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "13:55",
+    "day_offset": 0
+   },
+   {
+    "code": "BPL",
+    "km": 186,
+    "minute_of_journey": 174,
+    "time": "16:49",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 576,
+    "minute_of_journey": 534,
+    "time": "22:49",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20181",
+  "name": "Indore Junction-Nagpur Junction Intercity (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Wed",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "INDB",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "12:15",
+    "day_offset": 0
+   },
+   {
+    "code": "BPL",
+    "km": 186,
+    "minute_of_journey": 152,
+    "time": "14:47",
+    "day_offset": 0
+   },
+   {
+    "code": "NGP",
+    "km": 576,
+    "minute_of_journey": 465,
+    "time": "20:00",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20184",
+  "name": "Nagpur Junction-Indore Junction Intercity (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NGP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "05:50",
+    "day_offset": 0
+   },
+   {
+    "code": "BPL",
+    "km": 390,
+    "minute_of_journey": 360,
+    "time": "11:50",
+    "day_offset": 0
+   },
+   {
+    "code": "INDB",
+    "km": 576,
+    "minute_of_journey": 534,
+    "time": "14:44",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20185",
+  "name": "Nagpur Junction-Indore Junction Intercity (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "NGP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "14:45",
+    "day_offset": 0
+   },
+   {
+    "code": "BPL",
+    "km": 390,
+    "minute_of_journey": 301,
+    "time": "19:46",
+    "day_offset": 0
+   },
+   {
+    "code": "INDB",
+    "km": 576,
+    "minute_of_journey": 447,
+    "time": "22:12",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20190",
+  "name": "Pune Junction-KSR Bengaluru City Udyan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Tue",
+   "Thu",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "PUNE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "08:20",
+    "day_offset": 0
+   },
+   {
+    "code": "YPR",
+    "km": 1000,
+    "minute_of_journey": 827,
+    "time": "22:07",
+    "day_offset": 0
+   },
+   {
+    "code": "SBC",
+    "km": 1012,
+    "minute_of_journey": 842,
+    "time": "22:22",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20191",
+  "name": "Pune Junction-KSR Bengaluru City Udyan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "PUNE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "16:25",
+    "day_offset": 0
+   },
+   {
+    "code": "YPR",
+    "km": 1000,
+    "minute_of_journey": 1096,
+    "time": "10:41",
+    "day_offset": 1
+   },
+   {
+    "code": "SBC",
+    "km": 1012,
+    "minute_of_journey": 1114,
+    "time": "10:59",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20194",
+  "name": "KSR Bengaluru City-Pune Junction Udyan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "SBC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "21:40",
+    "day_offset": 0
+   },
+   {
+    "code": "YPR",
+    "km": 12,
+    "minute_of_journey": 15,
+    "time": "21:55",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 1012,
+    "minute_of_journey": 831,
+    "time": "11:31",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20195",
+  "name": "KSR Bengaluru City-Pune Junction Udyan Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Thu",
+   "Fri"
+  ],
+  "stops": [
+   {
+    "code": "SBC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "18:30",
+    "day_offset": 0
+   },
+   {
+    "code": "YPR",
+    "km": 12,
+    "minute_of_journey": 16,
+    "time": "18:46",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 1012,
+    "minute_of_journey": 930,
+    "time": "10:00",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20200",
+  "name": "Mumbai CSMT-Solapur Vande Bharat (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "17:00",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 192,
+    "minute_of_journey": 172,
+    "time": "19:52",
+    "day_offset": 0
+   },
+   {
+    "code": "SUR",
+    "km": 455,
+    "minute_of_journey": 406,
+    "time": "23:46",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20201",
+  "name": "Mumbai CSMT-Solapur Vande Bharat (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CSMT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "11:05",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 192,
+    "minute_of_journey": 197,
+    "time": "14:22",
+    "day_offset": 0
+   },
+   {
+    "code": "SUR",
+    "km": 455,
+    "minute_of_journey": 465,
+    "time": "18:50",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20204",
+  "name": "Solapur-Mumbai CSMT Vande Bharat (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "SUR",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "17:50",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 263,
+    "minute_of_journey": 218,
+    "time": "21:28",
+    "day_offset": 0
+   },
+   {
+    "code": "CSMT",
+    "km": 455,
+    "minute_of_journey": 379,
+    "time": "00:09",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20205",
+  "name": "Solapur-Mumbai CSMT Vande Bharat (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Wed"
+  ],
+  "stops": [
+   {
+    "code": "SUR",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "18:45",
+    "day_offset": 0
+   },
+   {
+    "code": "PUNE",
+    "km": 263,
+    "minute_of_journey": 268,
+    "time": "23:13",
+    "day_offset": 0
+   },
+   {
+    "code": "CSMT",
+    "km": 455,
+    "minute_of_journey": 465,
+    "time": "02:30",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20210",
+  "name": "Delhi Junction-Jaipur Junction Double Decker (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "DLI",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "17:25",
+    "day_offset": 0
+   },
+   {
+    "code": "JP",
+    "km": 300,
+    "minute_of_journey": 239,
+    "time": "21:24",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20211",
+  "name": "Delhi Junction-Jaipur Junction Double Decker (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "DLI",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:50",
+    "day_offset": 0
+   },
+   {
+    "code": "JP",
+    "km": 300,
+    "minute_of_journey": 278,
+    "time": "20:28",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20214",
+  "name": "Jaipur Junction-Delhi Junction Double Decker (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "JP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "07:05",
+    "day_offset": 0
+   },
+   {
+    "code": "DLI",
+    "km": 300,
+    "minute_of_journey": 291,
+    "time": "11:56",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20215",
+  "name": "Jaipur Junction-Delhi Junction Double Decker (synthetic)",
+  "classes": [
+   "2S",
+   "CC",
+   "EC"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Thu",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "JP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:35",
+    "day_offset": 0
+   },
+   {
+    "code": "DLI",
+    "km": 300,
+    "minute_of_journey": 252,
+    "time": "19:47",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20220",
+  "name": "Anand Vihar Terminal-Gorakhpur Junction Humsafar Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "ANVT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "08:05",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 500,
+    "minute_of_journey": 505,
+    "time": "16:30",
+    "day_offset": 0
+   },
+   {
+    "code": "GKP",
+    "km": 770,
+    "minute_of_journey": 780,
+    "time": "21:05",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20221",
+  "name": "Anand Vihar Terminal-Gorakhpur Junction Humsafar Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "ANVT",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "20:50",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 500,
+    "minute_of_journey": 489,
+    "time": "04:59",
+    "day_offset": 1
+   },
+   {
+    "code": "GKP",
+    "km": 770,
+    "minute_of_journey": 755,
+    "time": "09:25",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20224",
+  "name": "Gorakhpur Junction-Anand Vihar Terminal Humsafar Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Thu",
+   "Fri"
+  ],
+  "stops": [
+   {
+    "code": "GKP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:20",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 270,
+    "minute_of_journey": 233,
+    "time": "19:13",
+    "day_offset": 0
+   },
+   {
+    "code": "ANVT",
+    "km": 770,
+    "minute_of_journey": 661,
+    "time": "02:21",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20225",
+  "name": "Gorakhpur Junction-Anand Vihar Terminal Humsafar Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "GKP",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:30",
+    "day_offset": 0
+   },
+   {
+    "code": "LKO",
+    "km": 270,
+    "minute_of_journey": 254,
+    "time": "19:44",
+    "day_offset": 0
+   },
+   {
+    "code": "ANVT",
+    "km": 770,
+    "minute_of_journey": 721,
+    "time": "03:31",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20230",
+  "name": "Chennai Egmore-Coimbatore Junction Cheran Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "MS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "06:45",
+    "day_offset": 0
+   },
+   {
+    "code": "CBE",
+    "km": 500,
+    "minute_of_journey": 541,
+    "time": "15:46",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20231",
+  "name": "Chennai Egmore-Coimbatore Junction Cheran Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Wed",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "MS",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "11:05",
+    "day_offset": 0
+   },
+   {
+    "code": "CBE",
+    "km": 500,
+    "minute_of_journey": 416,
+    "time": "18:01",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20234",
+  "name": "Coimbatore Junction-Chennai Egmore Cheran Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CBE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "17:10",
+    "day_offset": 0
+   },
+   {
+    "code": "MS",
+    "km": 500,
+    "minute_of_journey": 531,
+    "time": "02:01",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20235",
+  "name": "Coimbatore Junction-Chennai Egmore Cheran Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "CBE",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "20:05",
+    "day_offset": 0
+   },
+   {
+    "code": "MS",
+    "km": 500,
+    "minute_of_journey": 505,
+    "time": "04:30",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20240",
+  "name": "Secunderabad Junction-KSR Bengaluru City Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "SC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "20:55",
+    "day_offset": 0
+   },
+   {
+    "code": "SBC",
+    "km": 610,
+    "minute_of_journey": 577,
+    "time": "06:32",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20241",
+  "name": "Secunderabad Junction-KSR Bengaluru City Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "SC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:50",
+    "day_offset": 0
+   },
+   {
+    "code": "SBC",
+    "km": 610,
+    "minute_of_journey": 468,
+    "time": "23:38",
+    "day_offset": 0
+   }
+  ]
+ },
+ {
+  "number": "S20244",
+  "name": "KSR Bengaluru City-Secunderabad Junction Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Fri",
+   "Sat"
+  ],
+  "stops": [
+   {
+    "code": "SBC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "15:40",
+    "day_offset": 0
+   },
+   {
+    "code": "SC",
+    "km": 610,
+    "minute_of_journey": 535,
+    "time": "00:35",
+    "day_offset": 1
+   }
+  ]
+ },
+ {
+  "number": "S20245",
+  "name": "KSR Bengaluru City-Secunderabad Junction Express (synthetic)",
+  "classes": [
+   "SL",
+   "3A",
+   "2A",
+   "1A"
+  ],
+  "runs_on": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "stops": [
+   {
+    "code": "SBC",
+    "km": 0,
+    "minute_of_journey": 0,
+    "time": "06:35",
+    "day_offset": 0
+   },
+   {
+    "code": "SC",
+    "km": 610,
+    "minute_of_journey": 636,
+    "time": "17:11",
+    "day_offset": 0
+   }
+  ]
+ }
+]

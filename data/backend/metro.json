@@ -1,0 +1,1641 @@
+{
+ "Mumbai": {
+  "lines": {
+   "Line 1 (Blue)": [
+    "mum_versova",
+    "mum_d_n_nagar",
+    "mum_azad_nagar",
+    "mum_andheri",
+    "mum_western_express_highway",
+    "mum_chakala_j_b_nagar",
+    "mum_airport_road",
+    "mum_marol_naka",
+    "mum_saki_naka",
+    "mum_asalpha",
+    "mum_jagruti_nagar",
+    "mum_ghatkopar"
+   ],
+   "Line 3 (Aqua)": [
+    "mum_aarey_jvlr",
+    "mum_seepz",
+    "mum_midc_andheri",
+    "mum_marol_naka",
+    "mum_csmia_t2",
+    "mum_sahar_road",
+    "mum_csmia_t1",
+    "mum_santacruz",
+    "mum_bandra_colony",
+    "mum_bkc",
+    "mum_dharavi",
+    "mum_shitaladevi_mandir",
+    "mum_dadar",
+    "mum_siddhivinayak",
+    "mum_worli",
+    "mum_acharya_atre_chowk",
+    "mum_science_museum",
+    "mum_mahalaxmi",
+    "mum_jagannath_shankar_seth",
+    "mum_grant_road",
+    "mum_girgaon",
+    "mum_kalbadevi",
+    "mum_csmt_metro",
+    "mum_hutatma_chowk",
+    "mum_churchgate",
+    "mum_vidhan_bhavan",
+    "mum_cuffe_parade"
+   ]
+  },
+  "stations": [
+   {
+    "id": "mum_versova",
+    "name": "Versova",
+    "hi": "वर्सोवा",
+    "mr": "वर्सोवा",
+    "aliases": [],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_d_n_nagar",
+    "name": "D N Nagar",
+    "hi": "डी एन नगर",
+    "mr": "डी एन नगर",
+    "aliases": [
+     "dn nagar"
+    ],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_azad_nagar",
+    "name": "Azad Nagar",
+    "hi": "आज़ाद नगर",
+    "mr": "आझाद नगर",
+    "aliases": [],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_andheri",
+    "name": "Andheri",
+    "hi": "अंधेरी",
+    "mr": "अंधेरी",
+    "aliases": [
+     "andheri metro"
+    ],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_western_express_highway",
+    "name": "Western Express Highway",
+    "hi": "वेस्टर्न एक्सप्रेस हाईवे",
+    "mr": "वेस्टर्न एक्सप्रेस हायवे",
+    "aliases": [
+     "weh"
+    ],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_chakala_j_b_nagar",
+    "name": "Chakala (J B Nagar)",
+    "hi": "चकाला (जे बी नगर)",
+    "mr": "चकाला (जे बी नगर)",
+    "aliases": [
+     "chakala",
+     "jb nagar"
+    ],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_airport_road",
+    "name": "Airport Road",
+    "hi": "एयरपोर्ट रोड",
+    "mr": "एअरपोर्ट रोड",
+    "aliases": [],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_marol_naka",
+    "name": "Marol Naka",
+    "hi": "मरोल नाका",
+    "mr": "मरोळ नाका",
+    "aliases": [
+     "marol"
+    ],
+    "lines": [
+     "Line 1 (Blue)",
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_saki_naka",
+    "name": "Saki Naka",
+    "hi": "साकीनाका",
+    "mr": "साकीनाका",
+    "aliases": [
+     "sakinaka"
+    ],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_asalpha",
+    "name": "Asalpha",
+    "hi": "असल्फा",
+    "mr": "असल्फा",
+    "aliases": [],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_jagruti_nagar",
+    "name": "Jagruti Nagar",
+    "hi": "जागृति नगर",
+    "mr": "जागृती नगर",
+    "aliases": [],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_ghatkopar",
+    "name": "Ghatkopar",
+    "hi": "घाटकोपर",
+    "mr": "घाटकोपर",
+    "aliases": [
+     "ghatkopar metro"
+    ],
+    "lines": [
+     "Line 1 (Blue)"
+    ]
+   },
+   {
+    "id": "mum_aarey_jvlr",
+    "name": "Aarey JVLR",
+    "hi": "आरे जेवीएलआर",
+    "mr": "आरे जेव्हीएलआर",
+    "aliases": [
+     "aarey"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_seepz",
+    "name": "SEEPZ",
+    "hi": "सीप्ज़",
+    "mr": "सीप्झ",
+    "aliases": [
+     "seepz"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_midc_andheri",
+    "name": "MIDC Andheri",
+    "hi": "एमआईडीसी अंधेरी",
+    "mr": "एमआयडीसी अंधेरी",
+    "aliases": [
+     "midc"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_csmia_t2",
+    "name": "CSMIA T2",
+    "hi": "एयरपोर्ट टर्मिनल 2",
+    "mr": "विमानतळ टर्मिनल 2",
+    "aliases": [
+     "airport t2",
+     "csmia terminal 2",
+     "t2",
+     "terminal 2"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_sahar_road",
+    "name": "Sahar Road",
+    "hi": "सहार रोड",
+    "mr": "सहार रोड",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_csmia_t1",
+    "name": "CSMIA T1",
+    "hi": "एयरपोर्ट टर्मिनल 1",
+    "mr": "विमानतळ टर्मिनल 1",
+    "aliases": [
+     "airport t1",
+     "csmia terminal 1",
+     "t1",
+     "terminal 1"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_santacruz",
+    "name": "Santacruz",
+    "hi": "सांताक्रूज़",
+    "mr": "सांताक्रूझ",
+    "aliases": [
+     "santacruz metro"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_bandra_colony",
+    "name": "Bandra Colony",
+    "hi": "बांद्रा कॉलोनी",
+    "mr": "वांद्रे कॉलनी",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_bkc",
+    "name": "BKC",
+    "hi": "बीकेसी",
+    "mr": "बीकेसी",
+    "aliases": [
+     "bandra kurla complex"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_dharavi",
+    "name": "Dharavi",
+    "hi": "धारावी",
+    "mr": "धारावी",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_shitaladevi_mandir",
+    "name": "Shitaladevi Mandir",
+    "hi": "शीतलादेवी मंदिर",
+    "mr": "शीतलादेवी मंदिर",
+    "aliases": [
+     "shitladevi"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_dadar",
+    "name": "Dadar",
+    "hi": "दादर",
+    "mr": "दादर",
+    "aliases": [
+     "dadar metro"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_siddhivinayak",
+    "name": "Siddhivinayak",
+    "hi": "सिद्धिविनायक",
+    "mr": "सिद्धिविनायक",
+    "aliases": [
+     "siddhi vinayak"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_worli",
+    "name": "Worli",
+    "hi": "वर्ली",
+    "mr": "वरळी",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_acharya_atre_chowk",
+    "name": "Acharya Atre Chowk",
+    "hi": "आचार्य अत्रे चौक",
+    "mr": "आचार्य अत्रे चौक",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_science_museum",
+    "name": "Science Museum",
+    "hi": "साइंस म्यूज़ियम",
+    "mr": "सायन्स म्युझियम",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_mahalaxmi",
+    "name": "Mahalaxmi",
+    "hi": "महालक्ष्मी",
+    "mr": "महालक्ष्मी",
+    "aliases": [
+     "mahalakshmi"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_jagannath_shankar_seth",
+    "name": "Jagannath Shankar Seth",
+    "hi": "जगन्नाथ शंकर सेठ",
+    "mr": "जगन्नाथ शंकरशेट",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_grant_road",
+    "name": "Grant Road",
+    "hi": "ग्रांट रोड",
+    "mr": "ग्रँट रोड",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_girgaon",
+    "name": "Girgaon",
+    "hi": "गिरगांव",
+    "mr": "गिरगाव",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_kalbadevi",
+    "name": "Kalbadevi",
+    "hi": "कालबादेवी",
+    "mr": "काळबादेवी",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_csmt_metro",
+    "name": "CSMT Metro",
+    "hi": "सीएसएमटी मेट्रो",
+    "mr": "सीएसएमटी मेट्रो",
+    "aliases": [
+     "csmt metro"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_hutatma_chowk",
+    "name": "Hutatma Chowk",
+    "hi": "हुतात्मा चौक",
+    "mr": "हुतात्मा चौक",
+    "aliases": [
+     "fort"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_churchgate",
+    "name": "Churchgate",
+    "hi": "चर्चगेट",
+    "mr": "चर्चगेट",
+    "aliases": [
+     "churchgate metro"
+    ],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_vidhan_bhavan",
+    "name": "Vidhan Bhavan",
+    "hi": "विधान भवन",
+    "mr": "विधान भवन",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   },
+   {
+    "id": "mum_cuffe_parade",
+    "name": "Cuffe Parade",
+    "hi": "कफ परेड",
+    "mr": "कफ परेड",
+    "aliases": [],
+    "lines": [
+     "Line 3 (Aqua)"
+    ]
+   }
+  ]
+ },
+ "Pune": {
+  "lines": {
+   "Purple Line": [
+    "pun_pcmc",
+    "pun_sant_tukaram_nagar",
+    "pun_bhosari_nashik_phata",
+    "pun_kasarwadi",
+    "pun_phugewadi",
+    "pun_dapodi",
+    "pun_bopodi",
+    "pun_khadki",
+    "pun_range_hill",
+    "pun_shivaji_nagar",
+    "pun_civil_court",
+    "pun_budhwar_peth",
+    "pun_mandai",
+    "pun_swargate"
+   ],
+   "Aqua Line": [
+    "pun_vanaz",
+    "pun_anand_nagar",
+    "pun_ideal_colony",
+    "pun_nal_stop",
+    "pun_garware_college",
+    "pun_deccan_gymkhana",
+    "pun_chhatrapati_sambhaji_udyan",
+    "pun_pmc",
+    "pun_civil_court",
+    "pun_mangalwar_peth",
+    "pun_pune_railway_station",
+    "pun_ruby_hall_clinic",
+    "pun_bund_garden",
+    "pun_yerawada",
+    "pun_kalyani_nagar",
+    "pun_ramwadi"
+   ]
+  },
+  "stations": [
+   {
+    "id": "pun_pcmc",
+    "name": "PCMC",
+    "hi": "पीसीएमसी",
+    "mr": "पीसीएमसी",
+    "aliases": [
+     "pimpri",
+     "pimpri chinchwad"
+    ],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_sant_tukaram_nagar",
+    "name": "Sant Tukaram Nagar",
+    "hi": "संत तुकाराम नगर",
+    "mr": "संत तुकाराम नगर",
+    "aliases": [],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_bhosari_nashik_phata",
+    "name": "Bhosari (Nashik Phata)",
+    "hi": "भोसरी (नासिक फाटा)",
+    "mr": "भोसरी (नाशिक फाटा)",
+    "aliases": [
+     "bhosari",
+     "nashik phata"
+    ],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_kasarwadi",
+    "name": "Kasarwadi",
+    "hi": "कासारवाडी",
+    "mr": "कासारवाडी",
+    "aliases": [],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_phugewadi",
+    "name": "Phugewadi",
+    "hi": "फुगेवाडी",
+    "mr": "फुगेवाडी",
+    "aliases": [],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_dapodi",
+    "name": "Dapodi",
+    "hi": "दापोडी",
+    "mr": "दापोडी",
+    "aliases": [],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_bopodi",
+    "name": "Bopodi",
+    "hi": "बोपोडी",
+    "mr": "बोपोडी",
+    "aliases": [],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_khadki",
+    "name": "Khadki",
+    "hi": "खडकी",
+    "mr": "खडकी",
+    "aliases": [
+     "kirkee"
+    ],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_range_hill",
+    "name": "Range Hill",
+    "hi": "रेंज हिल",
+    "mr": "रेंज हिल",
+    "aliases": [
+     "range hills"
+    ],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_shivaji_nagar",
+    "name": "Shivaji Nagar",
+    "hi": "शिवाजी नगर",
+    "mr": "शिवाजीनगर",
+    "aliases": [
+     "shivajinagar"
+    ],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_civil_court",
+    "name": "Civil Court",
+    "hi": "सिविल कोर्ट",
+    "mr": "सिव्हिल कोर्ट",
+    "aliases": [
+     "district court"
+    ],
+    "lines": [
+     "Purple Line",
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_budhwar_peth",
+    "name": "Budhwar Peth",
+    "hi": "बुधवार पेठ",
+    "mr": "बुधवार पेठ",
+    "aliases": [],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_mandai",
+    "name": "Mandai",
+    "hi": "मंडई",
+    "mr": "मंडई",
+    "aliases": [],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_swargate",
+    "name": "Swargate",
+    "hi": "स्वारगेट",
+    "mr": "स्वारगेट",
+    "aliases": [],
+    "lines": [
+     "Purple Line"
+    ]
+   },
+   {
+    "id": "pun_vanaz",
+    "name": "Vanaz",
+    "hi": "वनाज़",
+    "mr": "वनाज",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_anand_nagar",
+    "name": "Anand Nagar",
+    "hi": "आनंद नगर",
+    "mr": "आनंदनगर",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_ideal_colony",
+    "name": "Ideal Colony",
+    "hi": "आइडियल कॉलोनी",
+    "mr": "आयडियल कॉलनी",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_nal_stop",
+    "name": "Nal Stop",
+    "hi": "नल स्टॉप",
+    "mr": "नळ स्टॉप",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_garware_college",
+    "name": "Garware College",
+    "hi": "गरवारे कॉलेज",
+    "mr": "गरवारे कॉलेज",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_deccan_gymkhana",
+    "name": "Deccan Gymkhana",
+    "hi": "डेक्कन जिमखाना",
+    "mr": "डेक्कन जिमखाना",
+    "aliases": [
+     "deccan"
+    ],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_chhatrapati_sambhaji_udyan",
+    "name": "Chhatrapati Sambhaji Udyan",
+    "hi": "छत्रपति संभाजी उद्यान",
+    "mr": "छत्रपती संभाजी उद्यान",
+    "aliases": [
+     "sambhaji park",
+     "sambhaji udyan"
+    ],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_pmc",
+    "name": "PMC",
+    "hi": "पीएमसी",
+    "mr": "पीएमसी",
+    "aliases": [
+     "pune municipal corporation"
+    ],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_mangalwar_peth",
+    "name": "Mangalwar Peth",
+    "hi": "मंगलवार पेठ",
+    "mr": "मंगळवार पेठ",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_pune_railway_station",
+    "name": "Pune Railway Station",
+    "hi": "पुणे रेलवे स्टेशन",
+    "mr": "पुणे रेल्वे स्टेशन",
+    "aliases": [
+     "pune station",
+     "railway station"
+    ],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_ruby_hall_clinic",
+    "name": "Ruby Hall Clinic",
+    "hi": "रूबी हॉल क्लिनिक",
+    "mr": "रुबी हॉल क्लिनिक",
+    "aliases": [
+     "ruby hall"
+    ],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_bund_garden",
+    "name": "Bund Garden",
+    "hi": "बंड गार्डन",
+    "mr": "बंड गार्डन",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_yerawada",
+    "name": "Yerawada",
+    "hi": "यरवदा",
+    "mr": "येरवडा",
+    "aliases": [
+     "yerwada"
+    ],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_kalyani_nagar",
+    "name": "Kalyani Nagar",
+    "hi": "कल्याणी नगर",
+    "mr": "कल्याणीनगर",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   },
+   {
+    "id": "pun_ramwadi",
+    "name": "Ramwadi",
+    "hi": "रामवाडी",
+    "mr": "रामवाडी",
+    "aliases": [],
+    "lines": [
+     "Aqua Line"
+    ]
+   }
+  ]
+ },
+ "Delhi": {
+  "lines": {
+   "Yellow Line": [
+    "del_vishwavidyalaya",
+    "del_vidhan_sabha",
+    "del_civil_lines",
+    "del_kashmere_gate",
+    "del_chandni_chowk",
+    "del_chawri_bazar",
+    "del_new_delhi",
+    "del_rajiv_chowk",
+    "del_patel_chowk",
+    "del_central_secretariat",
+    "del_udyog_bhawan",
+    "del_lok_kalyan_marg",
+    "del_jor_bagh",
+    "del_dilli_haat_ina",
+    "del_aiims",
+    "del_green_park",
+    "del_hauz_khas",
+    "del_malviya_nagar",
+    "del_saket",
+    "del_qutab_minar",
+    "del_chhattarpur",
+    "del_sultanpur",
+    "del_ghitorni",
+    "del_arjan_garh",
+    "del_guru_dronacharya",
+    "del_sikanderpur",
+    "del_mg_road",
+    "del_iffco_chowk",
+    "del_millennium_city_centre_gurugram"
+   ],
+   "Blue Line": [
+    "del_dwarka_sector_21",
+    "del_dwarka_sector_8",
+    "del_dwarka_sector_9",
+    "del_dwarka_sector_10",
+    "del_dwarka_sector_11",
+    "del_dwarka_sector_12",
+    "del_dwarka_sector_13",
+    "del_dwarka_sector_14",
+    "del_dwarka",
+    "del_dwarka_mor",
+    "del_nawada",
+    "del_uttam_nagar_west",
+    "del_uttam_nagar_east",
+    "del_janakpuri_west",
+    "del_janakpuri_east",
+    "del_tilak_nagar",
+    "del_subhash_nagar",
+    "del_tagore_garden",
+    "del_rajouri_garden",
+    "del_ramesh_nagar",
+    "del_moti_nagar",
+    "del_kirti_nagar",
+    "del_shadipur",
+    "del_patel_nagar",
+    "del_rajendra_place",
+    "del_karol_bagh",
+    "del_jhandewalan",
+    "del_rk_ashram_marg",
+    "del_rajiv_chowk",
+    "del_barakhamba_road",
+    "del_mandi_house",
+    "del_supreme_court",
+    "del_indraprastha",
+    "del_yamuna_bank"
+   ],
+   "Airport Express (Orange)": [
+    "del_new_delhi",
+    "del_shivaji_stadium",
+    "del_dhaula_kuan",
+    "del_delhi_aerocity",
+    "del_igi_airport",
+    "del_dwarka_sector_21",
+    "del_yashobhoomi_dwarka_sector_25"
+   ]
+  },
+  "stations": [
+   {
+    "id": "del_vishwavidyalaya",
+    "name": "Vishwavidyalaya",
+    "hi": "विश्वविद्यालय",
+    "mr": "विश्वविद्यालय",
+    "aliases": [
+     "delhi university",
+     "du"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_vidhan_sabha",
+    "name": "Vidhan Sabha",
+    "hi": "विधान सभा",
+    "mr": "विधान सभा",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_civil_lines",
+    "name": "Civil Lines",
+    "hi": "सिविल लाइन्स",
+    "mr": "सिव्हिल लाइन्स",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_kashmere_gate",
+    "name": "Kashmere Gate",
+    "hi": "कश्मीरी गेट",
+    "mr": "कश्मीरी गेट",
+    "aliases": [
+     "kashmiri gate"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_chandni_chowk",
+    "name": "Chandni Chowk",
+    "hi": "चांदनी चौक",
+    "mr": "चांदनी चौक",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_chawri_bazar",
+    "name": "Chawri Bazar",
+    "hi": "चावड़ी बाज़ार",
+    "mr": "चावडी बाजार",
+    "aliases": [
+     "chawdi bazar"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_new_delhi",
+    "name": "New Delhi",
+    "hi": "नई दिल्ली",
+    "mr": "नवी दिल्ली",
+    "aliases": [
+     "new delhi metro"
+    ],
+    "lines": [
+     "Yellow Line",
+     "Airport Express (Orange)"
+    ]
+   },
+   {
+    "id": "del_rajiv_chowk",
+    "name": "Rajiv Chowk",
+    "hi": "राजीव चौक",
+    "mr": "राजीव चौक",
+    "aliases": [
+     "connaught place",
+     "cp"
+    ],
+    "lines": [
+     "Yellow Line",
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_patel_chowk",
+    "name": "Patel Chowk",
+    "hi": "पटेल चौक",
+    "mr": "पटेल चौक",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_central_secretariat",
+    "name": "Central Secretariat",
+    "hi": "केंद्रीय सचिवालय",
+    "mr": "केंद्रीय सचिवालय",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_udyog_bhawan",
+    "name": "Udyog Bhawan",
+    "hi": "उद्योग भवन",
+    "mr": "उद्योग भवन",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_lok_kalyan_marg",
+    "name": "Lok Kalyan Marg",
+    "hi": "लोक कल्याण मार्ग",
+    "mr": "लोक कल्याण मार्ग",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_jor_bagh",
+    "name": "Jor Bagh",
+    "hi": "जोर बाग",
+    "mr": "जोर बाग",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_dilli_haat_ina",
+    "name": "Dilli Haat - INA",
+    "hi": "दिल्ली हाट - आईएनए",
+    "mr": "दिल्ली हाट - आईएनए",
+    "aliases": [
+     "dilli haat",
+     "ina"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_aiims",
+    "name": "AIIMS",
+    "hi": "एम्स",
+    "mr": "एम्स",
+    "aliases": [
+     "aiims"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_green_park",
+    "name": "Green Park",
+    "hi": "ग्रीन पार्क",
+    "mr": "ग्रीन पार्क",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_hauz_khas",
+    "name": "Hauz Khas",
+    "hi": "हौज़ खास",
+    "mr": "हौज खास",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_malviya_nagar",
+    "name": "Malviya Nagar",
+    "hi": "मालवीय नगर",
+    "mr": "मालवीय नगर",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_saket",
+    "name": "Saket",
+    "hi": "साकेत",
+    "mr": "साकेत",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_qutab_minar",
+    "name": "Qutab Minar",
+    "hi": "क़ुतुब मीनार",
+    "mr": "कुतुब मिनार",
+    "aliases": [
+     "qutub minar"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_chhattarpur",
+    "name": "Chhattarpur",
+    "hi": "छतरपुर",
+    "mr": "छतरपुर",
+    "aliases": [
+     "chhatarpur"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_sultanpur",
+    "name": "Sultanpur",
+    "hi": "सुल्तानपुर",
+    "mr": "सुल्तानपुर",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_ghitorni",
+    "name": "Ghitorni",
+    "hi": "घिटोरनी",
+    "mr": "घिटोरनी",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_arjan_garh",
+    "name": "Arjan Garh",
+    "hi": "अर्जनगढ़",
+    "mr": "अर्जनगड",
+    "aliases": [
+     "arjangarh"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_guru_dronacharya",
+    "name": "Guru Dronacharya",
+    "hi": "गुरु द्रोणाचार्य",
+    "mr": "गुरु द्रोणाचार्य",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_sikanderpur",
+    "name": "Sikanderpur",
+    "hi": "सिकंदरपुर",
+    "mr": "सिकंदरपुर",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_mg_road",
+    "name": "MG Road",
+    "hi": "एमजी रोड",
+    "mr": "एमजी रोड",
+    "aliases": [
+     "mg road gurugram"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_iffco_chowk",
+    "name": "IFFCO Chowk",
+    "hi": "इफको चौक",
+    "mr": "इफको चौक",
+    "aliases": [],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_millennium_city_centre_gurugram",
+    "name": "Millennium City Centre Gurugram",
+    "hi": "मिलेनियम सिटी सेंटर गुरुग्राम",
+    "mr": "मिलेनियम सिटी सेंटर गुरुग्राम",
+    "aliases": [
+     "huda city centre",
+     "millennium city centre"
+    ],
+    "lines": [
+     "Yellow Line"
+    ]
+   },
+   {
+    "id": "del_dwarka_sector_21",
+    "name": "Dwarka Sector 21",
+    "hi": "द्वारका सेक्टर 21",
+    "mr": "द्वारका सेक्टर 21",
+    "aliases": [
+     "sector 21"
+    ],
+    "lines": [
+     "Blue Line",
+     "Airport Express (Orange)"
+    ]
+   },
+   {
+    "id": "del_dwarka_sector_8",
+    "name": "Dwarka Sector 8",
+    "hi": "द्वारका सेक्टर 8",
+    "mr": "द्वारका सेक्टर 8",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_dwarka_sector_9",
+    "name": "Dwarka Sector 9",
+    "hi": "द्वारका सेक्टर 9",
+    "mr": "द्वारका सेक्टर 9",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_dwarka_sector_10",
+    "name": "Dwarka Sector 10",
+    "hi": "द्वारका सेक्टर 10",
+    "mr": "द्वारका सेक्टर 10",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_dwarka_sector_11",
+    "name": "Dwarka Sector 11",
+    "hi": "द्वारका सेक्टर 11",
+    "mr": "द्वारका सेक्टर 11",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_dwarka_sector_12",
+    "name": "Dwarka Sector 12",
+    "hi": "द्वारका सेक्टर 12",
+    "mr": "द्वारका सेक्टर 12",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_dwarka_sector_13",
+    "name": "Dwarka Sector 13",
+    "hi": "द्वारका सेक्टर 13",
+    "mr": "द्वारका सेक्टर 13",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_dwarka_sector_14",
+    "name": "Dwarka Sector 14",
+    "hi": "द्वारका सेक्टर 14",
+    "mr": "द्वारका सेक्टर 14",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_dwarka",
+    "name": "Dwarka",
+    "hi": "द्वारका",
+    "mr": "द्वारका",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_dwarka_mor",
+    "name": "Dwarka Mor",
+    "hi": "द्वारका मोड़",
+    "mr": "द्वारका मोड",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_nawada",
+    "name": "Nawada",
+    "hi": "नवादा",
+    "mr": "नवादा",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_uttam_nagar_west",
+    "name": "Uttam Nagar West",
+    "hi": "उत्तम नगर पश्चिम",
+    "mr": "उत्तम नगर पश्चिम",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_uttam_nagar_east",
+    "name": "Uttam Nagar East",
+    "hi": "उत्तम नगर पूर्व",
+    "mr": "उत्तम नगर पूर्व",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_janakpuri_west",
+    "name": "Janakpuri West",
+    "hi": "जनकपुरी पश्चिम",
+    "mr": "जनकपुरी पश्चिम",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_janakpuri_east",
+    "name": "Janakpuri East",
+    "hi": "जनकपुरी पूर्व",
+    "mr": "जनकपुरी पूर्व",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_tilak_nagar",
+    "name": "Tilak Nagar",
+    "hi": "तिलक नगर",
+    "mr": "टिळक नगर",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_subhash_nagar",
+    "name": "Subhash Nagar",
+    "hi": "सुभाष नगर",
+    "mr": "सुभाष नगर",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_tagore_garden",
+    "name": "Tagore Garden",
+    "hi": "टैगोर गार्डन",
+    "mr": "टैगोर गार्डन",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_rajouri_garden",
+    "name": "Rajouri Garden",
+    "hi": "राजौरी गार्डन",
+    "mr": "राजौरी गार्डन",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_ramesh_nagar",
+    "name": "Ramesh Nagar",
+    "hi": "रमेश नगर",
+    "mr": "रमेश नगर",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_moti_nagar",
+    "name": "Moti Nagar",
+    "hi": "मोती नगर",
+    "mr": "मोती नगर",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_kirti_nagar",
+    "name": "Kirti Nagar",
+    "hi": "कीर्ति नगर",
+    "mr": "कीर्ती नगर",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_shadipur",
+    "name": "Shadipur",
+    "hi": "शादीपुर",
+    "mr": "शादीपुर",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_patel_nagar",
+    "name": "Patel Nagar",
+    "hi": "पटेल नगर",
+    "mr": "पटेल नगर",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_rajendra_place",
+    "name": "Rajendra Place",
+    "hi": "राजेंद्र प्लेस",
+    "mr": "राजेंद्र प्लेस",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_karol_bagh",
+    "name": "Karol Bagh",
+    "hi": "करोल बाग",
+    "mr": "करोल बाग",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_jhandewalan",
+    "name": "Jhandewalan",
+    "hi": "झंडेवालान",
+    "mr": "झंडेवालान",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_rk_ashram_marg",
+    "name": "RK Ashram Marg",
+    "hi": "आर के आश्रम मार्ग",
+    "mr": "आर के आश्रम मार्ग",
+    "aliases": [
+     "r k ashram marg"
+    ],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_barakhamba_road",
+    "name": "Barakhamba Road",
+    "hi": "बाराखंभा रोड",
+    "mr": "बाराखंभा रोड",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_mandi_house",
+    "name": "Mandi House",
+    "hi": "मंडी हाउस",
+    "mr": "मंडी हाउस",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_supreme_court",
+    "name": "Supreme Court",
+    "hi": "सुप्रीम कोर्ट",
+    "mr": "सुप्रीम कोर्ट",
+    "aliases": [
+     "pragati maidan"
+    ],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_indraprastha",
+    "name": "Indraprastha",
+    "hi": "इंद्रप्रस्थ",
+    "mr": "इंद्रप्रस्थ",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_yamuna_bank",
+    "name": "Yamuna Bank",
+    "hi": "यमुना बैंक",
+    "mr": "यमुना बैंक",
+    "aliases": [],
+    "lines": [
+     "Blue Line"
+    ]
+   },
+   {
+    "id": "del_shivaji_stadium",
+    "name": "Shivaji Stadium",
+    "hi": "शिवाजी स्टेडियम",
+    "mr": "शिवाजी स्टेडियम",
+    "aliases": [],
+    "lines": [
+     "Airport Express (Orange)"
+    ]
+   },
+   {
+    "id": "del_dhaula_kuan",
+    "name": "Dhaula Kuan",
+    "hi": "धौला कुआं",
+    "mr": "धौला कुआँ",
+    "aliases": [],
+    "lines": [
+     "Airport Express (Orange)"
+    ]
+   },
+   {
+    "id": "del_delhi_aerocity",
+    "name": "Delhi Aerocity",
+    "hi": "दिल्ली एयरोसिटी",
+    "mr": "दिल्ली एअरोसिटी",
+    "aliases": [
+     "aerocity"
+    ],
+    "lines": [
+     "Airport Express (Orange)"
+    ]
+   },
+   {
+    "id": "del_igi_airport",
+    "name": "IGI Airport",
+    "hi": "आईजीआई एयरपोर्ट",
+    "mr": "आयजीआय विमानतळ",
+    "aliases": [
+     "airport",
+     "delhi airport",
+     "igi airport",
+     "t3",
+     "terminal 3",
+     "एयरपोर्ट"
+    ],
+    "lines": [
+     "Airport Express (Orange)"
+    ]
+   },
+   {
+    "id": "del_yashobhoomi_dwarka_sector_25",
+    "name": "Yashobhoomi Dwarka Sector 25",
+    "hi": "यशोभूमि द्वारका सेक्टर 25",
+    "mr": "यशोभूमि द्वारका सेक्टर 25",
+    "aliases": [
+     "sector 25",
+     "yashobhoomi"
+    ],
+    "lines": [
+     "Airport Express (Orange)"
+    ]
+   }
+  ]
+ }
+}
