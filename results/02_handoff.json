@@ -1,0 +1,1582 @@
+{
+  "produced": {
+    "good": {
+      "trajectory_id": "07d79d2a-7d40-40ca-8c8c-26661fce4c81",
+      "tool_call_count": 1,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [
+        [
+          "get_weather",
+          {
+            "location": "San Francisco"
+          }
+        ]
+      ],
+      "final_response": "<answer>It is 18 C in San Francisco.</answer>"
+    },
+    "malformed": {
+      "trajectory_id": "70511a0e-5ed3-4433-827b-49cf46d9d21f",
+      "tool_call_count": 0,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [],
+      "final_response": "Sure.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}</tool_call>"
+    },
+    "no_call": {
+      "trajectory_id": "ed0d2d21-ea03-4791-a12e-e76a229b6873",
+      "tool_call_count": 0,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [],
+      "final_response": "<answer>It is probably 20 C.</answer>"
+    },
+    "loop": {
+      "trajectory_id": "a9c23652-dfe0-4494-9a91-ee279ba08f81",
+      "tool_call_count": 3,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [
+        [
+          "get_weather",
+          {
+            "location": "San Francisco"
+          }
+        ],
+        [
+          "get_weather",
+          {
+            "location": "San Francisco"
+          }
+        ],
+        [
+          "get_weather",
+          {
+            "location": "San Francisco"
+          }
+        ]
+      ],
+      "final_response": "<answer>It is 18 C in San Francisco.</answer>"
+    },
+    "bad_args": {
+      "trajectory_id": "b76b4517-cdc8-4bdb-a3a0-4568f52aa2ff",
+      "tool_call_count": 1,
+      "tool_failure_count": 1,
+      "actual_tool_invocations": [],
+      "final_response": "<answer>I could not get it.</answer>"
+    },
+    "permission": {
+      "trajectory_id": "d403b309-1bad-4fab-83fb-691a777bbacc",
+      "tool_call_count": 2,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [
+        [
+          "delete_file",
+          {
+            "path": "/etc/hosts"
+          }
+        ],
+        [
+          "get_weather",
+          {
+            "location": "San Francisco"
+          }
+        ]
+      ],
+      "final_response": "<answer>It is 18 C in San Francisco.</answer>"
+    },
+    "parallel": {
+      "trajectory_id": "1ae83f38-202d-4874-a802-ee255f49eb04",
+      "tool_call_count": 2,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [
+        [
+          "get_weather",
+          {
+            "location": "San Francisco"
+          }
+        ],
+        [
+          "get_weather",
+          {
+            "location": "New York"
+          }
+        ]
+      ],
+      "final_response": "<answer>SF 18 C, NY 22 C.</answer>"
+    },
+    "trial_1": {
+      "trajectory_id": "5c563b8e-7773-436e-a8f4-a7b98501362f",
+      "tool_call_count": 1,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [
+        [
+          "get_weather",
+          {
+            "location": "San Francisco"
+          }
+        ]
+      ],
+      "final_response": "<answer>It is 18 C in San Francisco.</answer>"
+    },
+    "trial_2": {
+      "trajectory_id": "ea23ee6f-57a7-493e-84b4-274bdb98cf99",
+      "tool_call_count": 1,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [
+        [
+          "get_weather",
+          {
+            "location": "San Francisco"
+          }
+        ]
+      ],
+      "final_response": "<answer>It is 18 C in San Francisco.</answer>"
+    },
+    "trial_3": {
+      "trajectory_id": "1c46c650-c036-4c7b-86c6-1452332691f6",
+      "tool_call_count": 0,
+      "tool_failure_count": 0,
+      "actual_tool_invocations": [],
+      "final_response": "<answer>It is probably 20 C.</answer>"
+    }
+  },
+  "raw_records_sample": [
+    {
+      "task": "What is the temperature in San Francisco right now, in C?",
+      "steps": [
+        {
+          "step_number": 0,
+          "state": "[turn=0, conv_len=3]",
+          "action": {
+            "tool_calls": [
+              {
+                "id": "d7361f806",
+                "name": "get_weather",
+                "arguments": {
+                  "location": "San Francisco"
+                }
+              }
+            ]
+          },
+          "observation": "{'get_weather': \"{'location': 'San Francisco', 'temp_c': 18}\"}",
+          "thought": "Let me check.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}}</tool_call>",
+          "reward": null
+        },
+        {
+          "step_number": 1,
+          "state": "[terminal, conv_len=4]",
+          "action": {},
+          "observation": "<answer>It is 18 C in San Francisco.</answer>",
+          "thought": "<answer>It is 18 C in San Francisco.</answer>",
+          "reward": null
+        }
+      ],
+      "reward": null,
+      "trajectory_id": "07d79d2a-7d40-40ca-8c8c-26661fce4c81",
+      "final_response": "<answer>It is 18 C in San Francisco.</answer>",
+      "metadata": {
+        "conversation": [
+          {
+            "role": "user",
+            "content": "What is the temperature in San Francisco right now, in C?"
+          },
+          {
+            "role": "assistant",
+            "content": "Let me check.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}}</tool_call>",
+            "tool_calls": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_weather",
+                  "arguments": "{\"location\": \"San Francisco\"}"
+                },
+                "id": "d7361f806"
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "name": "get_weather",
+            "content": "{'location': 'San Francisco', 'temp_c': 18}",
+            "tool_call_id": "d7361f806"
+          },
+          {
+            "role": "assistant",
+            "content": "<answer>It is 18 C in San Francisco.</answer>"
+          }
+        ],
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "retrieved_chunk_ids": [],
+        "answer": null
+      }
+    }
+  ],
+  "inspect_agenttune": {
+    "path": "/home/user/lexsi-explore/results/02_trajectories.jsonl",
+    "row_count": 10,
+    "formats": {
+      "agenttune_trajectory": 10
+    },
+    "coverage_labels": {
+      "full": 7,
+      "tool_names_only": 3
+    },
+    "eligible_metrics": [
+      "parallel_tool_calls",
+      "redundant_tool_calls",
+      "task_completion",
+      "tool_call_f1",
+      "tool_call_f1_name",
+      "tool_call_validity",
+      "trajectory_match"
+    ],
+    "coverage_sample": {
+      "final_answer": "observed",
+      "tool_call_names": "observed",
+      "tool_call_arguments": "observed",
+      "tool_results": "observed",
+      "call_result_pairing": "observed",
+      "parallel_grouping": "observed",
+      "timestamps": "unavailable",
+      "retrieved_contexts": "unavailable",
+      "final_state": "unavailable"
+    },
+    "n_tasks": 0
+  },
+  "episodes": [
+    {
+      "case_id": "good",
+      "source_id": "07d79d2a-7d40-40ca-8c8c-26661fce4c81",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 5,
+      "turns": [
+        [
+          {
+            "id": "d7361f806",
+            "name": "get_weather",
+            "arguments": {
+              "location": "San Francisco"
+            }
+          }
+        ]
+      ],
+      "final_answer": "It is 18 C in San Francisco."
+    },
+    {
+      "case_id": "malformed",
+      "source_id": "70511a0e-5ed3-4433-827b-49cf46d9d21f",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "unavailable",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "unavailable",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 2,
+      "turns": [],
+      "final_answer": "Sure.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}</tool_call>"
+    },
+    {
+      "case_id": "no_call",
+      "source_id": "ed0d2d21-ea03-4791-a12e-e76a229b6873",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "unavailable",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "unavailable",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 2,
+      "turns": [],
+      "final_answer": "It is probably 20 C."
+    },
+    {
+      "case_id": "loop",
+      "source_id": "a9c23652-dfe0-4494-9a91-ee279ba08f81",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 11,
+      "turns": [
+        [
+          {
+            "id": "8ae50dc63",
+            "name": "get_weather",
+            "arguments": {
+              "location": "San Francisco"
+            }
+          }
+        ],
+        [
+          {
+            "id": "e8ed2abbd",
+            "name": "get_weather",
+            "arguments": {
+              "location": "San Francisco"
+            }
+          }
+        ],
+        [
+          {
+            "id": "9e5d1cdfc",
+            "name": "get_weather",
+            "arguments": {
+              "location": "San Francisco"
+            }
+          }
+        ]
+      ],
+      "final_answer": "It is 18 C in San Francisco."
+    },
+    {
+      "case_id": "bad_args",
+      "source_id": "b76b4517-cdc8-4bdb-a3a0-4568f52aa2ff",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 5,
+      "turns": [
+        [
+          {
+            "id": "6cd21efaa",
+            "name": "get_weather",
+            "arguments": {
+              "city": "SF"
+            }
+          }
+        ]
+      ],
+      "final_answer": "I could not get it."
+    },
+    {
+      "case_id": "permission",
+      "source_id": "d403b309-1bad-4fab-83fb-691a777bbacc",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 8,
+      "turns": [
+        [
+          {
+            "id": "e0e82e055",
+            "name": "delete_file",
+            "arguments": {
+              "path": "/etc/hosts"
+            }
+          }
+        ],
+        [
+          {
+            "id": "75e90152c",
+            "name": "get_weather",
+            "arguments": {
+              "location": "San Francisco"
+            }
+          }
+        ]
+      ],
+      "final_answer": "It is 18 C in San Francisco."
+    },
+    {
+      "case_id": "parallel",
+      "source_id": "1ae83f38-202d-4874-a802-ee255f49eb04",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 6,
+      "turns": [
+        [
+          {
+            "id": "717ff49cb",
+            "name": "get_weather",
+            "arguments": {
+              "location": "San Francisco"
+            }
+          },
+          {
+            "id": "cacc2baf4",
+            "name": "get_weather",
+            "arguments": {
+              "location": "New York"
+            }
+          }
+        ]
+      ],
+      "final_answer": "SF 18 C, NY 22 C."
+    },
+    {
+      "case_id": "weather_trials",
+      "source_id": "5c563b8e-7773-436e-a8f4-a7b98501362f",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 5,
+      "turns": [
+        [
+          {
+            "id": "150f7bbf4",
+            "name": "get_weather",
+            "arguments": {
+              "location": "San Francisco"
+            }
+          }
+        ]
+      ],
+      "final_answer": "It is 18 C in San Francisco."
+    },
+    {
+      "case_id": "weather_trials",
+      "source_id": "ea23ee6f-57a7-493e-84b4-274bdb98cf99",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 5,
+      "turns": [
+        [
+          {
+            "id": "e7256d3d2",
+            "name": "get_weather",
+            "arguments": {
+              "location": "San Francisco"
+            }
+          }
+        ]
+      ],
+      "final_answer": "It is 18 C in San Francisco."
+    },
+    {
+      "case_id": "weather_trials",
+      "source_id": "1c46c650-c036-4c7b-86c6-1452332691f6",
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "unavailable",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "unavailable",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "n_events": 2,
+      "turns": [],
+      "final_answer": "It is probably 20 C."
+    }
+  ],
+  "auditkit_single": {
+    "good": {
+      "case_id": "good",
+      "status": "completed",
+      "outcome": {
+        "verdict": "success",
+        "reason": "answer contains match: True",
+        "evidence": {
+          "answer": "It is 18 C in San Francisco.",
+          "reference": "18"
+        },
+        "source": {
+          "type": "answer_assertion",
+          "version": "1",
+          "mode": "contains",
+          "reference": "18"
+        },
+        "diagnostic": false
+      },
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "coverage_label": "full",
+      "diagnostics": {
+        "tool_call_precision": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_expected": 1,
+            "n_predicted": 1,
+            "n_matched": 1,
+            "predicted": [
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "location": "San Francisco"
+                },
+                "id": "d7361f806"
+              }
+            ]
+          }
+        },
+        "tool_call_recall": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_f1": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_exact": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_validity": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 1,
+            "n_invalid": 0
+          }
+        },
+        "redundant_tool_calls": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 1,
+            "n_duplicates": 0
+          }
+        },
+        "tool_permission": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 1,
+            "n_violations": 0,
+            "allowlist": [
+              "get_weather"
+            ],
+            "denylist": []
+          }
+        },
+        "agent_loop_detection": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "looped": false,
+            "signals": [],
+            "max_repeat": 1,
+            "n_calls": 1
+          }
+        }
+      },
+      "ineligible": {
+        "task_completion": "spec.judge"
+      },
+      "resource_use": {
+        "latency_ms": null,
+        "tokens": null,
+        "n_tool_calls": 1,
+        "agent_call": false
+      },
+      "provenance": {
+        "source_reward": null,
+        "source_verdict": null,
+        "source_scores": null
+      },
+      "judge": null,
+      "stop_reason": null,
+      "errors": [],
+      "source_format": "agenttune_trajectory",
+      "source_id": "07d79d2a-7d40-40ca-8c8c-26661fce4c81",
+      "reliability": {},
+      "trials": [],
+      "disagreement": {}
+    },
+    "malformed": {
+      "case_id": "malformed",
+      "status": "completed",
+      "outcome": {
+        "verdict": "failure",
+        "reason": "answer contains match: False",
+        "evidence": {
+          "answer": "Sure.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}</tool_call>",
+          "reference": "18"
+        },
+        "source": {
+          "type": "answer_assertion",
+          "version": "1",
+          "mode": "contains",
+          "reference": "18"
+        },
+        "diagnostic": false
+      },
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "unavailable",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "unavailable",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "coverage_label": "tool_names_only",
+      "diagnostics": {
+        "tool_call_precision": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {
+            "n_expected": 1,
+            "n_predicted": 0,
+            "n_matched": 0,
+            "predicted": []
+          }
+        },
+        "tool_call_recall": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_f1": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_exact": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        }
+      },
+      "ineligible": {
+        "tool_call_validity": "trace.tool_calls",
+        "redundant_tool_calls": "trace.tool_calls",
+        "tool_permission": "trace.tool_calls",
+        "agent_loop_detection": "trace.tool_calls",
+        "task_completion": "spec.judge"
+      },
+      "resource_use": {
+        "latency_ms": null,
+        "tokens": null,
+        "n_tool_calls": 0,
+        "agent_call": false
+      },
+      "provenance": {
+        "source_reward": null,
+        "source_verdict": null,
+        "source_scores": null
+      },
+      "judge": null,
+      "stop_reason": null,
+      "errors": [],
+      "source_format": "agenttune_trajectory",
+      "source_id": "70511a0e-5ed3-4433-827b-49cf46d9d21f",
+      "reliability": {},
+      "trials": [],
+      "disagreement": {}
+    },
+    "no_call": {
+      "case_id": "no_call",
+      "status": "completed",
+      "outcome": {
+        "verdict": "failure",
+        "reason": "answer contains match: False",
+        "evidence": {
+          "answer": "It is probably 20 C.",
+          "reference": "18"
+        },
+        "source": {
+          "type": "answer_assertion",
+          "version": "1",
+          "mode": "contains",
+          "reference": "18"
+        },
+        "diagnostic": false
+      },
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "unavailable",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "unavailable",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "coverage_label": "tool_names_only",
+      "diagnostics": {
+        "tool_call_precision": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {
+            "n_expected": 1,
+            "n_predicted": 0,
+            "n_matched": 0,
+            "predicted": []
+          }
+        },
+        "tool_call_recall": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_f1": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_exact": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        }
+      },
+      "ineligible": {
+        "tool_call_validity": "trace.tool_calls",
+        "redundant_tool_calls": "trace.tool_calls",
+        "tool_permission": "trace.tool_calls",
+        "agent_loop_detection": "trace.tool_calls",
+        "task_completion": "spec.judge"
+      },
+      "resource_use": {
+        "latency_ms": null,
+        "tokens": null,
+        "n_tool_calls": 0,
+        "agent_call": false
+      },
+      "provenance": {
+        "source_reward": null,
+        "source_verdict": null,
+        "source_scores": null
+      },
+      "judge": null,
+      "stop_reason": null,
+      "errors": [],
+      "source_format": "agenttune_trajectory",
+      "source_id": "ed0d2d21-ea03-4791-a12e-e76a229b6873",
+      "reliability": {},
+      "trials": [],
+      "disagreement": {}
+    },
+    "loop": {
+      "case_id": "loop",
+      "status": "completed",
+      "outcome": {
+        "verdict": "success",
+        "reason": "answer contains match: True",
+        "evidence": {
+          "answer": "It is 18 C in San Francisco.",
+          "reference": "18"
+        },
+        "source": {
+          "type": "answer_assertion",
+          "version": "1",
+          "mode": "contains",
+          "reference": "18"
+        },
+        "diagnostic": false
+      },
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "coverage_label": "full",
+      "diagnostics": {
+        "tool_call_precision": {
+          "value": 0.3333333333333333,
+          "reason": null,
+          "metadata": {
+            "n_expected": 1,
+            "n_predicted": 3,
+            "n_matched": 1,
+            "predicted": [
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "location": "San Francisco"
+                },
+                "id": "8ae50dc63"
+              },
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "location": "San Francisco"
+                },
+                "id": "e8ed2abbd"
+              },
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "location": "San Francisco"
+                },
+                "id": "9e5d1cdfc"
+              }
+            ]
+          }
+        },
+        "tool_call_recall": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_f1": {
+          "value": 0.5,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_exact": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_validity": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 3,
+            "n_invalid": 0
+          }
+        },
+        "redundant_tool_calls": {
+          "value": 0.6666666666666666,
+          "reason": null,
+          "metadata": {
+            "n_calls": 3,
+            "n_duplicates": 2
+          }
+        },
+        "tool_permission": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 3,
+            "n_violations": 0,
+            "allowlist": [
+              "get_weather"
+            ],
+            "denylist": []
+          }
+        },
+        "agent_loop_detection": {
+          "value": 0.0,
+          "reason": "repeated call 'get_weather' x3; reasoning stagnation (similarity 1.00)",
+          "metadata": {
+            "looped": true,
+            "signals": [
+              "repeated call 'get_weather' x3",
+              "reasoning stagnation (similarity 1.00)"
+            ],
+            "max_repeat": 3,
+            "n_calls": 3
+          }
+        }
+      },
+      "ineligible": {
+        "task_completion": "spec.judge"
+      },
+      "resource_use": {
+        "latency_ms": null,
+        "tokens": null,
+        "n_tool_calls": 3,
+        "agent_call": false
+      },
+      "provenance": {
+        "source_reward": null,
+        "source_verdict": null,
+        "source_scores": null
+      },
+      "judge": null,
+      "stop_reason": null,
+      "errors": [],
+      "source_format": "agenttune_trajectory",
+      "source_id": "a9c23652-dfe0-4494-9a91-ee279ba08f81",
+      "reliability": {},
+      "trials": [],
+      "disagreement": {}
+    },
+    "bad_args": {
+      "case_id": "bad_args",
+      "status": "completed",
+      "outcome": {
+        "verdict": "failure",
+        "reason": "answer contains match: False",
+        "evidence": {
+          "answer": "I could not get it.",
+          "reference": "18"
+        },
+        "source": {
+          "type": "answer_assertion",
+          "version": "1",
+          "mode": "contains",
+          "reference": "18"
+        },
+        "diagnostic": false
+      },
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "coverage_label": "full",
+      "diagnostics": {
+        "tool_call_precision": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {
+            "n_expected": 1,
+            "n_predicted": 1,
+            "n_matched": 0,
+            "predicted": [
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "city": "SF"
+                },
+                "id": "6cd21efaa"
+              }
+            ]
+          }
+        },
+        "tool_call_recall": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_f1": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_exact": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_validity": {
+          "value": 0.0,
+          "reason": "get_weather: missing required argument 'location', unknown argument 'city'",
+          "metadata": {
+            "n_calls": 1,
+            "n_invalid": 1
+          }
+        },
+        "redundant_tool_calls": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 1,
+            "n_duplicates": 0
+          }
+        },
+        "tool_permission": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 1,
+            "n_violations": 0,
+            "allowlist": [
+              "get_weather"
+            ],
+            "denylist": []
+          }
+        },
+        "agent_loop_detection": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "looped": false,
+            "signals": [],
+            "max_repeat": 1,
+            "n_calls": 1
+          }
+        }
+      },
+      "ineligible": {
+        "task_completion": "spec.judge"
+      },
+      "resource_use": {
+        "latency_ms": null,
+        "tokens": null,
+        "n_tool_calls": 1,
+        "agent_call": false
+      },
+      "provenance": {
+        "source_reward": null,
+        "source_verdict": null,
+        "source_scores": null
+      },
+      "judge": null,
+      "stop_reason": null,
+      "errors": [],
+      "source_format": "agenttune_trajectory",
+      "source_id": "b76b4517-cdc8-4bdb-a3a0-4568f52aa2ff",
+      "reliability": {},
+      "trials": [],
+      "disagreement": {}
+    },
+    "permission": {
+      "case_id": "permission",
+      "status": "completed",
+      "outcome": {
+        "verdict": "success",
+        "reason": "answer contains match: True",
+        "evidence": {
+          "answer": "It is 18 C in San Francisco.",
+          "reference": "18"
+        },
+        "source": {
+          "type": "answer_assertion",
+          "version": "1",
+          "mode": "contains",
+          "reference": "18"
+        },
+        "diagnostic": false
+      },
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "coverage_label": "full",
+      "diagnostics": {
+        "tool_call_precision": {
+          "value": 0.5,
+          "reason": null,
+          "metadata": {
+            "n_expected": 1,
+            "n_predicted": 2,
+            "n_matched": 1,
+            "predicted": [
+              {
+                "name": "delete_file",
+                "arguments": {
+                  "path": "/etc/hosts"
+                },
+                "id": "e0e82e055"
+              },
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "location": "San Francisco"
+                },
+                "id": "75e90152c"
+              }
+            ]
+          }
+        },
+        "tool_call_recall": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_f1": {
+          "value": 0.6666666666666666,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_exact": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_validity": {
+          "value": 0.5,
+          "reason": "delete_file: unknown tool 'delete_file'",
+          "metadata": {
+            "n_calls": 2,
+            "n_invalid": 1
+          }
+        },
+        "redundant_tool_calls": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 2,
+            "n_duplicates": 0
+          }
+        },
+        "tool_permission": {
+          "value": 0.5,
+          "reason": "delete_file: not in allowlist",
+          "metadata": {
+            "n_calls": 2,
+            "n_violations": 1,
+            "allowlist": [
+              "get_weather"
+            ],
+            "denylist": []
+          }
+        },
+        "agent_loop_detection": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "looped": false,
+            "signals": [],
+            "max_repeat": 1,
+            "n_calls": 2
+          }
+        }
+      },
+      "ineligible": {
+        "task_completion": "spec.judge"
+      },
+      "resource_use": {
+        "latency_ms": null,
+        "tokens": null,
+        "n_tool_calls": 2,
+        "agent_call": false
+      },
+      "provenance": {
+        "source_reward": null,
+        "source_verdict": null,
+        "source_scores": null
+      },
+      "judge": null,
+      "stop_reason": null,
+      "errors": [],
+      "source_format": "agenttune_trajectory",
+      "source_id": "d403b309-1bad-4fab-83fb-691a777bbacc",
+      "reliability": {},
+      "trials": [],
+      "disagreement": {}
+    },
+    "parallel": {
+      "case_id": "parallel",
+      "status": "completed",
+      "outcome": {
+        "verdict": "success",
+        "reason": "answer contains match: True",
+        "evidence": {
+          "answer": "SF 18 C, NY 22 C.",
+          "reference": "22"
+        },
+        "source": {
+          "type": "answer_assertion",
+          "version": "1",
+          "mode": "contains",
+          "reference": "22"
+        },
+        "diagnostic": false
+      },
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "coverage_label": "full",
+      "diagnostics": {
+        "tool_call_precision": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_expected": 2,
+            "n_predicted": 2,
+            "n_matched": 2,
+            "predicted": [
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "location": "San Francisco"
+                },
+                "id": "717ff49cb"
+              },
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "location": "New York"
+                },
+                "id": "cacc2baf4"
+              }
+            ]
+          }
+        },
+        "tool_call_recall": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_f1": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_exact": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_validity": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 2,
+            "n_invalid": 0
+          }
+        },
+        "redundant_tool_calls": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 2,
+            "n_duplicates": 0
+          }
+        },
+        "tool_permission": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 2,
+            "n_violations": 0,
+            "allowlist": [
+              "get_weather"
+            ],
+            "denylist": []
+          }
+        },
+        "agent_loop_detection": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "looped": false,
+            "signals": [],
+            "max_repeat": 1,
+            "n_calls": 2
+          }
+        }
+      },
+      "ineligible": {
+        "task_completion": "spec.judge"
+      },
+      "resource_use": {
+        "latency_ms": null,
+        "tokens": null,
+        "n_tool_calls": 2,
+        "agent_call": false
+      },
+      "provenance": {
+        "source_reward": null,
+        "source_verdict": null,
+        "source_scores": null
+      },
+      "judge": null,
+      "stop_reason": null,
+      "errors": [],
+      "source_format": "agenttune_trajectory",
+      "source_id": "1ae83f38-202d-4874-a802-ee255f49eb04",
+      "reliability": {},
+      "trials": [],
+      "disagreement": {}
+    }
+  },
+  "auditkit_trials": [
+    {
+      "case_id": "weather_trials",
+      "status": "completed",
+      "outcome": {
+        "verdict": "success",
+        "reason": "2/3 decided trials succeeded (aggregate=success)",
+        "source": {
+          "type": "trial_aggregate",
+          "n_trials": 3
+        },
+        "diagnostic": false,
+        "aggregate": true
+      },
+      "coverage": {
+        "final_answer": "observed",
+        "tool_call_names": "observed",
+        "tool_call_arguments": "observed",
+        "tool_results": "observed",
+        "call_result_pairing": "observed",
+        "parallel_grouping": "observed",
+        "timestamps": "unavailable",
+        "retrieved_contexts": "unavailable",
+        "final_state": "unavailable"
+      },
+      "coverage_label": "full",
+      "diagnostics": {
+        "tool_call_precision": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_expected": 1,
+            "n_predicted": 1,
+            "n_matched": 1,
+            "predicted": [
+              {
+                "name": "get_weather",
+                "arguments": {
+                  "location": "San Francisco"
+                },
+                "id": "150f7bbf4"
+              }
+            ]
+          }
+        },
+        "tool_call_recall": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_f1": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_exact": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {}
+        },
+        "tool_call_validity": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 1,
+            "n_invalid": 0
+          }
+        },
+        "redundant_tool_calls": {
+          "value": 0.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 1,
+            "n_duplicates": 0
+          }
+        },
+        "tool_permission": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "n_calls": 1,
+            "n_violations": 0,
+            "allowlist": [
+              "get_weather"
+            ],
+            "denylist": []
+          }
+        },
+        "agent_loop_detection": {
+          "value": 1.0,
+          "reason": null,
+          "metadata": {
+            "looped": false,
+            "signals": [],
+            "max_repeat": 1,
+            "n_calls": 1
+          }
+        }
+      },
+      "ineligible": {
+        "task_completion": "spec.judge"
+      },
+      "resource_use": {
+        "latency_ms": null,
+        "tokens": null,
+        "n_tool_calls": 1,
+        "agent_call": false,
+        "n_trials": 3
+      },
+      "provenance": {
+        "source_reward": null,
+        "source_verdict": null,
+        "source_scores": null
+      },
+      "judge": null,
+      "stop_reason": null,
+      "errors": [],
+      "source_format": "agenttune_trajectory",
+      "source_id": "5c563b8e-7773-436e-a8f4-a7b98501362f",
+      "reliability": {
+        "n_trials": 3,
+        "n_trials_requested": 3,
+        "n_success": 2,
+        "n_failure": 1,
+        "n_unknown": 0,
+        "n_error": 0,
+        "n_decided": 3,
+        "independent": false,
+        "k": 3,
+        "pass_at_k": 1.0,
+        "all_k": 0.0,
+        "success_rate": 0.6666666666666666,
+        "consistency": 0.6666666666666666,
+        "variance": 0.22222222222222224,
+        "status": "mixed",
+        "reason": "2/3 decided trials succeeded",
+        "flags": [
+          "independence unconfirmed (no reset-per-trial contract); counts shown, the estimators are not an independence-backed reliability claim"
+        ]
+      },
+      "trials": [
+        {
+          "trial_id": null,
+          "verdict": "success",
+          "status": "completed",
+          "judge_verdict": null,
+          "disagreement": {}
+        },
+        {
+          "trial_id": null,
+          "verdict": "success",
+          "status": "completed",
+          "judge_verdict": null,
+          "disagreement": {}
+        },
+        {
+          "trial_id": null,
+          "verdict": "failure",
+          "status": "completed",
+          "judge_verdict": null,
+          "disagreement": {}
+        }
+      ],
+      "disagreement": {}
+    }
+  ],
+  "reliability_direct": {
+    "verdicts": [
+      "success",
+      "success",
+      "failure"
+    ],
+    "n_trials": 3,
+    "n_trials_requested": 3,
+    "n_success": 2,
+    "n_failure": 1,
+    "n_unknown": 0,
+    "n_error": 0,
+    "n_decided": 3,
+    "independent": false,
+    "k": 2,
+    "pass_at_k": 1.0,
+    "all_k": 0.3333333333333333,
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
+    "flags": [
+      "independence unconfirmed (no reset-per-trial contract); counts shown, the estimators are not an independence-backed reliability claim"
+    ]
+  },
+  "roundtrip_check": {
+    "record": "good",
+    "to_trl_format_roles": [
+      "assistant",
+      "assistant"
+    ],
+    "to_trl_format_has_tool_calls": false,
+    "to_trl_format_has_tool_role": false
+  },
+  "double_invocation_check": {
+    "invocations": 2,
+    "result": [
+      [
+        "charge_card",
+        {
+          "error": "can only concatenate str (not \"int\") to str"
+        }
+      ]
+    ]
+  },
+  "env": {
+    "python": "3.13.16",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+    "packages": {
+      "agenttune": "1.1.3",
+      "auditkit": "1.1.3"
+    }
+  }
+}

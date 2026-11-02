@@ -1,0 +1,282 @@
+{
+  "model": {
+    "kind": "randomly initialised LlamaForCausalLM (Hub blocked; see docstring)",
+    "parameters": 90368,
+    "vocab_size": 127
+  },
+  "steps_requested": 20,
+  "global_step": 20,
+  "seconds": 12.9,
+  "error": null,
+  "device": "cpu",
+  "tensors_changed": "21/21",
+  "trajectories_written": 80,
+  "reward_calls": {
+    "audit_tool_validity_reward": {
+      "n_calls": 20,
+      "kwargs_seen": [
+        "completion_ids",
+        "conversations",
+        "expected_tool_calls",
+        "log_extra",
+        "log_metric",
+        "queries",
+        "responses",
+        "retrieved_chunk_ids",
+        "rewards",
+        "tool_call_counts",
+        "tools_used",
+        "trainer_state",
+        "trajectories"
+      ],
+      "score_values": [
+        0.0,
+        0.5
+      ]
+    },
+    "audit_tool_f1_reward": {
+      "n_calls": 20,
+      "kwargs_seen": [
+        "completion_ids",
+        "conversations",
+        "expected_tool_calls",
+        "log_extra",
+        "log_metric",
+        "queries",
+        "responses",
+        "retrieved_chunk_ids",
+        "rewards",
+        "tool_call_counts",
+        "tools_used",
+        "trainer_state",
+        "trajectories"
+      ],
+      "score_values": [
+        0.0
+      ]
+    },
+    "audit_tool_permission_penalty": {
+      "n_calls": 20,
+      "kwargs_seen": [
+        "completion_ids",
+        "conversations",
+        "expected_tool_calls",
+        "log_extra",
+        "log_metric",
+        "queries",
+        "responses",
+        "retrieved_chunk_ids",
+        "rewards",
+        "tool_call_counts",
+        "tools_used",
+        "trainer_state",
+        "trajectories"
+      ],
+      "score_values": [
+        0.0
+      ]
+    },
+    "audit_confirm_irreversible_penalty": {
+      "n_calls": 20,
+      "kwargs_seen": [
+        "completion_ids",
+        "conversations",
+        "expected_tool_calls",
+        "log_extra",
+        "log_metric",
+        "queries",
+        "responses",
+        "retrieved_chunk_ids",
+        "rewards",
+        "tool_call_counts",
+        "tools_used",
+        "trainer_state",
+        "trajectories"
+      ],
+      "score_values": [
+        0.0
+      ]
+    },
+    "audit_redundant_calls_penalty": {
+      "n_calls": 20,
+      "kwargs_seen": [
+        "completion_ids",
+        "conversations",
+        "expected_tool_calls",
+        "log_extra",
+        "log_metric",
+        "queries",
+        "responses",
+        "retrieved_chunk_ids",
+        "rewards",
+        "tool_call_counts",
+        "tools_used",
+        "trainer_state",
+        "trajectories"
+      ],
+      "score_values": [
+        0.0
+      ]
+    }
+  },
+  "validity_score_counts": {
+    "0.0": 3,
+    "0.5": 77
+  },
+  "log_history": [
+    {
+      "step": 1,
+      "loss": 0.339144766330719,
+      "reward": 0.0882352963089943,
+      "reward_std": 0.05882352963089943,
+      "grad_norm": 0.599043607711792
+    },
+    {
+      "step": 2,
+      "loss": 0.3775743246078491,
+      "reward": 0.0882352963089943,
+      "reward_std": 0.05882352963089943,
+      "grad_norm": 0.4818631708621979
+    },
+    {
+      "step": 3,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 4,
+      "loss": 0.335549920797348,
+      "reward": 0.0882352963089943,
+      "reward_std": 0.05882352963089943,
+      "grad_norm": 0.49701520800590515
+    },
+    {
+      "step": 5,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 6,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 7,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 8,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 9,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 10,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 11,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 12,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 13,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 14,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 15,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 16,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 17,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 18,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 19,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 20,
+      "loss": 0.0,
+      "reward": 0.11764705926179886,
+      "reward_std": 0.0,
+      "grad_norm": 0.0
+    },
+    {
+      "step": 20
+    }
+  ],
+  "env": {
+    "python": "3.13.16",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "torch": "2.14.1+cu130",
+    "cuda_available": false,
+    "threads": 4,
+    "trl": "1.7.1",
+    "transformers": "5.20.1",
+    "agenttune": "1.1.1.dev5",
+    "auditkit": "1.1.3"
+  }
+}

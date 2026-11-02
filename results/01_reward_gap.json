@@ -1,0 +1,989 @@
+{
+  "scenarios": {
+    "notebook_text": {
+      "inputs": {
+        "prompts": [
+          "System: You are an agent.\nUser: what is the weather in SF?",
+          "System: You are an agent.\nUser: what is the weather in SF?",
+          "System: You are an agent.\nUser: tell me a joke"
+        ],
+        "completions": [
+          "Let me check that for you.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}}</tool_call>",
+          "Sure.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}</tool_call>",
+          "I don't know how to check the weather."
+        ],
+        "tool_call_counts": [
+          1,
+          0,
+          0
+        ]
+      },
+      "rewards": {
+        "correctness_reward": {
+          "scores": [],
+          "seconds": 0.0,
+          "verdict": "SHORT"
+        },
+        "structure_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "query_reward": {
+          "scores": [],
+          "seconds": 0.0,
+          "verdict": "SHORT"
+        },
+        "reward_correct_answer": {
+          "scores": [],
+          "seconds": 0.0,
+          "verdict": "SHORT"
+        },
+        "reward_tool_used": {
+          "scores": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "reward_concise_answer": {
+          "scores": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "format_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "search_grounding_reward": {
+          "scores": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "message_id_citation_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "answer_format_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "answer_correctness_reward": {
+          "scores": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "placeholder_coverage_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "template_structure_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "computation_reward": {
+          "scores": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "numerical_match_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "exploration_reward": {
+          "scores": [
+            0.1,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "hybrid_prm_reward": {
+          "scores": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "seconds": 5.4,
+          "verdict": "INVERTED"
+        },
+        "distilled_judge_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.004,
+          "verdict": "identical"
+        },
+        "tool_chain_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "summary_written_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "sql_format_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.001,
+          "verdict": "identical"
+        },
+        "finqa_format_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_sql_grounding_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_calculator_grounding_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_placeholder_coverage_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.001,
+          "verdict": "identical"
+        },
+        "finqa_answer_correctness_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "combine_rewards(RAG default)": {
+          "scores": [
+            0.3181818181818182,
+            0.22727272727272727,
+            0.22727272727272727
+          ],
+          "seconds": 0.001,
+          "verdict": "correct>both"
+        }
+      }
+    },
+    "controlled_text": {
+      "inputs": {
+        "prompts": [
+          "System: You are an agent.\nUser: what is the weather in SF?",
+          "System: You are an agent.\nUser: what is the weather in SF?",
+          "System: You are an agent.\nUser: what is the weather in SF?"
+        ],
+        "completions": [
+          "Let me check that for you.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}}</tool_call>\n{\"location\": \"San Francisco\", \"temp_c\": 18}\n<answer>It is 18 degrees C in San Francisco.</answer>",
+          "Sure.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}</tool_call>\n<answer>It is 18 degrees C in San Francisco.</answer>",
+          "<answer>It is 18 degrees C in San Francisco.</answer>"
+        ],
+        "answer": [
+          "18",
+          "18",
+          "18"
+        ],
+        "tool_call_counts": [
+          1,
+          0,
+          0
+        ]
+      },
+      "rewards": {
+        "correctness_reward": {
+          "scores": [
+            -0.5,
+            -0.5,
+            -0.5
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "structure_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "query_reward": {
+          "scores": [
+            -1.5,
+            -1.5,
+            -1.5
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "reward_correct_answer": {
+          "scores": [
+            1.5,
+            1.5,
+            1.5
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "reward_tool_used": {
+          "scores": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "reward_concise_answer": {
+          "scores": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "format_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "search_grounding_reward": {
+          "scores": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "message_id_citation_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "answer_format_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "answer_correctness_reward": {
+          "scores": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "placeholder_coverage_reward": {
+          "scores": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "template_structure_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "computation_reward": {
+          "scores": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "numerical_match_reward": {
+          "scores": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "exploration_reward": {
+          "scores": [
+            0.1,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "hybrid_prm_reward": {
+          "scores": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "seconds": 0.015,
+          "verdict": "INVERTED"
+        },
+        "distilled_judge_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "tool_chain_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "summary_written_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "sql_format_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_format_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_sql_grounding_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_calculator_grounding_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_placeholder_coverage_reward": {
+          "scores": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "seconds": 0.001,
+          "verdict": "identical"
+        },
+        "finqa_answer_correctness_reward": {
+          "scores": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "combine_rewards(RAG default)": {
+          "scores": [
+            0.32727272727272727,
+            0.23636363636363636,
+            0.23636363636363636
+          ],
+          "seconds": 0.001,
+          "verdict": "correct>both"
+        }
+      }
+    },
+    "controlled_messages": {
+      "inputs": {
+        "prompts": [
+          "System: You are an agent.\nUser: what is the weather in SF?",
+          "System: You are an agent.\nUser: what is the weather in SF?",
+          "System: You are an agent.\nUser: what is the weather in SF?"
+        ],
+        "completions": [
+          [
+            {
+              "role": "user",
+              "content": "what is the weather in SF?"
+            },
+            {
+              "role": "assistant",
+              "content": "Let me check that for you.",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "function": {
+                    "name": "get_weather",
+                    "arguments": "{\"location\": \"San Francisco\"}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "content": "{\"location\": \"San Francisco\", \"temp_c\": 18}"
+            },
+            {
+              "role": "assistant",
+              "content": "<answer>It is 18 degrees C in San Francisco.</answer>"
+            }
+          ],
+          [
+            {
+              "role": "user",
+              "content": "what is the weather in SF?"
+            },
+            {
+              "role": "assistant",
+              "content": "Sure.\n<tool_call>{\"name\": \"get_weather\", \"arguments\": {\"location\": \"San Francisco\"}</tool_call>\n<answer>It is 18 degrees C in San Francisco.</answer>"
+            }
+          ],
+          [
+            {
+              "role": "user",
+              "content": "what is the weather in SF?"
+            },
+            {
+              "role": "assistant",
+              "content": "<answer>It is 18 degrees C in San Francisco.</answer>"
+            }
+          ]
+        ],
+        "answer": [
+          "18",
+          "18",
+          "18"
+        ],
+        "tool_call_counts": [
+          1,
+          0,
+          0
+        ]
+      },
+      "rewards": {
+        "correctness_reward": {
+          "scores": [
+            -0.5,
+            -0.5,
+            -0.5
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "structure_reward": {
+          "scores": [
+            0.1,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "query_reward": {
+          "scores": null,
+          "error": "AttributeError: 'str' object has no attribute 'get'",
+          "seconds": 0.0,
+          "verdict": "ERROR"
+        },
+        "reward_correct_answer": {
+          "scores": [
+            1.5,
+            1.5,
+            1.5
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "reward_tool_used": {
+          "scores": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "reward_concise_answer": {
+          "scores": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "format_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "search_grounding_reward": {
+          "scores": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "message_id_citation_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "answer_format_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "answer_correctness_reward": {
+          "scores": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "placeholder_coverage_reward": {
+          "scores": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "template_structure_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "computation_reward": {
+          "scores": [
+            0.2,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "numerical_match_reward": {
+          "scores": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "exploration_reward": {
+          "scores": [
+            0.1,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "correct>both"
+        },
+        "hybrid_prm_reward": {
+          "scores": null,
+          "error": "TypeError: expected string or bytes-like object, got 'list'",
+          "seconds": 0.0,
+          "verdict": "ERROR"
+        },
+        "distilled_judge_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "tool_chain_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "summary_written_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "sql_format_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_format_reward": {
+          "scores": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_sql_grounding_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_calculator_grounding_reward": {
+          "scores": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "seconds": 0.001,
+          "verdict": "identical"
+        },
+        "finqa_placeholder_coverage_reward": {
+          "scores": [
+            0.4,
+            0.4,
+            0.4
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "finqa_answer_correctness_reward": {
+          "scores": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "seconds": 0.0,
+          "verdict": "identical"
+        },
+        "combine_rewards(RAG default)": {
+          "scores": [
+            0.32727272727272727,
+            0.23636363636363636,
+            0.23636363636363636
+          ],
+          "seconds": 0.001,
+          "verdict": "correct>both"
+        }
+      }
+    }
+  },
+  "notes": {
+    "hybrid_prm_inside_running_event_loop": {
+      "scores": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "seconds": 0.003,
+      "verdict": "identical"
+    },
+    "parsed_tool_calls": {
+      "correct": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_weather",
+            "arguments": "{\"location\": \"San Francisco\"}"
+          }
+        }
+      ],
+      "malformed": null,
+      "no_call": null
+    }
+  },
+  "summary": {
+    "notebook_text": {
+      "SHORT": [
+        "correctness_reward",
+        "query_reward",
+        "reward_correct_answer"
+      ],
+      "identical": [
+        "structure_reward",
+        "reward_concise_answer",
+        "format_reward",
+        "message_id_citation_reward",
+        "answer_format_reward",
+        "answer_correctness_reward",
+        "placeholder_coverage_reward",
+        "template_structure_reward",
+        "numerical_match_reward",
+        "distilled_judge_reward",
+        "tool_chain_reward",
+        "summary_written_reward",
+        "sql_format_reward",
+        "finqa_format_reward",
+        "finqa_sql_grounding_reward",
+        "finqa_calculator_grounding_reward",
+        "finqa_placeholder_coverage_reward",
+        "finqa_answer_correctness_reward"
+      ],
+      "correct>both": [
+        "reward_tool_used",
+        "search_grounding_reward",
+        "computation_reward",
+        "exploration_reward",
+        "combine_rewards(RAG default)"
+      ],
+      "INVERTED": [
+        "hybrid_prm_reward"
+      ]
+    },
+    "controlled_text": {
+      "identical": [
+        "correctness_reward",
+        "structure_reward",
+        "query_reward",
+        "reward_correct_answer",
+        "reward_concise_answer",
+        "format_reward",
+        "message_id_citation_reward",
+        "answer_format_reward",
+        "answer_correctness_reward",
+        "placeholder_coverage_reward",
+        "template_structure_reward",
+        "numerical_match_reward",
+        "distilled_judge_reward",
+        "tool_chain_reward",
+        "summary_written_reward",
+        "sql_format_reward",
+        "finqa_format_reward",
+        "finqa_sql_grounding_reward",
+        "finqa_calculator_grounding_reward",
+        "finqa_placeholder_coverage_reward",
+        "finqa_answer_correctness_reward"
+      ],
+      "correct>both": [
+        "reward_tool_used",
+        "search_grounding_reward",
+        "computation_reward",
+        "exploration_reward",
+        "combine_rewards(RAG default)"
+      ],
+      "INVERTED": [
+        "hybrid_prm_reward"
+      ]
+    },
+    "controlled_messages": {
+      "identical": [
+        "correctness_reward",
+        "reward_correct_answer",
+        "reward_concise_answer",
+        "format_reward",
+        "message_id_citation_reward",
+        "answer_format_reward",
+        "answer_correctness_reward",
+        "placeholder_coverage_reward",
+        "template_structure_reward",
+        "numerical_match_reward",
+        "distilled_judge_reward",
+        "tool_chain_reward",
+        "summary_written_reward",
+        "sql_format_reward",
+        "finqa_format_reward",
+        "finqa_sql_grounding_reward",
+        "finqa_calculator_grounding_reward",
+        "finqa_placeholder_coverage_reward",
+        "finqa_answer_correctness_reward"
+      ],
+      "correct>both": [
+        "structure_reward",
+        "reward_tool_used",
+        "search_grounding_reward",
+        "computation_reward",
+        "exploration_reward",
+        "combine_rewards(RAG default)"
+      ],
+      "ERROR": [
+        "query_reward",
+        "hybrid_prm_reward"
+      ]
+    },
+    "documented_gap": {
+      "claim": "hybrid_prm_reward scores well-formed, malformed and missing tool calls identically (1.0)",
+      "source": "docs/features.md:63-65, docs/notebooks/local-notebook.md:102-107",
+      "observed_hybrid_prm_notebook_inputs": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "identical": false,
+      "all_one": false
+    }
+  },
+  "env": {
+    "python": "3.13.16",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+    "packages": {
+      "agenttune": "1.1.3",
+      "auditkit": "1.1.3",
+      "litellm": "1.105.1",
+      "torch": "2.14.1",
+      "transformers": "5.20.0",
+      "trl": "1.7.1"
+    }
+  }
+}

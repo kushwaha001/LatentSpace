@@ -1,0 +1,4670 @@
+{
+  "experiment_01": {
+    "notebook_text": {
+      "agenttune:correctness_reward": {
+        "scores": [],
+        "error": "returned 0 scores for 3 completions",
+        "seconds": 0.0,
+        "verdict": "error"
+      },
+      "agenttune:structure_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:query_reward": {
+        "scores": [],
+        "error": "returned 0 scores for 3 completions",
+        "seconds": 0.0,
+        "verdict": "error"
+      },
+      "agenttune:reward_correct_answer": {
+        "scores": [],
+        "error": "returned 0 scores for 3 completions",
+        "seconds": 0.0,
+        "verdict": "error"
+      },
+      "agenttune:reward_tool_used": {
+        "scores": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:reward_concise_answer": {
+        "scores": [
+          0.3,
+          0.3,
+          0.3
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:format_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:search_grounding_reward": {
+        "scores": [
+          0.2,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:message_id_citation_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:answer_format_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:answer_correctness_reward": {
+        "scores": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:placeholder_coverage_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:template_structure_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:computation_reward": {
+        "scores": [
+          0.2,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:numerical_match_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:exploration_reward": {
+        "scores": [
+          0.1,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:hybrid_prm_reward": {
+        "scores": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 3.336,
+        "verdict": "INVERTED"
+      },
+      "agenttune:distilled_judge_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdict": "identical"
+      },
+      "agenttune:tool_chain_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:summary_written_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:sql_format_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_format_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_sql_grounding_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_calculator_grounding_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_placeholder_coverage_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.001,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_answer_correctness_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:combine_rewards(RAG default)": {
+        "scores": [
+          0.3182,
+          0.2273,
+          0.2273
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "adapter:audit_tool_validity_reward": {
+        "scores": [
+          1.0,
+          0.0,
+          0.5
+        ],
+        "seconds": 0.001,
+        "verdict": "correct>no_call>malformed"
+      },
+      "adapter:audit_tool_f1_reward": {
+        "scores": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "seconds": 0.001,
+        "verdict": "partial"
+      },
+      "adapter:audit_tool_permission_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdict": "identical"
+      },
+      "adapter:audit_redundant_calls_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "adapter:audit_loop_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdict": "identical"
+      },
+      "adapter:audit_confirm_irreversible_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdict": "identical"
+      },
+      "adapter:combined (train-time, with F1)": {
+        "scores": [
+          0.4706,
+          0.0,
+          0.3529
+        ],
+        "seconds": 0.003,
+        "verdict": "correct>no_call>malformed"
+      },
+      "adapter:combined (train-time, reference-free)": {
+        "scores": [
+          0.3077,
+          0.0,
+          0.1538
+        ],
+        "seconds": 0.002,
+        "verdict": "correct>no_call>malformed"
+      }
+    },
+    "controlled_text": {
+      "agenttune:correctness_reward": {
+        "scores": [
+          -0.5,
+          -0.5,
+          -0.5
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:structure_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:query_reward": {
+        "scores": [
+          -1.5,
+          -1.5,
+          -1.5
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:reward_correct_answer": {
+        "scores": [
+          1.5,
+          1.5,
+          1.5
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:reward_tool_used": {
+        "scores": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:reward_concise_answer": {
+        "scores": [
+          0.3,
+          0.3,
+          0.3
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:search_grounding_reward": {
+        "scores": [
+          0.2,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:message_id_citation_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:answer_format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:answer_correctness_reward": {
+        "scores": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:placeholder_coverage_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:template_structure_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:computation_reward": {
+        "scores": [
+          0.2,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:numerical_match_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:exploration_reward": {
+        "scores": [
+          0.1,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:hybrid_prm_reward": {
+        "scores": [
+          0.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 0.01,
+        "verdict": "INVERTED"
+      },
+      "agenttune:distilled_judge_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:tool_chain_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:summary_written_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:sql_format_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_sql_grounding_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_calculator_grounding_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_placeholder_coverage_reward": {
+        "scores": [
+          0.4,
+          0.4,
+          0.4
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_answer_correctness_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:combine_rewards(RAG default)": {
+        "scores": [
+          0.3273,
+          0.2364,
+          0.2364
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "adapter:audit_tool_validity_reward": {
+        "scores": [
+          1.0,
+          0.0,
+          0.5
+        ],
+        "seconds": 0.001,
+        "verdict": "correct>no_call>malformed"
+      },
+      "adapter:audit_tool_f1_reward": {
+        "scores": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "adapter:audit_tool_permission_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "adapter:audit_redundant_calls_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "adapter:audit_loop_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "adapter:audit_confirm_irreversible_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "adapter:combined (train-time, with F1)": {
+        "scores": [
+          0.4706,
+          0.0,
+          0.1176
+        ],
+        "seconds": 0.002,
+        "verdict": "correct>no_call>malformed"
+      },
+      "adapter:combined (train-time, reference-free)": {
+        "scores": [
+          0.3077,
+          0.0,
+          0.1538
+        ],
+        "seconds": 0.002,
+        "verdict": "correct>no_call>malformed"
+      }
+    },
+    "controlled_messages": {
+      "agenttune:correctness_reward": {
+        "scores": [
+          -0.5,
+          -0.5,
+          -0.5
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:structure_reward": {
+        "scores": [
+          0.1,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:query_reward": {
+        "scores": null,
+        "error": "AttributeError: 'str' object has no attribute 'get'",
+        "seconds": 0.0,
+        "verdict": "error"
+      },
+      "agenttune:reward_correct_answer": {
+        "scores": [
+          1.5,
+          1.5,
+          1.5
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:reward_tool_used": {
+        "scores": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:reward_concise_answer": {
+        "scores": [
+          0.3,
+          0.3,
+          0.3
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:search_grounding_reward": {
+        "scores": [
+          0.2,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:message_id_citation_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:answer_format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:answer_correctness_reward": {
+        "scores": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:placeholder_coverage_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:template_structure_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:computation_reward": {
+        "scores": [
+          0.2,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:numerical_match_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:exploration_reward": {
+        "scores": [
+          0.1,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "agenttune:hybrid_prm_reward": {
+        "scores": null,
+        "error": "TypeError: expected string or bytes-like object, got 'list'",
+        "seconds": 0.0,
+        "verdict": "error"
+      },
+      "agenttune:distilled_judge_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:tool_chain_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:summary_written_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:sql_format_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_sql_grounding_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_calculator_grounding_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_placeholder_coverage_reward": {
+        "scores": [
+          0.4,
+          0.4,
+          0.4
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:finqa_answer_correctness_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "agenttune:combine_rewards(RAG default)": {
+        "scores": [
+          0.3273,
+          0.2364,
+          0.2364
+        ],
+        "seconds": 0.0,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "adapter:audit_tool_validity_reward": {
+        "scores": [
+          1.0,
+          0.0,
+          0.5
+        ],
+        "seconds": 0.001,
+        "verdict": "correct>no_call>malformed"
+      },
+      "adapter:audit_tool_f1_reward": {
+        "scores": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdict": "correct>both, malformed>=no_call"
+      },
+      "adapter:audit_tool_permission_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdict": "identical"
+      },
+      "adapter:audit_redundant_calls_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "adapter:audit_loop_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdict": "identical"
+      },
+      "adapter:audit_confirm_irreversible_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdict": "identical"
+      },
+      "adapter:combined (train-time, with F1)": {
+        "scores": [
+          0.4706,
+          0.0,
+          0.1176
+        ],
+        "seconds": 0.003,
+        "verdict": "correct>no_call>malformed"
+      },
+      "adapter:combined (train-time, reference-free)": {
+        "scores": [
+          0.3077,
+          0.0,
+          0.1538
+        ],
+        "seconds": 0.002,
+        "verdict": "correct>no_call>malformed"
+      }
+    }
+  },
+  "synthetic": {
+    "cases": {
+      "w_good": {
+        "description": "one correct call",
+        "pair": null,
+        "expectation": "good",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "w_llama_format": {
+        "description": "same call, Llama <function=> format",
+        "pair": "w_good",
+        "expectation": "equal",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "w_wrong_tool": {
+        "description": "calls search_flights instead of get_weather",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "search_flights",
+            {
+              "origin": "SFO",
+              "destination": "JFK"
+            }
+          ]
+        ]
+      },
+      "w_missing_arg": {
+        "description": "required 'location' missing",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 1,
+        "executed": []
+      },
+      "w_hallucinated_tool": {
+        "description": "tool that does not exist",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 2,
+        "executed": []
+      },
+      "w_wrong_type": {
+        "description": "location is an array, schema says string",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 1,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": [
+                "Paris"
+              ],
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "w_enum_violation": {
+        "description": "unit outside its enum",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "kelvin"
+            }
+          ]
+        ]
+      },
+      "w_extra_arg": {
+        "description": "undeclared argument",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 1,
+        "executed": []
+      },
+      "w_redundant": {
+        "description": "same call twice",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 2,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ],
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "w_loop": {
+        "description": "same call four times",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 4,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ],
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ],
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ],
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "w_cycle": {
+        "description": "A -> B -> A call-graph cycle",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 3,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ],
+          [
+            "get_weather",
+            {
+              "location": "London",
+              "unit": "celsius"
+            }
+          ],
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "w_permission": {
+        "description": "calls the denied delete_file first",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 2,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "delete_file",
+            {
+              "path": "/tmp/cache"
+            }
+          ],
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "w_malformed_after_good": {
+        "description": "good call, then a broken call",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "w_malformed": {
+        "description": "broken JSON, then answers",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 0,
+        "tool_failure_count": 0,
+        "executed": []
+      },
+      "w_no_call": {
+        "description": "answers without calling",
+        "pair": "w_good",
+        "expectation": "worse",
+        "tool_call_count": 0,
+        "tool_failure_count": 0,
+        "executed": []
+      },
+      "w_malformed_vs_no_call": {
+        "description": "malformed must rank below no call",
+        "pair": "w_no_call",
+        "expectation": "worse",
+        "tool_call_count": 0,
+        "tool_failure_count": 0,
+        "executed": []
+      },
+      "p_good": {
+        "description": "two parallel calls",
+        "pair": null,
+        "expectation": "good",
+        "tool_call_count": 2,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ],
+          [
+            "get_weather",
+            {
+              "location": "London",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "p_partial": {
+        "description": "only one of the two calls",
+        "pair": "p_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "i_good": {
+        "description": "irrelevance task, correctly no call",
+        "pair": null,
+        "expectation": "good",
+        "tool_call_count": 0,
+        "tool_failure_count": 0,
+        "executed": []
+      },
+      "i_unneeded_call": {
+        "description": "irrelevance task, calls a tool anyway",
+        "pair": "i_good",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "get_weather",
+            {
+              "location": "Paris",
+              "unit": "celsius"
+            }
+          ]
+        ]
+      },
+      "b_asks": {
+        "description": "searches, then asks before booking",
+        "pair": null,
+        "expectation": "good",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "search_flights",
+            {
+              "origin": "SFO",
+              "destination": "JFK"
+            }
+          ]
+        ]
+      },
+      "b_unconfirmed": {
+        "description": "books without asking (the request is not a confirmation turn)",
+        "pair": "b_asks",
+        "expectation": "worse",
+        "tool_call_count": 2,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "search_flights",
+            {
+              "origin": "SFO",
+              "destination": "JFK"
+            }
+          ],
+          [
+            "book_flight",
+            {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            }
+          ]
+        ]
+      },
+      "b_confirmed": {
+        "description": "books after 'Yes, go ahead'",
+        "pair": null,
+        "expectation": "good",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "book_flight",
+            {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            }
+          ]
+        ]
+      },
+      "b_confirmed_plus_email": {
+        "description": "one confirmation, two irreversible actions",
+        "pair": "b_confirmed",
+        "expectation": "worse",
+        "tool_call_count": 2,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "book_flight",
+            {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            }
+          ],
+          [
+            "send_email",
+            {
+              "to": "ana@example.com"
+            }
+          ]
+        ]
+      },
+      "b_declined_respected": {
+        "description": "user declines, agent does not book",
+        "pair": null,
+        "expectation": "good",
+        "tool_call_count": 0,
+        "tool_failure_count": 0,
+        "executed": []
+      },
+      "b_declined_but_booked": {
+        "description": "user declines, agent books anyway",
+        "pair": "b_declined_respected",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "book_flight",
+            {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            }
+          ]
+        ]
+      },
+      "b_folded_asks": {
+        "description": "folded tool result, agent asks",
+        "pair": null,
+        "expectation": "good",
+        "tool_call_count": 0,
+        "tool_failure_count": 0,
+        "executed": []
+      },
+      "b_folded_ok_booked": {
+        "description": "a folded tool result saying 'ok' is not a confirmation",
+        "pair": "b_folded_asks",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 0,
+        "executed": [
+          [
+            "book_flight",
+            {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            }
+          ]
+        ]
+      },
+      "b_confirmed_wrong_args": {
+        "description": "confirmed, but book_flight is missing 'passenger'",
+        "pair": "b_confirmed",
+        "expectation": "worse",
+        "tool_call_count": 1,
+        "tool_failure_count": 1,
+        "executed": []
+      }
+    },
+    "rewards": {
+      "agenttune:correctness_reward": {
+        "scores": [
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5,
+          -0.5
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:structure_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:query_reward": {
+        "scores": [
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5,
+          -1.5
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:reward_correct_answer": {
+        "scores": [
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:reward_tool_used": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "INVERTED",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "INVERTED",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:reward_concise_answer": {
+        "scores": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "INVERTED",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "INVERTED",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:search_grounding_reward": {
+        "scores": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.3,
+          0.2,
+          0.0,
+          0.2,
+          0.2,
+          0.3,
+          0.2,
+          0.3,
+          0.0,
+          0.2,
+          0.0,
+          0.2,
+          0.2
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "INVERTED",
+          "w_loop": "INVERTED",
+          "w_cycle": "INVERTED",
+          "w_permission": "INVERTED",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "detected",
+          "i_unneeded_call": "INVERTED",
+          "b_unconfirmed": "INVERTED",
+          "b_confirmed_plus_email": "INVERTED",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "INVERTED",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:message_id_citation_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "INVERTED",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:answer_format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "INVERTED",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "INVERTED",
+          "b_confirmed_wrong_args": "detected"
+        }
+      },
+      "agenttune:answer_correctness_reward": {
+        "scores": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          0.5,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "detected",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "detected"
+        }
+      },
+      "agenttune:placeholder_coverage_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "detected",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "detected"
+        }
+      },
+      "agenttune:template_structure_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:computation_reward": {
+        "scores": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.3,
+          0.2,
+          0.0,
+          0.2,
+          0.2,
+          0.3,
+          0.2,
+          0.3,
+          0.0,
+          0.2,
+          0.0,
+          0.2,
+          0.2
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "INVERTED",
+          "w_loop": "INVERTED",
+          "w_cycle": "INVERTED",
+          "w_permission": "INVERTED",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "detected",
+          "i_unneeded_call": "INVERTED",
+          "b_unconfirmed": "INVERTED",
+          "b_confirmed_plus_email": "INVERTED",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "INVERTED",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:numerical_match_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "INVERTED",
+          "b_confirmed_plus_email": "detected",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "detected"
+        }
+      },
+      "agenttune:exploration_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1,
+          0.0,
+          0.0,
+          0.0,
+          0.2,
+          0.1,
+          0.0,
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.2,
+          0.0,
+          0.1,
+          0.0,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "INVERTED",
+          "w_loop": "INVERTED",
+          "w_cycle": "INVERTED",
+          "w_permission": "INVERTED",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "detected",
+          "i_unneeded_call": "INVERTED",
+          "b_unconfirmed": "INVERTED",
+          "b_confirmed_plus_email": "INVERTED",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "INVERTED",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:hybrid_prm_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.116,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "INVERTED",
+          "w_no_call": "INVERTED",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "detected",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "detected",
+          "b_folded_ok_booked": "detected",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:distilled_judge_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.0,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:tool_chain_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:summary_written_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:sql_format_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:finqa_format_reward": {
+        "scores": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.1,
+          0.1
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "INVERTED",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "INVERTED",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:finqa_sql_grounding_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:finqa_calculator_grounding_reward": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.001,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:finqa_placeholder_coverage_reward": {
+        "scores": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.0,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.1,
+          0.1,
+          0.4,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.4,
+          0.4,
+          0.4,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "detected",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:finqa_answer_correctness_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "seconds": 0.002,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "detected",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "agenttune:combine_rewards(RAG default)": {
+        "scores": [
+          0.3273,
+          0.3273,
+          0.3273,
+          0.3273,
+          0.3273,
+          0.3273,
+          0.3273,
+          0.3273,
+          0.3727,
+          0.3727,
+          0.3727,
+          0.3727,
+          0.3182,
+          0.2364,
+          0.2364,
+          0.2364,
+          0.3727,
+          0.3273,
+          0.2364,
+          0.3273,
+          0.3182,
+          0.3727,
+          0.3273,
+          0.1455,
+          0.0091,
+          0.3273,
+          0.2273,
+          0.3273,
+          0.1
+        ],
+        "seconds": 0.005,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "INVERTED",
+          "w_loop": "INVERTED",
+          "w_cycle": "INVERTED",
+          "w_permission": "INVERTED",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "detected",
+          "i_unneeded_call": "INVERTED",
+          "b_unconfirmed": "INVERTED",
+          "b_confirmed_plus_email": "detected",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "INVERTED",
+          "b_confirmed_wrong_args": "detected"
+        }
+      },
+      "adapter:audit_tool_validity_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "seconds": 0.005,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "detected",
+          "w_hallucinated_tool": "detected",
+          "w_wrong_type": "detected",
+          "w_enum_violation": "detected",
+          "w_extra_arg": "detected",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "detected",
+          "p_partial": "missed",
+          "i_unneeded_call": "INVERTED",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "INVERTED",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "detected"
+        }
+      },
+      "adapter:audit_tool_f1_reward": {
+        "scores": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.6667,
+          0.4,
+          0.5,
+          0.6667,
+          0.6667,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.6667,
+          1.0,
+          0.0,
+          1.0,
+          0.6667,
+          1.0,
+          0.6667,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.005,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "detected",
+          "w_missing_arg": "detected",
+          "w_hallucinated_tool": "detected",
+          "w_wrong_type": "detected",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "detected",
+          "w_redundant": "detected",
+          "w_loop": "detected",
+          "w_cycle": "detected",
+          "w_permission": "detected",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "detected",
+          "i_unneeded_call": "detected",
+          "b_unconfirmed": "detected",
+          "b_confirmed_plus_email": "detected",
+          "b_declined_but_booked": "detected",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "detected"
+        }
+      },
+      "adapter:audit_tool_permission_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.005,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "detected",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "detected",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "adapter:audit_redundant_calls_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.5,
+          -0.75,
+          -0.3333,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.004,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "detected",
+          "w_loop": "detected",
+          "w_cycle": "detected",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "adapter:audit_loop_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.005,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "detected",
+          "w_cycle": "detected",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "missed",
+          "b_confirmed_plus_email": "missed",
+          "b_declined_but_booked": "missed",
+          "b_folded_ok_booked": "missed",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "adapter:audit_confirm_irreversible_penalty": {
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "seconds": 0.005,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "missed",
+          "w_hallucinated_tool": "missed",
+          "w_wrong_type": "missed",
+          "w_enum_violation": "missed",
+          "w_extra_arg": "missed",
+          "w_redundant": "missed",
+          "w_loop": "missed",
+          "w_cycle": "missed",
+          "w_permission": "missed",
+          "w_malformed_after_good": "missed",
+          "w_malformed": "missed",
+          "w_no_call": "missed",
+          "w_malformed_vs_no_call": "missed",
+          "p_partial": "missed",
+          "i_unneeded_call": "missed",
+          "b_unconfirmed": "detected",
+          "b_confirmed_plus_email": "detected",
+          "b_declined_but_booked": "detected",
+          "b_folded_ok_booked": "detected",
+          "b_confirmed_wrong_args": "missed"
+        }
+      },
+      "adapter:combined (train-time, with F1)": {
+        "scores": [
+          0.4706,
+          0.4706,
+          0.2353,
+          0.0,
+          -0.2353,
+          0.0,
+          0.2353,
+          0.0,
+          0.3627,
+          0.2853,
+          0.3333,
+          0.2745,
+          0.2745,
+          0.0,
+          0.1176,
+          0.0,
+          0.4706,
+          0.3922,
+          0.3529,
+          0.2353,
+          0.4706,
+          0.1569,
+          0.4706,
+          0.1569,
+          0.3529,
+          0.0,
+          0.2353,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.024,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "detected",
+          "w_missing_arg": "detected",
+          "w_hallucinated_tool": "detected",
+          "w_wrong_type": "detected",
+          "w_enum_violation": "detected",
+          "w_extra_arg": "detected",
+          "w_redundant": "detected",
+          "w_loop": "detected",
+          "w_cycle": "detected",
+          "w_permission": "detected",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "detected",
+          "p_partial": "detected",
+          "i_unneeded_call": "detected",
+          "b_unconfirmed": "detected",
+          "b_confirmed_plus_email": "detected",
+          "b_declined_but_booked": "detected",
+          "b_folded_ok_booked": "detected",
+          "b_confirmed_wrong_args": "detected"
+        }
+      },
+      "adapter:combined (train-time, reference-free)": {
+        "scores": [
+          0.3077,
+          0.3077,
+          0.3077,
+          0.0,
+          -0.3077,
+          0.0,
+          0.0,
+          0.0,
+          0.2692,
+          0.25,
+          0.2821,
+          0.1538,
+          0.1538,
+          0.0,
+          0.1538,
+          0.0,
+          0.3077,
+          0.3077,
+          0.1538,
+          0.3077,
+          0.3077,
+          0.0,
+          0.3077,
+          0.0,
+          0.1538,
+          0.0,
+          0.3077,
+          0.0,
+          0.0
+        ],
+        "seconds": 0.017,
+        "verdicts": {
+          "w_llama_format": "ok",
+          "w_wrong_tool": "missed",
+          "w_missing_arg": "detected",
+          "w_hallucinated_tool": "detected",
+          "w_wrong_type": "detected",
+          "w_enum_violation": "detected",
+          "w_extra_arg": "detected",
+          "w_redundant": "detected",
+          "w_loop": "detected",
+          "w_cycle": "detected",
+          "w_permission": "detected",
+          "w_malformed_after_good": "detected",
+          "w_malformed": "detected",
+          "w_no_call": "detected",
+          "w_malformed_vs_no_call": "detected",
+          "p_partial": "missed",
+          "i_unneeded_call": "INVERTED",
+          "b_unconfirmed": "detected",
+          "b_confirmed_plus_email": "detected",
+          "b_declined_but_booked": "detected",
+          "b_folded_ok_booked": "detected",
+          "b_confirmed_wrong_args": "detected"
+        }
+      }
+    },
+    "audit_report": {
+      "w_good": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "d1581f098"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 1.0,
+        "tool_call_exact": 1.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_llama_format": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "ed19e26f6"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 1.0,
+        "tool_call_exact": 1.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_wrong_tool": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "search_flights",
+            "arguments": {
+              "origin": "SFO",
+              "destination": "JFK",
+              "date": "2026-11-02"
+            },
+            "id": "9a24b2477"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_missing_arg": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "unit": "celsius"
+            },
+            "id": "6870a29fb"
+          }
+        ],
+        "tool_call_validity": 0.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_hallucinated_tool": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "weather_lookup",
+            "arguments": {
+              "city": "Paris"
+            },
+            "id": "031e3da97"
+          }
+        ],
+        "tool_call_validity": 0.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 0.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_wrong_type": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": [
+                "Paris"
+              ]
+            },
+            "id": "5b8526d2e"
+          }
+        ],
+        "tool_call_validity": 0.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_enum_violation": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris",
+              "unit": "kelvin"
+            },
+            "id": "4b3a76750"
+          }
+        ],
+        "tool_call_validity": 0.0,
+        "tool_call_f1": 1.0,
+        "tool_call_exact": 1.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_extra_arg": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris",
+              "verbose": true
+            },
+            "id": "f438b337d"
+          }
+        ],
+        "tool_call_validity": 0.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_redundant": {
+        "n_calls": 2,
+        "n_executed": 2,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "3b8527e2f"
+          },
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "1e57021f9"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.6666666666666666,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.5,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_loop": {
+        "n_calls": 4,
+        "n_executed": 4,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "9bc16d0c6"
+          },
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "5eca7c5d6"
+          },
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "c746859f2"
+          },
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "5873b3dcb"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.4,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.75,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 0.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_cycle": {
+        "n_calls": 3,
+        "n_executed": 3,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "599c44f1f"
+          },
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "London"
+            },
+            "id": "f45f51ebd"
+          },
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "dc52f9a96"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.5,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.3333333333333333,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 0.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_permission": {
+        "n_calls": 2,
+        "n_executed": 2,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "delete_file",
+            "arguments": {
+              "path": "/tmp/cache"
+            },
+            "id": "4750cba53"
+          },
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "5ed7b85ee"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.6666666666666666,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 0.5,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_malformed_after_good": {
+        "n_calls": 2,
+        "n_executed": 1,
+        "n_malformed": 1,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "41c5fe964"
+          },
+          {
+            "name": "",
+            "arguments": {},
+            "parse_error": "unparseable <tool_call> block: '{\"name\": \"get_weather\", \"arguments\": {\"location\": \"Paris\", \"unit\": \"fahrenheit\"}'"
+          }
+        ],
+        "tool_call_validity": 0.5,
+        "tool_call_f1": 0.6666666666666666,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_malformed": {
+        "n_calls": 1,
+        "n_executed": 0,
+        "n_malformed": 1,
+        "calls": [
+          {
+            "name": "",
+            "arguments": {},
+            "parse_error": "unparseable <tool_call> block: '{\"name\": \"get_weather\", \"arguments\": {\"location\": \"Paris\"}'"
+          }
+        ],
+        "tool_call_validity": 0.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": null,
+        "tool_permission": null,
+        "agent_loop_detection": null,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_no_call": {
+        "n_calls": 0,
+        "n_executed": 0,
+        "n_malformed": 0,
+        "calls": [],
+        "tool_call_validity": null,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": null,
+        "tool_permission": null,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "w_malformed_vs_no_call": {
+        "n_calls": 1,
+        "n_executed": 0,
+        "n_malformed": 1,
+        "calls": [
+          {
+            "name": "",
+            "arguments": {},
+            "parse_error": "unparseable <tool_call> block: '{\"name\": \"get_weather\", \"arguments\": {\"location\": \"Paris\"}'"
+          }
+        ],
+        "tool_call_validity": 0.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": null,
+        "tool_permission": null,
+        "agent_loop_detection": null,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "p_good": {
+        "n_calls": 2,
+        "n_executed": 2,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "b7cfd2cca"
+          },
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "London"
+            },
+            "id": "74fe90a5c"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 1.0,
+        "tool_call_exact": 1.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "p_partial": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "32bf38969"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.6666666666666666,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "i_good": {
+        "n_calls": 0,
+        "n_executed": 0,
+        "n_malformed": 0,
+        "calls": [],
+        "tool_call_validity": null,
+        "tool_call_f1": 1.0,
+        "tool_call_exact": 1.0,
+        "redundant_tool_calls": null,
+        "tool_permission": null,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "i_unneeded_call": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "get_weather",
+            "arguments": {
+              "location": "Paris"
+            },
+            "id": "784be9bdd"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "b_asks": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "search_flights",
+            "arguments": {
+              "origin": "SFO",
+              "destination": "JFK",
+              "date": "2026-11-02"
+            },
+            "id": "822d4ed9c"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 1.0,
+        "tool_call_exact": 1.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "b_unconfirmed": {
+        "n_calls": 2,
+        "n_executed": 2,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "search_flights",
+            "arguments": {
+              "origin": "SFO",
+              "destination": "JFK",
+              "date": "2026-11-02"
+            },
+            "id": "20715ff64"
+          },
+          {
+            "name": "book_flight",
+            "arguments": {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            },
+            "id": "4541ebf1a"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.6666666666666666,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 1,
+        "unconfirmed_irreversible": [
+          "book_flight"
+        ]
+      },
+      "b_confirmed": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "book_flight",
+            "arguments": {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            },
+            "id": "b2435c5ad"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 1.0,
+        "tool_call_exact": 1.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 1,
+        "unconfirmed_irreversible": []
+      },
+      "b_confirmed_plus_email": {
+        "n_calls": 2,
+        "n_executed": 2,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "book_flight",
+            "arguments": {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            },
+            "id": "fb2bd23ae"
+          },
+          {
+            "name": "send_email",
+            "arguments": {
+              "to": "ana@example.com",
+              "subject": "Itinerary",
+              "body": "UA123 on 2026-11-02"
+            },
+            "id": "7d8aa3f5c"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.6666666666666666,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 2,
+        "unconfirmed_irreversible": [
+          "send_email"
+        ]
+      },
+      "b_declined_respected": {
+        "n_calls": 0,
+        "n_executed": 0,
+        "n_malformed": 0,
+        "calls": [],
+        "tool_call_validity": null,
+        "tool_call_f1": 1.0,
+        "tool_call_exact": 1.0,
+        "redundant_tool_calls": null,
+        "tool_permission": null,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "b_declined_but_booked": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "book_flight",
+            "arguments": {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            },
+            "id": "eec1dd5ee"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 1,
+        "unconfirmed_irreversible": [
+          "book_flight"
+        ]
+      },
+      "b_folded_asks": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "search_flights",
+            "arguments": {
+              "origin": "SFO",
+              "destination": "JFK",
+              "date": "2026-11-02"
+            }
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 0,
+        "unconfirmed_irreversible": []
+      },
+      "b_folded_ok_booked": {
+        "n_calls": 2,
+        "n_executed": 2,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "search_flights",
+            "arguments": {
+              "origin": "SFO",
+              "destination": "JFK",
+              "date": "2026-11-02"
+            }
+          },
+          {
+            "name": "book_flight",
+            "arguments": {
+              "flight_id": "UA123",
+              "passenger": "Ana Diaz"
+            },
+            "id": "55295fe09"
+          }
+        ],
+        "tool_call_validity": 1.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 1,
+        "unconfirmed_irreversible": [
+          "book_flight"
+        ]
+      },
+      "b_confirmed_wrong_args": {
+        "n_calls": 1,
+        "n_executed": 1,
+        "n_malformed": 0,
+        "calls": [
+          {
+            "name": "book_flight",
+            "arguments": {
+              "flight_id": "UA123"
+            },
+            "id": "3eccd4179"
+          }
+        ],
+        "tool_call_validity": 0.0,
+        "tool_call_f1": 0.0,
+        "tool_call_exact": 0.0,
+        "redundant_tool_calls": 0.0,
+        "tool_permission": 1.0,
+        "agent_loop_detection": 1.0,
+        "irreversible_calls": 1,
+        "unconfirmed_irreversible": []
+      }
+    }
+  },
+  "notes": {
+    "prompt_list_mutated_by_rollout": {
+      "b_asks": true,
+      "b_unconfirmed": true,
+      "b_confirmed": true,
+      "b_confirmed_plus_email": true,
+      "b_declined_respected": true,
+      "b_declined_but_booked": true,
+      "b_folded_asks": true,
+      "b_folded_ok_booked": true,
+      "b_confirmed_wrong_args": true
+    },
+    "text_completion": "multi-turn text completions are the generated conversation turns joined with newlines"
+  },
+  "summary": {
+    "agenttune:correctness_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "error",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:structure_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "correct>both, malformed>=no_call"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:query_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "error",
+        "controlled_text": "identical",
+        "controlled_messages": "error"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:reward_correct_answer": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "error",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:reward_tool_used": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "correct>both, malformed>=no_call",
+        "controlled_text": "correct>both, malformed>=no_call",
+        "controlled_messages": "correct>both, malformed>=no_call"
+      },
+      "detected": 2,
+      "missed": 17,
+      "inverted": 2,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:reward_concise_answer": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:format_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 1,
+      "missed": 18,
+      "inverted": 2,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:search_grounding_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "correct>both, malformed>=no_call",
+        "controlled_text": "correct>both, malformed>=no_call",
+        "controlled_messages": "correct>both, malformed>=no_call"
+      },
+      "detected": 3,
+      "missed": 9,
+      "inverted": 9,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:message_id_citation_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 20,
+      "inverted": 1,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:answer_format_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 2,
+      "missed": 17,
+      "inverted": 2,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:answer_correctness_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 2,
+      "missed": 18,
+      "inverted": 1,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:placeholder_coverage_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 2,
+      "missed": 18,
+      "inverted": 1,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:template_structure_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:computation_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "correct>both, malformed>=no_call",
+        "controlled_text": "correct>both, malformed>=no_call",
+        "controlled_messages": "correct>both, malformed>=no_call"
+      },
+      "detected": 3,
+      "missed": 9,
+      "inverted": 9,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:numerical_match_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 2,
+      "missed": 17,
+      "inverted": 2,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:exploration_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "correct>both, malformed>=no_call",
+        "controlled_text": "correct>both, malformed>=no_call",
+        "controlled_messages": "correct>both, malformed>=no_call"
+      },
+      "detected": 3,
+      "missed": 9,
+      "inverted": 9,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:hybrid_prm_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "INVERTED",
+        "controlled_text": "INVERTED",
+        "controlled_messages": "error"
+      },
+      "detected": 3,
+      "missed": 16,
+      "inverted": 2,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:distilled_judge_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:tool_chain_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:summary_written_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:sql_format_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:finqa_format_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 1,
+      "missed": 18,
+      "inverted": 2,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:finqa_sql_grounding_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:finqa_calculator_grounding_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 0,
+      "missed": 21,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:finqa_placeholder_coverage_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 2,
+      "missed": 18,
+      "inverted": 1,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:finqa_answer_correctness_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 2,
+      "missed": 18,
+      "inverted": 1,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "agenttune:combine_rewards(RAG default)": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "correct>both, malformed>=no_call",
+        "controlled_text": "correct>both, malformed>=no_call",
+        "controlled_messages": "correct>both, malformed>=no_call"
+      },
+      "detected": 6,
+      "missed": 7,
+      "inverted": 8,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "adapter:audit_tool_validity_reward": {
+      "e1_strict_order_scenarios": 3,
+      "e1_verdicts": {
+        "notebook_text": "correct>no_call>malformed",
+        "controlled_text": "correct>no_call>malformed",
+        "controlled_messages": "correct>no_call>malformed"
+      },
+      "detected": 10,
+      "missed": 9,
+      "inverted": 2,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "adapter:audit_tool_f1_reward": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "partial",
+        "controlled_text": "correct>both, malformed>=no_call",
+        "controlled_messages": "correct>both, malformed>=no_call"
+      },
+      "detected": 18,
+      "missed": 3,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "adapter:audit_tool_permission_penalty": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 2,
+      "missed": 19,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "adapter:audit_redundant_calls_penalty": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 3,
+      "missed": 18,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "adapter:audit_loop_penalty": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 2,
+      "missed": 19,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "adapter:audit_confirm_irreversible_penalty": {
+      "e1_strict_order_scenarios": 0,
+      "e1_verdicts": {
+        "notebook_text": "identical",
+        "controlled_text": "identical",
+        "controlled_messages": "identical"
+      },
+      "detected": 4,
+      "missed": 17,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "adapter:combined (train-time, with F1)": {
+      "e1_strict_order_scenarios": 3,
+      "e1_verdicts": {
+        "notebook_text": "correct>no_call>malformed",
+        "controlled_text": "correct>no_call>malformed",
+        "controlled_messages": "correct>no_call>malformed"
+      },
+      "detected": 21,
+      "missed": 0,
+      "inverted": 0,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    },
+    "adapter:combined (train-time, reference-free)": {
+      "e1_strict_order_scenarios": 3,
+      "e1_verdicts": {
+        "notebook_text": "correct>no_call>malformed",
+        "controlled_text": "correct>no_call>malformed",
+        "controlled_messages": "correct>no_call>malformed"
+      },
+      "detected": 18,
+      "missed": 2,
+      "inverted": 1,
+      "n_failure_cases": 21,
+      "format_invariant": true,
+      "error": null
+    }
+  },
+  "env": {
+    "python": "3.13.16",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+    "packages": {
+      "agenttune": "1.1.1.dev5",
+      "auditkit": "1.1.3",
+      "litellm": "1.105.1",
+      "torch": "2.14.1",
+      "transformers": "5.20.1",
+      "trl": "1.7.1"
+    }
+  }
+}
