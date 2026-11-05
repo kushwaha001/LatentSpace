@@ -101,6 +101,8 @@ one config per stage in `configs/`, and a `results/NN_*.json` file per stage. St
 [`notebooks/kaggle_train.ipynb`](notebooks/kaggle_train.ipynb) (2x T4) or the Colab notebook.
 Details, memory defaults and a cost/time table are in
 [its README](src/latentspace_train/README.md). CPU check: `bash scripts/dry_run_all.sh`.
+On a local machine with two 24 GB GPUs: [docs/RUN_LOCAL.md](docs/RUN_LOCAL.md)
+(`bash scripts/run_local_2gpu.sh`).
 
 ## Next
 
