@@ -86,6 +86,16 @@ Run any experiment from the repo root with `python experiments/NN_name.py`.
   metrics + AuditKIT pass^k) for a HF model on the test split. Only `--dry-run` (a scripted
   policy on CPU) has been run. [results](results/06_baseline_dry_run.json)
 
+## Training pipeline
+
+`src/latentspace_train/` runs the full plan on a GPU: baseline, teacher collection (Aya Expanse
+32B via HF Inference Providers, rejection-filtered with the audit rewards), LoRA distillation,
+GRPO run_A (AgentTune default reward) and run_B (audit reward), and held-out evaluation. One CLI,
+one config per stage in `configs/`, and a `results/NN_*.json` file per stage. Start with
+[`notebooks/kaggle_train.ipynb`](notebooks/kaggle_train.ipynb) (2x T4) or the Colab notebook.
+Details, memory defaults and a cost/time table are in
+[its README](src/latentspace_train/README.md). CPU check: `bash scripts/dry_run_all.sh`.
+
 ## Next
 
 - Transit tool set and a 4-language eval set with a held-out split

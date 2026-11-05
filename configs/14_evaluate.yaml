@@ -1,0 +1,24 @@
+# Stage 5: held-out test split, 5 trials per task, per language, bootstrap between runs.
+#   python -m latentspace_train evaluate                 # every checkpoint below
+#   python -m latentspace_train evaluate --run run_B     # one checkpoint
+extends: base.yaml
+student:
+  quantization: null       # inference only: fp16 weights (6.7 GB) fit a T4 and decode ~2x faster than 4-bit
+generation: {temperature: 0.7, max_new_tokens: 256}
+evaluate:
+  split: test
+  trials: 5
+  independent_trials: false   # true only if the tools keep no state between trials
+  skip_missing: true          # skip checkpoints whose adapter is not on disk yet
+  checkpoints:
+    - {name: base}
+    - {name: distill, adapter: distill/adapter}
+    - {name: run_A, adapter: grpo/run_A/adapter}
+    - {name: run_B, adapter: grpo/run_B/adapter}
+    # Hub adapters work too: {name: run_B_hub, adapter: kanishk001/tiny-aya-global-transit-grpo-audit-reward-lora}
+    # API reference (no GPU): {name: base_api, backend: router, model: "CohereLabs/tiny-aya-global:cohere", max_usd: 1}
+  comparisons:
+    - [run_A, run_B]
+    - [base, run_B]
+    - [distill, run_B]
+  n_resamples: 2000

@@ -1,0 +1,14 @@
+# Stage 1: untrained student on the eval split.
+#   python -m latentspace_train baseline
+#   python -m latentspace_train baseline --set 'baseline.modes=[local,api]'
+extends: base.yaml
+student:
+  quantization: null       # inference only: fp16 weights (6.7 GB) fit a T4 and decode ~2x faster than 4-bit
+baseline:
+  split: eval
+  trials: 1
+  modes: [local]           # local (GPU weights) and/or api (HF router, no GPU); recorded in results
+  api:
+    model: CohereLabs/tiny-aya-global:cohere
+    max_usd: 1.0
+    price_usd_per_m: {input: 0.10, output: 0.30}   # estimate; check the provider's price on the HF model page

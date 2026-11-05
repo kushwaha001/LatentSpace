@@ -1,0 +1,38 @@
+# Stage 4: agentic GRPO with LoRA. Two presets that differ ONLY in the reward.
+#   python -m latentspace_train grpo --run run_A
+#   python -m latentspace_train grpo --run run_B
+# On Kaggle 2x T4, run both at once, one per GPU (see notebooks/kaggle_train.ipynb):
+#   CUDA_VISIBLE_DEVICES=0 python -m latentspace_train grpo --run run_A &
+#   CUDA_VISIBLE_DEVICES=1 python -m latentspace_train grpo --run run_B &
+extends: base.yaml
+student:
+  # GRPO starts from the distilled student (stage 3). Both runs load the same adapter.
+  # null = start from the base model with a fresh LoRA.
+  adapter: outputs/distill/adapter
+grpo:
+  split: train
+training:                  # -> create_agentic_trainer("grpo") -> GRPOConfig
+  max_steps: 100
+  per_device_train_batch_size: 4
+  num_generations: 4
+  gradient_accumulation_steps: 1   # 1 prompt x 4 generations per step
+  max_completion_length: 128     # per generated turn; short keeps 16 GB GPUs safe
+  max_steps_per_turn: 3
+  learning_rate: 2.0e-5
+  warmup_steps: 5
+  beta: 0.0                      # no reference-model KL pass (saves time on T4)
+  temperature: 0.9
+  gradient_checkpointing: true
+  logging_steps: 1
+  save_steps: 25
+  save_total_limit: 2
+runs:
+  run_A:                   # AgentTune's default tool reward, upstream, unpatched
+    reward:
+      kind: agenttune_default
+      funcs: [hybrid_prm_reward]
+      weights: null
+  run_B:                   # audit-grounded reward, documented DEFAULT_WEIGHTS (rewards.audit)
+    reward:
+      kind: audit
+      include_f1: true

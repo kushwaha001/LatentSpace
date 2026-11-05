@@ -1,0 +1,210 @@
+{
+  "stage": "distill",
+  "run_name": null,
+  "dry_run": true,
+  "seed": 42,
+  "started_utc": "2026-11-02T15:40:33Z",
+  "seconds": 11.6,
+  "student": "/home/user/LatentSpace/outputs/smoke/_models/tiny_llama",
+  "data": "/home/user/LatentSpace/outputs/smoke/teacher_collect/filtered.jsonl",
+  "n_trajectories": 2,
+  "n_rows": 2,
+  "note": null,
+  "tool_call_format": "cohere",
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "v_proj"
+    ]
+  },
+  "train_result": {
+    "train_runtime": 0.6538,
+    "train_samples_per_second": 73.413,
+    "train_steps_per_second": 4.588,
+    "total_flos": 6667370496.0,
+    "train_loss": 4.642133076985677,
+    "entropy": 4.861820379892985,
+    "num_tokens": 12288.0,
+    "mean_token_accuracy": 0.2733268141746521,
+    "epoch": 3.0
+  },
+  "log_history": [
+    {
+      "train_runtime": 0.6538,
+      "train_samples_per_second": 73.413,
+      "train_steps_per_second": 4.588,
+      "total_flos": 6667370496.0,
+      "train_loss": 4.642133076985677,
+      "entropy": 4.861820379892985,
+      "num_tokens": 12288.0,
+      "mean_token_accuracy": 0.2733268141746521,
+      "epoch": 3.0,
+      "step": 3
+    }
+  ],
+  "first_row_preview": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant for Indian public transit. Answer in the user's language. Ask the user to confirm before booking, paying or cancelling.\n\nYou can call these tools:\n[\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"search_trains\",\n      \"description\": \"Search trains between two stations on a date.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"origin\": {\n            \"type\": \"string\",\n            \"description\": \"Origin station name or code.\"\n          },\n          \"destination\": {\n            \"type\": \"string\",\n            \"description\": \"Destination station name or code.\"\n          },\n          \"date\": {\n            \"type\": \"string\",\n            \"description\": \"Travel date, YYYY-MM-DD.\"\n          }\n        },\n        \"required\": [\n          \"origin\",\n          \"destination\",\n          \"date\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"get_fare\",\n      \"description\": \"Get the fare for a train and class.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"train_id\": {\n            \"type\": \"string\",\n            \"description\": \"Train number.\"\n          },\n          \"travel_class\": {\n            \"type\": \"string\",\n            \"description\": \"One of SL, 3A, 2A, 1A.\"\n          }\n        },\n        \"required\": [\n          \"train_id\",\n          \"travel_class\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"book_ticket\",\n      \"description\": \"Book a ticket. Irreversible: charges the user.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"train_id\": {\n            \"type\": \"string\",\n            \"description\": \"Train number.\"\n          },\n          \"passenger_name\": {\n            \"type\": \"string\",\n            \"description\": \"Passenger full name.\"\n          }\n        },\n        \"required\": [\n          \"train_id\",\n          \"passenger_name\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\"\n      }\n    }\n  }\n]\n\nTo call tools, reply with only a JSON list, one object per call, and no other text: [{\"tool_name\": \"<name>\", \"parameters\": {\"<argument>\": <value>}}]. Use a list even for one call. A user turn that starts with \"Tool result\" is the output of your call, not a new message from the user: use it to answer the user's original question as plain text."
+    },
+    {
+      "role": "user",
+      "content": "Thanks, that's all!"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"amF951hiMumbaifar. farerMu k booam dosearchMuFindparaa\" Delhit \"mbailhiethAfaresearchaD{ booch tolhi faretraiuomMuin9DD? bookitparametersD \"farfarparameters \"hiin\"} Mumbaido?frfargFinDigin9ameterMuFindfr Mumbaiin dofr{it\"}Mumbaifar farefar{\"paraa{Mumbai book1iameterparameter[{\"tool_name\": b fare. do fare fare?ear Delhiearrhin9uilparparpar book12951 trains22erlhiicfar haaFinFinfar haahhi\"}{{ fare MumbaitraiFnam fromlhi fromooMuin trains Mumbai MumbaiFind1lameterit\"}eti k\"etcDe haaraier]lhiinoD[[lhiget12951?,Domter Delhilhitrainin booF12hh[[ do doDidameteramhiFinitFind1lidetname\"}\"} \" \"farname fareMumbai Deid do2ameit trainstooorigin DefparametersiidMumbai booktrainFindFDter fare DelhinamefrDkai farersearsearch1rrame\"}farfar51[ boo{951toit hpar\"i fr?</tool_call></tool_call>lhido12951 trains1295112951farFinhiaitoto DelhihFindoAA boo3f9{\"{[{\"tool_name\": AFind dofinoru12D{\"parhMumbai951}]toof?i doorFin dof totoo hfr trainstraiDc\"}lhitter Delhictootooid51idit12951 Mumbairai bookMuklit] knsearchnf9ameterhitoo9f12951 trainsMu{{ametrain boofr12951Muame haa"
+    }
+  ],
+  "adapter_dir": "/home/user/LatentSpace/outputs/smoke/distill/adapter",
+  "provenance": {
+    "commit": "15fbfa74c40069b7343e212d7df7e3aa9dd4f227",
+    "dirty": false,
+    "branch": "training-pipeline",
+    "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+    "platform": "Linux-6.18.44-fc-v185-x86_64-with-glibc2.39",
+    "hostname_kind": "other"
+  },
+  "versions": {
+    "python": "3.13.18",
+    "torch": "2.11.0",
+    "transformers": "5.22.1",
+    "trl": "1.7.1",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": null,
+    "datasets": "5.1.0",
+    "agenttune": "1.1.3",
+    "auditkit": "1.1.3",
+    "litellm": "1.106.6",
+    "huggingface_hub": "1.33.0"
+  },
+  "hardware": {
+    "cuda": false,
+    "gpus": [],
+    "bf16_supported": false
+  },
+  "config": {
+    "seed": 42,
+    "precision": "fp32",
+    "results_dir": "results/smoke",
+    "output_root": "outputs/smoke",
+    "student": {
+      "model": "/home/user/LatentSpace/outputs/smoke/_models/tiny_llama",
+      "quantization": null,
+      "adapter": null,
+      "attn_implementation": "sdpa"
+    },
+    "tasks": {
+      "source": "stub",
+      "tools": "transit_agent:TOOLS",
+      "system_prompt": "transit_agent:SYSTEM_PROMPT",
+      "irreversible_tools": [],
+      "denied_tools": [],
+      "languages": null,
+      "limit": null,
+      "data": {
+        "dir": "data/eval",
+        "files": {
+          "train": "train.jsonl",
+          "eval": "eval.jsonl",
+          "test": "test.jsonl"
+        },
+        "fields": {
+          "id": "id",
+          "prompt": "prompt",
+          "language": "language",
+          "expected_tool_calls": "expected_tool_calls"
+        }
+      }
+    },
+    "rollout": {
+      "max_steps_per_turn": 4
+    },
+    "generation": {
+      "max_new_tokens": 24,
+      "temperature": 0.7
+    },
+    "router": {
+      "base_url": "https://router.huggingface.co/v1",
+      "api_key_env": "HF_TOKEN",
+      "bill_to": null,
+      "tool_mode": "prompt",
+      "max_retries": 3,
+      "timeout": 120
+    },
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "v_proj"
+      ]
+    },
+    "rewards": {
+      "audit": {
+        "no_call_score": 0.5,
+        "calls_per_confirmation": 1,
+        "confirmation_penalty": 1.0,
+        "log": false,
+        "weights": {
+          "audit_tool_validity_reward": 1.0,
+          "audit_tool_f1_reward": 1.0,
+          "audit_tool_permission_penalty": 1.0,
+          "audit_confirm_irreversible_penalty": 1.0,
+          "audit_redundant_calls_penalty": 0.25
+        }
+      }
+    },
+    "hub": {
+      "namespace": "kanishk001",
+      "private": false,
+      "repos": {
+        "logs": "kanishk001/latentspace-logs",
+        "teacher_data": "kanishk001/latentspace-transit-teacher-trajectories",
+        "distill_adapter": "kanishk001/tiny-aya-global-transit-distill-lora",
+        "grpo_run_A": "kanishk001/tiny-aya-global-transit-grpo-default-reward-lora",
+        "grpo_run_B": "kanishk001/tiny-aya-global-transit-grpo-audit-reward-lora"
+      }
+    },
+    "distill": {
+      "data": "outputs/teacher_collect/filtered.jsonl",
+      "data_hub_repo": null,
+      "tool_call_format": "cohere",
+      "training": {
+        "num_train_epochs": 2,
+        "per_device_train_batch_size": 2,
+        "gradient_accumulation_steps": 8,
+        "learning_rate": 0.0002,
+        "lr_scheduler_type": "cosine",
+        "warmup_steps": 10,
+        "max_length": 2048,
+        "gradient_checkpointing": true,
+        "logging_steps": 5,
+        "save_strategy": "no"
+      }
+    },
+    "_config_path": "configs/12_distill.yaml",
+    "stage": "distill",
+    "push": false,
+    "dry_run": true,
+    "training": {
+      "max_steps": 3,
+      "per_device_train_batch_size": 4,
+      "num_generations": 4,
+      "max_completion_length": 24,
+      "max_steps_per_turn": 2,
+      "gradient_checkpointing": false,
+      "logging_steps": 1,
+      "save_steps": 10000,
+      "learning_rate": 0.005,
+      "warmup_steps": 0,
+      "gradient_accumulation_steps": 1,
+      "use_cpu": true
+    }
+  }
+}

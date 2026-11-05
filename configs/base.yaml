@@ -1,0 +1,70 @@
+# Shared settings for every stage. Stage files `extends: base.yaml` and override.
+# Override anything from the CLI:  --set student.model=tiny-aya-fire --set seed=7
+seed: 42
+precision: auto            # auto: fp16 on T4 (no bf16), bf16 on L4/A10G/A100, fp32 on CPU
+results_dir: results       # results/NN_<stage>.json
+output_root: outputs       # adapters, rollouts, logs (git-ignored; pushed with --push)
+
+student:
+  # tiny-aya-global (default) | tiny-aya-fire | tiny-aya-water | tiny-aya-earth | Hub id | path
+  model: tiny-aya-global
+  quantization: 4bit       # 4bit (NF4, fp16 compute on T4) | 8bit | null (full fp16/bf16 weights)
+  adapter: null            # a LoRA adapter dir or Hub id to load on top
+  attn_implementation: sdpa
+
+tasks:
+  source: transit          # transit (src/transit_agent + data/eval) | stub
+  tools: transit_agent:TOOLS
+  system_prompt: transit_agent:SYSTEM_PROMPT   # optional; missing attr -> no task system prompt
+  irreversible_tools: []   # extra names; tools tagged @irreversible are picked up automatically
+  denied_tools: []
+  languages: null          # e.g. [en, hi, mr, hinglish]; null = all
+  limit: null              # first N rows per split (smoke runs)
+  data:
+    dir: data/eval
+    files: {train: train.jsonl, eval: dev.jsonl, test: test.jsonl}   # eval split = data/eval/dev.jsonl
+    fields: {id: id, prompt: prompt, language: language, expected_tool_calls: expected_tool_calls}
+
+rollout:
+  max_steps_per_turn: 4    # tool-call turns per episode
+
+generation:                # rollouts outside training (baseline / teacher / evaluate)
+  max_new_tokens: 256
+  temperature: 0.7
+
+router:                    # Hugging Face Inference Providers, OpenAI-compatible
+  base_url: https://router.huggingface.co/v1
+  api_key_env: HF_TOKEN
+  bill_to: null            # optional HF org to bill (X-HF-Bill-To)
+  tool_mode: prompt        # prompt: same Cohere fallback prompt the student sees | native
+  max_retries: 3
+  timeout: 120
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+rewards:
+  audit:                   # src/audit_rewards, DEFAULT_WEIGHTS unless overridden
+    no_call_score: 0.5
+    calls_per_confirmation: 1
+    confirmation_penalty: 1.0
+    log: false
+    weights:
+      audit_tool_validity_reward: 1.0
+      audit_tool_f1_reward: 1.0
+      audit_tool_permission_penalty: 1.0
+      audit_confirm_irreversible_penalty: 1.0
+      audit_redundant_calls_penalty: 0.25
+
+hub:                       # used only with --push; token from HF_TOKEN
+  namespace: kanishk001
+  private: false
+  repos:
+    logs: kanishk001/latentspace-logs                                    # dataset
+    teacher_data: kanishk001/latentspace-transit-teacher-trajectories    # dataset
+    distill_adapter: kanishk001/tiny-aya-global-transit-distill-lora
+    grpo_run_A: kanishk001/tiny-aya-global-transit-grpo-default-reward-lora
+    grpo_run_B: kanishk001/tiny-aya-global-transit-grpo-audit-reward-lora

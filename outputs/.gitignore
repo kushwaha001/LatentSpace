@@ -1,0 +1,3 @@
+# training outputs (checkpoints, rollouts, logs) stay local or go to the HF Hub
+*
+!.gitignore
