@@ -23,14 +23,15 @@ sudo apt update && sudo apt install -y git python3.12-venv build-essential
 python3.12 -m venv ~/ls-venv && source ~/ls-venv/bin/activate
 git clone https://github.com/kushwaha001/LatentSpace.git ~/LatentSpace
 cd ~/LatentSpace
-pip install "torch==2.11.0"     # CUDA build from PyPI
+pip install "torch==2.11.0" --index-url https://download.pytorch.org/whl/cu126   # CUDA 12.x build
 bash scripts/install_deps.sh    # AuditKIT 1.1.3 + AgentTune d4db4c12 + its dependencies
 PYTHONPATH=src python -m pytest -q tests     # expect all tests to pass
 ```
 
-If `torch.cuda.is_available()` is False or you see "CUDA driver version is insufficient",
-update the NVIDIA driver on Windows (Studio / Enterprise branch for RTX Ada) and restart WSL with
-`wsl --shutdown`.
+Use the `cu126` build: the plain PyPI wheel is built for CUDA 13.0, and a driver that reports
+CUDA 12.4 (552.74) fails with "The NVIDIA driver on your system is too old". Check with
+`python -c "import torch; print(torch.cuda.is_available(), torch.cuda.device_count())"` (expect
+`True 2`). If it is still False, update the Windows NVIDIA driver and run `wsl --shutdown`.
 
 **Disk:** models and caches download to `~/.cache/huggingface` inside WSL (about 10 GB for Tiny
 Aya plus adapters). To use another drive, set `export HF_HOME=/mnt/d/hf_cache` (D: drive) before
