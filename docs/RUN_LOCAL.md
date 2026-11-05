@@ -70,6 +70,21 @@ run the GRPO stages one after the other: `GPU_A=1 bash scripts/run_local_2gpu.sh
 Quick check before a long run: add `--limit 4` through the CLI directly, e.g.
 `PYTHONPATH=src python -m latentspace_train baseline --set precision=bf16 --set student.quantization=null --limit 4`.
 
+### Without HF credits: local 32B teacher, overnight
+
+`teacher_local` runs the same teacher (Aya Expanse 32B) in 4-bit on one GPU instead of the HF
+router: no credits, about 65 GB download, a few hours. Check first, then start everything after
+the baseline in the background (it keeps running if the terminal closes):
+
+```bash
+export HF_HOME=/mnt/d/hf_cache
+bash scripts/preflight_local.sh          # must end with ALL CHECKS PASSED
+bash scripts/overnight_local.sh          # teacher_local -> distill -> grpo (A || B) -> evaluate
+tail -f logs/overnight.log               # watch; Ctrl+C stops watching only
+```
+
+In the morning, `logs/overnight.log` ends with `== EXIT CODE 0` if every stage finished.
+
 ## 4. What each experiment answers
 
 | # | Stage | Question |

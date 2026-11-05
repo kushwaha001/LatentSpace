@@ -4,7 +4,9 @@
 #   export HF_TOKEN=...            # read + Inference Providers (+ write if PUSH=1)
 #   bash scripts/run_local_2gpu.sh [stage ...]     # default: all stages in order
 #
-# Stages: baseline teacher distill grpo evaluate
+# Stages: baseline teacher teacher_local distill grpo evaluate
+#   teacher       Aya Expanse 32B through the HF router (paid, capped by MAX_USD)
+#   teacher_local Aya Expanse 32B in 4-bit on one local GPU (free, ~65 GB download, slower)
 # Env:   PUSH=1   upload adapters / datasets / logs to the Hub (namespace kanishk001)
 #        GPU_A=0 GPU_B=1   which GPUs run run_A / run_B (single-GPU stages use GPU_B)
 #        MAX_USD=5         budget for teacher collection through the HF router
@@ -43,6 +45,11 @@ for s in "${stages[@]}"; do
       # 2. Aya Expanse 32B via the HF router (no GPU), kept only if valid and confirmed.
       : "${HF_TOKEN:?set HF_TOKEN first}"
       run "" 11_teacher_collect teacher_collect --max-usd "$MAX_USD" "${PUSH_FLAG[@]}" ;;
+    teacher_local)
+      # 2b. Same teacher, run on GPU_B in 4-bit (no HF credits).
+      run "$GPU_B" 11_teacher_collect teacher_collect --set precision=bf16 \
+        --set teacher.backend=local --set teacher.local_fallback.model=aya-expanse-32b \
+        --set teacher.local_fallback.quantization=4bit "${PUSH_FLAG[@]}" ;;
     distill)
       # 3. LoRA SFT of the student on the filtered teacher trajectories.
       run "$GPU_B" 12_distill distill "${LOCAL[@]}" "${PUSH_FLAG[@]}" ;;
@@ -64,7 +71,7 @@ for s in "${stages[@]}"; do
       pid_b=$!
       wait "$pid_a"; wait "$pid_b"
       run "" 14_evaluate_compare evaluate --compare-only "${PUSH_FLAG[@]}" ;;
-    *) echo "unknown stage: $s (baseline teacher distill grpo evaluate)"; exit 2 ;;
+    *) echo "unknown stage: $s (baseline teacher teacher_local distill grpo evaluate)"; exit 2 ;;
   esac
 done
 echo "== done. Results: results/1*.json   Logs: logs/"
