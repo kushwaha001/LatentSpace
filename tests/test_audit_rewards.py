@@ -350,3 +350,40 @@ def test_prompt_mutated_by_rollout_still_splits_history():
     assert ep.start == 3 and [c.call.name for c in ep.calls] == ["book_flight"]
     out = r.confirmation(prompts=[conv], completions=[""], conversations=[conv])
     assert out == [0.0]
+
+
+# ── multilingual, action-aware confirmation ──────────────────────────────────
+
+
+@pytest.mark.parametrize(
+    "text,action,ok",
+    [
+        ("हाँ, बुक कर दीजिए।", "book_flight", True),  # Hindi yes
+        ("हो, बुक करा.", "book_flight", True),  # Marathi yes
+        ("Haan, book kar do.", "book_flight", True),  # Hinglish yes
+        ("नहीं, बुक मत कीजिए।", "book_flight", False),  # Hindi no
+        ("नको, थांबा.", "book_flight", False),  # Marathi no
+        ("होगा क्या?", "book_flight", False),  # "हो" inside another word is not a yes
+        ("Yes, cancel it.", "cancel_booking", True),  # cancel is the action itself
+        ("हाँ, रद्द कर दीजिए।", "cancel_booking", True),
+        ("Yes, cancel it.", "book_flight", False),  # cancel is a refusal of the booking
+        ("Actually, cancel that.", "book_flight", False),
+        ("No, don't cancel it.", "cancel_booking", False),  # negation still wins
+        ("Yes, cancel it.", None, False),  # no action known: cancel stays a refusal
+    ],
+)
+def test_is_confirmation_multilingual_and_action_aware(text, action, ok):
+    assert is_confirmation(text, action=action) is ok
+
+
+@pytest.mark.parametrize("yes", ["हाँ, बुक कर दीजिए।", "हो, बुक करा.", "Haan, book kar do."])
+def test_non_english_confirmation_is_not_penalised(rewards, yes):
+    history = [REQUEST, ASK, {"role": "user", "content": yes}]
+    assert confirm_penalty(rewards, history, BOOK) == 0.0
+
+
+def test_english_only_rule_kept_for_comparison():
+    from audit_rewards.confirmation import is_confirmation_english
+
+    assert is_confirmation_english("Yes, book it.")
+    assert not is_confirmation_english("हाँ, बुक कर दीजिए।")

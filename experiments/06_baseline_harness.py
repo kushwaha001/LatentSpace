@@ -166,14 +166,13 @@ def run_trajectory(rollout_fn, row: dict, gen_kwargs: dict) -> dict:
 
 # ── Scoring ──────────────────────────────────────────────────────────────────────────────
 
-def unconfirmed_multilingual(rewards: AuditRewards, row: dict, conv: list[dict]) -> list[str]:
-    """Unconfirmed irreversible calls under transit_agent.multilingual_confirmation instead of
-    audit_rewards' English keyword rule (experiment 05: the English rule misses every Hindi and
-    Marathi yes, so it would report a parity gap the policy did not cause)."""
+def unconfirmed_english_only(rewards: AuditRewards, row: dict, conv: list[dict]) -> list[str]:
+    """Unconfirmed irreversible calls under the original English-only keyword rule, for
+    comparison with the default multilingual rule (experiment 05: the English rule misses every
+    Hindi and Marathi yes, so it reports a parity gap the policy did not cause)."""
     from audit_rewards import confirmation as conf
-    from transit_agent.multilingual_confirmation import is_confirmation as multi
 
-    original, conf.is_confirmation = conf.is_confirmation, multi
+    original, conf.is_confirmation = conf.is_confirmation, conf.is_confirmation_english
     try:
         ep = rewards.episodes([row["messages"]], [""], conversations=[conv])[0]
         return [v.tool for v in rewards._violations(ep)[1]]
@@ -309,20 +308,20 @@ def main() -> None:
                                  expected_tool_calls=[json.dumps(row["expected_tool_calls"],
                                                                  ensure_ascii=False)])[0]
             v, why = verdict(row, rep)
-            rep_ml = {**rep, "unconfirmed_irreversible": unconfirmed_multilingual(
+            rep_ml = {**rep, "unconfirmed_irreversible": unconfirmed_english_only(
                 rewards, row, res["conversation"])}
             v_ml, why_ml = verdict(row, rep_ml)
             records.append({"id": row["id"], "base_id": row["base_id"], "trial": trial,
                             "language": row["language"], "category": row["category"],
                             "verdict": v, "why": why, "noise": noise, "report": rep,
-                            "verdict_multilingual": v_ml, "why_multilingual": why_ml,
-                            "report_multilingual": rep_ml,
+                            "verdict_english_only": v_ml, "why_english_only": why_ml,
+                            "report_english_only": rep_ml,
                             "tool_call_count": res["tool_call_count"],
                             "tool_failure_count": res["tool_failure_count"]})
 
     summary = summarise(records, args.trials)
-    summary_ml = summarise([{**r, "verdict": r["verdict_multilingual"],
-                             "report": r["report_multilingual"]} for r in records], args.trials)
+    summary_ml = summarise([{**r, "verdict": r["verdict_english_only"],
+                             "report": r["report_english_only"]} for r in records], args.trials)
     result = {
         "experiment": "06_baseline_harness",
         "mode": "dry_run (scripted noisy oracle, NOT a model)" if args.dry_run else "model",
@@ -337,24 +336,23 @@ def main() -> None:
                         "auditkit": __import__("auditkit").__version__},
         "seconds": round(time.time() - t0, 1),
         "summary": {k: v for k, v in summary.items() if k != "rows"},
-        "summary_multilingual_confirmation": {
-            "note": "same trajectories; the confirm-before-irreversible check uses "
-                    "transit_agent.multilingual_confirmation instead of audit_rewards' English "
-                    "keyword rule",
+        "summary_english_only_confirmation_before_fix": {
+            "note": "same trajectories; the confirm-before-irreversible check uses the original "
+                    "English-only keyword rule instead of the default multilingual one",
             **{k: v for k, v in summary_ml.items() if k != "rows"}},
         "per_row_reliability": summary["rows"],
         "trajectories_file": str(traj_path.relative_to(ROOT)),
     }
     if args.dry_run:
         result["records"] = [{k: r[k] for k in ("id", "trial", "verdict", "why",
-                                                "verdict_multilingual", "noise")}
+                                                "verdict_english_only", "noise")}
                              for r in records]
     out_path.write_text(json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
     print(f"{result['mode']}: {len(rows)} rows x {args.trials} trials = {len(records)} "
           f"trajectories in {result['seconds']}s")
-    for title, s in (("confirmation check: audit_rewards (English keywords)", summary),
-                     ("confirmation check: multilingual", summary_ml)):
+    for title, s in (("confirmation check: audit_rewards default (multilingual)", summary),
+                     ("confirmation check: English-only rule (before fix)", summary_ml)):
         print(title)
         for lang, v in s["by_language"].items():
             print(f"  {lang:9s} success {v['success_rate']}  pass@{args.trials} "

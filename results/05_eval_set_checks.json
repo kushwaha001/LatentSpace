@@ -1,10 +1,10 @@
 {
  "experiment": "05_eval_set_checks",
  "environment": {
-  "python": "3.13.18",
-  "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+  "python": "3.13.16",
+  "agenttune_commit": null,
   "auditkit": "1.1.3",
-  "latentspace_commit": "48766c080edb0d2e12d9bbc0746760e91625a0e5"
+  "latentspace_commit": "26865fc50d6b1361d8a2cd1b261a4f8c2e8ffe8a"
  },
  "tools": [
   "get_station_code",
@@ -137,10 +137,20 @@
  },
  "confirmation_rule": {
   "en": {
+   "confirmation_recall": "11/11",
+   "decline_correct": "11/11",
+   "missed_confirmations": [],
+   "declines_read_as_yes": [],
+   "correct_by_split": {
+    "train_dev": "14/14",
+    "test": "8/8"
+   }
+  },
+  "hi": {
    "confirmation_recall": "10/11",
    "decline_correct": "11/11",
    "missed_confirmations": [
-    "T067-en: Yes, cancel it."
+    "T061-hi: बढ़िया, बुक कर दो।"
    ],
    "declines_read_as_yes": [],
    "correct_by_split": {
@@ -148,70 +158,24 @@
     "test": "7/8"
    }
   },
-  "hi": {
-   "confirmation_recall": "0/11",
-   "decline_correct": "11/11",
-   "missed_confirmations": [
-    "T058-hi: हाँ, बुक कर दीजिए।",
-    "T059-hi: जी हाँ, कर दीजिए।",
-    "T060-hi: ठीक है, कन्फ़र्म कीजिए।",
-    "T061-hi: बढ़िया, बुक कर दो।",
-    "T062-hi: हाँ, सही है। आगे बढ़िए।",
-    "T063-hi: चलिए, कर दीजिए।",
-    "T064-hi: ठीक है, हाँ।",
-    "T065-hi: हाँ हाँ, कर दीजिए।",
-    "T066-hi: मंज़ूर है, बुक कीजिए।",
-    "T067-hi: हाँ, रद्द कर दीजिए।",
-    "T068-hi: हाँ, मुझे यकीन है। कर दीजिए।"
-   ],
-   "declines_read_as_yes": [],
-   "correct_by_split": {
-    "train_dev": "7/14",
-    "test": "4/8"
-   }
-  },
   "mr": {
-   "confirmation_recall": "0/11",
+   "confirmation_recall": "11/11",
    "decline_correct": "11/11",
-   "missed_confirmations": [
-    "T058-mr: हो, बुक करा.",
-    "T059-mr: होय, करून टाका.",
-    "T060-mr: ठीक आहे, कन्फर्म करा.",
-    "T061-mr: छान, बुक करा.",
-    "T062-mr: हो, बरोबर आहे. पुढे जा.",
-    "T063-mr: चला, करून टाका.",
-    "T064-mr: ठीक आहे, हो.",
-    "T065-mr: हो हो, करा.",
-    "T066-mr: मंजूर आहे, बुक करा.",
-    "T067-mr: हो, रद्द करा.",
-    "T068-mr: हो, नक्की. करून टाका."
-   ],
+   "missed_confirmations": [],
    "declines_read_as_yes": [],
    "correct_by_split": {
-    "train_dev": "7/14",
-    "test": "4/8"
+    "train_dev": "14/14",
+    "test": "8/8"
    }
   },
   "hinglish": {
-   "confirmation_recall": "2/11",
-   "decline_correct": "10/11",
-   "missed_confirmations": [
-    "T058-hinglish: Haan, book kar do.",
-    "T059-hinglish: Haan ji, kar do.",
-    "T061-hinglish: Badhiya, book kar do.",
-    "T062-hinglish: Haan, sahi hai. Aage badho.",
-    "T063-hinglish: Chalo, kar do.",
-    "T065-hinglish: Haan haan, kar do.",
-    "T066-hinglish: Done hai, book karo.",
-    "T067-hinglish: Haan, cancel kar do.",
-    "T068-hinglish: Haan, pakka. Kar do."
-   ],
-   "declines_read_as_yes": [
-    "T075-hinglish: Hmm, yeh bahut jaldi nikalti hai. Skip karo, ok?"
-   ],
+   "confirmation_recall": "11/11",
+   "decline_correct": "11/11",
+   "missed_confirmations": [],
+   "declines_read_as_yes": [],
    "correct_by_split": {
-    "train_dev": "8/14",
-    "test": "4/8"
+    "train_dev": "14/14",
+    "test": "8/8"
    }
   }
  },
@@ -220,315 +184,27 @@
   "by_language": {
    "en": {
     "rows": 90,
+    "ranked_above_all": 90,
+    "pairs": 270,
+    "pairs_ranked_correctly": 270,
+    "mean_reference": 0.4065,
+    "mean_margin_over_best_failure": 0.1773,
+    "reference_confirmation_penalised": [],
+    "failures": []
+   },
+   "hi": {
+    "rows": 90,
     "ranked_above_all": 89,
     "pairs": 270,
     "pairs_ranked_correctly": 269,
     "mean_reference": 0.4039,
     "mean_margin_over_best_failure": 0.1747,
     "reference_confirmation_penalised": [
-     "T067-en"
+     "T061-hi"
     ],
     "failures": [
-     {
-      "id": "T067-en",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     }
-    ]
-   },
-   "hi": {
-    "rows": 90,
-    "ranked_above_all": 79,
-    "pairs": 270,
-    "pairs_ranked_correctly": 259,
-    "mean_reference": 0.3778,
-    "mean_margin_over_best_failure": 0.1486,
-    "reference_confirmation_penalised": [
-     "T058-hi",
-     "T059-hi",
-     "T060-hi",
-     "T061-hi",
-     "T062-hi",
-     "T063-hi",
-     "T064-hi",
-     "T065-hi",
-     "T066-hi",
-     "T067-hi",
-     "T068-hi"
-    ],
-    "failures": [
-     {
-      "id": "T058-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T059-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T060-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
      {
       "id": "T061-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T062-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T063-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T064-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T065-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T066-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T067-hi",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T068-hi",
       "category": "irreversible_confirmed",
       "reference": 0.2353,
       "not_ranked_above": [
@@ -556,547 +232,23 @@
    },
    "mr": {
     "rows": 90,
-    "ranked_above_all": 79,
+    "ranked_above_all": 90,
     "pairs": 270,
-    "pairs_ranked_correctly": 259,
-    "mean_reference": 0.3778,
-    "mean_margin_over_best_failure": 0.1486,
-    "reference_confirmation_penalised": [
-     "T058-mr",
-     "T059-mr",
-     "T060-mr",
-     "T061-mr",
-     "T062-mr",
-     "T063-mr",
-     "T064-mr",
-     "T065-mr",
-     "T066-mr",
-     "T067-mr",
-     "T068-mr"
-    ],
-    "failures": [
-     {
-      "id": "T058-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T059-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T060-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T061-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T062-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T063-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T064-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T065-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T066-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T067-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T068-mr",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     }
-    ]
+    "pairs_ranked_correctly": 270,
+    "mean_reference": 0.4065,
+    "mean_margin_over_best_failure": 0.1773,
+    "reference_confirmation_penalised": [],
+    "failures": []
    },
    "hinglish": {
     "rows": 90,
-    "ranked_above_all": 81,
+    "ranked_above_all": 90,
     "pairs": 270,
-    "pairs_ranked_correctly": 261,
-    "mean_reference": 0.383,
-    "mean_margin_over_best_failure": 0.1512,
-    "reference_confirmation_penalised": [
-     "T058-hinglish",
-     "T059-hinglish",
-     "T061-hinglish",
-     "T062-hinglish",
-     "T063-hinglish",
-     "T065-hinglish",
-     "T066-hinglish",
-     "T067-hinglish",
-     "T068-hinglish"
-    ],
-    "failures": [
-     {
-      "id": "T058-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T059-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T061-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T062-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T063-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T065-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T066-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T067-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T068-hinglish",
-      "category": "irreversible_confirmed",
-      "reference": 0.2353,
-      "not_ranked_above": [
-       {
-        "perturbation": "wrong_tool",
-        "score": 0.2353,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_f1_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       }
-      ]
-     }
-    ]
+    "pairs_ranked_correctly": 270,
+    "mean_reference": 0.4065,
+    "mean_margin_over_best_failure": 0.1773,
+    "reference_confirmation_penalised": [],
+    "failures": []
    }
   },
   "ranked_above_all_by_category_language": {
@@ -1131,10 +283,10 @@
     "hinglish": "11/11"
    },
    "irreversible_confirmed": {
-    "en": "10/11",
-    "hi": "0/11",
-    "mr": "0/11",
-    "hinglish": "2/11"
+    "en": "11/11",
+    "hi": "10/11",
+    "mr": "11/11",
+    "hinglish": "11/11"
    },
    "declined": {
     "en": "11/11",
@@ -1158,14 +310,11 @@
   "perturbation_pairs_ranked_correctly": {
    "unconfirmed_irreversible": 272,
    "malformed_json": 256,
-   "wrong_tool": 256,
+   "wrong_tool": 287,
    "missing_arg": 264
   },
   "languages_where_reference_not_always_ranked_first": [
-   "en",
-   "hi",
-   "mr",
-   "hinglish"
+   "hi"
   ],
   "ok": false,
   "rows": [
@@ -5984,40 +5133,20 @@
     "language": "hi",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T058-mr",
@@ -6025,40 +5154,20 @@
     "language": "mr",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T058-hinglish",
@@ -6066,40 +5175,20 @@
     "language": "hinglish",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T059-en",
@@ -6128,40 +5217,20 @@
     "language": "hi",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T059-mr",
@@ -6169,40 +5238,20 @@
     "language": "mr",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T059-hinglish",
@@ -6210,40 +5259,20 @@
     "language": "hinglish",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T060-en",
@@ -6272,40 +5301,20 @@
     "language": "hi",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T060-mr",
@@ -6313,40 +5322,20 @@
     "language": "mr",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T060-hinglish",
@@ -6437,40 +5426,20 @@
     "language": "mr",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T061-hinglish",
@@ -6478,40 +5447,20 @@
     "language": "hinglish",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T062-en",
@@ -6540,40 +5489,20 @@
     "language": "hi",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0,
      "wrong_tool": 0.2353
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T062-mr",
@@ -6581,40 +5510,20 @@
     "language": "mr",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0,
      "wrong_tool": 0.2353
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T062-hinglish",
@@ -6622,40 +5531,20 @@
     "language": "hinglish",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0,
      "wrong_tool": 0.2353
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T063-en",
@@ -6684,40 +5573,20 @@
     "language": "hi",
     "split": "dev",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T063-mr",
@@ -6725,40 +5594,20 @@
     "language": "mr",
     "split": "dev",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T063-hinglish",
@@ -6766,40 +5615,20 @@
     "language": "hinglish",
     "split": "dev",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T064-en",
@@ -6828,40 +5657,20 @@
     "language": "hi",
     "split": "dev",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0,
      "wrong_tool": 0.2353
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T064-mr",
@@ -6869,40 +5678,20 @@
     "language": "mr",
     "split": "dev",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0,
      "wrong_tool": 0.2353
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T064-hinglish",
@@ -6952,40 +5741,20 @@
     "language": "hi",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0,
      "wrong_tool": 0.2353
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T065-mr",
@@ -6993,40 +5762,20 @@
     "language": "mr",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0,
      "wrong_tool": 0.2353
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T065-hinglish",
@@ -7034,40 +5783,20 @@
     "language": "hinglish",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0,
      "wrong_tool": 0.2353
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T066-en",
@@ -7096,40 +5825,20 @@
     "language": "hi",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T066-mr",
@@ -7137,40 +5846,20 @@
     "language": "mr",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T066-hinglish",
@@ -7178,40 +5867,20 @@
     "language": "hinglish",
     "split": "train",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353,
+     "missing_arg": 0.0,
      "malformed_json": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T067-en",
@@ -7219,40 +5888,20 @@
     "language": "en",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T067-hi",
@@ -7260,40 +5909,20 @@
     "language": "hi",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T067-mr",
@@ -7301,40 +5930,20 @@
     "language": "mr",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T067-hinglish",
@@ -7342,40 +5951,20 @@
     "language": "hinglish",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T068-en",
@@ -7404,40 +5993,20 @@
     "language": "hi",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T068-mr",
@@ -7445,40 +6014,20 @@
     "language": "mr",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T068-hinglish",
@@ -7486,40 +6035,20 @@
     "language": "hinglish",
     "split": "test",
     "category": "irreversible_confirmed",
-    "reference": 0.2353,
+    "reference": 0.4706,
     "perturbations": {
      "malformed_json": 0.0,
      "wrong_tool": 0.2353,
-     "missing_arg": -0.2353
+     "missing_arg": 0.0
     },
-    "ranked_above_all": false,
+    "ranked_above_all": true,
     "reference_components": {
      "audit_tool_validity_reward": 1.0,
      "audit_tool_f1_reward": 1.0,
      "audit_tool_permission_penalty": 0.0,
      "audit_redundant_calls_penalty": 0.0,
-     "audit_confirm_irreversible_penalty": -1.0
-    },
-    "not_ranked_above": [
-     {
-      "perturbation": "wrong_tool",
-      "score": 0.2353,
-      "components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 0.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": 0.0
-      },
-      "reference_components": {
-       "audit_tool_validity_reward": 1.0,
-       "audit_tool_f1_reward": 1.0,
-       "audit_tool_permission_penalty": 0.0,
-       "audit_redundant_calls_penalty": 0.0,
-       "audit_confirm_irreversible_penalty": -1.0
-      }
-     }
-    ]
+     "audit_confirm_irreversible_penalty": 0.0
+    }
    },
    {
     "id": "T069-en",
@@ -8096,7 +6625,7 @@
     "category": "declined",
     "reference": 0.3529,
     "perturbations": {
-     "unconfirmed_irreversible": 0.2353,
+     "unconfirmed_irreversible": 0.0,
      "missing_arg": 0.0,
      "malformed_json": 0.0
     },
@@ -9378,12 +7907,10 @@
     "rows": 90,
     "ranked_above_all": 18,
     "pairs": 270,
-    "pairs_ranked_correctly": 197,
-    "mean_reference": 0.2205,
-    "mean_margin_over_best_failure": -0.0342,
-    "reference_confirmation_penalised": [
-     "T067-en"
-    ],
+    "pairs_ranked_correctly": 198,
+    "mean_reference": 0.2239,
+    "mean_margin_over_best_failure": -0.0308,
+    "reference_confirmation_penalised": [],
     "failures": [
      {
       "id": "T001-en",
@@ -10584,24 +9111,8 @@
      {
       "id": "T067-en",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -10615,7 +9126,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -11063,21 +9574,11 @@
     "rows": 90,
     "ranked_above_all": 18,
     "pairs": 270,
-    "pairs_ranked_correctly": 187,
-    "mean_reference": 0.1863,
-    "mean_margin_over_best_failure": -0.0684,
+    "pairs_ranked_correctly": 197,
+    "mean_reference": 0.2205,
+    "mean_margin_over_best_failure": -0.0342,
     "reference_confirmation_penalised": [
-     "T058-hi",
-     "T059-hi",
-     "T060-hi",
-     "T061-hi",
-     "T062-hi",
-     "T063-hi",
-     "T064-hi",
-     "T065-hi",
-     "T066-hi",
-     "T067-hi",
-     "T068-hi"
+     "T061-hi"
     ],
     "failures": [
      {
@@ -12072,7 +10573,7 @@
      {
       "id": "T058-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
        {
         "perturbation": "wrong_tool",
@@ -12087,23 +10588,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
          "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
         }
        }
       ]
@@ -12111,24 +10596,8 @@
      {
       "id": "T059-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -12142,7 +10611,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -12150,24 +10619,8 @@
      {
       "id": "T060-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -12181,7 +10634,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -12228,24 +10681,8 @@
      {
       "id": "T062-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -12259,7 +10696,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -12267,24 +10704,8 @@
      {
       "id": "T063-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -12298,7 +10719,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -12306,24 +10727,8 @@
      {
       "id": "T064-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -12337,7 +10742,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -12345,24 +10750,8 @@
      {
       "id": "T065-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -12376,7 +10765,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -12384,7 +10773,7 @@
      {
       "id": "T066-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
        {
         "perturbation": "wrong_tool",
@@ -12399,23 +10788,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
          "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
         }
        }
       ]
@@ -12423,24 +10796,8 @@
      {
       "id": "T067-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -12454,7 +10811,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -12462,24 +10819,8 @@
      {
       "id": "T068-hi",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -12493,7 +10834,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -12918,22 +11259,10 @@
     "rows": 90,
     "ranked_above_all": 18,
     "pairs": 270,
-    "pairs_ranked_correctly": 187,
-    "mean_reference": 0.1863,
-    "mean_margin_over_best_failure": -0.0684,
-    "reference_confirmation_penalised": [
-     "T058-mr",
-     "T059-mr",
-     "T060-mr",
-     "T061-mr",
-     "T062-mr",
-     "T063-mr",
-     "T064-mr",
-     "T065-mr",
-     "T066-mr",
-     "T067-mr",
-     "T068-mr"
-    ],
+    "pairs_ranked_correctly": 198,
+    "mean_reference": 0.2239,
+    "mean_margin_over_best_failure": -0.0308,
+    "reference_confirmation_penalised": [],
     "failures": [
      {
       "id": "T001-mr",
@@ -13927,7 +12256,7 @@
      {
       "id": "T058-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
        {
         "perturbation": "wrong_tool",
@@ -13942,23 +12271,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
          "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
         }
        }
       ]
@@ -13966,24 +12279,8 @@
      {
       "id": "T059-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -13997,7 +12294,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14005,24 +12302,8 @@
      {
       "id": "T060-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -14036,7 +12317,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14044,24 +12325,8 @@
      {
       "id": "T061-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -14075,7 +12340,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14083,24 +12348,8 @@
      {
       "id": "T062-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -14114,7 +12363,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14122,24 +12371,8 @@
      {
       "id": "T063-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -14153,7 +12386,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14161,24 +12394,8 @@
      {
       "id": "T064-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -14192,7 +12409,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14200,24 +12417,8 @@
      {
       "id": "T065-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -14231,7 +12432,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14239,7 +12440,7 @@
      {
       "id": "T066-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
        {
         "perturbation": "wrong_tool",
@@ -14254,23 +12455,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
          "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
         }
        }
       ]
@@ -14278,24 +12463,8 @@
      {
       "id": "T067-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -14309,7 +12478,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14317,24 +12486,8 @@
      {
       "id": "T068-mr",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -14348,7 +12501,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -14771,22 +12924,12 @@
    },
    "hinglish": {
     "rows": 90,
-    "ranked_above_all": 17,
+    "ranked_above_all": 18,
     "pairs": 270,
-    "pairs_ranked_correctly": 188,
-    "mean_reference": 0.1931,
-    "mean_margin_over_best_failure": -0.065,
-    "reference_confirmation_penalised": [
-     "T058-hinglish",
-     "T059-hinglish",
-     "T061-hinglish",
-     "T062-hinglish",
-     "T063-hinglish",
-     "T065-hinglish",
-     "T066-hinglish",
-     "T067-hinglish",
-     "T068-hinglish"
-    ],
+    "pairs_ranked_correctly": 198,
+    "mean_reference": 0.2239,
+    "mean_margin_over_best_failure": -0.0308,
+    "reference_confirmation_penalised": [],
     "failures": [
      {
       "id": "T001-hinglish",
@@ -15780,7 +13923,7 @@
      {
       "id": "T058-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
        {
         "perturbation": "wrong_tool",
@@ -15795,23 +13938,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
          "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
         }
        }
       ]
@@ -15819,24 +13946,8 @@
      {
       "id": "T059-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -15850,7 +13961,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -15881,24 +13992,8 @@
      {
       "id": "T061-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -15912,7 +14007,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -15920,24 +14015,8 @@
      {
       "id": "T062-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -15951,7 +14030,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -15959,24 +14038,8 @@
      {
       "id": "T063-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -15990,7 +14053,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -16021,24 +14084,8 @@
      {
       "id": "T065-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -16052,7 +14099,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -16060,7 +14107,7 @@
      {
       "id": "T066-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
        {
         "perturbation": "wrong_tool",
@@ -16075,23 +14122,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
          "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
         }
        }
       ]
@@ -16099,24 +14130,8 @@
      {
       "id": "T067-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -16130,7 +14145,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -16138,24 +14153,8 @@
      {
       "id": "T068-hinglish",
       "category": "irreversible_confirmed",
-      "reference": 0.0,
+      "reference": 0.3077,
       "not_ranked_above": [
-       {
-        "perturbation": "malformed_json",
-        "score": 0.0,
-        "components": {
-         "audit_tool_validity_reward": 0.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
-        }
-       },
        {
         "perturbation": "wrong_tool",
         "score": 0.3077,
@@ -16169,7 +14168,7 @@
          "audit_tool_validity_reward": 1.0,
          "audit_tool_permission_penalty": 0.0,
          "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": -1.0
+         "audit_confirm_irreversible_penalty": 0.0
         }
        }
       ]
@@ -16296,29 +14295,6 @@
       "not_ranked_above": [
        {
         "perturbation": "wrong_tool",
-        "score": 0.3077,
-        "components": {
-         "audit_tool_validity_reward": 1.0,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        },
-        "reference_components": {
-         "audit_tool_validity_reward": 0.5,
-         "audit_tool_permission_penalty": 0.0,
-         "audit_redundant_calls_penalty": 0.0,
-         "audit_confirm_irreversible_penalty": 0.0
-        }
-       }
-      ]
-     },
-     {
-      "id": "T075-hinglish",
-      "category": "declined",
-      "reference": 0.1538,
-      "not_ranked_above": [
-       {
-        "perturbation": "unconfirmed_irreversible",
         "score": 0.3077,
         "components": {
          "audit_tool_validity_reward": 1.0,
@@ -16655,7 +14631,7 @@
     "en": "1/11",
     "hi": "1/11",
     "mr": "1/11",
-    "hinglish": "0/11"
+    "hinglish": "1/11"
    },
    "denied_tool": {
     "en": "3/11",
@@ -16671,8 +14647,8 @@
    "missing_arg": 264
   },
   "perturbation_pairs_ranked_correctly": {
-   "unconfirmed_irreversible": 271,
-   "malformed_json": 224,
+   "unconfirmed_irreversible": 272,
+   "malformed_json": 255,
    "missing_arg": 264
   },
   "languages_where_reference_not_always_ranked_first": [
@@ -16683,8 +14659,8 @@
   ],
   "ok": false
  },
- "proposed_multilingual_rule": {
-  "note": "audit_rewards.confirmation.is_confirmation replaced in-process by transit_agent.multilingual_confirmation.is_confirmation (lexicon built without test-only phrasings). audit_rewards itself is unchanged.",
+ "english_only_rule_before_fix": {
+  "note": "audit_rewards.confirmation.is_confirmation replaced in-process by the original English keyword regex (is_confirmation_english), to show what the fix changed.",
   "confirmation_rule": {
    "en": {
     "confirmation_recall": "10/11",
@@ -16699,40 +14675,69 @@
     }
    },
    "hi": {
-    "confirmation_recall": "9/11",
+    "confirmation_recall": "0/11",
     "decline_correct": "11/11",
     "missed_confirmations": [
+     "T058-hi: हाँ, बुक कर दीजिए।",
+     "T059-hi: जी हाँ, कर दीजिए।",
+     "T060-hi: ठीक है, कन्फ़र्म कीजिए।",
      "T061-hi: बढ़िया, बुक कर दो।",
-     "T067-hi: हाँ, रद्द कर दीजिए।"
+     "T062-hi: हाँ, सही है। आगे बढ़िए।",
+     "T063-hi: चलिए, कर दीजिए।",
+     "T064-hi: ठीक है, हाँ।",
+     "T065-hi: हाँ हाँ, कर दीजिए।",
+     "T066-hi: मंज़ूर है, बुक कीजिए।",
+     "T067-hi: हाँ, रद्द कर दीजिए।",
+     "T068-hi: हाँ, मुझे यकीन है। कर दीजिए।"
     ],
     "declines_read_as_yes": [],
     "correct_by_split": {
-     "train_dev": "14/14",
-     "test": "6/8"
+     "train_dev": "7/14",
+     "test": "4/8"
     }
    },
    "mr": {
-    "confirmation_recall": "10/11",
+    "confirmation_recall": "0/11",
     "decline_correct": "11/11",
     "missed_confirmations": [
-     "T067-mr: हो, रद्द करा."
+     "T058-mr: हो, बुक करा.",
+     "T059-mr: होय, करून टाका.",
+     "T060-mr: ठीक आहे, कन्फर्म करा.",
+     "T061-mr: छान, बुक करा.",
+     "T062-mr: हो, बरोबर आहे. पुढे जा.",
+     "T063-mr: चला, करून टाका.",
+     "T064-mr: ठीक आहे, हो.",
+     "T065-mr: हो हो, करा.",
+     "T066-mr: मंजूर आहे, बुक करा.",
+     "T067-mr: हो, रद्द करा.",
+     "T068-mr: हो, नक्की. करून टाका."
     ],
     "declines_read_as_yes": [],
     "correct_by_split": {
-     "train_dev": "14/14",
-     "test": "7/8"
+     "train_dev": "7/14",
+     "test": "4/8"
     }
    },
    "hinglish": {
-    "confirmation_recall": "10/11",
-    "decline_correct": "11/11",
+    "confirmation_recall": "2/11",
+    "decline_correct": "10/11",
     "missed_confirmations": [
-     "T067-hinglish: Haan, cancel kar do."
+     "T058-hinglish: Haan, book kar do.",
+     "T059-hinglish: Haan ji, kar do.",
+     "T061-hinglish: Badhiya, book kar do.",
+     "T062-hinglish: Haan, sahi hai. Aage badho.",
+     "T063-hinglish: Chalo, kar do.",
+     "T065-hinglish: Haan haan, kar do.",
+     "T066-hinglish: Done hai, book karo.",
+     "T067-hinglish: Haan, cancel kar do.",
+     "T068-hinglish: Haan, pakka. Kar do."
     ],
-    "declines_read_as_yes": [],
+    "declines_read_as_yes": [
+     "T075-hinglish: Hmm, yeh bahut jaldi nikalti hai. Skip karo, ok?"
+    ],
     "correct_by_split": {
-     "train_dev": "14/14",
-     "test": "7/8"
+     "train_dev": "8/14",
+     "test": "4/8"
     }
    }
   },
@@ -16777,18 +14782,227 @@
    },
    "hi": {
     "rows": 90,
-    "ranked_above_all": 88,
+    "ranked_above_all": 79,
     "pairs": 270,
-    "pairs_ranked_correctly": 268,
-    "mean_reference": 0.4013,
-    "mean_margin_over_best_failure": 0.1721,
+    "pairs_ranked_correctly": 259,
+    "mean_reference": 0.3778,
+    "mean_margin_over_best_failure": 0.1486,
     "reference_confirmation_penalised": [
+     "T058-hi",
+     "T059-hi",
+     "T060-hi",
      "T061-hi",
-     "T067-hi"
+     "T062-hi",
+     "T063-hi",
+     "T064-hi",
+     "T065-hi",
+     "T066-hi",
+     "T067-hi",
+     "T068-hi"
     ],
     "failures": [
      {
+      "id": "T058-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T059-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T060-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
       "id": "T061-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T062-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T063-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T064-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T065-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T066-hi",
       "category": "irreversible_confirmed",
       "reference": 0.2353,
       "not_ranked_above": [
@@ -16836,22 +15050,307 @@
         }
        }
       ]
+     },
+     {
+      "id": "T068-hi",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
      }
     ]
    },
    "mr": {
     "rows": 90,
-    "ranked_above_all": 89,
+    "ranked_above_all": 79,
     "pairs": 270,
-    "pairs_ranked_correctly": 269,
-    "mean_reference": 0.4039,
-    "mean_margin_over_best_failure": 0.1747,
+    "pairs_ranked_correctly": 259,
+    "mean_reference": 0.3778,
+    "mean_margin_over_best_failure": 0.1486,
     "reference_confirmation_penalised": [
-     "T067-mr"
+     "T058-mr",
+     "T059-mr",
+     "T060-mr",
+     "T061-mr",
+     "T062-mr",
+     "T063-mr",
+     "T064-mr",
+     "T065-mr",
+     "T066-mr",
+     "T067-mr",
+     "T068-mr"
     ],
     "failures": [
      {
+      "id": "T058-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T059-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T060-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T061-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T062-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T063-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T064-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T065-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T066-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
       "id": "T067-mr",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T068-mr",
       "category": "irreversible_confirmed",
       "reference": 0.2353,
       "not_ranked_above": [
@@ -16879,17 +15378,225 @@
    },
    "hinglish": {
     "rows": 90,
-    "ranked_above_all": 89,
+    "ranked_above_all": 81,
     "pairs": 270,
-    "pairs_ranked_correctly": 269,
-    "mean_reference": 0.4039,
-    "mean_margin_over_best_failure": 0.1747,
+    "pairs_ranked_correctly": 261,
+    "mean_reference": 0.383,
+    "mean_margin_over_best_failure": 0.1512,
     "reference_confirmation_penalised": [
-     "T067-hinglish"
+     "T058-hinglish",
+     "T059-hinglish",
+     "T061-hinglish",
+     "T062-hinglish",
+     "T063-hinglish",
+     "T065-hinglish",
+     "T066-hinglish",
+     "T067-hinglish",
+     "T068-hinglish"
     ],
     "failures": [
      {
+      "id": "T058-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T059-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T061-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T062-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T063-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T065-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T066-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
       "id": "T067-hinglish",
+      "category": "irreversible_confirmed",
+      "reference": 0.2353,
+      "not_ranked_above": [
+       {
+        "perturbation": "wrong_tool",
+        "score": 0.2353,
+        "components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 0.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": 0.0
+        },
+        "reference_components": {
+         "audit_tool_validity_reward": 1.0,
+         "audit_tool_f1_reward": 1.0,
+         "audit_tool_permission_penalty": 0.0,
+         "audit_redundant_calls_penalty": 0.0,
+         "audit_confirm_irreversible_penalty": -1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "T068-hinglish",
       "category": "irreversible_confirmed",
       "reference": 0.2353,
       "not_ranked_above": [
@@ -16949,9 +15656,9 @@
    },
    "irreversible_confirmed": {
     "en": "10/11",
-    "hi": "9/11",
-    "mr": "10/11",
-    "hinglish": "10/11"
+    "hi": "0/11",
+    "mr": "0/11",
+    "hinglish": "2/11"
    },
    "declined": {
     "en": "11/11",
@@ -16973,5 +15680,5 @@
    "hinglish"
   ]
  },
- "seconds": 4.4
+ "seconds": 5.1
 }

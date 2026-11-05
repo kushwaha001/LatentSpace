@@ -52,7 +52,7 @@ from auditkit.sample import Sample  # noqa: E402
 from auditkit.trace import normalize_call  # noqa: E402
 
 from audit_rewards import AuditRewards, is_confirmation, tool_schemas  # noqa: E402
-from transit_agent.multilingual_confirmation import is_confirmation as is_confirmation_multi  # noqa: E402,E501
+from audit_rewards.confirmation import is_confirmation_english  # noqa: E402
 from transit_agent import TOOLS, execute_call, reset_backend  # noqa: E402
 from transit_agent.build_eval import HELD_OUT_TOOLS, LANGS  # noqa: E402
 
@@ -430,6 +430,17 @@ def check_ranking(rows: list[dict], include_f1: bool = True) -> dict:
     }
 
 
+def _irreversible_action(row: dict) -> str | None:
+    """The irreversible tool a confirmation in this row would authorize, if the reference
+    calls one (confirmed rows); None for declined rows, which have no reference call."""
+    irrev = {"book_ticket", "cancel_booking"}
+    for turn in row.get("expected_tool_calls") or []:
+        for c in turn or []:
+            if c.get("name") in irrev:
+                return c["name"]
+    return None
+
+
 def check_confirmation_rule(rows: list[dict], matcher=is_confirmation) -> dict:
     """The keyword rule (audit_rewards.confirmation) on the final user turn of every
     confirmed / declined row: a yes should read as a confirmation, a no should not."""
@@ -443,7 +454,7 @@ def check_confirmation_rule(rows: list[dict], matcher=is_confirmation) -> dict:
                                                               "declined"):
                 continue
             text = r["messages"][-1]["content"]
-            yes = matcher(text)
+            yes = matcher(text, action=_irreversible_action(r))
             held = "test" if r["split"] == "test" else "train_dev"
             per_split[held][0] += yes == (r["category"] == "irreversible_confirmed")
             per_split[held][1] += 1
@@ -491,27 +502,26 @@ def main() -> None:
     result["reward_ranking_reference_free"] = {
         k: v for k, v in rf.items() if k != "rows"}
 
-    # Proposed rule: the same ranking with audit_rewards' English keyword matcher swapped for
-    # transit_agent.multilingual_confirmation, in this process only (audit_rewards unchanged).
-    # Its lexicon uses no phrasing that occurs only in test rows, so the "test" numbers in
+    # Before the fix: the same ranking with the original English-only keyword rule swapped in
+    # (in this process only). The default rule above is the multilingual, action-aware one;
+    # its lexicon uses no phrasing that occurs only in test rows, so the "test" numbers in
     # confirmation_rule.*.correct_by_split are a held-out measurement.
     from audit_rewards import confirmation as conf
 
     current = conf.is_confirmation
-    conf.is_confirmation = is_confirmation_multi
+    conf.is_confirmation = is_confirmation_english
     try:
-        new = check_ranking(rows)
+        old = check_ranking(rows)
     finally:
         conf.is_confirmation = current
-    result["proposed_multilingual_rule"] = {
-        "note": "audit_rewards.confirmation.is_confirmation replaced in-process by "
-                "transit_agent.multilingual_confirmation.is_confirmation (lexicon built without "
-                "test-only phrasings). audit_rewards itself is unchanged.",
-        "confirmation_rule": check_confirmation_rule(rows, matcher=is_confirmation_multi),
-        "by_language": new["by_language"],
-        "ranked_above_all_by_category_language": new["ranked_above_all_by_category_language"],
+    result["english_only_rule_before_fix"] = {
+        "note": "audit_rewards.confirmation.is_confirmation replaced in-process by the original "
+                "English keyword regex (is_confirmation_english), to show what the fix changed.",
+        "confirmation_rule": check_confirmation_rule(rows, matcher=is_confirmation_english),
+        "by_language": old["by_language"],
+        "ranked_above_all_by_category_language": old["ranked_above_all_by_category_language"],
         "languages_where_reference_not_always_ranked_first":
-            new["languages_where_reference_not_always_ranked_first"],
+            old["languages_where_reference_not_always_ranked_first"],
     }
     result["seconds"] = round(time.time() - t0, 1)
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -533,12 +543,12 @@ def main() -> None:
     for lang, v in result["reward_ranking_reference_free"]["by_language"].items():
         print(f"  {lang:9s} ranked first {v['ranked_above_all']}/{v['rows']}  pairs "
               f"{v['pairs_ranked_correctly']}/{v['pairs']}")
-    new = result["proposed_multilingual_rule"]
-    print("proposed multilingual confirmation rule (not merged into audit_rewards):")
-    for lang, v in new["by_language"].items():
+    old = result["english_only_rule_before_fix"]
+    print("before the fix (original English-only confirmation rule):")
+    for lang, v in old["by_language"].items():
         print(f"  {lang:9s} ranked first {v['ranked_above_all']}/{v['rows']}  margin "
               f"{v['mean_margin_over_best_failure']}")
-    for lang, v in new["confirmation_rule"].items():
+    for lang, v in old["confirmation_rule"].items():
         print(f"  {lang:9s} yes/no read correctly by split {v['correct_by_split']}")
     print(f"wrote {OUT.relative_to(ROOT)} in {result['seconds']}s")
 

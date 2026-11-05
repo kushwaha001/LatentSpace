@@ -73,14 +73,20 @@ Run any experiment from the repo root with `python experiments/NN_name.py`.
   still needs native-speaker review** ([data card](data/eval/DATACARD.md),
   `review_checklist.csv`).
 - **[05](experiments/05_eval_set_checks.py)**: all 308 expected calls are schema-valid and run
-  on the backend, and there is no split leakage. `combined()` ranks the reference above 3
-  perturbed failures on every row in 7 of 8 categories, in all languages. It fails on
-  irreversible_confirmed in Hindi (0/11), Marathi (0/11) and Hinglish (2/11): the confirmation
-  rule in `audit_rewards` is an English keyword list, so a correct confirmed booking is
-  penalised. A proposed multilingual rule (`transit_agent/multilingual_confirmation.py`, not yet
-  merged into `audit_rewards`) uses no test-only phrasing. It reads yes / no correctly on
-  14/14 train and dev rows and 6 to 7 of 8 held-out test rows per language. It still reads
-  "yes, cancel it" as a no.
+  on the backend, and there is no split leakage. It also found a flaw in our own reward: the
+  confirm-before-irreversible rule was an English keyword list, so a correct booking confirmed in
+  Hindi or Marathi was penalised. The rule in `audit_rewards.confirmation` is now multilingual
+  (en / hi / mr / Hinglish, token-based so Devanagari works) and action-aware ("yes, cancel it"
+  confirms a cancellation; "cancel that" still refuses a booking). Its lexicon contains no
+  phrasing that appears only in the test split.
+
+  | Reference ranked above all 3 failures | en | hi | mr | Hinglish |
+  |---|---|---|---|---|
+  | English-only rule (before) | 89/90 | 79/90 | 79/90 | 81/90 |
+  | Multilingual rule (now) | 90/90 | 89/90 | 90/90 | 90/90 |
+
+  Yes/no read correctly on held-out test phrasings: en 8/8, hi 7/8, mr 8/8, Hinglish 8/8. The
+  one miss ("बढ़िया, बुक कर दो") uses a phrasing that occurs only in test, so it was not added.
   [results](results/05_eval_set_checks.json)
 - **[06](experiments/06_baseline_harness.py)**: baseline harness (AgentTune rollout + audit
   metrics + AuditKIT pass^k) for a HF model on the test split. Only `--dry-run` (a scripted
@@ -98,8 +104,9 @@ Details, memory defaults and a cost/time table are in
 
 ## Next
 
-- Transit tool set and a 4-language eval set with a held-out split
-- Baseline Tiny Aya, distillation, then the two GRPO runs (default reward vs audit reward)
+- Native-speaker review of the Hindi and Marathi tasks (`data/eval/review_checklist.csv`)
+- GPU runs: baseline Tiny Aya, teacher collection, distillation, then GRPO run_A (default
+  reward) and run_B (audit reward), and held-out evaluation per language
 
 ## Status
 

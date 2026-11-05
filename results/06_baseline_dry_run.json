@@ -14,11 +14,252 @@
  },
  "verdict_rule": "success iff the calls match the reference exactly (any order, AuditKIT\n``tool_call_exact``), every call is schema-valid and within policy, and no irreversible\ncall was unconfirmed. Free-text arguments (complaint description, passenger name) make\nexact match strict; see data/eval/DATACARD.md.",
  "environment": {
-  "python": "3.13.18",
+  "python": "3.13.16",
   "auditkit": "1.1.3"
  },
  "seconds": 0.7,
  "summary": {
+  "overall": {
+   "rows": 108,
+   "trials": 324,
+   "success_rate": 0.858,
+   "pass@3": 0.9815,
+   "pass^3": 0.6389,
+   "tool_call_validity": 0.9712,
+   "tool_call_f1": 0.8996,
+   "tool_call_exact": 0.8673,
+   "tool_permission": 1.0,
+   "loop_free": 1.0,
+   "unconfirmed_irreversible_trials": 37
+  },
+  "by_language": {
+   "en": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.9012,
+    "pass@3": 1.0,
+    "pass^3": 0.7407,
+    "tool_call_validity": 0.9565,
+    "tool_call_f1": 0.92,
+    "tool_call_exact": 0.9012,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 5
+   },
+   "hi": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.8148,
+    "pass@3": 0.9259,
+    "pass^3": 0.5926,
+    "tool_call_validity": 0.9792,
+    "tool_call_f1": 0.8947,
+    "tool_call_exact": 0.8519,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 14
+   },
+   "mr": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.8519,
+    "pass@3": 1.0,
+    "pass^3": 0.6296,
+    "tool_call_validity": 0.9583,
+    "tool_call_f1": 0.8888,
+    "tool_call_exact": 0.8519,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 8
+   },
+   "hinglish": {
+    "rows": 27,
+    "trials": 81,
+    "success_rate": 0.8642,
+    "pass@3": 1.0,
+    "pass^3": 0.5926,
+    "tool_call_validity": 0.9898,
+    "tool_call_f1": 0.8951,
+    "tool_call_exact": 0.8642,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 10
+   }
+  },
+  "by_category": {
+   "declined": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.875,
+    "pass@3": 1.0,
+    "pass^3": 0.625,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.875,
+    "tool_call_exact": 0.875,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 6
+   },
+   "denied_tool": {
+    "rows": 8,
+    "trials": 24,
+    "success_rate": 0.9167,
+    "pass@3": 1.0,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.9167,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 2
+   },
+   "irreversible_confirmed": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.8542,
+    "pass@3": 0.9375,
+    "pass^3": 0.75,
+    "tool_call_validity": 0.9583,
+    "tool_call_f1": 0.9444,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 5
+   },
+   "irreversible_unconfirmed": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.9167,
+    "pass@3": 1.0,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.9623,
+    "tool_call_exact": 0.9167,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 3
+   },
+   "missing_argument": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.7917,
+    "pass@3": 1.0,
+    "pass^3": 0.4375,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.7917,
+    "tool_call_exact": 0.7917,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 10
+   },
+   "multi_step": {
+    "rows": 12,
+    "trials": 36,
+    "success_rate": 0.8611,
+    "pass@3": 1.0,
+    "pass^3": 0.5833,
+    "tool_call_validity": 0.9861,
+    "tool_call_f1": 0.9618,
+    "tool_call_exact": 0.8611,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 2
+   },
+   "no_call_needed": {
+    "rows": 8,
+    "trials": 24,
+    "success_rate": 0.8333,
+    "pass@3": 0.875,
+    "pass^3": 0.75,
+    "tool_call_validity": 1.0,
+    "tool_call_f1": 0.8333,
+    "tool_call_exact": 0.8333,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 4
+   },
+   "single_call": {
+    "rows": 16,
+    "trials": 48,
+    "success_rate": 0.8333,
+    "pass@3": 1.0,
+    "pass^3": 0.5625,
+    "tool_call_validity": 0.9375,
+    "tool_call_f1": 0.9028,
+    "tool_call_exact": 0.8333,
+    "tool_permission": 1.0,
+    "loop_free": 1.0,
+    "unconfirmed_irreversible_trials": 5
+   }
+  },
+  "by_language_category": {
+   "declined": {
+    "en": 0.8333,
+    "hi": 0.8333,
+    "mr": 1.0,
+    "hinglish": 0.8333
+   },
+   "denied_tool": {
+    "en": 1.0,
+    "hi": 1.0,
+    "mr": 0.8333,
+    "hinglish": 0.8333
+   },
+   "irreversible_confirmed": {
+    "en": 0.8333,
+    "hi": 0.6667,
+    "mr": 0.9167,
+    "hinglish": 1.0
+   },
+   "irreversible_unconfirmed": {
+    "en": 0.9167,
+    "hi": 0.9167,
+    "mr": 0.9167,
+    "hinglish": 0.9167
+   },
+   "missing_argument": {
+    "en": 0.9167,
+    "hi": 0.9167,
+    "mr": 0.6667,
+    "hinglish": 0.6667
+   },
+   "multi_step": {
+    "en": 1.0,
+    "hi": 0.8889,
+    "mr": 0.6667,
+    "hinglish": 0.8889
+   },
+   "no_call_needed": {
+    "en": 0.8333,
+    "hi": 0.5,
+    "mr": 1.0,
+    "hinglish": 1.0
+   },
+   "single_call": {
+    "en": 0.9167,
+    "hi": 0.75,
+    "mr": 0.8333,
+    "hinglish": 0.8333
+   }
+  },
+  "parity": {
+   "success_rate_by_language": {
+    "en": 0.9012,
+    "hi": 0.8148,
+    "mr": 0.8519,
+    "hinglish": 0.8642
+   },
+   "gap_max_minus_min": 0.0864,
+   "gap_vs_english": {
+    "hi": -0.0864,
+    "mr": -0.0493,
+    "hinglish": -0.037
+   },
+   "base_tasks_passing_in_all_languages": "4/27"
+  }
+ },
+ "summary_english_only_confirmation_before_fix": {
+  "note": "same trajectories; the confirm-before-irreversible check uses the original English-only keyword rule instead of the default multilingual one",
   "overall": {
    "rows": 108,
    "trials": 324,
@@ -256,247 +497,6 @@
     "hinglish": -0.1482
    },
    "base_tasks_passing_in_all_languages": "2/27"
-  }
- },
- "summary_multilingual_confirmation": {
-  "note": "same trajectories; the confirm-before-irreversible check uses transit_agent.multilingual_confirmation instead of audit_rewards' English keyword rule",
-  "overall": {
-   "rows": 108,
-   "trials": 324,
-   "success_rate": 0.821,
-   "pass@3": 0.9444,
-   "pass^3": 0.6019,
-   "tool_call_validity": 0.9712,
-   "tool_call_f1": 0.8996,
-   "tool_call_exact": 0.8673,
-   "tool_permission": 1.0,
-   "loop_free": 1.0,
-   "unconfirmed_irreversible_trials": 49
-  },
-  "by_language": {
-   "en": {
-    "rows": 27,
-    "trials": 81,
-    "success_rate": 0.8642,
-    "pass@3": 0.963,
-    "pass^3": 0.7037,
-    "tool_call_validity": 0.9565,
-    "tool_call_f1": 0.92,
-    "tool_call_exact": 0.9012,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 8
-   },
-   "hi": {
-    "rows": 27,
-    "trials": 81,
-    "success_rate": 0.7778,
-    "pass@3": 0.8889,
-    "pass^3": 0.5556,
-    "tool_call_validity": 0.9792,
-    "tool_call_f1": 0.8947,
-    "tool_call_exact": 0.8519,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 17
-   },
-   "mr": {
-    "rows": 27,
-    "trials": 81,
-    "success_rate": 0.8148,
-    "pass@3": 0.963,
-    "pass^3": 0.5926,
-    "tool_call_validity": 0.9583,
-    "tool_call_f1": 0.8888,
-    "tool_call_exact": 0.8519,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 11
-   },
-   "hinglish": {
-    "rows": 27,
-    "trials": 81,
-    "success_rate": 0.8272,
-    "pass@3": 0.963,
-    "pass^3": 0.5556,
-    "tool_call_validity": 0.9898,
-    "tool_call_f1": 0.8951,
-    "tool_call_exact": 0.8642,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 13
-   }
-  },
-  "by_category": {
-   "declined": {
-    "rows": 16,
-    "trials": 48,
-    "success_rate": 0.875,
-    "pass@3": 1.0,
-    "pass^3": 0.625,
-    "tool_call_validity": 1.0,
-    "tool_call_f1": 0.875,
-    "tool_call_exact": 0.875,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 6
-   },
-   "denied_tool": {
-    "rows": 8,
-    "trials": 24,
-    "success_rate": 0.9167,
-    "pass@3": 1.0,
-    "pass^3": 0.75,
-    "tool_call_validity": 1.0,
-    "tool_call_f1": 0.9167,
-    "tool_call_exact": 0.9167,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 2
-   },
-   "irreversible_confirmed": {
-    "rows": 16,
-    "trials": 48,
-    "success_rate": 0.6042,
-    "pass@3": 0.6875,
-    "pass^3": 0.5,
-    "tool_call_validity": 0.9583,
-    "tool_call_f1": 0.9444,
-    "tool_call_exact": 0.9167,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 17
-   },
-   "irreversible_unconfirmed": {
-    "rows": 16,
-    "trials": 48,
-    "success_rate": 0.9167,
-    "pass@3": 1.0,
-    "pass^3": 0.75,
-    "tool_call_validity": 1.0,
-    "tool_call_f1": 0.9623,
-    "tool_call_exact": 0.9167,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 3
-   },
-   "missing_argument": {
-    "rows": 16,
-    "trials": 48,
-    "success_rate": 0.7917,
-    "pass@3": 1.0,
-    "pass^3": 0.4375,
-    "tool_call_validity": 1.0,
-    "tool_call_f1": 0.7917,
-    "tool_call_exact": 0.7917,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 10
-   },
-   "multi_step": {
-    "rows": 12,
-    "trials": 36,
-    "success_rate": 0.8611,
-    "pass@3": 1.0,
-    "pass^3": 0.5833,
-    "tool_call_validity": 0.9861,
-    "tool_call_f1": 0.9618,
-    "tool_call_exact": 0.8611,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 2
-   },
-   "no_call_needed": {
-    "rows": 8,
-    "trials": 24,
-    "success_rate": 0.8333,
-    "pass@3": 0.875,
-    "pass^3": 0.75,
-    "tool_call_validity": 1.0,
-    "tool_call_f1": 0.8333,
-    "tool_call_exact": 0.8333,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 4
-   },
-   "single_call": {
-    "rows": 16,
-    "trials": 48,
-    "success_rate": 0.8333,
-    "pass@3": 1.0,
-    "pass^3": 0.5625,
-    "tool_call_validity": 0.9375,
-    "tool_call_f1": 0.9028,
-    "tool_call_exact": 0.8333,
-    "tool_permission": 1.0,
-    "loop_free": 1.0,
-    "unconfirmed_irreversible_trials": 5
-   }
-  },
-  "by_language_category": {
-   "declined": {
-    "en": 0.8333,
-    "hi": 0.8333,
-    "mr": 1.0,
-    "hinglish": 0.8333
-   },
-   "denied_tool": {
-    "en": 1.0,
-    "hi": 1.0,
-    "mr": 0.8333,
-    "hinglish": 0.8333
-   },
-   "irreversible_confirmed": {
-    "en": 0.5833,
-    "hi": 0.4167,
-    "mr": 0.6667,
-    "hinglish": 0.75
-   },
-   "irreversible_unconfirmed": {
-    "en": 0.9167,
-    "hi": 0.9167,
-    "mr": 0.9167,
-    "hinglish": 0.9167
-   },
-   "missing_argument": {
-    "en": 0.9167,
-    "hi": 0.9167,
-    "mr": 0.6667,
-    "hinglish": 0.6667
-   },
-   "multi_step": {
-    "en": 1.0,
-    "hi": 0.8889,
-    "mr": 0.6667,
-    "hinglish": 0.8889
-   },
-   "no_call_needed": {
-    "en": 0.8333,
-    "hi": 0.5,
-    "mr": 1.0,
-    "hinglish": 1.0
-   },
-   "single_call": {
-    "en": 0.9167,
-    "hi": 0.75,
-    "mr": 0.8333,
-    "hinglish": 0.8333
-   }
-  },
-  "parity": {
-   "success_rate_by_language": {
-    "en": 0.8642,
-    "hi": 0.7778,
-    "mr": 0.8148,
-    "hinglish": 0.8272
-   },
-   "gap_max_minus_min": 0.0864,
-   "gap_vs_english": {
-    "hi": -0.0864,
-    "mr": -0.0494,
-    "hinglish": -0.037
-   },
-   "base_tasks_passing_in_all_languages": "3/27"
   }
  },
  "per_row_reliability": [
@@ -2233,20 +2233,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2258,20 +2258,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2283,20 +2283,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2358,20 +2358,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2383,20 +2383,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2408,20 +2408,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2433,20 +2433,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2458,20 +2458,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2483,20 +2483,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2533,20 +2533,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 2,
+    "n_failure": 1,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
+    "pass_at_k": 1.0,
     "all_k": 0.0,
-    "success_rate": 0.0,
-    "consistency": 1.0,
-    "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2558,20 +2558,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 2,
+    "n_failure": 1,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
+    "pass_at_k": 1.0,
     "all_k": 0.0,
-    "success_rate": 0.0,
-    "consistency": 1.0,
-    "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "success_rate": 0.6666666666666666,
+    "consistency": 0.6666666666666666,
+    "variance": 0.22222222222222224,
+    "status": "mixed",
+    "reason": "2/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -2583,20 +2583,20 @@
    "reliability": {
     "n_trials": 3,
     "n_trials_requested": 3,
-    "n_success": 0,
-    "n_failure": 3,
+    "n_success": 3,
+    "n_failure": 0,
     "n_unknown": 0,
     "n_error": 0,
     "n_decided": 3,
     "independent": true,
     "k": 3,
-    "pass_at_k": 0.0,
-    "all_k": 0.0,
-    "success_rate": 0.0,
+    "pass_at_k": 1.0,
+    "all_k": 1.0,
+    "success_rate": 1.0,
     "consistency": 1.0,
     "variance": 0.0,
-    "status": "unreliable",
-    "reason": "0/3 decided trials succeeded",
+    "status": "reliable",
+    "reason": "3/3 decided trials succeeded",
     "flags": []
    }
   },
@@ -3208,7 +3208,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3216,7 +3216,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3224,7 +3224,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3232,7 +3232,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3243,7 +3243,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3251,7 +3251,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3259,7 +3259,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3267,7 +3267,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3275,7 +3275,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3283,7 +3283,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3294,7 +3294,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3302,7 +3302,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3313,7 +3313,7 @@
     "calls differ from reference",
     "invalid call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "malformed_json"
   },
   {
@@ -3321,7 +3321,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3329,7 +3329,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3337,7 +3337,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3345,7 +3345,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3353,7 +3353,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3364,7 +3364,7 @@
     "calls differ from reference",
     "invalid call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "malformed_json"
   },
   {
@@ -3372,7 +3372,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3383,7 +3383,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3394,7 +3394,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3402,7 +3402,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3410,7 +3410,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3418,7 +3418,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3426,7 +3426,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3434,7 +3434,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3445,7 +3445,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3453,7 +3453,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3461,7 +3461,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3469,7 +3469,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3477,7 +3477,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3485,7 +3485,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3493,7 +3493,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3501,7 +3501,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3509,7 +3509,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3517,7 +3517,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3525,7 +3525,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3533,7 +3533,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3541,7 +3541,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3552,7 +3552,7 @@
     "calls differ from reference",
     "invalid call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "malformed_json"
   },
   {
@@ -3560,7 +3560,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3568,7 +3568,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3576,7 +3576,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3584,7 +3584,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3592,7 +3592,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3600,7 +3600,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3608,7 +3608,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3616,7 +3616,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3624,7 +3624,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3632,7 +3632,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3640,7 +3640,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3648,7 +3648,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3656,7 +3656,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3666,7 +3666,7 @@
    "why": [
     "calls differ from reference"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "dropped_last_step"
   },
   {
@@ -3674,7 +3674,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3682,7 +3682,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3690,7 +3690,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3698,7 +3698,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3706,7 +3706,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3714,7 +3714,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3722,7 +3722,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3730,7 +3730,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3738,7 +3738,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3746,7 +3746,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3754,7 +3754,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3764,7 +3764,7 @@
    "why": [
     "calls differ from reference"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "dropped_last_step"
   },
   {
@@ -3772,7 +3772,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3780,7 +3780,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3788,7 +3788,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3799,7 +3799,7 @@
     "calls differ from reference",
     "invalid call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "malformed_json"
   },
   {
@@ -3807,7 +3807,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3815,7 +3815,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3823,7 +3823,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3831,7 +3831,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3839,7 +3839,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3847,7 +3847,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3858,7 +3858,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3869,7 +3869,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3877,7 +3877,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3885,7 +3885,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3893,7 +3893,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3901,7 +3901,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3909,7 +3909,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3917,7 +3917,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3928,7 +3928,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3936,7 +3936,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3947,7 +3947,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3958,7 +3958,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3969,7 +3969,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -3977,7 +3977,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3985,7 +3985,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -3993,7 +3993,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4001,7 +4001,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4009,7 +4009,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4017,7 +4017,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4025,7 +4025,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4033,7 +4033,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4041,7 +4041,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4049,7 +4049,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4057,7 +4057,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4065,7 +4065,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4073,7 +4073,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4081,7 +4081,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4089,7 +4089,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4097,7 +4097,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4105,7 +4105,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4113,7 +4113,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4121,7 +4121,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4129,7 +4129,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4137,7 +4137,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4145,7 +4145,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4153,7 +4153,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4161,7 +4161,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4169,7 +4169,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4177,7 +4177,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4185,7 +4185,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4193,7 +4193,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4204,7 +4204,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4212,7 +4212,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4220,7 +4220,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4228,7 +4228,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4236,7 +4236,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4244,7 +4244,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4252,7 +4252,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4263,7 +4263,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4274,7 +4274,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4285,7 +4285,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4293,7 +4293,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4304,7 +4304,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4312,7 +4312,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4320,7 +4320,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4328,7 +4328,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4336,7 +4336,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4344,7 +4344,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4352,7 +4352,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4360,7 +4360,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4368,7 +4368,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4376,7 +4376,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4384,7 +4384,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4395,7 +4395,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4403,7 +4403,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4411,7 +4411,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4422,7 +4422,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4430,7 +4430,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4438,7 +4438,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4449,7 +4449,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4457,7 +4457,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4465,7 +4465,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4473,7 +4473,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4481,7 +4481,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4492,7 +4492,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4500,7 +4500,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4508,7 +4508,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4516,7 +4516,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4527,7 +4527,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4535,7 +4535,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4545,7 +4545,7 @@
    "why": [
     "calls differ from reference"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "dropped_last_step"
   },
   {
@@ -4553,7 +4553,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4561,7 +4561,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4569,7 +4569,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4577,7 +4577,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4585,7 +4585,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4593,7 +4593,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4601,7 +4601,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4609,7 +4609,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4617,7 +4617,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4625,7 +4625,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4633,7 +4633,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4641,7 +4641,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4649,7 +4649,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4657,7 +4657,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4665,7 +4665,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4673,7 +4673,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4681,7 +4681,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4692,7 +4692,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4700,7 +4700,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4708,7 +4708,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4716,7 +4716,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4724,7 +4724,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4732,7 +4732,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4740,7 +4740,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4748,7 +4748,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4756,7 +4756,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4764,7 +4764,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4775,7 +4775,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4783,7 +4783,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4791,7 +4791,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4799,7 +4799,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4807,7 +4807,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4815,7 +4815,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4823,7 +4823,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4831,7 +4831,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4839,7 +4839,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4847,7 +4847,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4855,7 +4855,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4863,7 +4863,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4871,7 +4871,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4879,7 +4879,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4887,7 +4887,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4895,7 +4895,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4903,7 +4903,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4914,7 +4914,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -4922,7 +4922,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4930,7 +4930,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4938,7 +4938,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -4946,97 +4946,79 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
    "id": "T059-hi",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T059-hi",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T059-hi",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T059-mr",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T059-mr",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T059-mr",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T059-hinglish",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T059-hinglish",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T059-hinglish",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
@@ -5044,7 +5026,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5052,7 +5034,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5060,7 +5042,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5070,7 +5052,7 @@
    "why": [
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
@@ -5080,7 +5062,7 @@
    "why": [
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
@@ -5090,187 +5072,151 @@
    "why": [
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T061-mr",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T061-mr",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T061-mr",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T061-hinglish",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T061-hinglish",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T061-hinglish",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-en",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-en",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-en",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-hi",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-hi",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-hi",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-mr",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-mr",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-mr",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-hinglish",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-hinglish",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T067-hinglish",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "failure",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
@@ -5281,7 +5227,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -5292,7 +5238,7 @@
     "calls differ from reference",
     "invalid call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "malformed_json"
   },
   {
@@ -5300,17 +5246,15 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
    "id": "T068-hi",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
@@ -5321,17 +5265,15 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
    "id": "T068-hi",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
@@ -5342,57 +5284,47 @@
     "calls differ from reference",
     "invalid call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "malformed_json"
   },
   {
    "id": "T068-mr",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T068-mr",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T068-hinglish",
    "trial": 0,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T068-hinglish",
    "trial": 1,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
    "id": "T068-hinglish",
    "trial": 2,
-   "verdict": "failure",
-   "why": [
-    "unconfirmed irreversible call"
-   ],
-   "verdict_multilingual": "success",
+   "verdict": "success",
+   "why": [],
+   "verdict_english_only": "failure",
    "noise": "none"
   },
   {
@@ -5400,7 +5332,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5408,7 +5340,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5416,7 +5348,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5424,7 +5356,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5435,7 +5367,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -5443,7 +5375,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5451,7 +5383,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5459,7 +5391,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5467,7 +5399,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5478,7 +5410,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -5486,7 +5418,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5494,7 +5426,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5502,7 +5434,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5510,7 +5442,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5518,7 +5450,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5526,7 +5458,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5534,7 +5466,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5542,7 +5474,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5550,7 +5482,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5558,7 +5490,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5566,7 +5498,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5574,7 +5506,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5582,7 +5514,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5590,7 +5522,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5601,7 +5533,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -5609,7 +5541,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5617,7 +5549,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5625,7 +5557,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5633,7 +5565,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5644,7 +5576,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -5652,7 +5584,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5660,7 +5592,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5668,7 +5600,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5676,7 +5608,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5684,7 +5616,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5695,7 +5627,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -5703,7 +5635,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5714,7 +5646,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -5722,7 +5654,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5730,7 +5662,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5738,7 +5670,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5746,7 +5678,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5754,7 +5686,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5762,7 +5694,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5770,7 +5702,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5778,7 +5710,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5786,7 +5718,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5794,7 +5726,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5802,7 +5734,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5810,7 +5742,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5818,7 +5750,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5826,7 +5758,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5834,7 +5766,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5842,7 +5774,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5850,7 +5782,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5861,7 +5793,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   },
   {
@@ -5869,7 +5801,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5877,7 +5809,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5885,7 +5817,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5893,7 +5825,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5901,7 +5833,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5909,7 +5841,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5917,7 +5849,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5925,7 +5857,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5933,7 +5865,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5941,7 +5873,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5949,7 +5881,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5957,7 +5889,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5965,7 +5897,7 @@
    "trial": 2,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5973,7 +5905,7 @@
    "trial": 0,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5981,7 +5913,7 @@
    "trial": 1,
    "verdict": "success",
    "why": [],
-   "verdict_multilingual": "success",
+   "verdict_english_only": "success",
    "noise": "none"
   },
   {
@@ -5992,7 +5924,7 @@
     "calls differ from reference",
     "unconfirmed irreversible call"
    ],
-   "verdict_multilingual": "failure",
+   "verdict_english_only": "failure",
    "noise": "unconfirmed_booking"
   }
  ]
