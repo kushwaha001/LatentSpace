@@ -1,0 +1,344 @@
+{
+  "stage": "grpo",
+  "run_name": "run_B",
+  "dry_run": false,
+  "seed": 42,
+  "started_utc": "2026-11-05T22:04:27Z",
+  "seconds": 1350.4,
+  "run": "run_B",
+  "reward": {
+    "kind": "audit",
+    "funcs": [
+      "audit_tool_validity_reward",
+      "audit_tool_f1_reward",
+      "audit_tool_permission_penalty",
+      "audit_confirm_irreversible_penalty",
+      "audit_redundant_calls_penalty"
+    ],
+    "weights": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.25
+    ]
+  },
+  "shared_settings_fingerprint": "615d767987f566ef",
+  "student": {
+    "model": "CohereLabs/tiny-aya-global",
+    "adapter": "outputs/distill/adapter",
+    "quantization": null
+  },
+  "precision": "bf16",
+  "lora": {
+    "adapter": "outputs/distill/adapter"
+  },
+  "n_train_rows": 188,
+  "global_step": 4,
+  "error": "AcceleratorError: CUDA error: out of memory\nSearch for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+  "trainable_tensors_updated": "n/a (started from a trained adapter)",
+  "log_history": [
+    {
+      "loss": -0.28825071454048157,
+      "grad_norm": 0.8377594351768494,
+      "learning_rate": 0.0,
+      "num_tokens": 13640.0,
+      "completions/mean_length": 384.0,
+      "completions/min_length": 256.0,
+      "completions/max_length": 512.0,
+      "completions/clipped_ratio": 1.0,
+      "completions/mean_terminated_length": 0.0,
+      "completions/min_terminated_length": 0.0,
+      "completions/max_terminated_length": 0.0,
+      "rewards/combined_reward(combined_reward(audit_tool_validity_reward+audit_tool_f1_reward+audit_tool_permission_penalty+audit_confirm_irreversible_penalty+audit_redundant_calls_penalty))/mean": 0.1764705926179886,
+      "rewards/combined_reward(combined_reward(audit_tool_validity_reward+audit_tool_f1_reward+audit_tool_permission_penalty+audit_confirm_irreversible_penalty+audit_redundant_calls_penalty))/std": 0.06792356073856354,
+      "reward": 0.1764705926179886,
+      "reward_std": 0.06792356073856354,
+      "frac_reward_zero_std": 0.0,
+      "entropy": 0.35355234146118164,
+      "clip_ratio/low_mean": 0.0,
+      "clip_ratio/low_min": 0.0,
+      "clip_ratio/high_mean": 0.0,
+      "clip_ratio/high_max": 0.0,
+      "clip_ratio/region_mean": 0.0,
+      "step_time": 177.82436100300401,
+      "epoch": 0.005319148936170213,
+      "step": 1
+    },
+    {
+      "loss": 0.22441494464874268,
+      "grad_norm": 0.6580243706703186,
+      "learning_rate": 4.000000000000001e-06,
+      "num_tokens": 27228.0,
+      "completions/mean_length": 384.0,
+      "completions/min_length": 256.0,
+      "completions/max_length": 512.0,
+      "completions/clipped_ratio": 1.0,
+      "completions/mean_terminated_length": 0.0,
+      "completions/min_terminated_length": 0.0,
+      "completions/max_terminated_length": 0.0,
+      "rewards/combined_reward(combined_reward(audit_tool_validity_reward+audit_tool_f1_reward+audit_tool_permission_penalty+audit_confirm_irreversible_penalty+audit_redundant_calls_penalty))/mean": 0.21568627655506134,
+      "rewards/combined_reward(combined_reward(audit_tool_validity_reward+audit_tool_f1_reward+audit_tool_permission_penalty+audit_confirm_irreversible_penalty+audit_redundant_calls_penalty))/std": 0.2037706971168518,
+      "reward": 0.21568627655506134,
+      "reward_std": 0.2037706971168518,
+      "frac_reward_zero_std": 0.0,
+      "entropy": 0.1866636872291565,
+      "clip_ratio/low_mean": 0.0,
+      "clip_ratio/low_min": 0.0,
+      "clip_ratio/high_mean": 0.0,
+      "clip_ratio/high_max": 0.0,
+      "clip_ratio/region_mean": 0.0,
+      "step_time": 179.34893014997942,
+      "epoch": 0.010638297872340425,
+      "step": 2
+    },
+    {
+      "loss": 0.2959762513637543,
+      "grad_norm": 1.072757363319397,
+      "learning_rate": 8.000000000000001e-06,
+      "num_tokens": 41476.0,
+      "completions/mean_length": 640.0,
+      "completions/min_length": 512.0,
+      "completions/max_length": 1024.0,
+      "completions/clipped_ratio": 1.0,
+      "completions/mean_terminated_length": 0.0,
+      "completions/min_terminated_length": 0.0,
+      "completions/max_terminated_length": 0.0,
+      "rewards/combined_reward(combined_reward(audit_tool_validity_reward+audit_tool_f1_reward+audit_tool_permission_penalty+audit_confirm_irreversible_penalty+audit_redundant_calls_penalty))/mean": 0.23161765933036804,
+      "rewards/combined_reward(combined_reward(audit_tool_validity_reward+audit_tool_f1_reward+audit_tool_permission_penalty+audit_confirm_irreversible_penalty+audit_redundant_calls_penalty))/std": 0.007352940738201141,
+      "reward": 0.23161765933036804,
+      "reward_std": 0.007352940738201141,
+      "frac_reward_zero_std": 0.0,
+      "entropy": 0.4432848393917084,
+      "clip_ratio/low_mean": 0.0,
+      "clip_ratio/low_min": 0.0,
+      "clip_ratio/high_mean": 0.0,
+      "clip_ratio/high_max": 0.0,
+      "clip_ratio/region_mean": 0.0,
+      "step_time": 304.4079062049859,
+      "epoch": 0.015957446808510637,
+      "step": 3
+    },
+    {
+      "loss": 0.12116794288158417,
+      "grad_norm": 0.7937129735946655,
+      "learning_rate": 1.2e-05,
+      "num_tokens": 55648.0,
+      "completions/mean_length": 640.0,
+      "completions/min_length": 512.0,
+      "completions/max_length": 1024.0,
+      "completions/clipped_ratio": 1.0,
+      "completions/mean_terminated_length": 0.0,
+      "completions/min_terminated_length": 0.0,
+      "completions/max_terminated_length": 0.0,
+      "rewards/combined_reward(combined_reward(audit_tool_validity_reward+audit_tool_f1_reward+audit_tool_permission_penalty+audit_confirm_irreversible_penalty+audit_redundant_calls_penalty))/mean": 0.13235294818878174,
+      "rewards/combined_reward(combined_reward(audit_tool_validity_reward+audit_tool_f1_reward+audit_tool_permission_penalty+audit_confirm_irreversible_penalty+audit_redundant_calls_penalty))/std": 0.12126781046390533,
+      "reward": 0.13235294818878174,
+      "reward_std": 0.12126781046390533,
+      "frac_reward_zero_std": 0.0,
+      "entropy": 0.37781786918640137,
+      "clip_ratio/low_mean": 0.0,
+      "clip_ratio/low_min": 0.0,
+      "clip_ratio/high_mean": 0.0,
+      "clip_ratio/high_max": 0.0,
+      "clip_ratio/region_mean": 0.0,
+      "step_time": 313.4729514530045,
+      "epoch": 0.02127659574468085,
+      "step": 4
+    }
+  ],
+  "trajectories_written": 20,
+  "audit_of_training_rollouts": {
+    "n_rollouts": 20,
+    "note": "reference-free (training rows' references are not joined back to the written trajectories)",
+    "by_chunk": [
+      {
+        "rollouts": "0-4",
+        "tool_call_validity": 1.0,
+        "audit_tool_validity_reward": 0.8,
+        "n_malformed": 0.0,
+        "tool_call_count": 0.6,
+        "audit_confirm_irreversible_penalty": 0.0,
+        "agent_loop_detection": 1.0
+      },
+      {
+        "rollouts": "5-9",
+        "tool_call_validity": 0.8889,
+        "audit_tool_validity_reward": 0.7333,
+        "n_malformed": 0.0,
+        "tool_call_count": 1.0,
+        "audit_confirm_irreversible_penalty": -0.2,
+        "agent_loop_detection": 1.0
+      },
+      {
+        "rollouts": "10-14",
+        "tool_call_validity": 0.8,
+        "audit_tool_validity_reward": 0.8,
+        "n_malformed": 0.0,
+        "tool_call_count": 1.4,
+        "audit_confirm_irreversible_penalty": 0.0,
+        "agent_loop_detection": 1.0
+      },
+      {
+        "rollouts": "15-19",
+        "tool_call_validity": 0.8125,
+        "audit_tool_validity_reward": 0.75,
+        "n_malformed": 0.0,
+        "tool_call_count": 1.4,
+        "audit_confirm_irreversible_penalty": 0.0,
+        "agent_loop_detection": 1.0
+      }
+    ]
+  },
+  "adapter_dir": null,
+  "provenance": {
+    "commit": "c4549f07fc66c0f02945ba939a152fafbd4f204a",
+    "dirty": true,
+    "branch": "main",
+    "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "hostname_kind": "other"
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.11.0+cu126",
+    "transformers": "5.22.1",
+    "trl": "1.7.1",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "datasets": "5.1.0",
+    "agenttune": "1.1.3",
+    "auditkit": "1.1.3",
+    "litellm": "1.108.0",
+    "huggingface_hub": "1.33.0"
+  },
+  "hardware": {
+    "cuda": true,
+    "gpus": [
+      {
+        "name": "NVIDIA RTX 4500 Ada Generation",
+        "memory_gb": 24.0,
+        "capability": "8.9"
+      }
+    ],
+    "bf16_supported": true
+  },
+  "config": {
+    "seed": 42,
+    "precision": "bf16",
+    "results_dir": "results",
+    "output_root": "outputs",
+    "student": {
+      "model": "CohereLabs/tiny-aya-global",
+      "quantization": null,
+      "adapter": "outputs/distill/adapter",
+      "attn_implementation": "sdpa"
+    },
+    "tasks": {
+      "source": "transit",
+      "tools": "transit_agent:TOOLS",
+      "system_prompt": "transit_agent:SYSTEM_PROMPT",
+      "irreversible_tools": [],
+      "denied_tools": [],
+      "languages": null,
+      "limit": null,
+      "data": {
+        "dir": "data/eval",
+        "files": {
+          "train": "train.jsonl",
+          "eval": "dev.jsonl",
+          "test": "test.jsonl"
+        },
+        "fields": {
+          "id": "id",
+          "prompt": "prompt",
+          "language": "language",
+          "expected_tool_calls": "expected_tool_calls"
+        }
+      }
+    },
+    "rollout": {
+      "max_steps_per_turn": 4
+    },
+    "generation": {
+      "max_new_tokens": 256,
+      "temperature": 0.7
+    },
+    "router": {
+      "base_url": "https://router.huggingface.co/v1",
+      "api_key_env": "HF_TOKEN",
+      "bill_to": null,
+      "tool_mode": "prompt",
+      "max_retries": 3,
+      "timeout": 120
+    },
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "rewards": {
+      "audit": {
+        "no_call_score": 0.5,
+        "calls_per_confirmation": 1,
+        "confirmation_penalty": 1.0,
+        "log": false,
+        "weights": {
+          "audit_tool_validity_reward": 1.0,
+          "audit_tool_f1_reward": 1.0,
+          "audit_tool_permission_penalty": 1.0,
+          "audit_confirm_irreversible_penalty": 1.0,
+          "audit_redundant_calls_penalty": 0.25
+        }
+      }
+    },
+    "hub": {
+      "namespace": "kanishk001",
+      "private": false,
+      "repos": {
+        "logs": "kanishk001/latentspace-logs",
+        "teacher_data": "kanishk001/latentspace-transit-teacher-trajectories",
+        "distill_adapter": "kanishk001/tiny-aya-global-transit-distill-lora",
+        "grpo_run_A": "kanishk001/tiny-aya-global-transit-grpo-default-reward-lora",
+        "grpo_run_B": "kanishk001/tiny-aya-global-transit-grpo-audit-reward-lora"
+      }
+    },
+    "grpo": {
+      "split": "train"
+    },
+    "training": {
+      "max_steps": 100,
+      "per_device_train_batch_size": 4,
+      "num_generations": 4,
+      "gradient_accumulation_steps": 1,
+      "max_completion_length": 128,
+      "max_steps_per_turn": 3,
+      "learning_rate": 2e-05,
+      "warmup_steps": 5,
+      "beta": 0.0,
+      "temperature": 0.9,
+      "gradient_checkpointing": true,
+      "logging_steps": 1,
+      "save_steps": 25,
+      "save_total_limit": 2
+    },
+    "_config_path": "configs/13_grpo.yaml",
+    "stage": "grpo",
+    "reward": {
+      "kind": "audit",
+      "include_f1": true
+    },
+    "run_name": "run_B",
+    "push": false
+  }
+}

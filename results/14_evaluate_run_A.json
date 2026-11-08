@@ -1,0 +1,397 @@
+{
+  "stage": "evaluate",
+  "run_name": null,
+  "dry_run": false,
+  "seed": 42,
+  "started_utc": "2026-11-06T06:59:04Z",
+  "seconds": 10414.6,
+  "split": "test",
+  "n_tasks": 108,
+  "trials": 5,
+  "independent_trials": false,
+  "checkpoints": {
+    "run_A": {
+      "engine": {
+        "backend": "local",
+        "model": "CohereLabs/tiny-aya-global",
+        "adapter": "/home/aidshpclab16/LatentSpace/outputs/grpo/run_A/adapter",
+        "quantization": null,
+        "precision": "bf16"
+      },
+      "rollout_status": {
+        "stopped_early": false,
+        "stop_reason": null,
+        "errors": 0,
+        "rollouts": 540,
+        "seconds": 10349.1
+      },
+      "budget": null,
+      "summary": {
+        "overall": {
+          "tool_call_validity": 0.817,
+          "tool_call_f1": 0.2716,
+          "tool_call_exact": 0.2407,
+          "redundant_tool_calls": 0.0087,
+          "tool_permission": 0.9884,
+          "agent_loop_detection": 0.9944,
+          "audit_tool_validity_reward": 0.7019,
+          "audit_tool_f1_reward": 0.2716,
+          "audit_tool_permission_penalty": -0.0074,
+          "audit_confirm_irreversible_penalty": -0.1481,
+          "audit_redundant_calls_penalty": -0.0056,
+          "audit_combined": 0.1921,
+          "success": 0.2389,
+          "tool_call_count": 0.6889,
+          "n_malformed": 0.0,
+          "n_rollouts": 540,
+          "n_errors": 0,
+          "unconfirmed_irreversible_rate": 0.1481,
+          "reliability": {
+            "k": 5,
+            "n_tasks": 108,
+            "n_tasks_decided": 108,
+            "pass_at_k": 0.2778,
+            "pass_hat_k": 0.1944,
+            "success_rate": 0.2389,
+            "status_counts": {
+              "mixed": 9,
+              "reliable": 21,
+              "unreliable": 78
+            }
+          }
+        },
+        "per_language": {
+          "en": {
+            "tool_call_validity": 0.8753,
+            "tool_call_f1": 0.2765,
+            "tool_call_exact": 0.2519,
+            "redundant_tool_calls": 0.0165,
+            "tool_permission": 0.9882,
+            "agent_loop_detection": 0.9926,
+            "audit_tool_validity_reward": 0.7363,
+            "audit_tool_f1_reward": 0.2765,
+            "audit_tool_permission_penalty": -0.0074,
+            "audit_confirm_irreversible_penalty": -0.1111,
+            "audit_redundant_calls_penalty": -0.0104,
+            "audit_combined": 0.2098,
+            "success": 0.2519,
+            "tool_call_count": 0.7037,
+            "n_malformed": 0.0,
+            "n_rollouts": 135,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.1111,
+            "reliability": {
+              "k": 5,
+              "n_tasks": 27,
+              "n_tasks_decided": 27,
+              "pass_at_k": 0.2963,
+              "pass_hat_k": 0.2222,
+              "success_rate": 0.2519,
+              "status_counts": {
+                "mixed": 2,
+                "reliable": 6,
+                "unreliable": 19
+              }
+            }
+          },
+          "hi": {
+            "tool_call_validity": 0.7927,
+            "tool_call_f1": 0.3062,
+            "tool_call_exact": 0.2815,
+            "redundant_tool_calls": 0.0085,
+            "tool_permission": 0.9878,
+            "agent_loop_detection": 0.9926,
+            "audit_tool_validity_reward": 0.6778,
+            "audit_tool_f1_reward": 0.3062,
+            "audit_tool_permission_penalty": -0.0074,
+            "audit_confirm_irreversible_penalty": -0.1704,
+            "audit_redundant_calls_penalty": -0.0052,
+            "audit_combined": 0.1894,
+            "success": 0.2815,
+            "tool_call_count": 0.6593,
+            "n_malformed": 0.0,
+            "n_rollouts": 135,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.1704,
+            "reliability": {
+              "k": 5,
+              "n_tasks": 27,
+              "n_tasks_decided": 27,
+              "pass_at_k": 0.2963,
+              "pass_hat_k": 0.2593,
+              "success_rate": 0.2815,
+              "status_counts": {
+                "mixed": 1,
+                "reliable": 7,
+                "unreliable": 19
+              }
+            }
+          },
+          "hinglish": {
+            "tool_call_validity": 0.8,
+            "tool_call_f1": 0.242,
+            "tool_call_exact": 0.1926,
+            "redundant_tool_calls": 0.0,
+            "tool_permission": 0.9789,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.7111,
+            "audit_tool_f1_reward": 0.242,
+            "audit_tool_permission_penalty": -0.0148,
+            "audit_confirm_irreversible_penalty": -0.163,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.1824,
+            "success": 0.1852,
+            "tool_call_count": 0.7037,
+            "n_malformed": 0.0,
+            "n_rollouts": 135,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.163,
+            "reliability": {
+              "k": 5,
+              "n_tasks": 27,
+              "n_tasks_decided": 27,
+              "pass_at_k": 0.2593,
+              "pass_hat_k": 0.1111,
+              "success_rate": 0.1852,
+              "status_counts": {
+                "mixed": 4,
+                "reliable": 3,
+                "unreliable": 20
+              }
+            }
+          },
+          "mr": {
+            "tool_call_validity": 0.8006,
+            "tool_call_f1": 0.2617,
+            "tool_call_exact": 0.237,
+            "redundant_tool_calls": 0.011,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.9926,
+            "audit_tool_validity_reward": 0.6826,
+            "audit_tool_f1_reward": 0.2617,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.1481,
+            "audit_redundant_calls_penalty": -0.0067,
+            "audit_combined": 0.1869,
+            "success": 0.237,
+            "tool_call_count": 0.6889,
+            "n_malformed": 0.0,
+            "n_rollouts": 135,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.1481,
+            "reliability": {
+              "k": 5,
+              "n_tasks": 27,
+              "n_tasks_decided": 27,
+              "pass_at_k": 0.2593,
+              "pass_hat_k": 0.1852,
+              "success_rate": 0.237,
+              "status_counts": {
+                "mixed": 2,
+                "reliable": 5,
+                "unreliable": 20
+              }
+            }
+          }
+        },
+        "metric_roles": {
+          "train_time": [
+            "audit_tool_validity_reward",
+            "audit_tool_f1_reward",
+            "audit_tool_permission_penalty",
+            "audit_confirm_irreversible_penalty",
+            "audit_redundant_calls_penalty",
+            "audit_combined"
+          ],
+          "report_only": [
+            "agent_loop_detection",
+            "tool_call_exact",
+            "success",
+            "pass_at_k",
+            "pass_hat_k"
+          ]
+        }
+      },
+      "files": {
+        "rollouts": "/home/aidshpclab16/LatentSpace/outputs/evaluate/run_A/rollouts.jsonl",
+        "scored": "/home/aidshpclab16/LatentSpace/outputs/evaluate/run_A/scored.jsonl"
+      }
+    }
+  },
+  "comparisons": {
+    "run_A_vs_run_B": {
+      "skipped": "scored files missing"
+    },
+    "base_vs_run_B": {
+      "skipped": "scored files missing"
+    },
+    "distill_vs_run_B": {
+      "skipped": "scored files missing"
+    }
+  },
+  "mode": "rollouts",
+  "provenance": {
+    "commit": "c4549f07fc66c0f02945ba939a152fafbd4f204a",
+    "dirty": true,
+    "branch": "main",
+    "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "hostname_kind": "other"
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.11.0+cu126",
+    "transformers": "5.22.1",
+    "trl": "1.7.1",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "datasets": "5.1.0",
+    "agenttune": "1.1.3",
+    "auditkit": "1.1.3",
+    "litellm": "1.108.0",
+    "huggingface_hub": "1.33.0"
+  },
+  "hardware": {
+    "cuda": true,
+    "gpus": [
+      {
+        "name": "NVIDIA RTX 4500 Ada Generation",
+        "memory_gb": 24.0,
+        "capability": "8.9"
+      }
+    ],
+    "bf16_supported": true
+  },
+  "config": {
+    "seed": 42,
+    "precision": "bf16",
+    "results_dir": "results",
+    "output_root": "outputs",
+    "student": {
+      "model": "CohereLabs/tiny-aya-global",
+      "quantization": null,
+      "adapter": null,
+      "attn_implementation": "sdpa"
+    },
+    "tasks": {
+      "source": "transit",
+      "tools": "transit_agent:TOOLS",
+      "system_prompt": "transit_agent:SYSTEM_PROMPT",
+      "irreversible_tools": [],
+      "denied_tools": [],
+      "languages": null,
+      "limit": null,
+      "data": {
+        "dir": "data/eval",
+        "files": {
+          "train": "train.jsonl",
+          "eval": "dev.jsonl",
+          "test": "test.jsonl"
+        },
+        "fields": {
+          "id": "id",
+          "prompt": "prompt",
+          "language": "language",
+          "expected_tool_calls": "expected_tool_calls"
+        }
+      }
+    },
+    "rollout": {
+      "max_steps_per_turn": 4
+    },
+    "generation": {
+      "max_new_tokens": 256,
+      "temperature": 0.7
+    },
+    "router": {
+      "base_url": "https://router.huggingface.co/v1",
+      "api_key_env": "HF_TOKEN",
+      "bill_to": null,
+      "tool_mode": "prompt",
+      "max_retries": 3,
+      "timeout": 120
+    },
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "rewards": {
+      "audit": {
+        "no_call_score": 0.5,
+        "calls_per_confirmation": 1,
+        "confirmation_penalty": 1.0,
+        "log": false,
+        "weights": {
+          "audit_tool_validity_reward": 1.0,
+          "audit_tool_f1_reward": 1.0,
+          "audit_tool_permission_penalty": 1.0,
+          "audit_confirm_irreversible_penalty": 1.0,
+          "audit_redundant_calls_penalty": 0.25
+        }
+      }
+    },
+    "hub": {
+      "namespace": "kanishk001",
+      "private": false,
+      "repos": {
+        "logs": "kanishk001/latentspace-logs",
+        "teacher_data": "kanishk001/latentspace-transit-teacher-trajectories",
+        "distill_adapter": "kanishk001/tiny-aya-global-transit-distill-lora",
+        "grpo_run_A": "kanishk001/tiny-aya-global-transit-grpo-default-reward-lora",
+        "grpo_run_B": "kanishk001/tiny-aya-global-transit-grpo-audit-reward-lora"
+      }
+    },
+    "evaluate": {
+      "split": "test",
+      "trials": 5,
+      "independent_trials": false,
+      "skip_missing": true,
+      "checkpoints": [
+        {
+          "name": "base"
+        },
+        {
+          "name": "distill",
+          "adapter": "distill/adapter"
+        },
+        {
+          "name": "run_A",
+          "adapter": "grpo/run_A/adapter"
+        },
+        {
+          "name": "run_B",
+          "adapter": "grpo/run_B/adapter"
+        }
+      ],
+      "comparisons": [
+        [
+          "run_A",
+          "run_B"
+        ],
+        [
+          "base",
+          "run_B"
+        ],
+        [
+          "distill",
+          "run_B"
+        ]
+      ],
+      "n_resamples": 2000
+    },
+    "_config_path": "configs/14_evaluate.yaml",
+    "stage": "evaluate",
+    "push": false
+  }
+}
