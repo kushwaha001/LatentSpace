@@ -31,9 +31,13 @@ REWARD_KEYS = ("reward", "reward_funcs", "reward_weights")
 
 
 def shared_fingerprint(cfg: dict) -> str:
-    """Hash of everything except the reward choice and bookkeeping: equal for run_A/run_B."""
+    """Hash of everything except the reward choice and bookkeeping: equal for run_A/run_B.
+    ``grpo.resume_from_checkpoint`` is bookkeeping too (it does not change the training)."""
     skip = {"reward", "run_name", "_run_presets", "push", "_config_path", "hub"}
     shared = {k: v for k, v in cfg.items() if k not in skip}
+    if isinstance(shared.get("grpo"), dict):
+        shared["grpo"] = {k: v for k, v in shared["grpo"].items()
+                          if k != "resume_from_checkpoint"}
     return hashlib.sha256(json.dumps(shared, sort_keys=True, default=str).encode()).hexdigest()[:16]
 
 
@@ -109,7 +113,13 @@ def run(cfg: dict, args) -> tuple[str, dict]:
     funcs, weights, reward_desc = build_rewards(cfg, tools)
     prec = precision(cfg)
     out_dir = work_dir(cfg, "grpo", run_name)
-    (out_dir / "trajectories.jsonl").unlink(missing_ok=True)
+    # resume_from_checkpoint: auto -> continue from the newest checkpoint-N if one exists
+    # (after a crash, e.g. CUDA OOM); the trajectories of the finished steps are kept.
+    resume = (cfg.get("grpo") or {}).get("resume_from_checkpoint")
+    ckpts = sorted(out_dir.glob("checkpoint-*"), key=lambda p: int(p.name.split("-")[-1]))
+    resume_from = str(ckpts[-1]) if resume in ("auto", True, "true") and ckpts else None
+    if not resume_from:
+        (out_dir / "trajectories.jsonl").unlink(missing_ok=True)
 
     student = dict(cfg.get("student") or {})
     model, tok = load_local_model(student, prec, for_training=True)
@@ -123,6 +133,8 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         }
     tk = _trainer_kwargs(cfg, prec)
     max_steps_per_turn = tk.pop("max_steps_per_turn", 3)
+    if resume_from:  # TrlAgenticGrpo.train() reads it from its kwargs (agentic_grpo.py:621)
+        tk["resume_from_checkpoint"] = resume_from
     trainer = create_agentic_trainer(
         "grpo",
         backend="trl",
@@ -139,10 +151,19 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         **tk,
     )
     error = None
+    error_traceback = None
+    if torch.cuda.is_available():
+        torch.cuda.reset_peak_memory_stats()
     try:
         trainer.train()
     except Exception as e:  # recorded, never hidden
+        import traceback
+
         error = f"{type(e).__name__}: {e}"
+        error_traceback = traceback.format_exc()[-6000:]
+        print(error_traceback, flush=True)
+    peak_gb = (round(torch.cuda.max_memory_allocated() / 2**30, 2)
+               if torch.cuda.is_available() else None)
     hf = trainer.trainer
     history = hf.state.log_history if hf is not None else []
     # LoRA B matrices start at zero, so a non-zero B means the optimizer updated it
@@ -169,6 +190,9 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         "n_train_rows": len(ds),
         "global_step": hf.state.global_step if hf is not None else None,
         "error": error,
+        "error_traceback": error_traceback,
+        "resumed_from": resume_from,
+        "cuda_peak_allocated_gb": peak_gb,
         "trainable_tensors_updated": changed,
         "log_history": [
             {k: v for k, v in h.items() if not isinstance(v, (list, dict))} for h in history

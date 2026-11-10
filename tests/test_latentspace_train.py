@@ -336,6 +336,23 @@ def test_pass_k_and_bootstrap():
     assert cmp["success"]["n"] == 3 and cmp["success"]["delta"] > 0
 
 
+def test_paired_test_detects_effects_and_nulls():
+    """Regression for FINDINGS.md A3: AuditKIT's uncentred paired_bootstrap gives p ~ 0.5
+    for a large effect; the paired test must give a small p there and a large p for noise."""
+    import random
+
+    from latentspace_train.scoring import paired_test
+
+    rng = random.Random(1)
+    shifted = [(b, b + 0.3 + rng.gauss(0, 0.1)) for b in (rng.random() for _ in range(60))]
+    r = paired_test(shifted, n_resamples=2000)
+    assert r["significant"] and r["p_value"] < 0.01 and r["p_bootstrap"] < 0.01
+    assert r["ci95"][0] > 0.2 and r["ci95"][1] < 0.4
+    noise = [(b, b + rng.gauss(0, 0.1)) for b in (rng.random() for _ in range(60))]
+    assert paired_test(noise, n_resamples=2000)["p_value"] > 0.05
+    assert paired_test([(0.0, 1.0)])["n"] == 1  # too few pairs -> error dict, no crash
+
+
 # ── teacher filter ────────────────────────────────────────────────────────────
 
 

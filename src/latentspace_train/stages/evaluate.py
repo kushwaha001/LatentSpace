@@ -8,7 +8,8 @@ run_B, or any Hub id / router model): ``trials`` rollouts per task (default 5), 
   (``auditkit.agent_eval.reliability``), never part of any reward;
 
 overall and per language. Then ``evaluate.comparisons`` pairs (e.g. run_A vs run_B) are
-compared with AuditKIT's paired bootstrap over per-task means.
+compared over per-task means with a paired sign-flip permutation test (and a centred
+bootstrap CI); AuditKIT's paired_bootstrap is not used (uncentred, FINDINGS.md A3).
 
 ``--run NAME`` evaluates one checkpoint only; comparisons then use the scored files already
 on disk for the other side (``outputs/evaluate/<name>/scored.jsonl``).
@@ -33,7 +34,8 @@ from ..scoring import (
 from ..tasks import load_split, load_tools
 
 COMPARE_METRICS = ["success", "audit_combined", "tool_call_validity", "tool_call_f1",
-                   "tool_call_exact", "agent_loop_detection", "audit_confirm_irreversible_penalty"]
+                   "tool_call_exact", "agent_loop_detection", "audit_confirm_irreversible_penalty",
+                   "unconfirmed_irreversible_rate", "tool_call_count", "no_call_rate"]
 
 
 def _resolve_adapter(path: str | None, cfg: dict) -> tuple[str | None, bool]:
@@ -145,9 +147,11 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         b, c = (read_jsonl(p) for p in paths)
         out["comparisons"][f"{base}_vs_{cand}"] = {
             "baseline": base, "candidate": cand,
-            "method": "auditkit._bootstrap.paired_bootstrap over per-task means (trials averaged)",
+            "method": "paired sign-flip permutation test (p_value) and centred bootstrap "
+                      "(p_bootstrap, ci95) over per-task means (trials averaged); not "
+                      "auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
             "metrics": bootstrap_compare(b, c, e.get("compare_metrics", COMPARE_METRICS),
-                                         n_resamples=e.get("n_resamples", 2000),
+                                         n_resamples=e.get("n_resamples", 10000),
                                          seed=cfg.get("seed", 42)),
         }
     name = f"14_evaluate_{args.run}" if args.run else "14_evaluate"

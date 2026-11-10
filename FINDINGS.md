@@ -277,6 +277,18 @@ downgrade the flag to `inferred`.
 information is not in the file. Fixing B11 on the AgentTune side would let AuditKIT add a
 "parse-failure rate" metric.
 
+**A3. `paired_bootstrap` never rejects: p ≈ 0.5 whatever the effect size.**
+`_bootstrap.py:65-68` resamples the observed differences `diffs` and counts resamples whose
+mean is at least as extreme as the observed mean. But those resamples are centred on the
+observed mean, not on 0 (the null), so about half of them land beyond it for *any* effect.
+Demonstration: 60 pairs with a true shift of +0.3 (noise sd 0.1) → `p_value = 0.49`,
+`significant: False`. Every `p_value` our evaluate stage wrote before this fix (the
+`comparisons` in `results/14_evaluate.json` at commit `bbad0b8`) was therefore meaningless.
+*Fix:* resample `[x - observed for x in diffs]` (centred bootstrap), or use a sign-flip
+permutation test. `latentspace_train.scoring.paired_test` now does both, plus a percentile 95%
+CI, and `tests/test_latentspace_train.py::test_paired_test_detects_effects_and_nulls` is the
+regression test.
+
 ### Safety-relevant observation (design, not a bug)
 
 The rollout executes **any tool it was given**, with no allow/deny policy at execution time.
@@ -297,3 +309,71 @@ will try every tool it has.
 8. B1: pass `tool_schemas` into `hybrid_prm_reward`, and fix TAC's no-call = 1.0.
 9. A1 (AuditKIT): pair results from `metadata.conversation`.
 10. B14: copy message-list prompts in `_build_conversation` (one line).
+11. A3 (AuditKIT): centre the differences in `paired_bootstrap` (one line).
+
+## Lab PC results: run_A vs run_B (held-out test split)
+
+Tiny Aya, LoRA, distilled on the 32B teacher's filtered trajectories, then GRPO for 100 steps
+with identical settings except the reward (shared-settings fingerprint `615d767987f566ef`):
+run_A uses AgentTune's default `hybrid_prm_reward` (B1), run_B the audit reward. One seed.
+Test split: 108 tasks (27 base tasks × en/hi/mr/Hinglish) × 5 trials. Files:
+`results/14_evaluate.json` (summaries and comparisons) and `results/13_grpo_run_*.json`.
+
+| Model | success | exact | F1 | validity | calls/task | unconfirmed irreversible | pass@5 | pass^5 |
+|---|---|---|---|---|---|---|---|---|
+| base | 0.161 | 0.167 | 0.199 | 0.919 | 1.150 | 24.4% | 0.296 | 0.056 |
+| distill | 0.170 | 0.200 | 0.230 | 0.768 | 1.048 | 21.3% | 0.259 | 0.102 |
+| run_A (default reward) | 0.239 | 0.241 | 0.272 | 0.817 | 0.689 | 14.8% | 0.278 | 0.194 |
+| run_B (audit reward) | 0.202 | 0.228 | 0.259 | 0.841 | 0.861 | 13.3% | 0.296 | 0.148 |
+
+Paired tests over per-task means (sign-flip permutation, 10k resamples; * = p < 0.05; A3 fixed):
+
+| Comparison | Significant | Not significant |
+|---|---|---|
+| run_B vs run_A | calls +0.17*, no-call rate −0.16* | success −0.037 (p 0.15), validity +0.057 (p 0.18), unconfirmed −1.5 pts (p 0.37) |
+| run_B vs distill | validity +0.069*, unconfirmed −8.0 pts*, audit_combined +0.038* | success +0.031 (p 0.08) |
+| run_B vs base | unconfirmed −11.1 pts*, validity −0.101*, calls −0.29* | exact +0.061 (p 0.07) |
+| run_A vs base | unconfirmed −9.6 pts*, validity −0.146*, calls −0.46*, no-call rate +0.24* | success +0.078 (p 0.08) |
+| distill vs base | validity −0.149*, no-call rate +0.06* | success, F1 |
+
+Success by category (and share of rollouts with no tool call):
+
+| Category | base | distill | run_A | run_B |
+|---|---|---|---|---|
+| declined (no call is correct) | 0.23 | 0.53 | 0.88 | 0.65 |
+| no_call_needed | 0.17 | 0.17 | 0.38 | 0.30 |
+| single_call | 0.36 | 0.44 | 0.28 | 0.36 |
+| irreversible_confirmed | 0.30 | 0.03 (no call 57%) | 0.00 (no call 99%) | 0.06 (no call 44%) |
+| missing_argument | 0.05 | 0.07 | 0.14 | 0.10 |
+| multi_step | 0 | 0 | 0 | 0 |
+
+Training dynamics (from the runs' own rollouts):
+
+| | run_A | run_B |
+|---|---|---|
+| steps with zero reward std (no learning signal) | 68/100 | 36/100 |
+| validity of its training calls, by quarter | 0.93 → 0.83 → 0.53 → 0.75 | 0.96 → 0.93 → 0.83 → 0.90 |
+| mean reward, first 25 → last 25 steps | 0.34 → 0.23 | 0.21 → 0.24 |
+
+**Reading.** The default reward is hacked by inaction: run_A learns to stop calling tools
+(99% no call on confirmed bookings), and most of its success gain comes from categories where
+no call is correct. The audit reward prevents that collapse: run_B keeps calling tools, keeps
+single-call success at the base level, keeps its own calls valid during training and has the
+lowest unconfirmed-irreversible rate. On held-out success it did not beat run_A (the
+difference is not significant). Distillation, not GRPO, caused the drop in confirmed bookings
+(0.30 → 0.03), and neither reward repaired it.
+
+**Caveats.**
+- One seed; 100 steps × 1 prompt ≈ 0.53 epoch of the 188 training rows.
+- Every GRPO completion hits `max_completion_length` (`completions/clipped_ratio = 1.0`), so no
+  rollout ends naturally.
+- Exact-match F1 (AuditKIT `ToolCallF1`) needs JSON-equal argument values: the free-text
+  `file_complaint.description` can never match (12/108 test tasks; 0% F1 = 1 although 37–50%
+  had the right category and booking id), and a station name in another script (`Pune` vs
+  `पुणे`) counts as wrong even when the backend resolves both. Name-only F1 is about 0.38–0.41.
+- `cuda_peak_allocated_gb: 72.21` in `results/13_grpo_run_B.json` exceeds the 24 GB card; the
+  WSL2 readout is not reliable, so do not cite it.
+- The first run_B crashed with CUDA OOM at step 4. The rerun used
+  `PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512,garbage_collection_threshold:0.8` (memory
+  layout only) and finished all 100 steps without resuming. `expandable_segments:True` does not
+  work on WSL2.

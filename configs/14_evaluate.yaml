@@ -21,4 +21,6 @@ evaluate:
     - [run_A, run_B]
     - [base, run_B]
     - [distill, run_B]
-  n_resamples: 2000
+    - [base, run_A]
+    - [base, distill]
+  n_resamples: 10000

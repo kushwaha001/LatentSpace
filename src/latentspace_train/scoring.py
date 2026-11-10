@@ -5,7 +5,10 @@
   and a success verdict.
 - ``summarise``: means overall and per language, plus pass@k / pass^k over trials per task
   (``auditkit.agent_eval.reliability``).
-- ``bootstrap_compare``: AuditKIT's paired bootstrap between two runs, aligned by task id.
+- ``bootstrap_compare``: paired comparison of two runs over per-task means, aligned by task
+  id: a sign-flip permutation test (the reported p), a centred bootstrap p and a percentile
+  95% CI. Not ``auditkit._bootstrap.paired_bootstrap``: it resamples the raw differences
+  without centring them under H0, so its p is ~0.5 whatever the effect (FINDINGS.md A3).
 
 Train-time metrics are what run_B optimised; report-only metrics (loop detection, exact
 match, success, pass^k) were never part of any reward (src/audit_rewards/README.md,
@@ -174,25 +177,78 @@ def summarise(rows: list[dict], *, k: int | None = None, independent: bool = Fal
     return out
 
 
+# Metrics derived from a scored row instead of read as a float field.
+DERIVED_METRICS = {
+    "unconfirmed_irreversible_rate": lambda r: float(bool(r.get("unconfirmed_irreversible"))),
+    "no_call_rate": lambda r: (None if r.get("tool_call_count") is None
+                               else float(r["tool_call_count"] == 0)),
+}
+
+
+def _value(r: dict, metric: str) -> float | None:
+    if metric in DERIVED_METRICS:
+        return DERIVED_METRICS[metric](r)
+    v = r.get(metric)
+    return None if v is None else float(v)
+
+
 def per_task_means(rows: list[dict], metric: str) -> dict[str, float]:
     by_task: dict[str, list] = defaultdict(list)
     for r in rows:
-        if r.get(metric) is not None:
-            by_task[str(r["task_id"])].append(float(r[metric]))
+        v = _value(r, metric)
+        if v is not None:
+            by_task[str(r["task_id"])].append(v)
     return {t: statistics.fmean(v) for t, v in by_task.items() if v}
 
 
-def bootstrap_compare(base_rows: list[dict], cand_rows: list[dict], metrics: list[str],
-                      *, n_resamples: int = 2000, seed: int = 0) -> dict[str, Any]:
-    """AuditKIT's two-sided paired bootstrap over per-task means (trials averaged first),
-    aligned by task id. ``delta`` > 0 means the candidate scored higher."""
-    from auditkit._bootstrap import paired_bootstrap
+def paired_test(pairs: list[tuple[float, float]], *, n_resamples: int = 10000,
+                seed: int = 0) -> dict[str, Any]:
+    """Two-sided paired test over ``(baseline, candidate)`` pairs. ``delta`` = mean of
+    candidate - baseline. ``p_value`` is a sign-flip permutation test (exact under H0 of
+    exchangeable pairs); ``p_bootstrap`` resamples the differences centred on 0 (the H0
+    distribution); ``ci95`` is the percentile bootstrap CI of ``delta``."""
+    import random
 
+    n = len(pairs)
+    if n < 2:
+        return {"error": "need at least 2 aligned sample pairs", "n": n}
+    d = [c - b for b, c in pairs]
+    obs = sum(d) / n
+    centred = [x - obs for x in d]
+    rng = random.Random(seed)
+    tol = 1e-12
+    perm = boot = 0
+    boots = []
+    for _ in range(n_resamples):
+        if abs(sum(x if rng.random() < 0.5 else -x for x in d) / n) >= abs(obs) - tol:
+            perm += 1
+        if abs(sum(rng.choice(centred) for _ in range(n)) / n) >= abs(obs) - tol:
+            boot += 1
+        boots.append(sum(rng.choice(d) for _ in range(n)) / n)
+    boots.sort()
+    lo, hi = boots[int(0.025 * n_resamples)], boots[min(n_resamples - 1, int(0.975 * n_resamples))]
+    p = (perm + 1) / (n_resamples + 1)
+    return {
+        "n": n,
+        "mean_baseline": round(sum(b for b, _ in pairs) / n, 6),
+        "mean_candidate": round(sum(c for _, c in pairs) / n, 6),
+        "delta": round(obs, 6),
+        "ci95": [round(lo, 6), round(hi, 6)],
+        "p_value": round(p, 6),
+        "p_bootstrap": round((boot + 1) / (n_resamples + 1), 6),
+        "significant": p < 0.05,
+    }
+
+
+def bootstrap_compare(base_rows: list[dict], cand_rows: list[dict], metrics: list[str],
+                      *, n_resamples: int = 10000, seed: int = 0) -> dict[str, Any]:
+    """``paired_test`` over per-task means (trials averaged first), aligned by task id.
+    ``delta`` > 0 means the candidate scored higher."""
     out = {}
     for m in metrics:
         b, c = per_task_means(base_rows, m), per_task_means(cand_rows, m)
         pairs = [(b[t], c[t]) for t in sorted(b.keys() & c.keys())]
-        out[m] = paired_bootstrap(pairs, n_resamples=n_resamples, seed=seed)
+        out[m] = paired_test(pairs, n_resamples=n_resamples, seed=seed)
     return out
 
 

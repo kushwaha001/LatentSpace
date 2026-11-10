@@ -19,6 +19,11 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 export PYTHONPATH=src
+# Variable-length multi-turn rollouts fragment the CUDA caching allocator; run_B hit an OOM at
+# step 4 on a 24 GB card that way. Not splitting large cached blocks and collecting cached memory
+# early limit that; memory layout only, not the maths. (Do NOT use expandable_segments:True
+# here: WSL2 lacks the CUDA virtual-memory API it needs, and every large allocation then fails.)
+export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-max_split_size_mb:512,garbage_collection_threshold:0.8}"
 GPU_A="${GPU_A:-0}"
 GPU_B="${GPU_B:-1}"
 MAX_USD="${MAX_USD:-5}"
@@ -61,6 +66,30 @@ for s in "${stages[@]}"; do
       run "$GPU_B" 13_grpo_run_B grpo --run run_B "${LOCAL[@]}" "${PUSH_FLAG[@]}" &
       pid_b=$!
       wait "$pid_a"; wait "$pid_b" ;;
+    grpo_A|grpo_B)
+      # 4b. One GRPO run on its own GPU. On a crash (e.g. CUDA OOM) it resumes from the
+      #     newest checkpoint-N (save_steps) instead of starting over, up to 3 attempts.
+      r="run_${s#grpo_}"; gpu="$GPU_B"; [ "$r" = run_A ] && gpu="$GPU_A"
+      # A crash outside trainer.train() (e.g. while loading) writes no results file, so the
+      # check below needs a results file newer than this attempt's start, with error null.
+      marker="$(mktemp)"; ok=0
+      for attempt in 1 2 3; do
+        touch "$marker"
+        run "$gpu" "13_grpo_${r}_try${attempt}" grpo --run "$r" "${LOCAL[@]}" \
+          --set grpo.resume_from_checkpoint=auto "${PUSH_FLAG[@]}" || true
+        res="results/13_grpo_$r.json"
+        if [ "$res" -nt "$marker" ] && python -c "import json,sys; sys.exit(json.load(open('$res'))['error'] is not None)"; then
+          ok=1; break
+        fi
+        echo "== $r attempt $attempt failed; resuming from the last checkpoint"
+        sleep 30
+      done
+      rm -f "$marker"
+      [ "$ok" = 1 ] || { echo "== $r failed after 3 attempts"; exit 1; } ;;
+    evaluate_B)
+      # 5b. Evaluate only run_B, then recompute every comparison from the scored files.
+      run "$GPU_B" 14_eval_run_B evaluate --run run_B "${LOCAL[@]}" "${PUSH_FLAG[@]}"
+      run "" 14_evaluate_compare evaluate --compare-only "${PUSH_FLAG[@]}" ;;
     evaluate)
       # 5. Held-out test split, 5 trials, per language; two checkpoints per GPU, then compare.
       ( run "$GPU_A" 14_eval_base evaluate --run base "${LOCAL[@]}" "${PUSH_FLAG[@]}" &&
@@ -71,7 +100,7 @@ for s in "${stages[@]}"; do
       pid_b=$!
       wait "$pid_a"; wait "$pid_b"
       run "" 14_evaluate_compare evaluate --compare-only "${PUSH_FLAG[@]}" ;;
-    *) echo "unknown stage: $s (baseline teacher teacher_local distill grpo evaluate)"; exit 2 ;;
+    *) echo "unknown stage: $s (baseline teacher teacher_local distill grpo grpo_A grpo_B evaluate evaluate_B)"; exit 2 ;;
   esac
 done
 echo "== done. Results: results/1*.json   Logs: logs/"

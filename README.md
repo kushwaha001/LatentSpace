@@ -104,11 +104,36 @@ Details, memory defaults and a cost/time table are in
 On a local machine with two 24 GB GPUs: [docs/RUN_LOCAL.md](docs/RUN_LOCAL.md)
 (`bash scripts/run_local_2gpu.sh`).
 
+## Results so far (lab PC, one seed)
+
+Held-out test split, 108 tasks × 5 trials. run_A and run_B differ only in the reward.
+
+| Model | success | validity | calls/task | unconfirmed irreversible |
+|---|---|---|---|---|
+| base Tiny Aya | 0.161 | 0.919 | 1.15 | 24.4% |
+| distilled | 0.170 | 0.768 | 1.05 | 21.3% |
+| run_A: AgentTune default reward | 0.239 | 0.817 | 0.69 | 14.8% |
+| run_B: audit reward | 0.202 | 0.841 | 0.86 | 13.3% |
+
+- The default reward is hacked by inaction: run_A learns to stop calling tools (no call on 99%
+  of confirmed-booking rollouts), and most of its gain is on tasks where no call is correct.
+- The audit reward prevents that collapse: run_B keeps calling tools (significantly more than
+  run_A), keeps its training calls valid (0.90 vs 0.75 in the last quarter), gets a learning
+  signal on 64/100 steps (run_A 32/100) and has the lowest unconfirmed-irreversible rate.
+- The run_A vs run_B difference in success is not significant (p = 0.15). Distillation caused
+  the drop in confirmed bookings, and neither GRPO run repaired it.
+- AuditKIT's `paired_bootstrap` returns p ≈ 0.5 for any effect (FINDINGS.md A3); the
+  comparisons now use a paired permutation test.
+
+Full tables, per-category results and caveats: [FINDINGS.md](FINDINGS.md#lab-pc-results-run_a-vs-run_b-held-out-test-split).
+
 ## Next
 
 - Native-speaker review of the Hindi and Marathi tasks (`data/eval/review_checklist.csv`)
-- GPU runs: baseline Tiny Aya, teacher collection, distillation, then GRPO run_A (default
-  reward) and run_B (audit reward), and held-out evaluation per language
+- Fix distillation (it caused the confirmed-booking regression) and the truncated completions,
+  then rerun GRPO with more steps and 2-3 seeds
+- A lenient argument match for evaluation (free-text complaint descriptions, station names
+  across scripts)
 
 ## Status
 
