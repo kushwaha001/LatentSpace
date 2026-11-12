@@ -26,8 +26,10 @@ def ev(n):
 
 
 def need(n):
-    s = ev(n)
-    return sum(s["per_category"][c]["lenient_success"] for c in NEED) / len(NEED)
+    """Success over all test rows whose task needs a call (the same rows the paired test uses)."""
+    rows = [json.loads(l) for l in open(ROOT / f"outputs/evaluate/{n}/scored.jsonl")]
+    v = [r["lenient_success"] for r in rows if r["category"] in NEED]
+    return sum(v) / len(v)
 
 
 def ov(n, k="lenient_success"):
@@ -207,7 +209,7 @@ doc.add_heading("6. Why this matters (significance)", 1)
 table(["Point", "Meaning"], [
     ["Reward hacking is real and easy to miss", "A model that does nothing can score well; you must look at results by task type"],
     ["The headline number can lie", "One overall score hid a completely broken model. We report 'tasks that need action' and 'tasks that need none' separately"],
-    ["Reward design changes behaviour, not just scores", "Same training, different reward: a useless assistant vs a working one (+39 points)"],
+    ["Reward design changes behaviour, not just scores", f"Same training, different reward: a useless assistant vs a working one (+{round(100 * a3b3['delta'])} points on tasks that need action)"],
     ["Safety improves measurably", "About a third fewer unconfirmed bookings when the training data is chosen with our checks"],
     ["Training methods need guard-rails", "A correct reward alone did not stop the collapse; an anchor did"],
     ["Contributions to Lexsi's own tools", "Two new bugs (B15, A3) with fixes, plus the documented default-reward bug (B1)"],
