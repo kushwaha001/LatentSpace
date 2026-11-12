@@ -4,3 +4,8 @@ data/scores.jsonl
 __pycache__/
 .venv/
 *.egg-info/
+
+# round 1 working files (adapters, rollouts); results are in results/round1/
+outputs_round1/
+results/_shard*/
+results/_devsel/

@@ -114,6 +114,21 @@ def make_factory(cfg: dict, tools: list):
                 msgs = _merge_consecutive_same_role([{"role": "system", "content": sys_text}] + msgs)
                 rows.append({"messages": msgs})
             self.rows = rows
+            # every example must fit max_length: SFT truncates on the right, and a row cut
+            # inside the system prompt trains on no user turn and no answer at all (round 1)
+            lens = [len(self.tokenizer.apply_chat_template(r["messages"], tokenize=True,
+                                                           return_dict=True)["input_ids"])
+                    for r in rows]
+            limit = kwargs.get("max_length") or 1024
+            self.token_stats = {"max_length": limit, "min": min(lens), "max": max(lens),
+                                "mean": round(sum(lens) / len(lens), 1),
+                                "n_over_max_length": sum(n > limit for n in lens)}
+            print(f"[distill] example tokens: {self.token_stats}", flush=True)
+            if self.token_stats["n_over_max_length"] and not d.get("allow_truncation"):
+                raise ValueError(
+                    f"{self.token_stats['n_over_max_length']} of {len(lens)} examples exceed "
+                    f"distill.training.max_length={limit} (longest: {max(lens)} tokens) and "
+                    "would be truncated; raise max_length or set distill.allow_truncation")
             cfg_kwargs = dict(kwargs)
             cfg_kwargs.setdefault("output_dir", "./out_distill")
             sft = SFTConfig(**cfg_kwargs)
@@ -211,6 +226,7 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         "data": str(path),
         "n_trajectories": len(logs),
         "n_rows": len(factory.rows),
+        "example_tokens": getattr(factory, "token_stats", None),
         "note": note,
         "tool_call_format": fmt,
         "lora": lora,

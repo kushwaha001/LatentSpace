@@ -16,6 +16,8 @@ tasks:
   source: transit          # transit (src/transit_agent + data/eval) | stub
   tools: transit_agent:TOOLS
   system_prompt: transit_agent:SYSTEM_PROMPT   # optional; missing attr -> no task system prompt
+  # semantic-equivalence scoring next to AuditKIT's exact match (lenient_f1 / lenient_success)
+  lenient_score: transit_agent.lenient_match:lenient_score
   irreversible_tools: []   # extra names; tools tagged @irreversible are picked up automatically
   denied_tools: []
   languages: null          # e.g. [en, hi, mr, hinglish]; null = all

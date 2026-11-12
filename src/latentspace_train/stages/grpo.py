@@ -21,7 +21,7 @@ import json
 from typing import Any
 
 from . import precision
-from ..engines import load_local_model
+from ..engines import align_tokenizer_eos, load_local_model
 from ..hub import push_folder
 from ..runtime import read_jsonl, work_dir
 from ..scoring import audit_weights, make_audit_rewards, score_records, summarise
@@ -38,6 +38,15 @@ def shared_fingerprint(cfg: dict) -> str:
     if isinstance(shared.get("grpo"), dict):
         shared["grpo"] = {k: v for k, v in shared["grpo"].items()
                           if k != "resume_from_checkpoint"}
+    if isinstance(shared.get("training"), dict):
+        # per-device batch size and gradient accumulation are memory layout: only their
+        # product (completions per optimizer step) changes the update
+        t = dict(shared["training"])
+        bs, ga = t.pop("per_device_train_batch_size", None), t.pop("gradient_accumulation_steps", None)
+        t["completions_per_optimizer_step"] = (bs or 1) * (ga or 1)
+        for k in ("save_steps", "save_total_limit", "torch_empty_cache_steps", "logging_steps"):
+            t.pop(k, None)  # checkpointing / logging / allocator housekeeping
+        shared["training"] = t
     return hashlib.sha256(json.dumps(shared, sort_keys=True, default=str).encode()).hexdigest()[:16]
 
 
@@ -78,12 +87,16 @@ def build_rewards(cfg: dict, tools: list) -> tuple[list, list | None, dict]:
             "input_adapter": "message-list prompts/completions flattened to text before the "
                              "unmodified reward is called" if r.get("text_inputs", True) else None}
     if kind == "audit":
-        rewards = make_audit_rewards(tools, cfg)
+        rewards = make_audit_rewards(
+            tools, cfg, f1_arg_match=r.get("f1_arg_match"),
+            no_call_score_when_call_expected=r.get("no_call_score_when_call_expected"))
         funcs = rewards.train_time(include_f1=r.get("include_f1", True))
         w = audit_weights(cfg)
         weights = [w[f.__name__] for f in funcs]
         return funcs, weights, {"kind": kind, "funcs": [f.__name__ for f in funcs],
-                                "weights": weights}
+                                "weights": weights, "f1_arg_match": r.get("f1_arg_match"),
+                                "no_call_score_when_call_expected":
+                                    r.get("no_call_score_when_call_expected")}
     raise ValueError(f"reward.kind must be agenttune_default | audit, got {kind!r}")
 
 
@@ -122,7 +135,14 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         (out_dir / "trajectories.jsonl").unlink(missing_ok=True)
 
     student = dict(cfg.get("student") or {})
+    if (cfg.get("grpo") or {}).get("merge_start_adapter") and student.get("adapter"):
+        # KL anchor: TRL's reference for a PEFT model is "adapter disabled". Merging the
+        # distilled adapter first makes that reference the distilled student, not the base model
+        student = {**student, "base_adapter": student["adapter"], "adapter": None}
     model, tok = load_local_model(student, prec, for_training=True)
+    # stop and mask GRPO completions at the token the model really ends on (FINDINGS.md B15)
+    eos_fix = (align_tokenizer_eos(model, tok) if (cfg.get("grpo") or {}).get("align_eos", True)
+               else {"changed": False, "disabled": True})
     lora = cfg.get("lora", {})
     peft_config = None
     if not student.get("adapter"):  # a distilled adapter is loaded trainable instead
@@ -184,7 +204,7 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         "run": run_name,
         "reward": reward_desc,
         "shared_settings_fingerprint": shared_fingerprint(cfg),
-        "student": {k: student.get(k) for k in ("model", "adapter", "quantization")},
+        "student": {k: student.get(k) for k in ("model", "base_adapter", "adapter", "quantization")},
         "precision": prec,
         "lora": peft_config or {"adapter": student.get("adapter")},
         "n_train_rows": len(ds),
@@ -192,6 +212,7 @@ def run(cfg: dict, args) -> tuple[str, dict]:
         "error": error,
         "error_traceback": error_traceback,
         "resumed_from": resume_from,
+        "eos_alignment": eos_fix,
         "cuda_peak_allocated_gb": peak_gb,
         "trainable_tensors_updated": changed,
         "log_history": [

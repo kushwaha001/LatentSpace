@@ -13,18 +13,18 @@ grpo:
   split: train
 training:                  # -> create_agentic_trainer("grpo") -> GRPOConfig
   max_steps: 100
-  per_device_train_batch_size: 4
+  per_device_train_batch_size: 2   # 2 completions per backward pass (24 GB: 4 x ~5k tokens OOMs)
   num_generations: 4
-  gradient_accumulation_steps: 1   # 1 prompt x 4 generations per step
-  max_completion_length: 128     # per generated turn; short keeps 16 GB GPUs safe
-  max_steps_per_turn: 3
+  gradient_accumulation_steps: 2   # still 1 prompt x 4 generations per optimizer step
+  max_completion_length: 192     # per generated turn; replies now end at the model's EOS (B15)
+  max_steps_per_turn: 4          # same as evaluation: 3 call turns + the final answer
   learning_rate: 2.0e-5
   warmup_steps: 5
   beta: 0.0                      # no reference-model KL pass (saves time on T4)
   temperature: 0.9
   gradient_checkpointing: true
   logging_steps: 1
-  save_steps: 25
+  save_steps: 10                 # a crash or restart loses at most 10 steps
   save_total_limit: 2
 runs:
   run_A:                   # AgentTune's default tool reward, upstream, unpatched
@@ -36,3 +36,38 @@ runs:
     reward:
       kind: audit
       include_f1: true
+      # F1 reward with semantic argument matching: the right station in another script or a
+      # reworded complaint is not punished (transit_agent/lenient_match.py). run_B only.
+      f1_arg_match: transit_agent.lenient_match:lenient_arg_match
+  run_B2:                  # audit reward v2: run_B plus a reference-aware no-call score
+    reward:
+      kind: audit
+      include_f1: true
+      f1_arg_match: transit_agent.lenient_match:lenient_arg_match
+      # run_B (v1) learned to stay silent: a no-call earned 0.5 validity even on tasks whose
+      # reference needs a call, which beat its frequently invalid attempts. Here a no-call on
+      # such a task earns 0, so any valid attempt beats silence; no-call tasks are unchanged.
+      no_call_score_when_call_expected: 0.0
+  run_B3:                  # reward v2 + a KL anchor to the distilled student
+    # run_B and run_B2 both collapsed into silence although v2 ranks a call above silence on
+    # every task that needs one: once a prompt's 4 samples are all silent, their advantages are
+    # 0 and GRPO never pushes back (beta 0 = no anchor). A KL penalty to the distilled student
+    # (merged into the weights, so "adapter disabled" is that model) keeps it near its start.
+    reward:
+      kind: audit
+      include_f1: true
+      f1_arg_match: transit_agent.lenient_match:lenient_arg_match
+      no_call_score_when_call_expected: 0.0
+    grpo:
+      merge_start_adapter: true
+    training:
+      beta: 0.04
+  run_A3:                  # run_A with the same KL anchor: the fair counterpart of run_B3
+    reward:
+      kind: agenttune_default
+      funcs: [hybrid_prm_reward]
+      weights: null
+    grpo:
+      merge_start_adapter: true
+    training:
+      beta: 0.04

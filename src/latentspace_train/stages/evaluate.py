@@ -28,12 +28,13 @@ from ..scoring import (
     audit_weights,
     bootstrap_compare,
     make_audit_rewards,
+    lenient_scorer,
     score_records,
     summarise,
 )
 from ..tasks import load_split, load_tools
 
-COMPARE_METRICS = ["success", "audit_combined", "tool_call_validity", "tool_call_f1",
+COMPARE_METRICS = ["success", "lenient_success", "lenient_f1", "audit_combined", "tool_call_validity", "tool_call_f1",
                    "tool_call_exact", "agent_loop_detection", "audit_confirm_irreversible_penalty",
                    "unconfirmed_irreversible_rate", "tool_call_count", "no_call_rate"]
 
@@ -110,6 +111,8 @@ def run(cfg: dict, args) -> tuple[str, dict]:
             spec.setdefault("model", cfg["student"]["model"])
             if cfg.get("dry_run"):
                 spec["model"] = cfg["student"]["model"]
+            if ck.get("base_adapter"):
+                spec["base_adapter"], _ = _resolve_adapter(ck.get("base_adapter"), cfg)
             spec["adapter"], ok = _resolve_adapter(ck.get("adapter"), cfg)
             if not ok:
                 msg = f"adapter not found: {spec['adapter']}"
@@ -124,7 +127,7 @@ def run(cfg: dict, args) -> tuple[str, dict]:
                               max_steps=cfg.get("rollout", {}).get("max_steps_per_turn", 4))
         print(f"[evaluate:{name}] {len(rows)} tasks x {trials} trials")
         records, status = run_rollouts(fn, rows, trials=trials, gen_kwargs=gen_kwargs(cfg, "evaluate"))
-        scored = score_records(records, rewards, audit_weights(cfg))
+        scored = score_records(records, rewards, audit_weights(cfg), lenient=lenient_scorer(cfg))
         d = work_dir(cfg, "evaluate", name)
         write_jsonl(d / "rollouts.jsonl", records)
         write_jsonl(d / "scored.jsonl", scored)

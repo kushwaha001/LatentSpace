@@ -14,7 +14,7 @@ from . import free, gen_kwargs, make_budget, make_engine
 from ..hub import push_folder
 from ..rollouts import build_rollout_fn, run_rollouts
 from ..runtime import work_dir, write_jsonl
-from ..scoring import audit_weights, make_audit_rewards, score_records, summarise
+from ..scoring import audit_weights, make_audit_rewards, lenient_scorer, score_records, summarise
 from ..tasks import load_split, load_tools
 
 
@@ -39,7 +39,7 @@ def run(cfg: dict, args) -> tuple[str, dict]:
                               max_steps=cfg.get("rollout", {}).get("max_steps_per_turn", 4))
         print(f"[baseline:{mode}] {len(rows)} tasks x {trials} trial(s) with {desc['model']}")
         records, status = run_rollouts(fn, rows, trials=trials, gen_kwargs=gen_kwargs(cfg, "baseline"))
-        scored = score_records(records, rewards, audit_weights(cfg))
+        scored = score_records(records, rewards, audit_weights(cfg), lenient=lenient_scorer(cfg))
         d = work_dir(cfg, "baseline", mode)
         write_jsonl(d / "rollouts.jsonl", records)
         write_jsonl(d / "scored.jsonl", scored)

@@ -76,7 +76,8 @@ for s in "${stages[@]}"; do
       for attempt in 1 2 3; do
         touch "$marker"
         run "$gpu" "13_grpo_${r}_try${attempt}" grpo --run "$r" "${LOCAL[@]}" \
-          --set grpo.resume_from_checkpoint=auto "${PUSH_FLAG[@]}" || true
+          --set grpo.resume_from_checkpoint=auto ${GRPO_STEPS:+--set training.max_steps=$GRPO_STEPS} \
+          "${PUSH_FLAG[@]}" || true
         res="results/13_grpo_$r.json"
         if [ "$res" -nt "$marker" ] && python -c "import json,sys; sys.exit(json.load(open('$res'))['error'] is not None)"; then
           ok=1; break

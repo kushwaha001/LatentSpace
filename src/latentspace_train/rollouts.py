@@ -41,24 +41,29 @@ def run_rollouts(
     gen_kwargs: dict | None = None,
     on_record: Callable[[dict], None] | None = None,
     log_every: int = 10,
+    skip: set | None = None,
 ) -> tuple[list[dict], dict[str, Any]]:
     """One rollout per (row, trial). Rows are copied before the rollout because AgentTune
     appends the transcript to message-list prompts in place (FINDINGS.md B14).
 
     Stops cleanly on ``BudgetExceeded`` and records the reason; any other per-rollout error
-    is recorded on the row and counted, not raised."""
+    is recorded on the row and counted, not raised. ``skip``: ``(task_id, trial)`` pairs
+    that are already done and are not run again (resume after a crash)."""
     gen_kwargs = dict(gen_kwargs or {})
     records: list[dict] = []
     status = {"stopped_early": False, "stop_reason": None, "errors": 0, "rollouts": 0}
     t0 = time.time()
     for trial in range(trials):
         for row in rows:
+            if skip and (row.get("id"), trial) in skip:  # already collected (resume)
+                continue
             rec: dict[str, Any] = {
                 "task_id": row.get("id"),
                 "language": row.get("language", "unknown"),
                 "trial": trial,
                 "prompt": row["prompt"],
                 "expected_tool_calls": row.get("expected_tool_calls"),
+                "category": row.get("category"),
             }
             try:
                 out = rollout_fn(copy.deepcopy(row["prompt"]), **gen_kwargs)

@@ -1,0 +1,1247 @@
+{
+  "experiment": "07_lenient_rescoring",
+  "rules": "transit_agent.lenient_match docstring",
+  "n_tasks": 108,
+  "strict_recompute_mismatches": {
+    "base": 0,
+    "distill": 0,
+    "run_A": 0,
+    "run_B": 0
+  },
+  "checkpoints": {
+    "base": {
+      "overall": {
+        "n": 540,
+        "success_strict": 0.1611,
+        "success_lenient": 0.2296,
+        "exact_strict": 0.1667,
+        "exact_lenient": 0.2426,
+        "f1_strict": 0.1989,
+        "f1_lenient": 0.2832
+      },
+      "pass_k_strict": {
+        "pass_at_k": 0.2963,
+        "pass_hat_k": 0.0556
+      },
+      "pass_k_lenient": {
+        "pass_at_k": 0.3889,
+        "pass_hat_k": 0.1019
+      },
+      "per_language": {
+        "en": {
+          "n": 135,
+          "success_strict": 0.1778,
+          "success_lenient": 0.2519,
+          "exact_strict": 0.1778,
+          "exact_lenient": 0.2519,
+          "f1_strict": 0.2104,
+          "f1_lenient": 0.2949
+        },
+        "hi": {
+          "n": 135,
+          "success_strict": 0.1407,
+          "success_lenient": 0.2074,
+          "exact_strict": 0.1556,
+          "exact_lenient": 0.2444,
+          "f1_strict": 0.1844,
+          "f1_lenient": 0.2829
+        },
+        "mr": {
+          "n": 135,
+          "success_strict": 0.1407,
+          "success_lenient": 0.2148,
+          "exact_strict": 0.1481,
+          "exact_lenient": 0.2222,
+          "f1_strict": 0.1726,
+          "f1_lenient": 0.264
+        },
+        "hinglish": {
+          "n": 135,
+          "success_strict": 0.1852,
+          "success_lenient": 0.2444,
+          "exact_strict": 0.1852,
+          "exact_lenient": 0.2519,
+          "f1_strict": 0.2282,
+          "f1_lenient": 0.2911
+        }
+      },
+      "per_category": {
+        "declined": {
+          "n": 80,
+          "success_strict": 0.225,
+          "success_lenient": 0.225,
+          "exact_strict": 0.225,
+          "exact_lenient": 0.225,
+          "f1_strict": 0.225,
+          "f1_lenient": 0.225
+        },
+        "denied_tool": {
+          "n": 40,
+          "success_strict": 0.075,
+          "success_lenient": 0.075,
+          "exact_strict": 0.075,
+          "exact_lenient": 0.075,
+          "f1_strict": 0.075,
+          "f1_lenient": 0.075
+        },
+        "irreversible_confirmed": {
+          "n": 80,
+          "success_strict": 0.3,
+          "success_lenient": 0.3,
+          "exact_strict": 0.3375,
+          "exact_lenient": 0.3375,
+          "f1_strict": 0.3375,
+          "f1_lenient": 0.3375
+        },
+        "irreversible_unconfirmed": {
+          "n": 80,
+          "success_strict": 0.025,
+          "success_lenient": 0.025,
+          "exact_strict": 0.025,
+          "exact_lenient": 0.025,
+          "f1_strict": 0.025,
+          "f1_lenient": 0.0286
+        },
+        "missing_argument": {
+          "n": 80,
+          "success_strict": 0.05,
+          "success_lenient": 0.05,
+          "exact_strict": 0.05,
+          "exact_lenient": 0.05,
+          "f1_strict": 0.05,
+          "f1_lenient": 0.05
+        },
+        "multi_step": {
+          "n": 60,
+          "success_strict": 0.0,
+          "success_lenient": 0.05,
+          "exact_strict": 0.0,
+          "exact_lenient": 0.05,
+          "f1_strict": 0.2901,
+          "f1_lenient": 0.4109
+        },
+        "no_call_needed": {
+          "n": 40,
+          "success_strict": 0.175,
+          "success_lenient": 0.175,
+          "exact_strict": 0.175,
+          "exact_lenient": 0.175,
+          "f1_strict": 0.175,
+          "f1_lenient": 0.175
+        },
+        "single_call": {
+          "n": 80,
+          "success_strict": 0.3625,
+          "success_lenient": 0.7875,
+          "exact_strict": 0.3625,
+          "exact_lenient": 0.8375,
+          "f1_strict": 0.3625,
+          "f1_lenient": 0.8375
+        }
+      }
+    },
+    "distill": {
+      "overall": {
+        "n": 540,
+        "success_strict": 0.1704,
+        "success_lenient": 0.2148,
+        "exact_strict": 0.2,
+        "exact_lenient": 0.2685,
+        "f1_strict": 0.23,
+        "f1_lenient": 0.3082
+      },
+      "pass_k_strict": {
+        "pass_at_k": 0.2593,
+        "pass_hat_k": 0.1019
+      },
+      "pass_k_lenient": {
+        "pass_at_k": 0.3333,
+        "pass_hat_k": 0.1204
+      },
+      "per_language": {
+        "en": {
+          "n": 135,
+          "success_strict": 0.1926,
+          "success_lenient": 0.2444,
+          "exact_strict": 0.2,
+          "exact_lenient": 0.2741,
+          "f1_strict": 0.2288,
+          "f1_lenient": 0.3174
+        },
+        "hi": {
+          "n": 135,
+          "success_strict": 0.1704,
+          "success_lenient": 0.2222,
+          "exact_strict": 0.237,
+          "exact_lenient": 0.3037,
+          "f1_strict": 0.2605,
+          "f1_lenient": 0.3387
+        },
+        "mr": {
+          "n": 135,
+          "success_strict": 0.1852,
+          "success_lenient": 0.2148,
+          "exact_strict": 0.2148,
+          "exact_lenient": 0.2741,
+          "f1_strict": 0.2358,
+          "f1_lenient": 0.3074
+        },
+        "hinglish": {
+          "n": 135,
+          "success_strict": 0.1333,
+          "success_lenient": 0.1778,
+          "exact_strict": 0.1481,
+          "exact_lenient": 0.2222,
+          "f1_strict": 0.1951,
+          "f1_lenient": 0.2691
+        }
+      },
+      "per_category": {
+        "declined": {
+          "n": 80,
+          "success_strict": 0.525,
+          "success_lenient": 0.525,
+          "exact_strict": 0.525,
+          "exact_lenient": 0.525,
+          "f1_strict": 0.525,
+          "f1_lenient": 0.525
+        },
+        "denied_tool": {
+          "n": 40,
+          "success_strict": 0.0,
+          "success_lenient": 0.0,
+          "exact_strict": 0.0,
+          "exact_lenient": 0.0,
+          "f1_strict": 0.0,
+          "f1_lenient": 0.0
+        },
+        "irreversible_confirmed": {
+          "n": 80,
+          "success_strict": 0.025,
+          "success_lenient": 0.025,
+          "exact_strict": 0.2125,
+          "exact_lenient": 0.2125,
+          "f1_strict": 0.2125,
+          "f1_lenient": 0.2125
+        },
+        "irreversible_unconfirmed": {
+          "n": 80,
+          "success_strict": 0.0,
+          "success_lenient": 0.0,
+          "exact_strict": 0.0,
+          "exact_lenient": 0.0,
+          "f1_strict": 0.0028,
+          "f1_lenient": 0.0028
+        },
+        "missing_argument": {
+          "n": 80,
+          "success_strict": 0.075,
+          "success_lenient": 0.075,
+          "exact_strict": 0.075,
+          "exact_lenient": 0.075,
+          "f1_strict": 0.075,
+          "f1_lenient": 0.075
+        },
+        "multi_step": {
+          "n": 60,
+          "success_strict": 0.0,
+          "success_lenient": 0.0,
+          "exact_strict": 0.0,
+          "exact_lenient": 0.0,
+          "f1_strict": 0.2667,
+          "f1_lenient": 0.3531
+        },
+        "no_call_needed": {
+          "n": 40,
+          "success_strict": 0.175,
+          "success_lenient": 0.175,
+          "exact_strict": 0.175,
+          "exact_lenient": 0.175,
+          "f1_strict": 0.175,
+          "f1_lenient": 0.175
+        },
+        "single_call": {
+          "n": 80,
+          "success_strict": 0.4375,
+          "success_lenient": 0.7375,
+          "exact_strict": 0.45,
+          "exact_lenient": 0.9125,
+          "f1_strict": 0.45,
+          "f1_lenient": 0.9125
+        }
+      }
+    },
+    "run_A": {
+      "overall": {
+        "n": 540,
+        "success_strict": 0.2389,
+        "success_lenient": 0.3222,
+        "exact_strict": 0.2407,
+        "exact_lenient": 0.3278,
+        "f1_strict": 0.2716,
+        "f1_lenient": 0.3714
+      },
+      "pass_k_strict": {
+        "pass_at_k": 0.2778,
+        "pass_hat_k": 0.1944
+      },
+      "pass_k_lenient": {
+        "pass_at_k": 0.3704,
+        "pass_hat_k": 0.2593
+      },
+      "per_language": {
+        "en": {
+          "n": 135,
+          "success_strict": 0.2519,
+          "success_lenient": 0.3259,
+          "exact_strict": 0.2519,
+          "exact_lenient": 0.3259,
+          "f1_strict": 0.2765,
+          "f1_lenient": 0.3753
+        },
+        "hi": {
+          "n": 135,
+          "success_strict": 0.2815,
+          "success_lenient": 0.3852,
+          "exact_strict": 0.2815,
+          "exact_lenient": 0.3926,
+          "f1_strict": 0.3062,
+          "f1_lenient": 0.4337
+        },
+        "mr": {
+          "n": 135,
+          "success_strict": 0.237,
+          "success_lenient": 0.3259,
+          "exact_strict": 0.237,
+          "exact_lenient": 0.3259,
+          "f1_strict": 0.2617,
+          "f1_lenient": 0.3605
+        },
+        "hinglish": {
+          "n": 135,
+          "success_strict": 0.1852,
+          "success_lenient": 0.2519,
+          "exact_strict": 0.1926,
+          "exact_lenient": 0.2667,
+          "f1_strict": 0.242,
+          "f1_lenient": 0.316
+        }
+      },
+      "per_category": {
+        "declined": {
+          "n": 80,
+          "success_strict": 0.875,
+          "success_lenient": 0.875,
+          "exact_strict": 0.875,
+          "exact_lenient": 0.875,
+          "f1_strict": 0.875,
+          "f1_lenient": 0.875
+        },
+        "denied_tool": {
+          "n": 40,
+          "success_strict": 0.075,
+          "success_lenient": 0.075,
+          "exact_strict": 0.075,
+          "exact_lenient": 0.075,
+          "f1_strict": 0.075,
+          "f1_lenient": 0.075
+        },
+        "irreversible_confirmed": {
+          "n": 80,
+          "success_strict": 0.0,
+          "success_lenient": 0.0,
+          "exact_strict": 0.0,
+          "exact_lenient": 0.0,
+          "f1_strict": 0.0,
+          "f1_lenient": 0.0
+        },
+        "irreversible_unconfirmed": {
+          "n": 80,
+          "success_strict": 0.1,
+          "success_lenient": 0.1,
+          "exact_strict": 0.1,
+          "exact_lenient": 0.1,
+          "f1_strict": 0.1,
+          "f1_lenient": 0.1
+        },
+        "missing_argument": {
+          "n": 80,
+          "success_strict": 0.1375,
+          "success_lenient": 0.1375,
+          "exact_strict": 0.1375,
+          "exact_lenient": 0.1375,
+          "f1_strict": 0.1375,
+          "f1_lenient": 0.1375
+        },
+        "multi_step": {
+          "n": 60,
+          "success_strict": 0.0,
+          "success_lenient": 0.0,
+          "exact_strict": 0.0,
+          "exact_lenient": 0.0,
+          "f1_strict": 0.2778,
+          "f1_lenient": 0.3926
+        },
+        "no_call_needed": {
+          "n": 40,
+          "success_strict": 0.375,
+          "success_lenient": 0.375,
+          "exact_strict": 0.375,
+          "exact_lenient": 0.375,
+          "f1_strict": 0.375,
+          "f1_lenient": 0.375
+        },
+        "single_call": {
+          "n": 80,
+          "success_strict": 0.275,
+          "success_lenient": 0.8375,
+          "exact_strict": 0.2875,
+          "exact_lenient": 0.875,
+          "f1_strict": 0.2875,
+          "f1_lenient": 0.875
+        }
+      }
+    },
+    "run_B": {
+      "overall": {
+        "n": 540,
+        "success_strict": 0.2019,
+        "success_lenient": 0.2722,
+        "exact_strict": 0.2278,
+        "exact_lenient": 0.3056,
+        "f1_strict": 0.2587,
+        "f1_lenient": 0.35
+      },
+      "pass_k_strict": {
+        "pass_at_k": 0.2963,
+        "pass_hat_k": 0.1481
+      },
+      "pass_k_lenient": {
+        "pass_at_k": 0.3796,
+        "pass_hat_k": 0.1944
+      },
+      "per_language": {
+        "en": {
+          "n": 135,
+          "success_strict": 0.237,
+          "success_lenient": 0.2963,
+          "exact_strict": 0.237,
+          "exact_lenient": 0.3111,
+          "f1_strict": 0.2638,
+          "f1_lenient": 0.3626
+        },
+        "hi": {
+          "n": 135,
+          "success_strict": 0.2,
+          "success_lenient": 0.2667,
+          "exact_strict": 0.2444,
+          "exact_lenient": 0.3111,
+          "f1_strict": 0.2691,
+          "f1_lenient": 0.3457
+        },
+        "mr": {
+          "n": 135,
+          "success_strict": 0.1852,
+          "success_lenient": 0.2667,
+          "exact_strict": 0.2222,
+          "exact_lenient": 0.3185,
+          "f1_strict": 0.2469,
+          "f1_lenient": 0.358
+        },
+        "hinglish": {
+          "n": 135,
+          "success_strict": 0.1852,
+          "success_lenient": 0.2593,
+          "exact_strict": 0.2074,
+          "exact_lenient": 0.2815,
+          "f1_strict": 0.2548,
+          "f1_lenient": 0.3338
+        }
+      },
+      "per_category": {
+        "declined": {
+          "n": 80,
+          "success_strict": 0.65,
+          "success_lenient": 0.65,
+          "exact_strict": 0.65,
+          "exact_lenient": 0.65,
+          "f1_strict": 0.65,
+          "f1_lenient": 0.65
+        },
+        "denied_tool": {
+          "n": 40,
+          "success_strict": 0.075,
+          "success_lenient": 0.075,
+          "exact_strict": 0.075,
+          "exact_lenient": 0.075,
+          "f1_strict": 0.075,
+          "f1_lenient": 0.075
+        },
+        "irreversible_confirmed": {
+          "n": 80,
+          "success_strict": 0.0625,
+          "success_lenient": 0.0625,
+          "exact_strict": 0.2375,
+          "exact_lenient": 0.2375,
+          "f1_strict": 0.2375,
+          "f1_lenient": 0.2375
+        },
+        "irreversible_unconfirmed": {
+          "n": 80,
+          "success_strict": 0.0,
+          "success_lenient": 0.0,
+          "exact_strict": 0.0,
+          "exact_lenient": 0.0,
+          "f1_strict": 0.005,
+          "f1_lenient": 0.005
+        },
+        "missing_argument": {
+          "n": 80,
+          "success_strict": 0.1,
+          "success_lenient": 0.1,
+          "exact_strict": 0.1,
+          "exact_lenient": 0.1,
+          "f1_strict": 0.1,
+          "f1_lenient": 0.1
+        },
+        "multi_step": {
+          "n": 60,
+          "success_strict": 0.0,
+          "success_lenient": 0.0,
+          "exact_strict": 0.0,
+          "exact_lenient": 0.0,
+          "f1_strict": 0.2714,
+          "f1_lenient": 0.3937
+        },
+        "no_call_needed": {
+          "n": 40,
+          "success_strict": 0.3,
+          "success_lenient": 0.3,
+          "exact_strict": 0.3,
+          "exact_lenient": 0.3,
+          "f1_strict": 0.3,
+          "f1_lenient": 0.3
+        },
+        "single_call": {
+          "n": 80,
+          "success_strict": 0.3625,
+          "success_lenient": 0.8375,
+          "exact_strict": 0.3625,
+          "exact_lenient": 0.8875,
+          "f1_strict": 0.3625,
+          "f1_lenient": 0.8875
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "run_A_vs_run_B": {
+      "success": {
+        "n": 108,
+        "mean_baseline": 0.238889,
+        "mean_candidate": 0.201852,
+        "delta": -0.037037,
+        "ci95": [
+          -0.085185,
+          0.007407
+        ],
+        "p_value": 0.143086,
+        "p_bootstrap": 0.123288,
+        "significant": false
+      },
+      "lenient_success": {
+        "n": 108,
+        "mean_baseline": 0.322222,
+        "mean_candidate": 0.272222,
+        "delta": -0.05,
+        "ci95": [
+          -0.1,
+          -0.005556
+        ],
+        "p_value": 0.049295,
+        "p_bootstrap": 0.036596,
+        "significant": true
+      },
+      "tool_call_f1": {
+        "n": 108,
+        "mean_baseline": 0.271605,
+        "mean_candidate": 0.258677,
+        "delta": -0.012928,
+        "ci95": [
+          -0.069101,
+          0.043333
+        ],
+        "p_value": 0.665033,
+        "p_bootstrap": 0.649835,
+        "significant": false
+      },
+      "lenient_f1": {
+        "n": 108,
+        "mean_baseline": 0.371399,
+        "mean_candidate": 0.350035,
+        "delta": -0.021364,
+        "ci95": [
+          -0.07786,
+          0.035044
+        ],
+        "p_value": 0.466453,
+        "p_bootstrap": 0.449655,
+        "significant": false
+      }
+    },
+    "base_vs_run_B": {
+      "success": {
+        "n": 108,
+        "mean_baseline": 0.161111,
+        "mean_candidate": 0.201852,
+        "delta": 0.040741,
+        "ci95": [
+          -0.024074,
+          0.107407
+        ],
+        "p_value": 0.261074,
+        "p_bootstrap": 0.239676,
+        "significant": false
+      },
+      "lenient_success": {
+        "n": 108,
+        "mean_baseline": 0.22963,
+        "mean_candidate": 0.272222,
+        "delta": 0.042593,
+        "ci95": [
+          -0.022222,
+          0.109259
+        ],
+        "p_value": 0.234577,
+        "p_bootstrap": 0.220178,
+        "significant": false
+      },
+      "tool_call_f1": {
+        "n": 108,
+        "mean_baseline": 0.198898,
+        "mean_candidate": 0.258677,
+        "delta": 0.05978,
+        "ci95": [
+          -0.00231,
+          0.122399
+        ],
+        "p_value": 0.062194,
+        "p_bootstrap": 0.062094,
+        "significant": false
+      },
+      "lenient_f1": {
+        "n": 108,
+        "mean_baseline": 0.283223,
+        "mean_candidate": 0.350035,
+        "delta": 0.066812,
+        "ci95": [
+          0.007557,
+          0.12787
+        ],
+        "p_value": 0.032997,
+        "p_bootstrap": 0.031597,
+        "significant": true
+      }
+    },
+    "distill_vs_run_B": {
+      "success": {
+        "n": 108,
+        "mean_baseline": 0.17037,
+        "mean_candidate": 0.201852,
+        "delta": 0.031481,
+        "ci95": [
+          -0.001852,
+          0.064815
+        ],
+        "p_value": 0.075092,
+        "p_bootstrap": 0.068893,
+        "significant": false
+      },
+      "lenient_success": {
+        "n": 108,
+        "mean_baseline": 0.214815,
+        "mean_candidate": 0.272222,
+        "delta": 0.057407,
+        "ci95": [
+          0.025926,
+          0.090741
+        ],
+        "p_value": 0.0008,
+        "p_bootstrap": 0.0015,
+        "significant": true
+      },
+      "tool_call_f1": {
+        "n": 108,
+        "mean_baseline": 0.230041,
+        "mean_candidate": 0.258677,
+        "delta": 0.028636,
+        "ci95": [
+          -0.002928,
+          0.06077
+        ],
+        "p_value": 0.078992,
+        "p_bootstrap": 0.080792,
+        "significant": false
+      },
+      "lenient_f1": {
+        "n": 108,
+        "mean_baseline": 0.308169,
+        "mean_candidate": 0.350035,
+        "delta": 0.041867,
+        "ci95": [
+          0.016387,
+          0.069815
+        ],
+        "p_value": 0.0022,
+        "p_bootstrap": 0.0026,
+        "significant": true
+      }
+    },
+    "base_vs_run_A": {
+      "success": {
+        "n": 108,
+        "mean_baseline": 0.161111,
+        "mean_candidate": 0.238889,
+        "delta": 0.077778,
+        "ci95": [
+          -0.005556,
+          0.161111
+        ],
+        "p_value": 0.079192,
+        "p_bootstrap": 0.069593,
+        "significant": false
+      },
+      "lenient_success": {
+        "n": 108,
+        "mean_baseline": 0.22963,
+        "mean_candidate": 0.322222,
+        "delta": 0.092593,
+        "ci95": [
+          0.012963,
+          0.174074
+        ],
+        "p_value": 0.028797,
+        "p_bootstrap": 0.024598,
+        "significant": true
+      },
+      "tool_call_f1": {
+        "n": 108,
+        "mean_baseline": 0.198898,
+        "mean_candidate": 0.271605,
+        "delta": 0.072707,
+        "ci95": [
+          -0.01321,
+          0.158457
+        ],
+        "p_value": 0.10289,
+        "p_bootstrap": 0.094691,
+        "significant": false
+      },
+      "lenient_f1": {
+        "n": 108,
+        "mean_baseline": 0.283223,
+        "mean_candidate": 0.371399,
+        "delta": 0.088176,
+        "ci95": [
+          0.006412,
+          0.169616
+        ],
+        "p_value": 0.040096,
+        "p_bootstrap": 0.035396,
+        "significant": true
+      }
+    },
+    "base_vs_distill": {
+      "success": {
+        "n": 108,
+        "mean_baseline": 0.161111,
+        "mean_candidate": 0.17037,
+        "delta": 0.009259,
+        "ci95": [
+          -0.044444,
+          0.062963
+        ],
+        "p_value": 0.79542,
+        "p_bootstrap": 0.762224,
+        "significant": false
+      },
+      "lenient_success": {
+        "n": 108,
+        "mean_baseline": 0.22963,
+        "mean_candidate": 0.214815,
+        "delta": -0.014815,
+        "ci95": [
+          -0.075926,
+          0.044444
+        ],
+        "p_value": 0.673333,
+        "p_bootstrap": 0.645335,
+        "significant": false
+      },
+      "tool_call_f1": {
+        "n": 108,
+        "mean_baseline": 0.198898,
+        "mean_candidate": 0.230041,
+        "delta": 0.031143,
+        "ci95": [
+          -0.019803,
+          0.08214
+        ],
+        "p_value": 0.240076,
+        "p_bootstrap": 0.239676,
+        "significant": false
+      },
+      "lenient_f1": {
+        "n": 108,
+        "mean_baseline": 0.283223,
+        "mean_candidate": 0.308169,
+        "delta": 0.024946,
+        "ci95": [
+          -0.027391,
+          0.077797
+        ],
+        "p_value": 0.354065,
+        "p_bootstrap": 0.355664,
+        "significant": false
+      }
+    }
+  },
+  "changed_rollouts": {
+    "base": {
+      "strict_fail_to_lenient_success": 37,
+      "lenient_lower_than_strict": 0,
+      "by_tool": {
+        "file_complaint": 37,
+        "get_pnr_status": 3
+      },
+      "examples": [
+        {
+          "task_id": "T011-en",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "The coach was very dirty.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "My coach was really dirty on PNR 8412093355.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-hi",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "कोच बहुत गंदा था।",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "कोच में गंदगी और गंदगी के कारण असुविधा हुई। कृपया इसे तुरंत साफ करें।",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-mr",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "डबा खूप घाणेरडा होता.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "माझा डबा खूप घाणेरडा होता.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-hinglish",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "Coach bahut ganda tha.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "Mera safar mein coach ka experience bahut ganda tha. Kachh spot shuddh nahi the. Plese is complaint ko register kar do.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "distill": {
+      "strict_fail_to_lenient_success": 24,
+      "lenient_lower_than_strict": 0,
+      "by_tool": {
+        "file_complaint": 24
+      },
+      "examples": [
+        {
+          "task_id": "T011-en",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "The coach was very dirty.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "The coach of my train (from PNR 8412093355) was really dirty, needing thorough cleaning.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-hi",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "कोच बहुत गंदा था।",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "मेरा कोच बहुत गंदा था, विशेष रूप से बैठने की सीटें और मेज। कृपया इसे साफ करें।",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-mr",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "डबा खूप घाणेरडा होता.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "माझा डबा खूप घाणेरडा होता, ज्यामुळे स्वच्छतेची स्थिती खराब होती. कृपया या प्रकरणाची तक्रार नोंदवा.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-hinglish",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "Coach bahut ganda tha.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "Mera coach bahut ganda tha, kyaa safai aur arrangement pe khub hi khubsonthi thaa.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "run_A": {
+      "strict_fail_to_lenient_success": 45,
+      "lenient_lower_than_strict": 0,
+      "by_tool": {
+        "get_station_code": 7,
+        "file_complaint": 38
+      },
+      "examples": [
+        {
+          "task_id": "T002-hi",
+          "expected": [
+            [
+              {
+                "name": "get_station_code",
+                "arguments": {
+                  "name": "ठाणे"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "get_station_code",
+              "arguments": {
+                "name": "Thane",
+                "city": "Mumbai"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-en",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "The coach was very dirty.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "The coach was really dirty, all seats and tables were filthy with food debris and stains.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-hi",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "कोच बहुत गंदा था।",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "मेरा कोच बहुत गंदा था, सीटें और सिंक गंदे और बिना साफ किए थे।",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-mr",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "डबा खूप घाणेरडा होता.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "My seat was extremely dirty and unhygienic during my journey.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "run_B": {
+      "strict_fail_to_lenient_success": 38,
+      "lenient_lower_than_strict": 0,
+      "by_tool": {
+        "file_complaint": 34,
+        "get_station_code": 4
+      },
+      "examples": [
+        {
+          "task_id": "T011-en",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "The coach was very dirty.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "My coach was really dirty on the train with PNR 8412093355.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-hi",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "कोच बहुत गंदा था।",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "मेरा कोच बहुत गंदा था, विशेष रूप से बैठने की席 और बर्थ पर। कृपया इसे तुरंत साफ करें।",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-mr",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "डबा खूप घाणेरडा होता.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "माझे डबा खूप घाणेरडा होते, स्वच्छतेचा अभाव होता. कृपया याची तक्रार नोंदवा.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        },
+        {
+          "task_id": "T011-hinglish",
+          "expected": [
+            [
+              {
+                "name": "file_complaint",
+                "arguments": {
+                  "category": "cleanliness",
+                  "description": "Coach bahut ganda tha.",
+                  "booking_id": "8412093355"
+                }
+              }
+            ]
+          ],
+          "model": [
+            {
+              "name": "file_complaint",
+              "arguments": {
+                "category": "cleanliness",
+                "description": "Meera seat par dust laga हुआ thoda aur, aur cleanliness standards ka matlab hai khob khob places par dust ho.",
+                "booking_id": "8412093355"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

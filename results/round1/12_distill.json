@@ -1,0 +1,281 @@
+{
+  "stage": "distill",
+  "run_name": null,
+  "dry_run": false,
+  "seed": 42,
+  "started_utc": "2026-11-05T21:47:48Z",
+  "seconds": 996.9,
+  "student": "CohereLabs/tiny-aya-global",
+  "data": "/home/aidshpclab16/LatentSpace/outputs/teacher_collect/filtered.jsonl",
+  "n_trajectories": 301,
+  "n_rows": 301,
+  "note": null,
+  "tool_call_format": "cohere",
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "train_result": {
+    "train_runtime": 909.626,
+    "train_samples_per_second": 0.662,
+    "train_steps_per_second": 0.042,
+    "total_flos": 2.102767070792909e+16,
+    "train_loss": 0.5112995193584969,
+    "entropy": 0.030531963414472084,
+    "num_tokens": 1232896.0,
+    "mean_token_accuracy": 0.9985344409942627,
+    "epoch": 2.0
+  },
+  "log_history": [
+    {
+      "loss": 1.5047435760498047,
+      "grad_norm": 1.0907742977142334,
+      "learning_rate": 8e-05,
+      "entropy": 1.091451680660248,
+      "num_tokens": 163840.0,
+      "mean_token_accuracy": 0.701154139637947,
+      "epoch": 0.26490066225165565,
+      "step": 5
+    },
+    {
+      "loss": 1.1370190620422362,
+      "grad_norm": 0.36622315645217896,
+      "learning_rate": 0.00018,
+      "entropy": 1.1559594362974166,
+      "num_tokens": 327680.0,
+      "mean_token_accuracy": 0.7469711780548096,
+      "epoch": 0.5298013245033113,
+      "step": 10
+    },
+    {
+      "loss": 0.7389513969421386,
+      "grad_norm": 0.38413205742836,
+      "learning_rate": 0.0001900968867902419,
+      "entropy": 0.9870504155755043,
+      "num_tokens": 491520.0,
+      "mean_token_accuracy": 0.8251037925481797,
+      "epoch": 0.7947019867549668,
+      "step": 15
+    },
+    {
+      "loss": 0.35686631202697755,
+      "grad_norm": 0.34661683440208435,
+      "learning_rate": 0.00015320320765153367,
+      "entropy": 0.5528529890072651,
+      "num_tokens": 649216.0,
+      "mean_token_accuracy": 0.9151228391207181,
+      "epoch": 1.0529801324503312,
+      "step": 20
+    },
+    {
+      "loss": 0.10324722528457642,
+      "grad_norm": 0.19105209410190582,
+      "learning_rate": 0.0001,
+      "entropy": 0.1993060525506735,
+      "num_tokens": 813056.0,
+      "mean_token_accuracy": 0.9765876948833465,
+      "epoch": 1.3178807947019868,
+      "step": 25
+    },
+    {
+      "loss": 0.023545362055301666,
+      "grad_norm": 0.07243140041828156,
+      "learning_rate": 4.6796792348466356e-05,
+      "entropy": 0.061570558696985245,
+      "num_tokens": 976896.0,
+      "mean_token_accuracy": 0.9972703963518142,
+      "epoch": 1.5827814569536423,
+      "step": 30
+    },
+    {
+      "loss": 0.013896602392196655,
+      "grad_norm": 0.04226793348789215,
+      "learning_rate": 9.903113209758096e-06,
+      "entropy": 0.034261269774287936,
+      "num_tokens": 1140736.0,
+      "mean_token_accuracy": 0.9983573526144027,
+      "epoch": 1.847682119205298,
+      "step": 35
+    },
+    {
+      "train_runtime": 909.626,
+      "train_samples_per_second": 0.662,
+      "train_steps_per_second": 0.042,
+      "total_flos": 2.102767070792909e+16,
+      "train_loss": 0.5112995193584969,
+      "entropy": 0.030531963414472084,
+      "num_tokens": 1232896.0,
+      "mean_token_accuracy": 0.9985344409942627,
+      "epoch": 2.0,
+      "step": 38
+    }
+  ],
+  "first_row_preview": [
+    {
+      "role": "system",
+      "content": "You can call these tools:\n[\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"get_station_code\",\n      \"description\": \"Look up the official Indian Railways station code for a railway station.\\n\\nAccepts English, Hindi or Marathi (Devanagari) and romanised names, e.g. \\\"Pune\\\",\\n\\\"\\u092a\\u0941\\u0923\\u0947\\\", \\\"Mumbai Central\\\", \\\"\\u092e\\u0941\\u0902\\u092c\\u0908 \\u0938\\u0947\\u0902\\u091f\\u094d\\u0930\\u0932\\\", \\\"CSMT\\\". A city-level name such as \\\"Mumbai\\\" or\\n\\\"Delhi\\\" matches several stations and returns all candidates. Not for metro stations.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"Station name as the user wrote it, in any script.\"\n          },\n          \"city\": {\n            \"type\": \"string\",\n            \"nullable\": true,\n            \"description\": \"Optional city to narrow the match, e.g. \\\"Mumbai\\\" or \\\"\\u0926\\u093f\\u0932\\u094d\\u0932\\u0940\\\".\"\n          }\n        },\n        \"required\": [\n          \"name\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\",\n        \"description\": \"{\\\"code\\\": ..., \\\"name\\\": ..., \\\"city\\\": ...} for a unique match, {\\\"candidates\\\": [...]} when\\n    several stations match, or {\\\"error\\\": ...} when none does.\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"search_trains\",\n      \"description\": \"Search Indian Railways trains between two stations on a date.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"from_code\": {\n            \"type\": \"string\",\n            \"description\": \"Origin station code from get_station_code, e.g. \\\"CSMT\\\".\"\n          },\n          \"to_code\": {\n            \"type\": \"string\",\n            \"description\": \"Destination station code from get_station_code, e.g. \\\"PUNE\\\".\"\n          },\n          \"date\": {\n            \"type\": \"string\",\n            \"description\": \"Travel date in YYYY-MM-DD format, e.g. \\\"2026-11-20\\\".\"\n          }\n        },\n        \"required\": [\n          \"from_code\",\n          \"to_code\",\n          \"date\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\",\n        \"description\": \"{\\\"trains\\\": [...]} where each train has service_id, train_number, train_name,\\n    departs, arrives, duration, classes and seat availability per class.\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"search_metro_route\",\n      \"description\": \"Find a metro route between two stations in Mumbai, Pune or Delhi.\\n\\nStation names may be English, Hindi or Marathi (Devanagari) or romanised, e.g.\\n\\\"Andheri\\\", \\\"\\u0905\\u0902\\u0927\\u0947\\u0930\\u0940\\\", \\\"Civil Court\\\", \\\"\\u0930\\u093e\\u091c\\u0940\\u0935 \\u091a\\u094c\\u0915\\\".\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"city\": {\n            \"type\": \"string\",\n            \"description\": \"Metro city: \\\"Mumbai\\\", \\\"Pune\\\" or \\\"Delhi\\\" (any script).\"\n          },\n          \"from_station\": {\n            \"type\": \"string\",\n            \"description\": \"Boarding metro station name.\"\n          },\n          \"to_station\": {\n            \"type\": \"string\",\n            \"description\": \"Destination metro station name.\"\n          }\n        },\n        \"required\": [\n          \"city\",\n          \"from_station\",\n          \"to_station\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\",\n        \"description\": \"A route with service_id, legs (line, board, alight, stops), interchanges and\\n    estimated_minutes, or {\\\"error\\\": ...}.\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"get_fare\",\n      \"description\": \"Get the fare for a train or metro journey returned by search_trains or search_metro_route.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"service_id\": {\n            \"type\": \"string\",\n            \"description\": \"The service_id from search_trains (e.g. \\\"S20000-CSMT-PUNE\\\") or from search_metro_route (e.g. \\\"MET-Mumbai-mum_andheri-mum_ghatkopar\\\").\"\n          },\n          \"travel_class\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"2S\",\n              \"SL\",\n              \"CC\",\n              \"3A\",\n              \"2A\",\n              \"EC\",\n              \"1A\",\n              \"standard\"\n            ],\n            \"description\": \"Train class code (\\\"2S\\\", \\\"SL\\\", \\\"CC\\\", \\\"3A\\\", \\\"2A\\\", \\\"EC\\\", \\\"1A\\\"), or \\\"standard\\\" for metro.\"\n          },\n          \"passengers\": {\n            \"type\": \"integer\",\n            \"description\": \"Number of passengers, 1 to 6.\"\n          }\n        },\n        \"required\": [\n          \"service_id\",\n          \"travel_class\",\n          \"passengers\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\",\n        \"description\": \"{\\\"service_id\\\", \\\"travel_class\\\", \\\"passengers\\\", \\\"fare_per_person\\\", \\\"total_fare\\\",\\n    \\\"currency\\\"}, or {\\\"error\\\": ...}.\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"get_pnr_status\",\n      \"description\": \"Get the current status of an Indian Railways booking by its 10-digit PNR number.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"pnr\": {\n            \"type\": \"string\",\n            \"description\": \"10-digit PNR number, e.g. \\\"8412093355\\\".\"\n          }\n        },\n        \"required\": [\n          \"pnr\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\",\n        \"description\": \"Booking details with status (CNF, RAC, WL or CANCELLED), or {\\\"error\\\": ...}.\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"book_ticket\",\n      \"description\": \"Book and pay for a train or metro ticket. IRREVERSIBLE: only call after the user has\\nexplicitly confirmed the exact train, date, class, passengers and fare.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"service_id\": {\n            \"type\": \"string\",\n            \"description\": \"The service_id from search_trains or search_metro_route.\"\n          },\n          \"date\": {\n            \"type\": \"string\",\n            \"description\": \"Travel date in YYYY-MM-DD format.\"\n          },\n          \"travel_class\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"2S\",\n              \"SL\",\n              \"CC\",\n              \"3A\",\n              \"2A\",\n              \"EC\",\n              \"1A\",\n              \"standard\"\n            ],\n            \"description\": \"Train class code (\\\"2S\\\", \\\"SL\\\", \\\"CC\\\", \\\"3A\\\", \\\"2A\\\", \\\"EC\\\", \\\"1A\\\"), or \\\"standard\\\" for metro.\"\n          },\n          \"passengers\": {\n            \"type\": \"integer\",\n            \"description\": \"Number of passengers, 1 to 6.\"\n          },\n          \"passenger_name\": {\n            \"type\": \"string\",\n            \"description\": \"Full name of the lead passenger.\"\n          }\n        },\n        \"required\": [\n          \"service_id\",\n          \"date\",\n          \"travel_class\",\n          \"passengers\",\n          \"passenger_name\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\",\n        \"description\": \"{\\\"pnr\\\", \\\"status\\\", \\\"total_fare\\\", ...} for the new booking, or {\\\"error\\\": ...}.\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"cancel_booking\",\n      \"description\": \"Cancel a booking and start the refund. IRREVERSIBLE: only call after the user has\\nexplicitly confirmed they want this PNR cancelled.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"pnr\": {\n            \"type\": \"string\",\n            \"description\": \"10-digit PNR number of the booking to cancel.\"\n          },\n          \"reason\": {\n            \"type\": \"string\",\n            \"nullable\": true,\n            \"description\": \"Optional reason given by the user.\"\n          }\n        },\n        \"required\": [\n          \"pnr\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\",\n        \"description\": \"{\\\"pnr\\\", \\\"status\\\": \\\"CANCELLED\\\", \\\"refund_amount\\\", ...}, or {\\\"error\\\": ...}.\"\n      }\n    }\n  },\n  {\n    \"type\": \"function\",\n    \"function\": {\n      \"name\": \"file_complaint\",\n      \"description\": \"File a passenger complaint (like RailMadad) and get a reference number.\",\n      \"parameters\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"category\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"cleanliness\",\n              \"punctuality\",\n              \"staff_behaviour\",\n              \"refund\",\n              \"safety\",\n              \"catering\",\n              \"accessibility\",\n              \"other\"\n            ],\n            \"description\": \"One of \\\"cleanliness\\\", \\\"punctuality\\\", \\\"staff_behaviour\\\", \\\"refund\\\", \\\"safety\\\", \\\"catering\\\", \\\"accessibility\\\", \\\"other\\\".\"\n          },\n          \"description\": {\n            \"type\": \"string\",\n            \"description\": \"What happened, in the user's own words (any language).\"\n          },\n          \"booking_id\": {\n            \"type\": \"string\",\n            \"nullable\": true,\n            \"description\": \"Optional PNR of the journey the complaint is about.\"\n          }\n        },\n        \"required\": [\n          \"category\",\n          \"description\"\n        ]\n      },\n      \"return\": {\n        \"type\": \"object\",\n        \"description\": \"{\\\"complaint_id\\\", \\\"category\\\", \\\"status\\\": \\\"REGISTERED\\\"}, or {\\\"error\\\": ...}.\"\n      }\n    }\n  }\n]\n\nTo call tools, reply with only a JSON list, one object per call, and no other text: [{\"tool_name\": \"<name>\", \"parameters\": {\"<argument>\": <value>}}]. Use a list even for one call. A user turn that starts with \"Tool result\" is the output of your call, not a new message from the user: use it to answer the user's original question as plain text."
+    },
+    {
+      "role": "user",
+      "content": "What is the station code for Varanasi?"
+    },
+    {
+      "role": "assistant",
+      "content": "[{\"tool_name\": \"get_station_code\", \"parameters\": {\"name\": \"Varanasi\"}}]"
+    }
+  ],
+  "adapter_dir": "/home/aidshpclab16/LatentSpace/outputs/distill/adapter",
+  "provenance": {
+    "commit": "c4549f07fc66c0f02945ba939a152fafbd4f204a",
+    "dirty": true,
+    "branch": "main",
+    "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "hostname_kind": "other"
+  },
+  "versions": {
+    "python": "3.12.3",
+    "torch": "2.11.0+cu126",
+    "transformers": "5.22.1",
+    "trl": "1.7.1",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "datasets": "5.1.0",
+    "agenttune": "1.1.3",
+    "auditkit": "1.1.3",
+    "litellm": "1.108.0",
+    "huggingface_hub": "1.33.0"
+  },
+  "hardware": {
+    "cuda": true,
+    "gpus": [
+      {
+        "name": "NVIDIA RTX 4500 Ada Generation",
+        "memory_gb": 24.0,
+        "capability": "8.9"
+      }
+    ],
+    "bf16_supported": true
+  },
+  "config": {
+    "seed": 42,
+    "precision": "bf16",
+    "results_dir": "results",
+    "output_root": "outputs",
+    "student": {
+      "model": "CohereLabs/tiny-aya-global",
+      "quantization": null,
+      "adapter": null,
+      "attn_implementation": "sdpa"
+    },
+    "tasks": {
+      "source": "transit",
+      "tools": "transit_agent:TOOLS",
+      "system_prompt": "transit_agent:SYSTEM_PROMPT",
+      "irreversible_tools": [],
+      "denied_tools": [],
+      "languages": null,
+      "limit": null,
+      "data": {
+        "dir": "data/eval",
+        "files": {
+          "train": "train.jsonl",
+          "eval": "dev.jsonl",
+          "test": "test.jsonl"
+        },
+        "fields": {
+          "id": "id",
+          "prompt": "prompt",
+          "language": "language",
+          "expected_tool_calls": "expected_tool_calls"
+        }
+      }
+    },
+    "rollout": {
+      "max_steps_per_turn": 4
+    },
+    "generation": {
+      "max_new_tokens": 256,
+      "temperature": 0.7
+    },
+    "router": {
+      "base_url": "https://router.huggingface.co/v1",
+      "api_key_env": "HF_TOKEN",
+      "bill_to": null,
+      "tool_mode": "prompt",
+      "max_retries": 3,
+      "timeout": 120
+    },
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    "rewards": {
+      "audit": {
+        "no_call_score": 0.5,
+        "calls_per_confirmation": 1,
+        "confirmation_penalty": 1.0,
+        "log": false,
+        "weights": {
+          "audit_tool_validity_reward": 1.0,
+          "audit_tool_f1_reward": 1.0,
+          "audit_tool_permission_penalty": 1.0,
+          "audit_confirm_irreversible_penalty": 1.0,
+          "audit_redundant_calls_penalty": 0.25
+        }
+      }
+    },
+    "hub": {
+      "namespace": "kanishk001",
+      "private": false,
+      "repos": {
+        "logs": "kanishk001/latentspace-logs",
+        "teacher_data": "kanishk001/latentspace-transit-teacher-trajectories",
+        "distill_adapter": "kanishk001/tiny-aya-global-transit-distill-lora",
+        "grpo_run_A": "kanishk001/tiny-aya-global-transit-grpo-default-reward-lora",
+        "grpo_run_B": "kanishk001/tiny-aya-global-transit-grpo-audit-reward-lora"
+      }
+    },
+    "distill": {
+      "data": "outputs/teacher_collect/filtered.jsonl",
+      "data_hub_repo": null,
+      "tool_call_format": "cohere",
+      "training": {
+        "num_train_epochs": 2,
+        "per_device_train_batch_size": 2,
+        "gradient_accumulation_steps": 8,
+        "learning_rate": 0.0002,
+        "lr_scheduler_type": "cosine",
+        "warmup_steps": 10,
+        "max_length": 2048,
+        "gradient_checkpointing": true,
+        "logging_steps": 5,
+        "save_strategy": "no"
+      }
+    },
+    "_config_path": "configs/12_distill.yaml",
+    "stage": "distill",
+    "push": false
+  }
+}

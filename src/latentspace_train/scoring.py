@@ -32,9 +32,33 @@ AUDIT_METRICS = [
 ]
 
 
-def make_audit_rewards(tools: list, cfg: dict) -> AuditRewards:
+def _resolve(spec: str | None):
+    """``"package.module:attr"`` -> the object, or None."""
+    if not spec:
+        return None
+    import importlib
+
+    mod, _, attr = str(spec).partition(":")
+    return getattr(importlib.import_module(mod), attr)
+
+
+def lenient_scorer(cfg: dict):
+    """``tasks.lenient_score``: ``(calls, expected, category) -> {"lenient_f1", "lenient_exact"}``
+    for semantic-equivalence scoring next to AuditKIT's exact match (None if not configured)."""
+    return _resolve((cfg.get("tasks") or {}).get("lenient_score"))
+
+
+def make_audit_rewards(tools: list, cfg: dict, *, f1_arg_match=None,
+                       no_call_score_when_call_expected=None) -> AuditRewards:
+    """``f1_arg_match``: a ``(tool, pred_args, ref_args) -> bool`` or its ``module:attr`` path
+    for the F1 reward (run_B's ``reward.f1_arg_match``). Default: AuditKIT's exact match."""
     r = cfg.get("rewards", {}).get("audit", {})
+    if isinstance(f1_arg_match, str):
+        f1_arg_match = _resolve(f1_arg_match)
+    extra = {"f1_arg_match": f1_arg_match} if f1_arg_match is not None else {}
+    extra["no_call_score_when_call_expected"] = no_call_score_when_call_expected
     return AuditRewards(
+        **extra,
         tools=tools,
         irreversible_tools=cfg.get("tasks", {}).get("irreversible_tools"),
         denied_tools=cfg.get("tasks", {}).get("denied_tools"),
@@ -72,9 +96,11 @@ def verdict(row: dict) -> str:
 
 
 def score_records(records: list[dict], rewards: AuditRewards,
-                  weights: dict[str, float] | None = None) -> list[dict]:
+                  weights: dict[str, float] | None = None, *, lenient=None) -> list[dict]:
     """Score rollouts. Rows with a reference get F1 and the full train-time combination;
-    rows without one get the reference-free combination."""
+    rows without one get the reference-free combination. ``lenient`` (see
+    ``lenient_scorer``) adds ``lenient_f1`` / ``lenient_exact`` / ``lenient_success``: the
+    same verdict with the semantic-equivalence F1 in place of the exact one."""
     if not records:
         return []
     weights = weights or DEFAULT_WEIGHTS
@@ -103,6 +129,12 @@ def score_records(records: list[dict], rewards: AuditRewards,
         )
         row["success"] = {"success": 1.0, "failure": 0.0}.get(verdict(row))
         row["verdict"] = verdict(row)
+        row["category"] = rec.get("category")
+        if lenient is not None and refs[i] is not None:
+            row.update(lenient(row["calls"], refs[i], rec.get("category")))
+            lv = verdict({**row, "tool_call_f1": row["lenient_f1"]})
+            row["lenient_success"] = {"success": 1.0, "failure": 0.0}.get(lv)
+            row["lenient_verdict"] = lv
         out.append(row)
     return out
 
@@ -114,7 +146,8 @@ def _mean(vals: list) -> float | None:
 
 def _metric_means(rows: list[dict]) -> dict[str, Any]:
     keys = AUDIT_METRICS + TRAIN_TIME + ["audit_combined", "success", "tool_call_count",
-                                         "n_malformed"]
+                                         "n_malformed", "lenient_f1", "lenient_exact",
+                                         "lenient_success"]
     out = {k: _mean([r.get(k) for r in rows]) for k in keys}
     out["n_rollouts"] = len(rows)
     out["n_errors"] = sum(1 for r in rows if r.get("error"))
@@ -124,13 +157,14 @@ def _metric_means(rows: list[dict]) -> dict[str, Any]:
     return out
 
 
-def pass_k(rows: list[dict], k: int, independent: bool = False) -> dict[str, Any]:
+def pass_k(rows: list[dict], k: int, independent: bool = False,
+           key: str = "verdict") -> dict[str, Any]:
     """pass@k and pass^k (all k trials succeed) per task, averaged over tasks."""
     from auditkit.agent_eval.reliability import reliability
 
     by_task: dict[str, list[str]] = defaultdict(list)
     for r in sorted(rows, key=lambda r: r.get("trial", 0)):
-        by_task[str(r["task_id"])].append(r.get("verdict", "unknown"))
+        by_task[str(r["task_id"])].append(r.get(key, "unknown"))
     per_task = {t: reliability(v, k=k, independent=independent) for t, v in by_task.items()}
     decided = {t: r for t, r in per_task.items() if r.get("status") != "unknown"}
     return {
@@ -165,10 +199,19 @@ def summarise(rows: list[dict], *, k: int | None = None, independent: bool = Fal
         "metric_roles": {"train_time": TRAIN_TIME + ["audit_combined"],
                          "report_only": REPORT_ONLY + ["pass_at_k", "pass_hat_k"]},
     }
+    cats = sorted({r["category"] for r in rows if r.get("category")})
+    if cats:
+        out["per_category"] = {c: _metric_means([r for r in rows if r.get("category") == c])
+                               for c in cats}
     if k and k > 1:
         out["overall"]["reliability"] = {
             kk: v for kk, v in pass_k(rows, k, independent).items() if kk != "per_task"
         }
+        if any("lenient_verdict" in r for r in rows):
+            out["overall"]["reliability_lenient"] = {
+                kk: v for kk, v in pass_k(rows, k, independent, key="lenient_verdict").items()
+                if kk != "per_task"
+            }
         for lang in langs:
             rel = pass_k([r for r in rows if r.get("language") == lang], k, independent)
             out["per_language"][lang]["reliability"] = {

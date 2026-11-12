@@ -207,14 +207,77 @@ def load_local_model(spec: dict, precision: str, *, for_training: bool = False):
         from peft import prepare_model_for_kbit_training
 
         model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
+    if spec.get("base_adapter"):
+        # merge a LoRA into the weights first (e.g. the distilled student), so a new adapter on
+        # top starts from it and "adapter disabled" (GRPO's KL reference) is that model
+        from peft import PeftModel
+
+        model = PeftModel.from_pretrained(model, _local_or_hub(spec["base_adapter"])).merge_and_unload()
     if spec.get("adapter"):
         from peft import PeftModel
 
         model = PeftModel.from_pretrained(model, _local_or_hub(spec["adapter"]),
                                           is_trainable=for_training)
+    # stop a rollout where the reply ends, for released and fine-tuned checkpoints alike
+    if getattr(model, "generation_config", None) is not None:
+        model.generation_config.eos_token_id = stop_token_ids(model, tok)
     if not for_training:
         model.eval()
     return model, tok
+
+
+END_OF_REPLY_TOKENS = ("<|END_RESPONSE|>",)  # Cohere chat format: closes the assistant's text
+
+
+def stop_token_ids(model, tok) -> list[int]:
+    """Every token id that ends an assistant reply for this model.
+
+    Tiny Aya's chat format writes a reply as ``<|START_RESPONSE|>text<|END_RESPONSE|>`` and
+    then one more token, which differs by checkpoint: the released model emits
+    ``<EOS_TOKEN>`` (id 3, ``generation_config.eos_token_id``); a model fine-tuned on the
+    chat template emits ``<|END_OF_TURN_TOKEN|>`` (id 6, ``tokenizer.eos_token_id``),
+    because that is what the template puts there. A rollout that stops on only one of the
+    two lets the other kind of model run past its reply: it writes the next user turn and
+    more tool calls itself, up to the token limit (FINDINGS.md B15). Stopping at
+    ``<|END_RESPONSE|>`` as well ends the reply at the same place for every checkpoint."""
+    gc = getattr(model, "generation_config", None)
+    cur = getattr(gc, "eos_token_id", None)
+    ids = [] if cur is None else (list(cur) if isinstance(cur, (list, tuple)) else [cur])
+    extra = [tok.eos_token_id] + [tok.convert_tokens_to_ids(t) for t in END_OF_REPLY_TOKENS]
+    unk = getattr(tok, "unk_token_id", None)
+    for i in extra:
+        if i is not None and i != unk and i >= 0 and i not in ids:
+            ids.append(i)
+    return ids
+
+
+def align_tokenizer_eos(model, tok) -> dict:
+    """For GRPO: make ``tokenizer.eos_token`` the token that closes a reply.
+
+    TRL's ``GRPOTrainer`` (and AgentTune's rollout inside it, rollout_factory.py:2023-2061)
+    stops generation and masks a completion on ``tokenizer.eos_token_id`` alone. For Tiny
+    Aya that is ``<|END_OF_TURN_TOKEN|>``, which the released model never emits, so in
+    round 1 every GRPO completion ran to ``max_completion_length`` and the text after the
+    real end of the reply (invented tool results, extra calls) was parsed, rewarded and
+    trained on (``completions/clipped_ratio = 1.0``). ``<|END_RESPONSE|>`` closes the reply
+    for the released and the fine-tuned model alike (see ``stop_token_ids``), so it becomes
+    the tokenizer's eos for training. The chat template does not use ``eos_token``, so
+    prompts are unchanged. Returns what was changed (for the results file)."""
+    info = {"tokenizer_eos_before": tok.eos_token, "changed": False}
+    unk = getattr(tok, "unk_token_id", None)
+    target = next((t for t in END_OF_REPLY_TOKENS
+                   if tok.convert_tokens_to_ids(t) not in (None, unk, -1)), None)
+    if target is None:  # other model families: the id the model's own config stops on
+        gc = getattr(model, "generation_config", None)
+        cur = getattr(gc, "eos_token_id", None)
+        mid = cur[0] if isinstance(cur, (list, tuple)) and cur else cur
+        target = tok.convert_ids_to_tokens(mid) if mid is not None else None
+    if target is not None and target != tok.eos_token:
+        pad = tok.pad_token
+        tok.eos_token = target
+        tok.pad_token = pad
+        info.update(changed=True, tokenizer_eos_after=target, eos_id_after=tok.eos_token_id)
+    return info
 
 
 def _local_or_hub(path: str) -> str:

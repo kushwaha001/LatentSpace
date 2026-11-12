@@ -18,6 +18,8 @@ Two kinds of reward:
 
 from __future__ import annotations
 
+import json
+
 from collections.abc import Callable, Iterable, Sequence
 from typing import Any
 
@@ -62,6 +64,20 @@ def _row(value: Any, i: int) -> Any:
     return value
 
 
+def _expects_call(ref: Any) -> bool:
+    """True when a reference (JSON text, turns of calls, or a flat list) has at least one call."""
+    if ref is None:
+        return False
+    if isinstance(ref, str):
+        try:
+            ref = json.loads(ref) if ref.strip() else []
+        except json.JSONDecodeError:
+            return False
+    if isinstance(ref, dict):
+        return True
+    return any((len(t) > 0) if isinstance(t, (list, tuple)) else bool(t) for t in (ref or []))
+
+
 def _prompt_text(prompt: Any) -> str:
     if isinstance(prompt, list):
         return "\n".join(_content(m) for m in prompt if isinstance(m, dict))
@@ -89,6 +105,13 @@ class AuditRewards:
             offered tools (AuditKIT's default). A per-row column of the same name overrides it.
         no_call_score: validity reward for an episode with no tool call and no attempt.
             Default 0.5 (neutral). Use 0.0 when every task needs a call.
+        no_call_score_when_call_expected: validity reward for a no-call episode on a row whose
+            ``expected_tool_calls`` has at least one call. ``None`` (default) keeps
+            ``no_call_score`` for every row. With 0.5, staying silent on a task that needs a
+            call out-scores an invalid attempt and so teaches the policy to give up when its
+            calls are often invalid (round 2, run_B v1: 0.12 calls per task, dev success on
+            single-call tasks 0.63 -> 0.13). 0.0 makes any valid attempt beat silence there,
+            and leaves rows without a reference, or with an empty one, unchanged.
         f1_arg_mode / f1_arg_match: passed to ``ToolCallF1``. Use
             ``f1_arg_match=auditkit.bfcl_arg_match`` for BFCL-style references (lists of
             accepted values).
@@ -105,6 +128,7 @@ class AuditRewards:
         allowed_tools: Iterable[str] | None = None,
         denied_tools: Iterable[str] | None = None,
         no_call_score: float = 0.5,
+        no_call_score_when_call_expected: float | None = None,
         f1_arg_mode: str = "exact",
         f1_arg_match: Callable | None = None,
         loop_repetition_threshold: int = 3,
@@ -119,6 +143,7 @@ class AuditRewards:
         self.allowed_tools = list(allowed_tools) if allowed_tools is not None else None
         self.denied_tools = list(denied_tools) if denied_tools is not None else None
         self.no_call_score = no_call_score
+        self.no_call_score_when_call_expected = no_call_score_when_call_expected
         self.calls_per_confirmation = calls_per_confirmation
         self.confirmation_penalty = confirmation_penalty
         self.folded_prefix = folded_tool_result_prefix
@@ -263,6 +288,9 @@ class AuditRewards:
         """ToolCallValidity: fraction of attempted calls that are schema-valid. A call the
         rollout could not parse counts as invalid. No call and no attempt: ``no_call_score``."""
         if not ep.calls:
+            alt = self.no_call_score_when_call_expected
+            if alt is not None and _expects_call(_row(kwargs.get("expected_tool_calls"), i)):
+                return alt, [f"no tool call, but the reference expects one -> {alt}"]
             return self.no_call_score, [f"no tool call or attempt -> {self.no_call_score}"]
         sample = self._sample(i, prompts, kwargs, ep)
         if not sample.tools:

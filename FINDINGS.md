@@ -261,6 +261,24 @@ prompt length no longer marks where generation started. `src/audit_rewards` work
 its README.
 *Fix:* `return list(prompt)` (or `[dict(m) for m in prompt]`) in `_build_conversation`.
 
+**B15. GRPO never stops a Tiny Aya / Aya reply: the stop token is not the one the model emits.**
+TRL's `GRPOTrainer` and AgentTune's trainer-driven rollout (`rollout_factory.py:2023-2061`) stop
+generation and mask the completion on `tokenizer.eos_token_id` alone. For Tiny Aya that is
+`<|END_OF_TURN_TOKEN|>` (id 6). The released model ends a reply with `<|END_RESPONSE|>` and then
+`<EOS_TOKEN>` (id 3, its `generation_config.eos_token_id`) and never emits id 6, so every GRPO
+completion ran to `max_completion_length`. The text after the real end of the reply (invented
+tool results, extra calls, fake "booking confirmed" messages) was parsed, rewarded and trained on.
+Round 1 logged `completions/clipped_ratio = 1.0` on every step of both runs. The standalone
+`TransformersRolloutEngine` (`transformers_engine.py:513`) has the mirror-image problem: it stops
+on `generation_config.eos_token_id` only, which is right for the released model but wrong for a
+checkpoint fine-tuned on the chat template, which learns to end with id 6. Our distilled student
+then wrote the next user turn and further calls itself, which made a 64-task dev run take 4 hours.
+*Fix:* stop on every id that can close a reply (`generation_config.eos_token_id`,
+`tokenizer.eos_token_id` and `<|END_RESPONSE|>`), and for GRPO set the tokenizer's eos to
+`<|END_RESPONSE|>`, which both checkpoints emit
+(`latentspace_train.engines.stop_token_ids` / `align_tokenizer_eos`). After the fix: 0% clipped,
+about 5x faster GRPO steps.
+
 ### AuditKIT
 
 **A1. `call_result_pairing` reported as observed, but results are not paired per call.**
@@ -310,6 +328,7 @@ will try every tool it has.
 9. A1 (AuditKIT): pair results from `metadata.conversation`.
 10. B14: copy message-list prompts in `_build_conversation` (one line).
 11. A3 (AuditKIT): centre the differences in `paired_bootstrap` (one line).
+12. B15: stop GRPO / rollout generation on every end-of-reply id, not one.
 
 ## Lab PC results: run_A vs run_B (held-out test split)
 
@@ -377,3 +396,23 @@ difference is not significant). Distillation, not GRPO, caused the drop in confi
   `PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512,garbage_collection_threshold:0.8` (memory
   layout only) and finished all 100 steps without resuming. `expandable_segments:True` does not
   work on WSL2.
+
+## Round 2: flaws in our own round-1 pipeline, and their fixes
+
+Round 1 (above) is kept as run, in `results/round1/`. These flaws made its distillation and
+GRPO results uninformative; each was found by reading rollouts and token counts, fixed, and
+tested (`tests/test_lenient_match.py`).
+
+| # | Flaw (ours unless marked) | Effect in round 1 | Fix in round 2 |
+|---|---|---|---|
+| P1 | `distill.training.max_length: 2048`, but the system prompt alone (tool schemas) is 2,892 tokens | All 301 distillation examples were cut inside the tool list: the student never saw a user turn or an answer. Distill moved test success 0.161 → 0.170 | `max_length: 6144` (longest example 4,908); the stage now refuses to run if any example would be truncated |
+| P2 | `tasks.system_prompt: transit_agent:SYSTEM_PROMPT` pointed to an attribute that did not exist, and the loader silently returned no prompt | No model, the 32B teacher included, was told to ask for missing values, confirm before booking, refuse out-of-scope requests or work step by step. The teacher solved 46% of train tasks | An operating policy (`transit_agent.SYSTEM_PROMPT`), written from the data card's category rules and the train split, given unchanged to every model |
+| P3 | The teacher filter checked validity and confirmation, not correctness | 129 of 301 kept trajectories were wrong (0 of 54 multi-step) | `require_correct` (task solved under semantic matching) and `require_reply_language`; reference-guided collection on train rows (the reference calls are replayed on the backend, the teacher writes the replies) |
+| P4 | B15 (AgentTune / TRL) | Every GRPO completion clipped; post-reply text rewarded | Stop-token fix above |
+| P5 | Exact-match F1 only | Correct calls marked wrong (other script, reworded complaint) | `transit_agent.lenient_match`: semantic matching, reported next to strict; run_B's F1 reward uses it |
+| P6 | Distillation epoch not validated | Over-fitting unnoticed (loss 0.014) | One checkpoint per epoch, chosen on the dev split (never test): `results/12_distill_selection.json` |
+
+Dataset checks (`experiments/09_dataset_audit.py`): all 308 reference calls replay on the
+backend without error and every code / id they use is derivable from the conversation; the
+402 non-English turns keep the English turn's numbers, ids and scripts. Fluency still needs
+the native-speaker review.
