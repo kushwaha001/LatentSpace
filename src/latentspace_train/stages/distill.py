@@ -192,7 +192,8 @@ def run(cfg: dict, args) -> tuple[str, dict]:
     tools = load_tools(cfg)
     path = _data_path(cfg)
     recs = read_jsonl(path) if path.exists() else []
-    recs = [r for r in recs if r.get("kept", True) and r.get("conversation")]
+    # distill.use_all: ignore the teacher filter's verdict (ablation: what the audit filter adds)
+    recs = [r for r in recs if (d.get("use_all") or r.get("kept", True)) and r.get("conversation")]
     note = None
     if not recs and cfg.get("dry_run"):
         # the tiny random teacher rarely produces a valid call: use the stub references as

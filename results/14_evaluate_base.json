@@ -3,8 +3,8 @@
   "run_name": null,
   "dry_run": false,
   "seed": 42,
-  "started_utc": "2026-11-06T05:53:16Z",
-  "seconds": 3947.4,
+  "started_utc": "2026-11-11T11:14:41Z",
+  "seconds": 6271.6,
   "split": "test",
   "n_tasks": 108,
   "trials": 5,
@@ -23,126 +23,115 @@
         "stop_reason": null,
         "errors": 0,
         "rollouts": 540,
-        "seconds": 3891.9
+        "seconds": 6159.5
       },
       "budget": null,
       "summary": {
         "overall": {
-          "tool_call_validity": 0.9187,
-          "tool_call_f1": 0.1989,
-          "tool_call_exact": 0.1667,
-          "redundant_tool_calls": 0.0061,
-          "tool_permission": 0.9979,
-          "agent_loop_detection": 0.9907,
-          "audit_tool_validity_reward": 0.866,
-          "audit_tool_f1_reward": 0.1989,
-          "audit_tool_permission_penalty": -0.0019,
-          "audit_confirm_irreversible_penalty": -0.2444,
-          "audit_redundant_calls_penalty": -0.0053,
-          "audit_combined": 0.1923,
-          "success": 0.1611,
-          "tool_call_count": 1.15,
+          "tool_call_validity": 0.9216,
+          "tool_call_f1": 0.2656,
+          "tool_call_exact": 0.2093,
+          "redundant_tool_calls": 0.0133,
+          "tool_permission": 0.9912,
+          "agent_loop_detection": 0.9813,
+          "audit_tool_validity_reward": 0.8552,
+          "audit_tool_f1_reward": 0.2656,
+          "audit_tool_permission_penalty": -0.0074,
+          "audit_confirm_irreversible_penalty": -0.1796,
+          "audit_redundant_calls_penalty": -0.0112,
+          "audit_combined": 0.2191,
+          "success": 0.2037,
+          "tool_call_count": 1.2389,
           "n_malformed": 0.0,
+          "lenient_f1": 0.378,
+          "lenient_exact": 0.3074,
+          "lenient_success": 0.2889,
           "n_rollouts": 540,
           "n_errors": 0,
-          "unconfirmed_irreversible_rate": 0.2444,
+          "unconfirmed_irreversible_rate": 0.1796,
           "reliability": {
             "k": 5,
             "n_tasks": 108,
             "n_tasks_decided": 108,
-            "pass_at_k": 0.2963,
-            "pass_hat_k": 0.0556,
-            "success_rate": 0.1611,
+            "pass_at_k": 0.4259,
+            "pass_hat_k": 0.0648,
+            "success_rate": 0.2037,
             "status_counts": {
-              "mixed": 26,
-              "reliable": 6,
-              "unreliable": 76
+              "mixed": 39,
+              "reliable": 7,
+              "unreliable": 62
+            }
+          },
+          "reliability_lenient": {
+            "k": 5,
+            "n_tasks": 108,
+            "n_tasks_decided": 108,
+            "pass_at_k": 0.5278,
+            "pass_hat_k": 0.1204,
+            "success_rate": 0.2889,
+            "status_counts": {
+              "mixed": 44,
+              "reliable": 13,
+              "unreliable": 51
             }
           }
         },
         "per_language": {
           "en": {
-            "tool_call_validity": 0.9417,
-            "tool_call_f1": 0.2104,
-            "tool_call_exact": 0.1778,
-            "redundant_tool_calls": 0.0219,
-            "tool_permission": 1.0,
-            "agent_loop_detection": 0.9704,
-            "audit_tool_validity_reward": 0.8272,
-            "audit_tool_f1_reward": 0.2104,
-            "audit_tool_permission_penalty": 0.0,
-            "audit_confirm_irreversible_penalty": -0.1704,
-            "audit_redundant_calls_penalty": -0.0162,
-            "audit_combined": 0.2031,
-            "success": 0.1778,
-            "tool_call_count": 1.0963,
+            "tool_call_validity": 0.9488,
+            "tool_call_f1": 0.2936,
+            "tool_call_exact": 0.237,
+            "redundant_tool_calls": 0.006,
+            "tool_permission": 0.99,
+            "agent_loop_detection": 0.9926,
+            "audit_tool_validity_reward": 0.8325,
+            "audit_tool_f1_reward": 0.2936,
+            "audit_tool_permission_penalty": -0.0074,
+            "audit_confirm_irreversible_penalty": -0.1778,
+            "audit_redundant_calls_penalty": -0.0044,
+            "audit_combined": 0.2211,
+            "success": 0.237,
+            "tool_call_count": 1.0296,
             "n_malformed": 0.0,
+            "lenient_f1": 0.4276,
+            "lenient_exact": 0.3481,
+            "lenient_success": 0.3333,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.1704,
+            "unconfirmed_irreversible_rate": 0.1778,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.3704,
+              "pass_at_k": 0.5185,
               "pass_hat_k": 0.0741,
-              "success_rate": 0.1778,
+              "success_rate": 0.237,
               "status_counts": {
-                "mixed": 8,
+                "mixed": 12,
                 "reliable": 2,
-                "unreliable": 17
+                "unreliable": 13
               }
             }
           },
           "hi": {
-            "tool_call_validity": 0.8727,
-            "tool_call_f1": 0.1844,
-            "tool_call_exact": 0.1556,
-            "redundant_tool_calls": 0.0055,
-            "tool_permission": 1.0,
-            "agent_loop_detection": 0.9926,
-            "audit_tool_validity_reward": 0.8506,
-            "audit_tool_f1_reward": 0.1844,
-            "audit_tool_permission_penalty": 0.0,
-            "audit_confirm_irreversible_penalty": -0.3185,
-            "audit_redundant_calls_penalty": -0.0051,
-            "audit_combined": 0.1683,
-            "success": 0.1407,
-            "tool_call_count": 1.2074,
-            "n_malformed": 0.0,
-            "n_rollouts": 135,
-            "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.3185,
-            "reliability": {
-              "k": 5,
-              "n_tasks": 27,
-              "n_tasks_decided": 27,
-              "pass_at_k": 0.2593,
-              "pass_hat_k": 0.037,
-              "success_rate": 0.1407,
-              "status_counts": {
-                "mixed": 6,
-                "reliable": 1,
-                "unreliable": 20
-              }
-            }
-          },
-          "hinglish": {
-            "tool_call_validity": 0.9461,
-            "tool_call_f1": 0.2282,
-            "tool_call_exact": 0.1852,
-            "redundant_tool_calls": 0.0,
-            "tool_permission": 1.0,
-            "agent_loop_detection": 1.0,
-            "audit_tool_validity_reward": 0.88,
-            "audit_tool_f1_reward": 0.2282,
-            "audit_tool_permission_penalty": 0.0,
+            "tool_call_validity": 0.9531,
+            "tool_call_f1": 0.2131,
+            "tool_call_exact": 0.1704,
+            "redundant_tool_calls": 0.0146,
+            "tool_permission": 0.9922,
+            "agent_loop_detection": 0.9776,
+            "audit_tool_validity_reward": 0.9296,
+            "audit_tool_f1_reward": 0.2131,
+            "audit_tool_permission_penalty": -0.0074,
             "audit_confirm_irreversible_penalty": -0.2074,
-            "audit_redundant_calls_penalty": 0.0,
-            "audit_combined": 0.2119,
-            "success": 0.1852,
-            "tool_call_count": 1.0593,
+            "audit_redundant_calls_penalty": -0.0138,
+            "audit_combined": 0.2175,
+            "success": 0.1481,
+            "tool_call_count": 1.2593,
             "n_malformed": 0.0,
+            "lenient_f1": 0.3444,
+            "lenient_exact": 0.2815,
+            "lenient_success": 0.2519,
             "n_rollouts": 135,
             "n_errors": 0,
             "unconfirmed_irreversible_rate": 0.2074,
@@ -151,45 +140,84 @@
               "n_tasks": 27,
               "n_tasks_decided": 27,
               "pass_at_k": 0.3333,
-              "pass_hat_k": 0.037,
-              "success_rate": 0.1852,
+              "pass_hat_k": 0.0741,
+              "success_rate": 0.1481,
               "status_counts": {
-                "mixed": 8,
-                "reliable": 1,
+                "mixed": 7,
+                "reliable": 2,
                 "unreliable": 18
               }
             }
           },
-          "mr": {
-            "tool_call_validity": 0.9219,
-            "tool_call_f1": 0.1726,
-            "tool_call_exact": 0.1481,
-            "redundant_tool_calls": 0.0,
-            "tool_permission": 0.9923,
-            "agent_loop_detection": 1.0,
-            "audit_tool_validity_reward": 0.9063,
-            "audit_tool_f1_reward": 0.1726,
-            "audit_tool_permission_penalty": -0.0074,
-            "audit_confirm_irreversible_penalty": -0.2815,
-            "audit_redundant_calls_penalty": 0.0,
-            "audit_combined": 0.1859,
-            "success": 0.1407,
-            "tool_call_count": 1.237,
+          "hinglish": {
+            "tool_call_validity": 0.9406,
+            "tool_call_f1": 0.2702,
+            "tool_call_exact": 0.2,
+            "redundant_tool_calls": 0.0189,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.9773,
+            "audit_tool_validity_reward": 0.859,
+            "audit_tool_f1_reward": 0.2702,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.1704,
+            "audit_redundant_calls_penalty": -0.0154,
+            "audit_combined": 0.2247,
+            "success": 0.2,
+            "tool_call_count": 1.3185,
             "n_malformed": 0.0,
+            "lenient_f1": 0.3616,
+            "lenient_exact": 0.2815,
+            "lenient_success": 0.2741,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.2815,
+            "unconfirmed_irreversible_rate": 0.1704,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.2222,
-              "pass_hat_k": 0.0741,
-              "success_rate": 0.1407,
+              "pass_at_k": 0.4444,
+              "pass_hat_k": 0.037,
+              "success_rate": 0.2,
               "status_counts": {
-                "mixed": 4,
+                "mixed": 11,
+                "reliable": 1,
+                "unreliable": 15
+              }
+            }
+          },
+          "mr": {
+            "tool_call_validity": 0.846,
+            "tool_call_f1": 0.2856,
+            "tool_call_exact": 0.2296,
+            "redundant_tool_calls": 0.0131,
+            "tool_permission": 0.9829,
+            "agent_loop_detection": 0.9778,
+            "audit_tool_validity_reward": 0.7999,
+            "audit_tool_f1_reward": 0.2856,
+            "audit_tool_permission_penalty": -0.0148,
+            "audit_confirm_irreversible_penalty": -0.163,
+            "audit_redundant_calls_penalty": -0.0113,
+            "audit_combined": 0.2129,
+            "success": 0.2296,
+            "tool_call_count": 1.3481,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.3782,
+            "lenient_exact": 0.3185,
+            "lenient_success": 0.2963,
+            "n_rollouts": 135,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.163,
+            "reliability": {
+              "k": 5,
+              "n_tasks": 27,
+              "n_tasks_decided": 27,
+              "pass_at_k": 0.4074,
+              "pass_hat_k": 0.0741,
+              "success_rate": 0.2296,
+              "status_counts": {
+                "mixed": 9,
                 "reliable": 2,
-                "unreliable": 21
+                "unreliable": 16
               }
             }
           }
@@ -210,6 +238,192 @@
             "pass_at_k",
             "pass_hat_k"
           ]
+        },
+        "per_category": {
+          "declined": {
+            "tool_call_validity": 0.8963,
+            "tool_call_f1": 0.4875,
+            "tool_call_exact": 0.4875,
+            "redundant_tool_calls": 0.0203,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.987,
+            "audit_tool_validity_reward": 0.7031,
+            "audit_tool_f1_reward": 0.4875,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.175,
+            "audit_redundant_calls_penalty": -0.0104,
+            "audit_combined": 0.2384,
+            "success": 0.4875,
+            "tool_call_count": 0.95,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.4875,
+            "lenient_exact": 0.4875,
+            "lenient_success": 0.4875,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.175
+          },
+          "denied_tool": {
+            "tool_call_validity": 0.7593,
+            "tool_call_f1": 0.1,
+            "tool_call_exact": 0.1,
+            "redundant_tool_calls": 0.023,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.95,
+            "audit_tool_validity_reward": 0.7333,
+            "audit_tool_f1_reward": 0.1,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.175,
+            "audit_redundant_calls_penalty": -0.0207,
+            "audit_combined": 0.1537,
+            "success": 0.1,
+            "tool_call_count": 1.45,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.1,
+            "lenient_exact": 0.1,
+            "lenient_success": 0.1,
+            "n_rollouts": 40,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.175
+          },
+          "irreversible_confirmed": {
+            "tool_call_validity": 0.9577,
+            "tool_call_f1": 0.4417,
+            "tool_call_exact": 0.4375,
+            "redundant_tool_calls": 0.0192,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.9747,
+            "audit_tool_validity_reward": 0.7975,
+            "audit_tool_f1_reward": 0.4417,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.0625,
+            "audit_redundant_calls_penalty": -0.0125,
+            "audit_combined": 0.2761,
+            "success": 0.4,
+            "tool_call_count": 0.75,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.4417,
+            "lenient_exact": 0.4375,
+            "lenient_success": 0.4,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0625
+          },
+          "irreversible_unconfirmed": {
+            "tool_call_validity": 0.9799,
+            "tool_call_f1": 0.1072,
+            "tool_call_exact": 0.025,
+            "redundant_tool_calls": 0.0156,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.975,
+            "audit_tool_validity_reward": 0.9619,
+            "audit_tool_f1_reward": 0.1072,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.6375,
+            "audit_redundant_calls_penalty": -0.015,
+            "audit_combined": 0.1007,
+            "success": 0.025,
+            "tool_call_count": 1.85,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.3112,
+            "lenient_exact": 0.2125,
+            "lenient_success": 0.175,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.6375
+          },
+          "missing_argument": {
+            "tool_call_validity": 0.8684,
+            "tool_call_f1": 0.05,
+            "tool_call_exact": 0.05,
+            "redundant_tool_calls": 0.0,
+            "tool_permission": 0.9868,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.85,
+            "audit_tool_f1_reward": 0.05,
+            "audit_tool_permission_penalty": -0.0125,
+            "audit_confirm_irreversible_penalty": -0.225,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.1559,
+            "success": 0.05,
+            "tool_call_count": 0.9625,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.05,
+            "lenient_exact": 0.05,
+            "lenient_success": 0.05,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.225
+          },
+          "multi_step": {
+            "tool_call_validity": 0.9875,
+            "tool_call_f1": 0.3688,
+            "tool_call_exact": 0.0,
+            "redundant_tool_calls": 0.0183,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.9833,
+            "audit_tool_validity_reward": 0.9875,
+            "audit_tool_f1_reward": 0.3688,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.0167,
+            "audit_redundant_calls_penalty": -0.0183,
+            "audit_combined": 0.3141,
+            "success": 0.0,
+            "tool_call_count": 1.5833,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.4744,
+            "lenient_exact": 0.0,
+            "lenient_success": 0.0,
+            "n_rollouts": 60,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0167
+          },
+          "no_call_needed": {
+            "tool_call_validity": 0.8857,
+            "tool_call_f1": 0.125,
+            "tool_call_exact": 0.125,
+            "redundant_tool_calls": 0.0317,
+            "tool_permission": 0.9143,
+            "agent_loop_detection": 0.95,
+            "audit_tool_validity_reward": 0.8375,
+            "audit_tool_f1_reward": 0.125,
+            "audit_tool_permission_penalty": -0.075,
+            "audit_confirm_irreversible_penalty": -0.025,
+            "audit_redundant_calls_penalty": -0.0278,
+            "audit_combined": 0.2013,
+            "success": 0.125,
+            "tool_call_count": 1.5,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.125,
+            "lenient_exact": 0.125,
+            "lenient_success": 0.125,
+            "n_rollouts": 40,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.025
+          },
+          "single_call": {
+            "tool_call_validity": 0.9455,
+            "tool_call_f1": 0.3175,
+            "tool_call_exact": 0.3,
+            "redundant_tool_calls": 0.0,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.9344,
+            "audit_tool_f1_reward": 0.3175,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": 0.0,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.2946,
+            "success": 0.3,
+            "tool_call_count": 1.1875,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.7925,
+            "lenient_exact": 0.775,
+            "lenient_success": 0.725,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0
+          }
         }
       },
       "files": {
@@ -227,15 +441,172 @@
     },
     "distill_vs_run_B": {
       "skipped": "scored files missing"
+    },
+    "base_vs_run_A": {
+      "baseline": "base",
+      "candidate": "run_A",
+      "method": "paired sign-flip permutation test (p_value) and centred bootstrap (p_bootstrap, ci95) over per-task means (trials averaged); not auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
+      "metrics": {
+        "success": {
+          "n": 108,
+          "mean_baseline": 0.203704,
+          "mean_candidate": 0.481481,
+          "delta": 0.277778,
+          "ci95": [
+            0.164815,
+            0.387037
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_success": {
+          "n": 108,
+          "mean_baseline": 0.288889,
+          "mean_candidate": 0.481481,
+          "delta": 0.192593,
+          "ci95": [
+            0.07037,
+            0.312963
+          ],
+          "p_value": 0.0029,
+          "p_bootstrap": 0.002,
+          "significant": true
+        },
+        "lenient_f1": {
+          "n": 108,
+          "mean_baseline": 0.377953,
+          "mean_candidate": 0.481481,
+          "delta": 0.103529,
+          "ci95": [
+            -0.027535,
+            0.235653
+          ],
+          "p_value": 0.131987,
+          "p_bootstrap": 0.121088,
+          "significant": false
+        },
+        "audit_combined": {
+          "n": 108,
+          "mean_baseline": 0.219064,
+          "mean_candidate": 0.230937,
+          "delta": 0.011873,
+          "ci95": [
+            -0.02327,
+            0.045948
+          ],
+          "p_value": 0.50105,
+          "p_bootstrap": 0.49925,
+          "significant": false
+        },
+        "tool_call_validity": {
+          "error": "need at least 2 aligned sample pairs",
+          "n": 0
+        },
+        "tool_call_f1": {
+          "n": 108,
+          "mean_baseline": 0.265622,
+          "mean_candidate": 0.481481,
+          "delta": 0.21586,
+          "ci95": [
+            0.093571,
+            0.336276
+          ],
+          "p_value": 0.0008,
+          "p_bootstrap": 0.0003,
+          "significant": true
+        },
+        "tool_call_exact": {
+          "n": 108,
+          "mean_baseline": 0.209259,
+          "mean_candidate": 0.481481,
+          "delta": 0.272222,
+          "ci95": [
+            0.159259,
+            0.383333
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "agent_loop_detection": {
+          "n": 50,
+          "mean_baseline": 0.968,
+          "mean_candidate": 1.0,
+          "delta": 0.032,
+          "ci95": [
+            0.012,
+            0.052
+          ],
+          "p_value": 0.007299,
+          "p_bootstrap": 0.0043,
+          "significant": true
+        },
+        "audit_confirm_irreversible_penalty": {
+          "n": 108,
+          "mean_baseline": -0.17963,
+          "mean_candidate": 0.0,
+          "delta": 0.17963,
+          "ci95": [
+            0.122222,
+            0.240741
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "unconfirmed_irreversible_rate": {
+          "n": 108,
+          "mean_baseline": 0.17963,
+          "mean_candidate": 0.0,
+          "delta": -0.17963,
+          "ci95": [
+            -0.240741,
+            -0.122222
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_count": {
+          "n": 108,
+          "mean_baseline": 1.238889,
+          "mean_candidate": 0.0,
+          "delta": -1.238889,
+          "ci95": [
+            -1.392593,
+            -1.090741
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "no_call_rate": {
+          "n": 108,
+          "mean_baseline": 0.157407,
+          "mean_candidate": 1.0,
+          "delta": 0.842593,
+          "ci95": [
+            0.794444,
+            0.887037
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        }
+      }
+    },
+    "base_vs_distill": {
+      "skipped": "scored files missing"
     }
   },
   "mode": "rollouts",
   "provenance": {
-    "commit": "c4549f07fc66c0f02945ba939a152fafbd4f204a",
+    "commit": "b654e4ae0fab6e0c09ddb7dd286fb60dd5da3248",
     "dirty": true,
     "branch": "main",
     "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
-    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
     "hostname_kind": "other"
   },
   "versions": {
@@ -278,6 +649,7 @@
       "source": "transit",
       "tools": "transit_agent:TOOLS",
       "system_prompt": "transit_agent:SYSTEM_PROMPT",
+      "lenient_score": "transit_agent.lenient_match:lenient_score",
       "irreversible_tools": [],
       "denied_tools": [],
       "languages": null,
@@ -386,9 +758,17 @@
         [
           "distill",
           "run_B"
+        ],
+        [
+          "base",
+          "run_A"
+        ],
+        [
+          "base",
+          "distill"
         ]
       ],
-      "n_resamples": 2000
+      "n_resamples": 10000
     },
     "_config_path": "configs/14_evaluate.yaml",
     "stage": "evaluate",

@@ -3,8 +3,8 @@
   "run_name": null,
   "dry_run": false,
   "seed": 42,
-  "started_utc": "2026-11-09T22:38:44Z",
-  "seconds": 6528.9,
+  "started_utc": "2026-11-11T15:42:46Z",
+  "seconds": 21338.9,
   "split": "test",
   "n_tasks": 108,
   "trials": 5,
@@ -23,173 +23,200 @@
         "stop_reason": null,
         "errors": 0,
         "rollouts": 540,
-        "seconds": 6457.7
+        "seconds": 21258.6
       },
       "budget": null,
       "summary": {
         "overall": {
-          "tool_call_validity": 0.8411,
-          "tool_call_f1": 0.2587,
-          "tool_call_exact": 0.2278,
-          "redundant_tool_calls": 0.0,
-          "tool_permission": 0.989,
-          "agent_loop_detection": 1.0,
-          "audit_tool_validity_reward": 0.7716,
-          "audit_tool_f1_reward": 0.2587,
-          "audit_tool_permission_penalty": -0.0088,
-          "audit_confirm_irreversible_penalty": -0.1333,
-          "audit_redundant_calls_penalty": 0.0,
-          "audit_combined": 0.209,
-          "success": 0.2019,
-          "tool_call_count": 0.8611,
-          "n_malformed": 0.0,
+          "tool_call_validity": 0.9227,
+          "tool_call_f1": 0.5213,
+          "tool_call_exact": 0.5167,
+          "redundant_tool_calls": 0.0202,
+          "tool_permission": 0.9907,
+          "agent_loop_detection": 0.9974,
+          "audit_tool_validity_reward": 0.5344,
+          "audit_tool_f1_reward": 0.5213,
+          "audit_tool_permission_penalty": -0.0007,
+          "audit_confirm_irreversible_penalty": -0.013,
+          "audit_redundant_calls_penalty": -0.0016,
+          "audit_combined": 0.2451,
+          "success": 0.5074,
+          "tool_call_count": 0.0926,
+          "n_malformed": 0.0019,
+          "lenient_f1": 0.5417,
+          "lenient_exact": 0.537,
+          "lenient_success": 0.5259,
           "n_rollouts": 540,
           "n_errors": 0,
-          "unconfirmed_irreversible_rate": 0.1333,
+          "unconfirmed_irreversible_rate": 0.013,
           "reliability": {
             "k": 5,
             "n_tasks": 108,
             "n_tasks_decided": 108,
-            "pass_at_k": 0.2963,
-            "pass_hat_k": 0.1481,
-            "success_rate": 0.2019,
+            "pass_at_k": 0.5556,
+            "pass_hat_k": 0.4537,
+            "success_rate": 0.5074,
+            "status_counts": {
+              "mixed": 11,
+              "reliable": 49,
+              "unreliable": 48
+            }
+          },
+          "reliability_lenient": {
+            "k": 5,
+            "n_tasks": 108,
+            "n_tasks_decided": 108,
+            "pass_at_k": 0.6019,
+            "pass_hat_k": 0.4537,
+            "success_rate": 0.5259,
             "status_counts": {
               "mixed": 16,
-              "reliable": 16,
-              "unreliable": 76
+              "reliable": 49,
+              "unreliable": 43
             }
           }
         },
         "per_language": {
           "en": {
-            "tool_call_validity": 0.8895,
-            "tool_call_f1": 0.2638,
-            "tool_call_exact": 0.237,
-            "redundant_tool_calls": 0.0,
-            "tool_permission": 1.0,
+            "tool_call_validity": null,
+            "tool_call_f1": 0.4815,
+            "tool_call_exact": 0.4815,
+            "redundant_tool_calls": null,
+            "tool_permission": null,
             "agent_loop_detection": 1.0,
-            "audit_tool_validity_reward": 0.7741,
-            "audit_tool_f1_reward": 0.2638,
+            "audit_tool_validity_reward": 0.5,
+            "audit_tool_f1_reward": 0.4815,
             "audit_tool_permission_penalty": 0.0,
-            "audit_confirm_irreversible_penalty": -0.1185,
+            "audit_confirm_irreversible_penalty": 0.0,
             "audit_redundant_calls_penalty": 0.0,
-            "audit_combined": 0.2163,
-            "success": 0.237,
-            "tool_call_count": 0.7407,
+            "audit_combined": 0.2309,
+            "success": 0.4815,
+            "tool_call_count": 0.0,
             "n_malformed": 0.0,
+            "lenient_f1": 0.4815,
+            "lenient_exact": 0.4815,
+            "lenient_success": 0.4815,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.1185,
+            "unconfirmed_irreversible_rate": 0.0,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.2963,
-              "pass_hat_k": 0.1852,
-              "success_rate": 0.237,
+              "pass_at_k": 0.4815,
+              "pass_hat_k": 0.4815,
+              "success_rate": 0.4815,
               "status_counts": {
-                "mixed": 3,
-                "reliable": 5,
-                "unreliable": 19
+                "reliable": 13,
+                "unreliable": 14
               }
             }
           },
           "hi": {
-            "tool_call_validity": 0.8201,
-            "tool_call_f1": 0.2691,
-            "tool_call_exact": 0.2444,
+            "tool_call_validity": 0.8889,
+            "tool_call_f1": 0.5556,
+            "tool_call_exact": 0.5556,
             "redundant_tool_calls": 0.0,
-            "tool_permission": 0.9958,
+            "tool_permission": 1.0,
             "agent_loop_detection": 1.0,
-            "audit_tool_validity_reward": 0.7846,
-            "audit_tool_f1_reward": 0.2691,
-            "audit_tool_permission_penalty": -0.0037,
-            "audit_confirm_irreversible_penalty": -0.1407,
+            "audit_tool_validity_reward": 0.5519,
+            "audit_tool_f1_reward": 0.5556,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.037,
             "audit_redundant_calls_penalty": 0.0,
-            "audit_combined": 0.2139,
-            "success": 0.2,
-            "tool_call_count": 0.9704,
+            "audit_combined": 0.2519,
+            "success": 0.5185,
+            "tool_call_count": 0.1333,
             "n_malformed": 0.0,
+            "lenient_f1": 0.5926,
+            "lenient_exact": 0.5926,
+            "lenient_success": 0.5481,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.1407,
+            "unconfirmed_irreversible_rate": 0.037,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.3704,
-              "pass_hat_k": 0.1111,
-              "success_rate": 0.2,
+              "pass_at_k": 0.5926,
+              "pass_hat_k": 0.4444,
+              "success_rate": 0.5185,
               "status_counts": {
-                "mixed": 7,
-                "reliable": 3,
-                "unreliable": 17
+                "mixed": 4,
+                "reliable": 12,
+                "unreliable": 11
               }
             }
           },
           "hinglish": {
-            "tool_call_validity": 0.8598,
-            "tool_call_f1": 0.2548,
-            "tool_call_exact": 0.2074,
+            "tool_call_validity": 1.0,
+            "tool_call_f1": 0.5136,
+            "tool_call_exact": 0.5037,
             "redundant_tool_calls": 0.0,
-            "tool_permission": 0.9626,
+            "tool_permission": 1.0,
             "agent_loop_detection": 1.0,
-            "audit_tool_validity_reward": 0.7852,
-            "audit_tool_f1_reward": 0.2548,
-            "audit_tool_permission_penalty": -0.0296,
-            "audit_confirm_irreversible_penalty": -0.1111,
+            "audit_tool_validity_reward": 0.5222,
+            "audit_tool_f1_reward": 0.5136,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": 0.0,
             "audit_redundant_calls_penalty": 0.0,
-            "audit_combined": 0.2116,
-            "success": 0.1852,
-            "tool_call_count": 0.8222,
+            "audit_combined": 0.2437,
+            "success": 0.5037,
+            "tool_call_count": 0.0444,
             "n_malformed": 0.0,
+            "lenient_f1": 0.521,
+            "lenient_exact": 0.5111,
+            "lenient_success": 0.5111,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.1111,
+            "unconfirmed_irreversible_rate": 0.0,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.2963,
-              "pass_hat_k": 0.1481,
-              "success_rate": 0.1852,
+              "pass_at_k": 0.5556,
+              "pass_hat_k": 0.4815,
+              "success_rate": 0.5037,
               "status_counts": {
-                "mixed": 4,
-                "reliable": 4,
-                "unreliable": 19
+                "mixed": 2,
+                "reliable": 13,
+                "unreliable": 12
               }
             }
           },
           "mr": {
-            "tool_call_validity": 0.8032,
-            "tool_call_f1": 0.2469,
-            "tool_call_exact": 0.2222,
-            "redundant_tool_calls": 0.0,
-            "tool_permission": 0.9977,
-            "agent_loop_detection": 1.0,
-            "audit_tool_validity_reward": 0.7426,
-            "audit_tool_f1_reward": 0.2469,
-            "audit_tool_permission_penalty": -0.0019,
-            "audit_confirm_irreversible_penalty": -0.163,
-            "audit_redundant_calls_penalty": 0.0,
-            "audit_combined": 0.194,
-            "success": 0.1852,
-            "tool_call_count": 0.9111,
-            "n_malformed": 0.0,
+            "tool_call_validity": 0.93,
+            "tool_call_f1": 0.5347,
+            "tool_call_exact": 0.5259,
+            "redundant_tool_calls": 0.0456,
+            "tool_permission": 0.9789,
+            "agent_loop_detection": 0.9925,
+            "audit_tool_validity_reward": 0.5637,
+            "audit_tool_f1_reward": 0.5347,
+            "audit_tool_permission_penalty": -0.003,
+            "audit_confirm_irreversible_penalty": -0.0148,
+            "audit_redundant_calls_penalty": -0.0064,
+            "audit_combined": 0.2539,
+            "success": 0.5259,
+            "tool_call_count": 0.1926,
+            "n_malformed": 0.0074,
+            "lenient_f1": 0.5717,
+            "lenient_exact": 0.563,
+            "lenient_success": 0.563,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.163,
+            "unconfirmed_irreversible_rate": 0.0148,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.2222,
-              "pass_hat_k": 0.1481,
-              "success_rate": 0.1852,
+              "pass_at_k": 0.5926,
+              "pass_hat_k": 0.4074,
+              "success_rate": 0.5259,
               "status_counts": {
-                "mixed": 2,
-                "reliable": 4,
-                "unreliable": 21
+                "mixed": 5,
+                "reliable": 11,
+                "unreliable": 11
               }
             }
           }
@@ -210,6 +237,192 @@
             "pass_at_k",
             "pass_hat_k"
           ]
+        },
+        "per_category": {
+          "declined": {
+            "tool_call_validity": 1.0,
+            "tool_call_f1": 0.9875,
+            "tool_call_exact": 0.9875,
+            "redundant_tool_calls": 0.0,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.5062,
+            "audit_tool_f1_reward": 0.9875,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.0125,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.3485,
+            "success": 0.9875,
+            "tool_call_count": 0.0125,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.9875,
+            "lenient_exact": 0.9875,
+            "lenient_success": 0.9875,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0125
+          },
+          "denied_tool": {
+            "tool_call_validity": null,
+            "tool_call_f1": 1.0,
+            "tool_call_exact": 1.0,
+            "redundant_tool_calls": null,
+            "tool_permission": null,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.5,
+            "audit_tool_f1_reward": 1.0,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": 0.0,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.3529,
+            "success": 1.0,
+            "tool_call_count": 0.0,
+            "n_malformed": 0.0,
+            "lenient_f1": 1.0,
+            "lenient_exact": 1.0,
+            "lenient_success": 1.0,
+            "n_rollouts": 40,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0
+          },
+          "irreversible_confirmed": {
+            "tool_call_validity": 0.92,
+            "tool_call_f1": 0.2875,
+            "tool_call_exact": 0.2875,
+            "redundant_tool_calls": 0.0,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.6312,
+            "audit_tool_f1_reward": 0.2875,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.05,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.2044,
+            "success": 0.225,
+            "tool_call_count": 0.3125,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.3,
+            "lenient_exact": 0.3,
+            "lenient_success": 0.225,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.05
+          },
+          "irreversible_unconfirmed": {
+            "tool_call_validity": 1.0,
+            "tool_call_f1": 0.225,
+            "tool_call_exact": 0.225,
+            "redundant_tool_calls": 0.0,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.5125,
+            "audit_tool_f1_reward": 0.225,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.0125,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.1706,
+            "success": 0.225,
+            "tool_call_count": 0.025,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.2375,
+            "lenient_exact": 0.2375,
+            "lenient_success": 0.2375,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0125
+          },
+          "missing_argument": {
+            "tool_call_validity": 0.0,
+            "tool_call_f1": 0.9875,
+            "tool_call_exact": 0.9875,
+            "redundant_tool_calls": null,
+            "tool_permission": null,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.4938,
+            "audit_tool_f1_reward": 0.9875,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": 0.0,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.3485,
+            "success": 0.9875,
+            "tool_call_count": 0.0,
+            "n_malformed": 0.0125,
+            "lenient_f1": 0.9875,
+            "lenient_exact": 0.9875,
+            "lenient_success": 0.9875,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0
+          },
+          "multi_step": {
+            "tool_call_validity": 1.0,
+            "tool_call_f1": 0.0337,
+            "tool_call_exact": 0.0,
+            "redundant_tool_calls": 0.1667,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.975,
+            "audit_tool_validity_reward": 0.5333,
+            "audit_tool_f1_reward": 0.0337,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": 0.0,
+            "audit_redundant_calls_penalty": -0.0111,
+            "audit_combined": 0.1328,
+            "success": 0.0,
+            "tool_call_count": 0.1,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.0337,
+            "lenient_exact": 0.0,
+            "lenient_success": 0.0,
+            "n_rollouts": 60,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0
+          },
+          "no_call_needed": {
+            "tool_call_validity": null,
+            "tool_call_f1": 1.0,
+            "tool_call_exact": 1.0,
+            "redundant_tool_calls": null,
+            "tool_permission": null,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.5,
+            "audit_tool_f1_reward": 1.0,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": 0.0,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.3529,
+            "success": 1.0,
+            "tool_call_count": 0.0,
+            "n_malformed": 0.0,
+            "lenient_f1": 1.0,
+            "lenient_exact": 1.0,
+            "lenient_success": 1.0,
+            "n_rollouts": 40,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0
+          },
+          "single_call": {
+            "tool_call_validity": 0.9636,
+            "tool_call_f1": 0.0063,
+            "tool_call_exact": 0.0,
+            "redundant_tool_calls": 0.0182,
+            "tool_permission": 0.9636,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.5637,
+            "audit_tool_f1_reward": 0.0063,
+            "audit_tool_permission_penalty": -0.005,
+            "audit_confirm_irreversible_penalty": -0.0125,
+            "audit_redundant_calls_penalty": -0.0025,
+            "audit_combined": 0.1299,
+            "success": 0.0,
+            "tool_call_count": 0.2,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.1187,
+            "lenient_exact": 0.1125,
+            "lenient_success": 0.1125,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0125
+          }
         }
       },
       "files": {
@@ -222,200 +435,820 @@
     "run_A_vs_run_B": {
       "baseline": "run_A",
       "candidate": "run_B",
-      "method": "auditkit._bootstrap.paired_bootstrap over per-task means (trials averaged)",
+      "method": "paired sign-flip permutation test (p_value) and centred bootstrap (p_bootstrap, ci95) over per-task means (trials averaged); not auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
       "metrics": {
         "success": {
           "n": 108,
-          "mean_baseline": 0.238889,
-          "mean_candidate": 0.201852,
-          "delta": -0.037037,
-          "p_value": 0.514243,
+          "mean_baseline": 0.481481,
+          "mean_candidate": 0.507407,
+          "delta": 0.025926,
+          "ci95": [
+            0.001852,
+            0.055556
+          ],
+          "p_value": 0.087391,
+          "p_bootstrap": 0.070293,
           "significant": false
+        },
+        "lenient_success": {
+          "n": 108,
+          "mean_baseline": 0.481481,
+          "mean_candidate": 0.525926,
+          "delta": 0.044444,
+          "ci95": [
+            0.016667,
+            0.077778
+          ],
+          "p_value": 0.0049,
+          "p_bootstrap": 0.005999,
+          "significant": true
+        },
+        "lenient_f1": {
+          "n": 108,
+          "mean_baseline": 0.481481,
+          "mean_candidate": 0.541702,
+          "delta": 0.06022,
+          "ci95": [
+            0.027848,
+            0.096984
+          ],
+          "p_value": 0.0006,
+          "p_bootstrap": 0.0013,
+          "significant": true
         },
         "audit_combined": {
           "n": 108,
-          "mean_baseline": 0.192142,
-          "mean_candidate": 0.208977,
-          "delta": 0.016835,
-          "p_value": 0.488256,
-          "significant": false
+          "mean_baseline": 0.230937,
+          "mean_candidate": 0.245099,
+          "delta": 0.014162,
+          "ci95": [
+            0.004938,
+            0.024766
+          ],
+          "p_value": 0.004,
+          "p_bootstrap": 0.006499,
+          "significant": true
         },
         "tool_call_validity": {
-          "n": 75,
-          "mean_baseline": 0.789467,
-          "mean_candidate": 0.846667,
-          "delta": 0.0572,
-          "p_value": 0.494753,
-          "significant": false
+          "error": "need at least 2 aligned sample pairs",
+          "n": 0
         },
         "tool_call_f1": {
           "n": 108,
-          "mean_baseline": 0.271605,
-          "mean_candidate": 0.258677,
-          "delta": -0.012928,
-          "p_value": 0.697651,
-          "significant": false
+          "mean_baseline": 0.481481,
+          "mean_candidate": 0.521332,
+          "delta": 0.03985,
+          "ci95": [
+            0.010802,
+            0.073219
+          ],
+          "p_value": 0.013199,
+          "p_bootstrap": 0.012299,
+          "significant": true
         },
         "tool_call_exact": {
           "n": 108,
-          "mean_baseline": 0.240741,
-          "mean_candidate": 0.227778,
-          "delta": -0.012963,
-          "p_value": 0.714143,
-          "significant": false
+          "mean_baseline": 0.481481,
+          "mean_candidate": 0.516667,
+          "delta": 0.035185,
+          "ci95": [
+            0.007407,
+            0.068519
+          ],
+          "p_value": 0.035496,
+          "p_bootstrap": 0.030797,
+          "significant": true
         },
         "agent_loop_detection": {
-          "n": 108,
-          "mean_baseline": 0.994444,
-          "mean_candidate": 1.0,
-          "delta": 0.005556,
-          "p_value": 0.601699,
+          "n": 49,
+          "mean_baseline": 1.0,
+          "mean_candidate": 0.995918,
+          "delta": -0.004082,
+          "ci95": [
+            -0.012245,
+            0.0
+          ],
+          "p_value": 1.0,
+          "p_bootstrap": 0.631137,
           "significant": false
         },
         "audit_confirm_irreversible_penalty": {
           "n": 108,
-          "mean_baseline": -0.148148,
-          "mean_candidate": -0.133333,
-          "delta": 0.014815,
-          "p_value": 0.506747,
+          "mean_baseline": 0.0,
+          "mean_candidate": -0.012963,
+          "delta": -0.012963,
+          "ci95": [
+            -0.031481,
+            -0.001852
+          ],
+          "p_value": 0.128287,
+          "p_bootstrap": 0.09599,
           "significant": false
+        },
+        "unconfirmed_irreversible_rate": {
+          "n": 108,
+          "mean_baseline": 0.0,
+          "mean_candidate": 0.012963,
+          "delta": 0.012963,
+          "ci95": [
+            0.001852,
+            0.031481
+          ],
+          "p_value": 0.128287,
+          "p_bootstrap": 0.09599,
+          "significant": false
+        },
+        "tool_call_count": {
+          "n": 108,
+          "mean_baseline": 0.0,
+          "mean_candidate": 0.092593,
+          "delta": 0.092593,
+          "ci95": [
+            0.05,
+            0.140741
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "no_call_rate": {
+          "n": 108,
+          "mean_baseline": 1.0,
+          "mean_candidate": 0.92037,
+          "delta": -0.07963,
+          "ci95": [
+            -0.118519,
+            -0.044444
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
         }
       }
     },
     "base_vs_run_B": {
       "baseline": "base",
       "candidate": "run_B",
-      "method": "auditkit._bootstrap.paired_bootstrap over per-task means (trials averaged)",
+      "method": "paired sign-flip permutation test (p_value) and centred bootstrap (p_bootstrap, ci95) over per-task means (trials averaged); not auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
       "metrics": {
         "success": {
           "n": 108,
-          "mean_baseline": 0.161111,
-          "mean_candidate": 0.201852,
-          "delta": 0.040741,
-          "p_value": 0.510245,
-          "significant": false
+          "mean_baseline": 0.203704,
+          "mean_candidate": 0.507407,
+          "delta": 0.303704,
+          "ci95": [
+            0.2,
+            0.405556
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_success": {
+          "n": 108,
+          "mean_baseline": 0.288889,
+          "mean_candidate": 0.525926,
+          "delta": 0.237037,
+          "ci95": [
+            0.125926,
+            0.348148
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_f1": {
+          "n": 108,
+          "mean_baseline": 0.377953,
+          "mean_candidate": 0.541702,
+          "delta": 0.163749,
+          "ci95": [
+            0.041711,
+            0.28478
+          ],
+          "p_value": 0.009199,
+          "p_bootstrap": 0.007499,
+          "significant": true
         },
         "audit_combined": {
           "n": 108,
-          "mean_baseline": 0.192302,
-          "mean_candidate": 0.208977,
-          "delta": 0.016675,
-          "p_value": 0.504248,
+          "mean_baseline": 0.219064,
+          "mean_candidate": 0.245099,
+          "delta": 0.026036,
+          "ci95": [
+            -0.00636,
+            0.057857
+          ],
+          "p_value": 0.117888,
+          "p_bootstrap": 0.112189,
           "significant": false
         },
         "tool_call_validity": {
-          "n": 93,
-          "mean_baseline": 0.931846,
-          "mean_candidate": 0.830526,
-          "delta": -0.10132,
-          "p_value": 0.473763,
+          "n": 20,
+          "mean_baseline": 0.933,
+          "mean_candidate": 0.898333,
+          "delta": -0.034667,
+          "ci95": [
+            -0.182167,
+            0.101667
+          ],
+          "p_value": 0.686131,
+          "p_bootstrap": 0.625437,
           "significant": false
         },
         "tool_call_f1": {
           "n": 108,
-          "mean_baseline": 0.198898,
-          "mean_candidate": 0.258677,
-          "delta": 0.05978,
-          "p_value": 0.489255,
-          "significant": false
+          "mean_baseline": 0.265622,
+          "mean_candidate": 0.521332,
+          "delta": 0.25571,
+          "ci95": [
+            0.143735,
+            0.365751
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0002,
+          "significant": true
         },
         "tool_call_exact": {
           "n": 108,
-          "mean_baseline": 0.166667,
-          "mean_candidate": 0.227778,
-          "delta": 0.061111,
-          "p_value": 0.493753,
-          "significant": false
+          "mean_baseline": 0.209259,
+          "mean_candidate": 0.516667,
+          "delta": 0.307407,
+          "ci95": [
+            0.203704,
+            0.409259
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
         },
         "agent_loop_detection": {
-          "n": 108,
-          "mean_baseline": 0.990741,
-          "mean_candidate": 1.0,
-          "delta": 0.009259,
-          "p_value": 0.571214,
-          "significant": false
+          "n": 91,
+          "mean_baseline": 0.97967,
+          "mean_candidate": 0.997802,
+          "delta": 0.018132,
+          "ci95": [
+            0.004945,
+            0.031868
+          ],
+          "p_value": 0.019998,
+          "p_bootstrap": 0.011499,
+          "significant": true
         },
         "audit_confirm_irreversible_penalty": {
           "n": 108,
-          "mean_baseline": -0.244444,
-          "mean_candidate": -0.133333,
-          "delta": 0.111111,
-          "p_value": 0.506247,
-          "significant": false
+          "mean_baseline": -0.17963,
+          "mean_candidate": -0.012963,
+          "delta": 0.166667,
+          "ci95": [
+            0.109259,
+            0.225926
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "unconfirmed_irreversible_rate": {
+          "n": 108,
+          "mean_baseline": 0.17963,
+          "mean_candidate": 0.012963,
+          "delta": -0.166667,
+          "ci95": [
+            -0.225926,
+            -0.109259
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_count": {
+          "n": 108,
+          "mean_baseline": 1.238889,
+          "mean_candidate": 0.092593,
+          "delta": -1.146296,
+          "ci95": [
+            -1.3,
+            -0.998148
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "no_call_rate": {
+          "n": 108,
+          "mean_baseline": 0.157407,
+          "mean_candidate": 0.92037,
+          "delta": 0.762963,
+          "ci95": [
+            0.703704,
+            0.818519
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
         }
       }
     },
     "distill_vs_run_B": {
       "baseline": "distill",
       "candidate": "run_B",
-      "method": "auditkit._bootstrap.paired_bootstrap over per-task means (trials averaged)",
+      "method": "paired sign-flip permutation test (p_value) and centred bootstrap (p_bootstrap, ci95) over per-task means (trials averaged); not auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
       "metrics": {
         "success": {
           "n": 108,
-          "mean_baseline": 0.17037,
-          "mean_candidate": 0.201852,
-          "delta": 0.031481,
-          "p_value": 0.534233,
+          "mean_baseline": 0.435185,
+          "mean_candidate": 0.507407,
+          "delta": 0.072222,
+          "ci95": [
+            -0.009259,
+            0.153704
+          ],
+          "p_value": 0.089891,
+          "p_bootstrap": 0.088191,
+          "significant": false
+        },
+        "lenient_success": {
+          "n": 108,
+          "mean_baseline": 0.512963,
+          "mean_candidate": 0.525926,
+          "delta": 0.012963,
+          "ci95": [
+            -0.072222,
+            0.098148
+          ],
+          "p_value": 0.80062,
+          "p_bootstrap": 0.782622,
+          "significant": false
+        },
+        "lenient_f1": {
+          "n": 108,
+          "mean_baseline": 0.609743,
+          "mean_candidate": 0.541702,
+          "delta": -0.068041,
+          "ci95": [
+            -0.15783,
+            0.022256
+          ],
+          "p_value": 0.140886,
+          "p_bootstrap": 0.146085,
           "significant": false
         },
         "audit_combined": {
           "n": 108,
-          "mean_baseline": 0.170629,
-          "mean_candidate": 0.208977,
-          "delta": 0.038348,
-          "p_value": 0.507246,
+          "mean_baseline": 0.263893,
+          "mean_candidate": 0.245099,
+          "delta": -0.018794,
+          "ci95": [
+            -0.045967,
+            0.008041
+          ],
+          "p_value": 0.172083,
+          "p_bootstrap": 0.168683,
           "significant": false
         },
         "tool_call_validity": {
-          "n": 92,
-          "mean_baseline": 0.759737,
-          "mean_candidate": 0.828684,
-          "delta": 0.068946,
-          "p_value": 0.497751,
+          "n": 17,
+          "mean_baseline": 0.962353,
+          "mean_candidate": 0.95098,
+          "delta": -0.011373,
+          "ci95": [
+            -0.096667,
+            0.061176
+          ],
+          "p_value": 0.845715,
+          "p_bootstrap": 0.783922,
           "significant": false
         },
         "tool_call_f1": {
           "n": 108,
-          "mean_baseline": 0.230041,
-          "mean_candidate": 0.258677,
-          "delta": 0.028636,
-          "p_value": 0.498751,
+          "mean_baseline": 0.509252,
+          "mean_candidate": 0.521332,
+          "delta": 0.012079,
+          "ci95": [
+            -0.075787,
+            0.098954
+          ],
+          "p_value": 0.784922,
+          "p_bootstrap": 0.786321,
           "significant": false
         },
         "tool_call_exact": {
           "n": 108,
-          "mean_baseline": 0.2,
-          "mean_candidate": 0.227778,
-          "delta": 0.027778,
-          "p_value": 0.531234,
+          "mean_baseline": 0.446296,
+          "mean_candidate": 0.516667,
+          "delta": 0.07037,
+          "ci95": [
+            -0.011111,
+            0.151852
+          ],
+          "p_value": 0.09719,
+          "p_bootstrap": 0.09619,
           "significant": false
         },
         "agent_loop_detection": {
-          "n": 108,
-          "mean_baseline": 0.988889,
-          "mean_candidate": 1.0,
-          "delta": 0.011111,
-          "p_value": 0.581209,
-          "significant": false
+          "n": 91,
+          "mean_baseline": 0.942857,
+          "mean_candidate": 0.997802,
+          "delta": 0.054945,
+          "ci95": [
+            0.030769,
+            0.081319
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0002,
+          "significant": true
         },
         "audit_confirm_irreversible_penalty": {
           "n": 108,
-          "mean_baseline": -0.212963,
-          "mean_candidate": -0.133333,
-          "delta": 0.07963,
-          "p_value": 0.513243,
+          "mean_baseline": -0.131481,
+          "mean_candidate": -0.012963,
+          "delta": 0.118519,
+          "ci95": [
+            0.074074,
+            0.164815
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "unconfirmed_irreversible_rate": {
+          "n": 108,
+          "mean_baseline": 0.131481,
+          "mean_candidate": 0.012963,
+          "delta": -0.118519,
+          "ci95": [
+            -0.164815,
+            -0.074074
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_count": {
+          "n": 108,
+          "mean_baseline": 0.97037,
+          "mean_candidate": 0.092593,
+          "delta": -0.877778,
+          "ci95": [
+            -1.061111,
+            -0.705556
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "no_call_rate": {
+          "n": 108,
+          "mean_baseline": 0.442593,
+          "mean_candidate": 0.92037,
+          "delta": 0.477778,
+          "ci95": [
+            0.403704,
+            0.551852
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        }
+      }
+    },
+    "run_A_vs_run_B2": {
+      "skipped": "scored files missing"
+    },
+    "base_vs_run_B2": {
+      "skipped": "scored files missing"
+    },
+    "distill_vs_run_B2": {
+      "skipped": "scored files missing"
+    },
+    "run_B_vs_run_B2": {
+      "skipped": "scored files missing"
+    },
+    "base_vs_run_A": {
+      "baseline": "base",
+      "candidate": "run_A",
+      "method": "paired sign-flip permutation test (p_value) and centred bootstrap (p_bootstrap, ci95) over per-task means (trials averaged); not auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
+      "metrics": {
+        "success": {
+          "n": 108,
+          "mean_baseline": 0.203704,
+          "mean_candidate": 0.481481,
+          "delta": 0.277778,
+          "ci95": [
+            0.164815,
+            0.387037
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_success": {
+          "n": 108,
+          "mean_baseline": 0.288889,
+          "mean_candidate": 0.481481,
+          "delta": 0.192593,
+          "ci95": [
+            0.07037,
+            0.312963
+          ],
+          "p_value": 0.0029,
+          "p_bootstrap": 0.002,
+          "significant": true
+        },
+        "lenient_f1": {
+          "n": 108,
+          "mean_baseline": 0.377953,
+          "mean_candidate": 0.481481,
+          "delta": 0.103529,
+          "ci95": [
+            -0.027535,
+            0.235653
+          ],
+          "p_value": 0.131987,
+          "p_bootstrap": 0.121088,
           "significant": false
+        },
+        "audit_combined": {
+          "n": 108,
+          "mean_baseline": 0.219064,
+          "mean_candidate": 0.230937,
+          "delta": 0.011873,
+          "ci95": [
+            -0.02327,
+            0.045948
+          ],
+          "p_value": 0.50105,
+          "p_bootstrap": 0.49925,
+          "significant": false
+        },
+        "tool_call_validity": {
+          "error": "need at least 2 aligned sample pairs",
+          "n": 0
+        },
+        "tool_call_f1": {
+          "n": 108,
+          "mean_baseline": 0.265622,
+          "mean_candidate": 0.481481,
+          "delta": 0.21586,
+          "ci95": [
+            0.093571,
+            0.336276
+          ],
+          "p_value": 0.0008,
+          "p_bootstrap": 0.0003,
+          "significant": true
+        },
+        "tool_call_exact": {
+          "n": 108,
+          "mean_baseline": 0.209259,
+          "mean_candidate": 0.481481,
+          "delta": 0.272222,
+          "ci95": [
+            0.159259,
+            0.383333
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "agent_loop_detection": {
+          "n": 50,
+          "mean_baseline": 0.968,
+          "mean_candidate": 1.0,
+          "delta": 0.032,
+          "ci95": [
+            0.012,
+            0.052
+          ],
+          "p_value": 0.007299,
+          "p_bootstrap": 0.0043,
+          "significant": true
+        },
+        "audit_confirm_irreversible_penalty": {
+          "n": 108,
+          "mean_baseline": -0.17963,
+          "mean_candidate": 0.0,
+          "delta": 0.17963,
+          "ci95": [
+            0.122222,
+            0.240741
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "unconfirmed_irreversible_rate": {
+          "n": 108,
+          "mean_baseline": 0.17963,
+          "mean_candidate": 0.0,
+          "delta": -0.17963,
+          "ci95": [
+            -0.240741,
+            -0.122222
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_count": {
+          "n": 108,
+          "mean_baseline": 1.238889,
+          "mean_candidate": 0.0,
+          "delta": -1.238889,
+          "ci95": [
+            -1.392593,
+            -1.090741
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "no_call_rate": {
+          "n": 108,
+          "mean_baseline": 0.157407,
+          "mean_candidate": 1.0,
+          "delta": 0.842593,
+          "ci95": [
+            0.794444,
+            0.887037
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        }
+      }
+    },
+    "base_vs_distill": {
+      "baseline": "base",
+      "candidate": "distill",
+      "method": "paired sign-flip permutation test (p_value) and centred bootstrap (p_bootstrap, ci95) over per-task means (trials averaged); not auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
+      "metrics": {
+        "success": {
+          "n": 108,
+          "mean_baseline": 0.203704,
+          "mean_candidate": 0.435185,
+          "delta": 0.231481,
+          "ci95": [
+            0.151852,
+            0.312963
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_success": {
+          "n": 108,
+          "mean_baseline": 0.288889,
+          "mean_candidate": 0.512963,
+          "delta": 0.224074,
+          "ci95": [
+            0.140741,
+            0.311111
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_f1": {
+          "n": 108,
+          "mean_baseline": 0.377953,
+          "mean_candidate": 0.609743,
+          "delta": 0.23179,
+          "ci95": [
+            0.151317,
+            0.315833
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "audit_combined": {
+          "n": 108,
+          "mean_baseline": 0.219064,
+          "mean_candidate": 0.263893,
+          "delta": 0.044829,
+          "ci95": [
+            0.02274,
+            0.067502
+          ],
+          "p_value": 0.0003,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_validity": {
+          "n": 83,
+          "mean_baseline": 0.932155,
+          "mean_candidate": 0.955284,
+          "delta": 0.023129,
+          "ci95": [
+            -0.011021,
+            0.060826
+          ],
+          "p_value": 0.214979,
+          "p_bootstrap": 0.206479,
+          "significant": false
+        },
+        "tool_call_f1": {
+          "n": 108,
+          "mean_baseline": 0.265622,
+          "mean_candidate": 0.509252,
+          "delta": 0.243631,
+          "ci95": [
+            0.165268,
+            0.324484
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_exact": {
+          "n": 108,
+          "mean_baseline": 0.209259,
+          "mean_candidate": 0.446296,
+          "delta": 0.237037,
+          "ci95": [
+            0.157407,
+            0.318519
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "agent_loop_detection": {
+          "n": 108,
+          "mean_baseline": 0.981019,
+          "mean_candidate": 0.948148,
+          "delta": -0.03287,
+          "ci95": [
+            -0.056019,
+            -0.011111
+          ],
+          "p_value": 0.0039,
+          "p_bootstrap": 0.0038,
+          "significant": true
+        },
+        "audit_confirm_irreversible_penalty": {
+          "n": 108,
+          "mean_baseline": -0.17963,
+          "mean_candidate": -0.131481,
+          "delta": 0.048148,
+          "ci95": [
+            0.011111,
+            0.088889
+          ],
+          "p_value": 0.021898,
+          "p_bootstrap": 0.016498,
+          "significant": true
+        },
+        "unconfirmed_irreversible_rate": {
+          "n": 108,
+          "mean_baseline": 0.17963,
+          "mean_candidate": 0.131481,
+          "delta": -0.048148,
+          "ci95": [
+            -0.088889,
+            -0.011111
+          ],
+          "p_value": 0.021898,
+          "p_bootstrap": 0.016498,
+          "significant": true
+        },
+        "tool_call_count": {
+          "n": 108,
+          "mean_baseline": 1.238889,
+          "mean_candidate": 0.97037,
+          "delta": -0.268519,
+          "ci95": [
+            -0.437037,
+            -0.105556
+          ],
+          "p_value": 0.0019,
+          "p_bootstrap": 0.0007,
+          "significant": true
+        },
+        "no_call_rate": {
+          "n": 108,
+          "mean_baseline": 0.157407,
+          "mean_candidate": 0.442593,
+          "delta": 0.285185,
+          "ci95": [
+            0.207407,
+            0.362963
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
         }
       }
     }
   },
   "mode": "rollouts",
   "provenance": {
-    "commit": "bbad0b8efc5e2e6c956cabc845c97594e750dee3",
+    "commit": "b654e4ae0fab6e0c09ddb7dd286fb60dd5da3248",
     "dirty": true,
     "branch": "main",
     "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
-    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
     "hostname_kind": "other"
   },
   "versions": {
@@ -458,6 +1291,7 @@
       "source": "transit",
       "tools": "transit_agent:TOOLS",
       "system_prompt": "transit_agent:SYSTEM_PROMPT",
+      "lenient_score": "transit_agent.lenient_match:lenient_score",
       "irreversible_tools": [],
       "denied_tools": [],
       "languages": null,
@@ -552,6 +1386,10 @@
         {
           "name": "run_B",
           "adapter": "grpo/run_B/adapter"
+        },
+        {
+          "name": "run_B2",
+          "adapter": "grpo/run_B2/adapter"
         }
       ],
       "comparisons": [
@@ -566,9 +1404,33 @@
         [
           "distill",
           "run_B"
+        ],
+        [
+          "run_A",
+          "run_B2"
+        ],
+        [
+          "base",
+          "run_B2"
+        ],
+        [
+          "distill",
+          "run_B2"
+        ],
+        [
+          "run_B",
+          "run_B2"
+        ],
+        [
+          "base",
+          "run_A"
+        ],
+        [
+          "base",
+          "distill"
         ]
       ],
-      "n_resamples": 2000
+      "n_resamples": 10000
     },
     "_config_path": "configs/14_evaluate.yaml",
     "stage": "evaluate",

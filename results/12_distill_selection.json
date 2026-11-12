@@ -1,0 +1,69 @@
+{
+  "rule": "highest dev lenient_success; ties: strict success, then earlier epoch",
+  "dev_split": "data/eval/dev.jsonl, 2 trials per task",
+  "base_model_on_dev_1_trial": {
+    "lenient_success": 0.25,
+    "success": 0.2188
+  },
+  "candidates": [
+    {
+      "checkpoint": "checkpoint-20",
+      "step": 20,
+      "dev_lenient_success": 0.5234,
+      "dev_success": 0.5,
+      "dev_validity": 0.9609,
+      "dev_calls": 0.3359,
+      "dev_unconfirmed_rate": 0.0156,
+      "per_category": {
+        "declined": 0.875,
+        "denied_tool": 0.9375,
+        "irreversible_confirmed": 0.1875,
+        "irreversible_unconfirmed": 0.0,
+        "missing_argument": 0.875,
+        "multi_step": 0.0,
+        "no_call_needed": 0.9375,
+        "single_call": 0.375
+      }
+    },
+    {
+      "checkpoint": "checkpoint-40",
+      "step": 40,
+      "dev_lenient_success": 0.4922,
+      "dev_success": 0.4922,
+      "dev_validity": 0.9434,
+      "dev_calls": 0.8438,
+      "dev_unconfirmed_rate": 0.0703,
+      "per_category": {
+        "declined": 0.75,
+        "denied_tool": 0.9375,
+        "irreversible_confirmed": 0.5,
+        "irreversible_unconfirmed": 0.0,
+        "missing_argument": 0.5625,
+        "multi_step": 0.0,
+        "no_call_needed": 0.9375,
+        "single_call": 0.25
+      }
+    },
+    {
+      "checkpoint": "checkpoint-60",
+      "step": 60,
+      "dev_lenient_success": 0.5703,
+      "dev_success": 0.5391,
+      "dev_validity": 0.9528,
+      "dev_calls": 1.0469,
+      "dev_unconfirmed_rate": 0.0469,
+      "per_category": {
+        "declined": 0.875,
+        "denied_tool": 0.875,
+        "irreversible_confirmed": 0.5625,
+        "irreversible_unconfirmed": 0.125,
+        "missing_argument": 0.6875,
+        "multi_step": 0.0625,
+        "no_call_needed": 0.75,
+        "single_call": 0.625
+      }
+    }
+  ],
+  "selected": "checkpoint-60",
+  "installed_as": "outputs/distill/adapter"
+}

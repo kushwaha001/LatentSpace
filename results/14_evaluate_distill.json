@@ -3,8 +3,8 @@
   "run_name": null,
   "dry_run": false,
   "seed": 42,
-  "started_utc": "2026-11-06T05:53:16Z",
-  "seconds": 10410.2,
+  "started_utc": "2026-11-11T10:48:34Z",
+  "seconds": 12197.8,
   "split": "test",
   "n_tasks": 108,
   "trials": 5,
@@ -23,60 +23,79 @@
         "stop_reason": null,
         "errors": 0,
         "rollouts": 540,
-        "seconds": 10352.8
+        "seconds": 12101.6
       },
       "budget": null,
       "summary": {
         "overall": {
-          "tool_call_validity": 0.7677,
-          "tool_call_f1": 0.23,
-          "tool_call_exact": 0.2,
-          "redundant_tool_calls": 0.008,
-          "tool_permission": 0.9903,
-          "agent_loop_detection": 0.9889,
-          "audit_tool_validity_reward": 0.7176,
-          "audit_tool_f1_reward": 0.23,
-          "audit_tool_permission_penalty": -0.0079,
-          "audit_confirm_irreversible_penalty": -0.213,
-          "audit_redundant_calls_penalty": -0.0065,
-          "audit_combined": 0.1706,
-          "success": 0.1704,
-          "tool_call_count": 1.0481,
+          "tool_call_validity": 0.9572,
+          "tool_call_f1": 0.5093,
+          "tool_call_exact": 0.4463,
+          "redundant_tool_calls": 0.0475,
+          "tool_permission": 0.992,
+          "agent_loop_detection": 0.9481,
+          "audit_tool_validity_reward": 0.7548,
+          "audit_tool_f1_reward": 0.5093,
+          "audit_tool_permission_penalty": -0.0044,
+          "audit_confirm_irreversible_penalty": -0.1315,
+          "audit_redundant_calls_penalty": -0.0265,
+          "audit_combined": 0.2639,
+          "success": 0.4352,
+          "tool_call_count": 0.9704,
           "n_malformed": 0.0,
+          "lenient_f1": 0.6097,
+          "lenient_exact": 0.537,
+          "lenient_success": 0.513,
           "n_rollouts": 540,
           "n_errors": 0,
-          "unconfirmed_irreversible_rate": 0.213,
+          "unconfirmed_irreversible_rate": 0.1315,
           "reliability": {
             "k": 5,
             "n_tasks": 108,
             "n_tasks_decided": 108,
-            "pass_at_k": 0.2593,
-            "pass_hat_k": 0.1019,
-            "success_rate": 0.1704,
+            "pass_at_k": 0.5833,
+            "pass_hat_k": 0.2685,
+            "success_rate": 0.4352,
             "status_counts": {
-              "mixed": 17,
-              "reliable": 11,
-              "unreliable": 80
+              "mixed": 34,
+              "reliable": 29,
+              "unreliable": 45
+            }
+          },
+          "reliability_lenient": {
+            "k": 5,
+            "n_tasks": 108,
+            "n_tasks_decided": 108,
+            "pass_at_k": 0.6944,
+            "pass_hat_k": 0.2963,
+            "success_rate": 0.513,
+            "status_counts": {
+              "mixed": 43,
+              "reliable": 32,
+              "unreliable": 33
             }
           }
         },
         "per_language": {
           "en": {
-            "tool_call_validity": 0.7914,
-            "tool_call_f1": 0.2288,
-            "tool_call_exact": 0.2,
-            "redundant_tool_calls": 0.0178,
+            "tool_call_validity": 0.9684,
+            "tool_call_f1": 0.4642,
+            "tool_call_exact": 0.3778,
+            "redundant_tool_calls": 0.0287,
             "tool_permission": 1.0,
-            "agent_loop_detection": 0.9778,
-            "audit_tool_validity_reward": 0.7137,
-            "audit_tool_f1_reward": 0.2288,
+            "agent_loop_detection": 0.963,
+            "audit_tool_validity_reward": 0.8296,
+            "audit_tool_f1_reward": 0.4642,
             "audit_tool_permission_penalty": 0.0,
             "audit_confirm_irreversible_penalty": -0.1556,
-            "audit_redundant_calls_penalty": -0.0131,
-            "audit_combined": 0.1844,
-            "success": 0.1926,
-            "tool_call_count": 1.0593,
+            "audit_redundant_calls_penalty": -0.0202,
+            "audit_combined": 0.2667,
+            "success": 0.3778,
+            "tool_call_count": 1.1111,
             "n_malformed": 0.0,
+            "lenient_f1": 0.5789,
+            "lenient_exact": 0.4889,
+            "lenient_success": 0.4593,
             "n_rollouts": 135,
             "n_errors": 0,
             "unconfirmed_irreversible_rate": 0.1556,
@@ -84,112 +103,121 @@
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.2593,
-              "pass_hat_k": 0.1111,
-              "success_rate": 0.1926,
+              "pass_at_k": 0.5185,
+              "pass_hat_k": 0.2222,
+              "success_rate": 0.3778,
               "status_counts": {
-                "mixed": 4,
-                "reliable": 3,
-                "unreliable": 20
+                "mixed": 8,
+                "reliable": 6,
+                "unreliable": 13
               }
             }
           },
           "hi": {
-            "tool_call_validity": 0.7792,
-            "tool_call_f1": 0.2605,
-            "tool_call_exact": 0.237,
-            "redundant_tool_calls": 0.0033,
-            "tool_permission": 1.0,
-            "agent_loop_detection": 0.9926,
-            "audit_tool_validity_reward": 0.7481,
-            "audit_tool_f1_reward": 0.2605,
-            "audit_tool_permission_penalty": 0.0,
-            "audit_confirm_irreversible_penalty": -0.2444,
-            "audit_redundant_calls_penalty": -0.003,
-            "audit_combined": 0.1796,
-            "success": 0.1704,
-            "tool_call_count": 1.0148,
+            "tool_call_validity": 0.9495,
+            "tool_call_f1": 0.5558,
+            "tool_call_exact": 0.5037,
+            "redundant_tool_calls": 0.0651,
+            "tool_permission": 0.9768,
+            "agent_loop_detection": 0.9333,
+            "audit_tool_validity_reward": 0.7297,
+            "audit_tool_f1_reward": 0.5558,
+            "audit_tool_permission_penalty": -0.0119,
+            "audit_confirm_irreversible_penalty": -0.1259,
+            "audit_redundant_calls_penalty": -0.0333,
+            "audit_combined": 0.2681,
+            "success": 0.4667,
+            "tool_call_count": 0.9481,
             "n_malformed": 0.0,
+            "lenient_f1": 0.6427,
+            "lenient_exact": 0.5704,
+            "lenient_success": 0.5259,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.2444,
+            "unconfirmed_irreversible_rate": 0.1259,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.2963,
-              "pass_hat_k": 0.1111,
-              "success_rate": 0.1704,
+              "pass_at_k": 0.6296,
+              "pass_hat_k": 0.2963,
+              "success_rate": 0.4667,
               "status_counts": {
-                "mixed": 5,
-                "reliable": 3,
-                "unreliable": 19
+                "mixed": 9,
+                "reliable": 8,
+                "unreliable": 10
               }
             }
           },
           "hinglish": {
-            "tool_call_validity": 0.8035,
-            "tool_call_f1": 0.1951,
-            "tool_call_exact": 0.1481,
-            "redundant_tool_calls": 0.0041,
-            "tool_permission": 0.982,
-            "agent_loop_detection": 0.9926,
-            "audit_tool_validity_reward": 0.7495,
-            "audit_tool_f1_reward": 0.1951,
-            "audit_tool_permission_penalty": -0.0148,
-            "audit_confirm_irreversible_penalty": -0.2222,
-            "audit_redundant_calls_penalty": -0.0033,
-            "audit_combined": 0.1663,
-            "success": 0.1333,
-            "tool_call_count": 1.0667,
+            "tool_call_validity": 0.9488,
+            "tool_call_f1": 0.5098,
+            "tool_call_exact": 0.4444,
+            "redundant_tool_calls": 0.0398,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.9478,
+            "audit_tool_validity_reward": 0.7726,
+            "audit_tool_f1_reward": 0.5098,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.1481,
+            "audit_redundant_calls_penalty": -0.0242,
+            "audit_combined": 0.2654,
+            "success": 0.437,
+            "tool_call_count": 1.0444,
             "n_malformed": 0.0,
+            "lenient_f1": 0.6043,
+            "lenient_exact": 0.5333,
+            "lenient_success": 0.5259,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.2222,
+            "unconfirmed_irreversible_rate": 0.1481,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.1852,
-              "pass_hat_k": 0.0741,
-              "success_rate": 0.1333,
+              "pass_at_k": 0.5926,
+              "pass_hat_k": 0.2593,
+              "success_rate": 0.437,
               "status_counts": {
-                "mixed": 3,
-                "reliable": 2,
-                "unreliable": 22
+                "mixed": 9,
+                "reliable": 7,
+                "unreliable": 11
               }
             }
           },
           "mr": {
-            "tool_call_validity": 0.6969,
-            "tool_call_f1": 0.2358,
-            "tool_call_exact": 0.2148,
-            "redundant_tool_calls": 0.0083,
-            "tool_permission": 0.9794,
-            "agent_loop_detection": 0.9926,
-            "audit_tool_validity_reward": 0.659,
-            "audit_tool_f1_reward": 0.2358,
-            "audit_tool_permission_penalty": -0.0167,
-            "audit_confirm_irreversible_penalty": -0.2296,
-            "audit_redundant_calls_penalty": -0.0067,
-            "audit_combined": 0.1522,
-            "success": 0.1852,
-            "tool_call_count": 1.0519,
+            "tool_call_validity": 0.96,
+            "tool_call_f1": 0.5072,
+            "tool_call_exact": 0.4593,
+            "redundant_tool_calls": 0.0694,
+            "tool_permission": 0.9855,
+            "agent_loop_detection": 0.9481,
+            "audit_tool_validity_reward": 0.6874,
+            "audit_tool_f1_reward": 0.5072,
+            "audit_tool_permission_penalty": -0.0059,
+            "audit_confirm_irreversible_penalty": -0.0963,
+            "audit_redundant_calls_penalty": -0.0283,
+            "audit_combined": 0.2554,
+            "success": 0.4593,
+            "tool_call_count": 0.7778,
             "n_malformed": 0.0,
+            "lenient_f1": 0.6131,
+            "lenient_exact": 0.5556,
+            "lenient_success": 0.5407,
             "n_rollouts": 135,
             "n_errors": 0,
-            "unconfirmed_irreversible_rate": 0.2296,
+            "unconfirmed_irreversible_rate": 0.0963,
             "reliability": {
               "k": 5,
               "n_tasks": 27,
               "n_tasks_decided": 27,
-              "pass_at_k": 0.2963,
-              "pass_hat_k": 0.1111,
-              "success_rate": 0.1852,
+              "pass_at_k": 0.5926,
+              "pass_hat_k": 0.2963,
+              "success_rate": 0.4593,
               "status_counts": {
-                "mixed": 5,
-                "reliable": 3,
-                "unreliable": 19
+                "mixed": 8,
+                "reliable": 8,
+                "unreliable": 11
               }
             }
           }
@@ -210,6 +238,192 @@
             "pass_at_k",
             "pass_hat_k"
           ]
+        },
+        "per_category": {
+          "declined": {
+            "tool_call_validity": 1.0,
+            "tool_call_f1": 0.8625,
+            "tool_call_exact": 0.8625,
+            "redundant_tool_calls": 0.0,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.5687,
+            "audit_tool_f1_reward": 0.8625,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.1,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.3132,
+            "success": 0.8625,
+            "tool_call_count": 0.15,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.8625,
+            "lenient_exact": 0.8625,
+            "lenient_success": 0.8625,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.1
+          },
+          "denied_tool": {
+            "tool_call_validity": 0.9368,
+            "tool_call_f1": 0.525,
+            "tool_call_exact": 0.525,
+            "redundant_tool_calls": 0.114,
+            "tool_permission": 0.9579,
+            "agent_loop_detection": 0.875,
+            "audit_tool_validity_reward": 0.7075,
+            "audit_tool_f1_reward": 0.525,
+            "audit_tool_permission_penalty": -0.02,
+            "audit_confirm_irreversible_penalty": -0.125,
+            "audit_redundant_calls_penalty": -0.0542,
+            "audit_combined": 0.2527,
+            "success": 0.525,
+            "tool_call_count": 1.25,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.525,
+            "lenient_exact": 0.525,
+            "lenient_success": 0.525,
+            "n_rollouts": 40,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.125
+          },
+          "irreversible_confirmed": {
+            "tool_call_validity": 0.9683,
+            "tool_call_f1": 0.6958,
+            "tool_call_exact": 0.675,
+            "redundant_tool_calls": 0.019,
+            "tool_permission": 0.9873,
+            "agent_loop_detection": 0.975,
+            "audit_tool_validity_reward": 0.8688,
+            "audit_tool_f1_reward": 0.6958,
+            "audit_tool_permission_penalty": -0.01,
+            "audit_confirm_irreversible_penalty": -0.0875,
+            "audit_redundant_calls_penalty": -0.015,
+            "audit_combined": 0.3443,
+            "success": 0.6,
+            "tool_call_count": 0.9125,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.6958,
+            "lenient_exact": 0.675,
+            "lenient_success": 0.6,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0875
+          },
+          "irreversible_unconfirmed": {
+            "tool_call_validity": 0.9475,
+            "tool_call_f1": 0.101,
+            "tool_call_exact": 0.025,
+            "redundant_tool_calls": 0.0589,
+            "tool_permission": 0.9869,
+            "agent_loop_detection": 0.9,
+            "audit_tool_validity_reward": 0.8412,
+            "audit_tool_f1_reward": 0.101,
+            "audit_tool_permission_penalty": -0.01,
+            "audit_confirm_irreversible_penalty": -0.4375,
+            "audit_redundant_calls_penalty": -0.0449,
+            "audit_combined": 0.1138,
+            "success": 0.025,
+            "tool_call_count": 1.8375,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.2984,
+            "lenient_exact": 0.2125,
+            "lenient_success": 0.15,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.4375
+          },
+          "missing_argument": {
+            "tool_call_validity": 0.959,
+            "tool_call_f1": 0.5125,
+            "tool_call_exact": 0.5125,
+            "redundant_tool_calls": 0.0179,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.7238,
+            "audit_tool_f1_reward": 0.5125,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.15,
+            "audit_redundant_calls_penalty": -0.0087,
+            "audit_combined": 0.2551,
+            "success": 0.5125,
+            "tool_call_count": 0.575,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.5125,
+            "lenient_exact": 0.5125,
+            "lenient_success": 0.5125,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.15
+          },
+          "multi_step": {
+            "tool_call_validity": 0.9471,
+            "tool_call_f1": 0.407,
+            "tool_call_exact": 0.0167,
+            "redundant_tool_calls": 0.0861,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.85,
+            "audit_tool_validity_reward": 0.8502,
+            "audit_tool_f1_reward": 0.407,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.05,
+            "audit_redundant_calls_penalty": -0.0674,
+            "audit_combined": 0.2801,
+            "success": 0.0167,
+            "tool_call_count": 1.7833,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.4537,
+            "lenient_exact": 0.0333,
+            "lenient_success": 0.0333,
+            "n_rollouts": 60,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.05
+          },
+          "no_call_needed": {
+            "tool_call_validity": null,
+            "tool_call_f1": 1.0,
+            "tool_call_exact": 1.0,
+            "redundant_tool_calls": null,
+            "tool_permission": null,
+            "agent_loop_detection": 1.0,
+            "audit_tool_validity_reward": 0.5,
+            "audit_tool_f1_reward": 1.0,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": 0.0,
+            "audit_redundant_calls_penalty": 0.0,
+            "audit_combined": 0.3529,
+            "success": 1.0,
+            "tool_call_count": 0.0,
+            "n_malformed": 0.0,
+            "lenient_f1": 1.0,
+            "lenient_exact": 1.0,
+            "lenient_success": 1.0,
+            "n_rollouts": 40,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0
+          },
+          "single_call": {
+            "tool_call_validity": 0.9607,
+            "tool_call_f1": 0.1979,
+            "tool_call_exact": 0.1625,
+            "redundant_tool_calls": 0.0426,
+            "tool_permission": 1.0,
+            "agent_loop_detection": 0.95,
+            "audit_tool_validity_reward": 0.8512,
+            "audit_tool_f1_reward": 0.1979,
+            "audit_tool_permission_penalty": 0.0,
+            "audit_confirm_irreversible_penalty": -0.0125,
+            "audit_redundant_calls_penalty": -0.0325,
+            "audit_combined": 0.242,
+            "success": 0.1625,
+            "tool_call_count": 1.1125,
+            "n_malformed": 0.0,
+            "lenient_f1": 0.6438,
+            "lenient_exact": 0.575,
+            "lenient_success": 0.55,
+            "n_rollouts": 80,
+            "n_errors": 0,
+            "unconfirmed_irreversible_rate": 0.0125
+          }
         }
       },
       "files": {
@@ -227,15 +441,332 @@
     },
     "distill_vs_run_B": {
       "skipped": "scored files missing"
+    },
+    "base_vs_run_A": {
+      "baseline": "base",
+      "candidate": "run_A",
+      "method": "paired sign-flip permutation test (p_value) and centred bootstrap (p_bootstrap, ci95) over per-task means (trials averaged); not auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
+      "metrics": {
+        "success": {
+          "n": 108,
+          "mean_baseline": 0.203704,
+          "mean_candidate": 0.481481,
+          "delta": 0.277778,
+          "ci95": [
+            0.164815,
+            0.387037
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_success": {
+          "n": 108,
+          "mean_baseline": 0.288889,
+          "mean_candidate": 0.481481,
+          "delta": 0.192593,
+          "ci95": [
+            0.07037,
+            0.312963
+          ],
+          "p_value": 0.0029,
+          "p_bootstrap": 0.002,
+          "significant": true
+        },
+        "lenient_f1": {
+          "n": 108,
+          "mean_baseline": 0.377953,
+          "mean_candidate": 0.481481,
+          "delta": 0.103529,
+          "ci95": [
+            -0.027535,
+            0.235653
+          ],
+          "p_value": 0.131987,
+          "p_bootstrap": 0.121088,
+          "significant": false
+        },
+        "audit_combined": {
+          "n": 108,
+          "mean_baseline": 0.219064,
+          "mean_candidate": 0.230937,
+          "delta": 0.011873,
+          "ci95": [
+            -0.02327,
+            0.045948
+          ],
+          "p_value": 0.50105,
+          "p_bootstrap": 0.49925,
+          "significant": false
+        },
+        "tool_call_validity": {
+          "error": "need at least 2 aligned sample pairs",
+          "n": 0
+        },
+        "tool_call_f1": {
+          "n": 108,
+          "mean_baseline": 0.265622,
+          "mean_candidate": 0.481481,
+          "delta": 0.21586,
+          "ci95": [
+            0.093571,
+            0.336276
+          ],
+          "p_value": 0.0008,
+          "p_bootstrap": 0.0003,
+          "significant": true
+        },
+        "tool_call_exact": {
+          "n": 108,
+          "mean_baseline": 0.209259,
+          "mean_candidate": 0.481481,
+          "delta": 0.272222,
+          "ci95": [
+            0.159259,
+            0.383333
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "agent_loop_detection": {
+          "n": 50,
+          "mean_baseline": 0.968,
+          "mean_candidate": 1.0,
+          "delta": 0.032,
+          "ci95": [
+            0.012,
+            0.052
+          ],
+          "p_value": 0.007299,
+          "p_bootstrap": 0.0043,
+          "significant": true
+        },
+        "audit_confirm_irreversible_penalty": {
+          "n": 108,
+          "mean_baseline": -0.17963,
+          "mean_candidate": 0.0,
+          "delta": 0.17963,
+          "ci95": [
+            0.122222,
+            0.240741
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "unconfirmed_irreversible_rate": {
+          "n": 108,
+          "mean_baseline": 0.17963,
+          "mean_candidate": 0.0,
+          "delta": -0.17963,
+          "ci95": [
+            -0.240741,
+            -0.122222
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_count": {
+          "n": 108,
+          "mean_baseline": 1.238889,
+          "mean_candidate": 0.0,
+          "delta": -1.238889,
+          "ci95": [
+            -1.392593,
+            -1.090741
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "no_call_rate": {
+          "n": 108,
+          "mean_baseline": 0.157407,
+          "mean_candidate": 1.0,
+          "delta": 0.842593,
+          "ci95": [
+            0.794444,
+            0.887037
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        }
+      }
+    },
+    "base_vs_distill": {
+      "baseline": "base",
+      "candidate": "distill",
+      "method": "paired sign-flip permutation test (p_value) and centred bootstrap (p_bootstrap, ci95) over per-task means (trials averaged); not auditkit's paired_bootstrap (uncentred, FINDINGS.md A3)",
+      "metrics": {
+        "success": {
+          "n": 108,
+          "mean_baseline": 0.203704,
+          "mean_candidate": 0.435185,
+          "delta": 0.231481,
+          "ci95": [
+            0.151852,
+            0.312963
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_success": {
+          "n": 108,
+          "mean_baseline": 0.288889,
+          "mean_candidate": 0.512963,
+          "delta": 0.224074,
+          "ci95": [
+            0.140741,
+            0.311111
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "lenient_f1": {
+          "n": 108,
+          "mean_baseline": 0.377953,
+          "mean_candidate": 0.609743,
+          "delta": 0.23179,
+          "ci95": [
+            0.151317,
+            0.315833
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "audit_combined": {
+          "n": 108,
+          "mean_baseline": 0.219064,
+          "mean_candidate": 0.263893,
+          "delta": 0.044829,
+          "ci95": [
+            0.02274,
+            0.067502
+          ],
+          "p_value": 0.0003,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_validity": {
+          "n": 83,
+          "mean_baseline": 0.932155,
+          "mean_candidate": 0.955284,
+          "delta": 0.023129,
+          "ci95": [
+            -0.011021,
+            0.060826
+          ],
+          "p_value": 0.214979,
+          "p_bootstrap": 0.206479,
+          "significant": false
+        },
+        "tool_call_f1": {
+          "n": 108,
+          "mean_baseline": 0.265622,
+          "mean_candidate": 0.509252,
+          "delta": 0.243631,
+          "ci95": [
+            0.165268,
+            0.324484
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "tool_call_exact": {
+          "n": 108,
+          "mean_baseline": 0.209259,
+          "mean_candidate": 0.446296,
+          "delta": 0.237037,
+          "ci95": [
+            0.157407,
+            0.318519
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        },
+        "agent_loop_detection": {
+          "n": 108,
+          "mean_baseline": 0.981019,
+          "mean_candidate": 0.948148,
+          "delta": -0.03287,
+          "ci95": [
+            -0.056019,
+            -0.011111
+          ],
+          "p_value": 0.0039,
+          "p_bootstrap": 0.0038,
+          "significant": true
+        },
+        "audit_confirm_irreversible_penalty": {
+          "n": 108,
+          "mean_baseline": -0.17963,
+          "mean_candidate": -0.131481,
+          "delta": 0.048148,
+          "ci95": [
+            0.011111,
+            0.088889
+          ],
+          "p_value": 0.021898,
+          "p_bootstrap": 0.016498,
+          "significant": true
+        },
+        "unconfirmed_irreversible_rate": {
+          "n": 108,
+          "mean_baseline": 0.17963,
+          "mean_candidate": 0.131481,
+          "delta": -0.048148,
+          "ci95": [
+            -0.088889,
+            -0.011111
+          ],
+          "p_value": 0.021898,
+          "p_bootstrap": 0.016498,
+          "significant": true
+        },
+        "tool_call_count": {
+          "n": 108,
+          "mean_baseline": 1.238889,
+          "mean_candidate": 0.97037,
+          "delta": -0.268519,
+          "ci95": [
+            -0.437037,
+            -0.105556
+          ],
+          "p_value": 0.0019,
+          "p_bootstrap": 0.0007,
+          "significant": true
+        },
+        "no_call_rate": {
+          "n": 108,
+          "mean_baseline": 0.157407,
+          "mean_candidate": 0.442593,
+          "delta": 0.285185,
+          "ci95": [
+            0.207407,
+            0.362963
+          ],
+          "p_value": 0.0001,
+          "p_bootstrap": 0.0001,
+          "significant": true
+        }
+      }
     }
   },
   "mode": "rollouts",
   "provenance": {
-    "commit": "c4549f07fc66c0f02945ba939a152fafbd4f204a",
+    "commit": "b654e4ae0fab6e0c09ddb7dd286fb60dd5da3248",
     "dirty": true,
     "branch": "main",
     "agenttune_commit": "d4db4c12d52342227c4113a70183d0f64aa2f345",
-    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
     "hostname_kind": "other"
   },
   "versions": {
@@ -278,6 +809,7 @@
       "source": "transit",
       "tools": "transit_agent:TOOLS",
       "system_prompt": "transit_agent:SYSTEM_PROMPT",
+      "lenient_score": "transit_agent.lenient_match:lenient_score",
       "irreversible_tools": [],
       "denied_tools": [],
       "languages": null,
@@ -386,9 +918,17 @@
         [
           "distill",
           "run_B"
+        ],
+        [
+          "base",
+          "run_A"
+        ],
+        [
+          "base",
+          "distill"
         ]
       ],
-      "n_resamples": 2000
+      "n_resamples": 10000
     },
     "_config_path": "configs/14_evaluate.yaml",
     "stage": "evaluate",

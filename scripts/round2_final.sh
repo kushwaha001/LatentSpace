@@ -12,7 +12,7 @@ export PYTHONPATH=src HF_HUB_OFFLINE=1 HF_HOME="${HF_HOME:-/mnt/d/hf_cache}"
 export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-max_split_size_mb:512,garbage_collection_threshold:0.8}"
 GPU="${GPU:-1}"; M=outputs/.round2; L=logs/round2
 LOCAL=(--set precision=bf16 --set student.quantization=null)
-MIN_FREE_MB="${MIN_FREE_MB:-11000}"; MAX_JOBS="${MAX_JOBS:-3}"; GAP="${GAP:-150}"; LAST=0
+MIN_FREE_MB="${MIN_FREE_MB:-11000}"; MAX_JOBS="${MAX_JOBS:-1}"; GAP="${GAP:-150}"; LAST=0
 free_mb() { nvidia-smi -i "$GPU" --query-gpu=memory.free --format=csv,noheader,nounits 2>/dev/null | tr -dc '0-9'; echo; }
 running() { jobs -rp | wc -l; }
 say() { echo "== [$(date -u +%F_%T)] $*"; }
@@ -23,11 +23,11 @@ launch() { # launch <name> <done-test> <function> <args...>
         || [ $(( $(date +%s) - LAST )) -lt "$GAP" ]; do sleep 15; done
   say "start $name (GPU $GPU free $(free_mb) MiB, $(running) running)"
   LAST=$(date +%s)
-  ( for a in 1 2 3; do "$@" && { say "done $name"; exit 0; }; say "$name attempt $a failed"; sleep 60; done; exit 1 ) &
+  ( for a in 1 2 3 4 5 6; do "$@" && { say "done $name"; exit 0; }; say "$name attempt $a failed"; sleep 60; done; exit 1 ) &
 }
-do_eval() { CUDA_VISIBLE_DEVICES="$GPU" python -m latentspace_train evaluate --run "$1" "${LOCAL[@]}" \
+do_eval() { bash scripts/gpu_run.sh "$GPU" python -m latentspace_train evaluate --run "$1" "${LOCAL[@]}" \
               > "$L/14_eval_$1.log" 2>&1 && date -u > "$M/eval_$1"; }
-do_bench() { CUDA_VISIBLE_DEVICES="$GPU" python experiments/08_public_benchmarks.py --name "$1" --adapter "$2" \
+do_bench() { bash scripts/gpu_run.sh "$GPU" python experiments/08_public_benchmarks.py --name "$1" --adapter "$2" \
                > "$L/08_bench_$1.log" 2>&1; }
 until [ -f "$M/grpo_run_B" ]; do sleep 60; done
 say "run_B finished training"; date -u > "$M/grpo"

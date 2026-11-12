@@ -1,0 +1,26 @@
+{
+  "when2call": {
+    "n": 600,
+    "decision_accuracy": 0.6667,
+    "calls_when_it_should": 0.0,
+    "right_tool_when_calling": null,
+    "tool_hallucination_rate_cannot_answer": 0.0,
+    "tool_call_rate_request_for_info": 0.0
+  },
+  "bfcl_hi": {
+    "n_simple": 258,
+    "simple_accuracy": 0.0,
+    "simple_right_function": 0.0039,
+    "simple_call_rate": 0.0039,
+    "n_irrelevance": 258,
+    "irrelevance_accuracy": 0.9961
+  },
+  "name": "run_A",
+  "model": "CohereLabs/tiny-aya-global",
+  "adapter": "outputs/grpo/run_A/adapter",
+  "seconds": 2361.7,
+  "n": 1116,
+  "seed": 42,
+  "decoding": "greedy",
+  "max_new_tokens": 192
+}

@@ -18,6 +18,9 @@ evaluate:
     - {name: run_B2, adapter: grpo/run_B2/adapter}
     - {name: run_B3, adapter: grpo/run_B3/adapter, base_adapter: distill/adapter}
     - {name: run_A3, adapter: grpo/run_A3/adapter, base_adapter: distill/adapter}
+    - {name: dpo_audit, adapter: dpo/audit/adapter, base_adapter: distill/adapter}
+    - {name: dpo_bal, adapter: dpo/bal/adapter, base_adapter: distill/adapter}
+    - {name: distill_unfiltered, adapter: ablation_unfiltered/distill/adapter}
     # Hub adapters work too: {name: run_B_hub, adapter: kanishk001/tiny-aya-global-transit-grpo-audit-reward-lora}
     # API reference (no GPU): {name: base_api, backend: router, model: "CohereLabs/tiny-aya-global:cohere", max_usd: 1}
   comparisons:
@@ -31,6 +34,14 @@ evaluate:
     - [distill, run_B3]
     - [run_A3, run_B3]
     - [run_B2, run_B3]
+    - [distill, dpo_audit]
+    - [run_A, dpo_audit]
+    - [run_B3, dpo_audit]
+    - [distill, dpo_bal]
+    - [run_A, dpo_bal]
+    - [distill_unfiltered, distill]
+    - [run_A3, run_B3]
+    - [distill, run_A3]
     - [base, run_A]
     - [base, distill]
   n_resamples: 10000

@@ -1,0 +1,26 @@
+{
+  "when2call": {
+    "n": 600,
+    "decision_accuracy": 0.53,
+    "calls_when_it_should": 0.785,
+    "right_tool_when_calling": 0.879,
+    "tool_hallucination_rate_cannot_answer": 0.505,
+    "tool_call_rate_request_for_info": 0.69
+  },
+  "bfcl_hi": {
+    "n_simple": 258,
+    "simple_accuracy": 0.0426,
+    "simple_right_function": 0.1318,
+    "simple_call_rate": 0.1357,
+    "n_irrelevance": 258,
+    "irrelevance_accuracy": 0.9031
+  },
+  "name": "distill",
+  "model": "CohereLabs/tiny-aya-global",
+  "adapter": "outputs/distill/adapter",
+  "seconds": 2273.9,
+  "n": 1116,
+  "seed": 42,
+  "decoding": "greedy",
+  "max_new_tokens": 192
+}

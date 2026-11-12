@@ -174,6 +174,11 @@ def load_local_model(spec: dict, precision: str, *, for_training: bool = False):
     from .runtime import torch_dtype
 
     name = _local_or_hub(spec["model"])
+    frac = os.environ.get("LS_GPU_MEM_FRACTION")
+    if frac and torch.cuda.is_available():
+        # hard cap per process: an over-large batch raises OOM in this job (which retries or
+        # resumes) instead of taking the video memory Windows needs for the desktop
+        torch.cuda.set_per_process_memory_fraction(float(frac), 0)
     tok = AutoTokenizer.from_pretrained(name, trust_remote_code=spec.get("trust_remote_code", False))
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
