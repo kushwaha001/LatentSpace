@@ -507,7 +507,7 @@ Software and models: AgentTune (https://github.com/Lexsi-Labs/AgentTune), AuditK
 
 ## 17. LLM usage statement
 
-An AI assistant (Claude, Anthropic) was used throughout. It wrote most of the code and drafted most of this write-up from our instructions, experiment plans and results. The team chose the problem and task, ran and monitored every training and evaluation run, and checked the results; every number in this article is generated from the result files in the repository. We did not measure the exact share of AI-generated code or text.
+An AI assistant (Claude, Anthropic) was used throughout. We estimate that about 50% of the code and about 50% of this write-up were AI-generated, from our instructions, experiment plans and results. The team chose the problem and task, ran and monitored every training and evaluation run, and checked the results; every number in this article is generated from the result files in the repository.
 
 ## 18. Changelog
 
