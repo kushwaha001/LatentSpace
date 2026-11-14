@@ -106,14 +106,14 @@ Run any experiment from the repo root with `python experiments/NN_name.py`.
 ## Training pipeline
 
 `src/latentspace_train/` runs the full plan on a GPU: baseline, teacher collection (Aya Expanse
-32B via HF Inference Providers, rejection-filtered with the audit rewards), LoRA distillation,
-GRPO run_A (AgentTune default reward) and run_B (audit reward), and held-out evaluation. One CLI,
-one config per stage in `configs/`, and a `results/NN_*.json` file per stage. Start with
-[`notebooks/kaggle_train.ipynb`](notebooks/kaggle_train.ipynb) (2x T4) or the Colab notebook.
-Details, memory defaults and a cost/time table are in
-[its README](src/latentspace_train/README.md). CPU check: `bash scripts/dry_run_all.sh`.
-On a local machine with two 24 GB GPUs: [docs/RUN_LOCAL.md](docs/RUN_LOCAL.md)
-(`bash scripts/run_local_2gpu.sh`).
+32B, rejection-filtered with the audit rewards), LoRA distillation, GRPO and DPO, and held-out
+evaluation. One CLI, one config per stage in `configs/`, and a `results/NN_*.json` file per stage.
+All reported results were produced on one machine with two 24 GB GPUs (RTX 4500 Ada), with the
+teacher run locally in 4-bit: [docs/RUN_LOCAL.md](docs/RUN_LOCAL.md), `bash scripts/round2.sh`.
+Details and memory defaults are in [its README](src/latentspace_train/README.md). CPU check:
+`bash scripts/dry_run_all.sh`. The teacher can also be called through HF Inference Providers, and
+`notebooks/` has Kaggle and Colab notebooks for smaller GPUs; these were not used for the
+reported results.
 
 ## Results (round 2, final)
 
