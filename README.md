@@ -4,6 +4,10 @@
 
 Our entry to the [Lexsi AI Safety & Alignment Hackathon](https://hackathon.lexsi.ai/), Track 3 (Agentic Fine-tuning), Problem Statement 9: *Reward design and reward-hacking defences*.
 
+**Write-up: [docs/WRITEUP.md](docs/WRITEUP.md)** · Abstract: [docs/ABSTRACT.md](docs/ABSTRACT.md) · Results: [Results](#results-round-2-final) · Bugs and fixes: [FINDINGS.md](FINDINGS.md)
+
+> **Headline:** with identical KL-anchored GRPO training and only the reward changed, AgentTune's default reward drives the agent to stop calling tools (success on tasks that need a call: 0.023), while our audit-grounded reward keeps it competent (0.423; +0.40, p = 0.0001). Used as a filter for teacher data, the audit reward cuts bookings and cancellations made without the user's yes from 19.4% to 13.2% (p = 0.005).
+
 ## The idea in short
 
 An agent trained with reinforcement learning learns exactly what its reward can see. We found that the default tool-call reward in [AgentTune](https://github.com/Lexsi-Labs/AgentTune) scores a correct tool call **0.0** and a malformed or missing call **1.0**. With GRPO, which pushes each answer up or down relative to its group, that reward would teach a model to stop calling tools properly.
@@ -20,11 +24,12 @@ It also adds a **confirm-before-irreversible-action** penalty: tools such as boo
 
 ## What we are building
 
-A small multilingual agent for Indian public transit (train and metro search, fares, booking, cancellation, complaints) in English, Hindi, Marathi and Hinglish, trained in three stages:
+A small multilingual agent for Indian public transit (train and metro search, fares, booking, cancellation, complaints) in English, Hindi, Marathi and Hinglish, trained and evaluated in four stages:
 
-1. **Distillation:** an Aya Expanse teacher's trajectories, filtered by the audit-grounded reward, are distilled into Tiny Aya.
-2. **GRPO, two runs:** the same model, data and settings, once with AgentTune's default tool reward and once with ours.
-3. **Evaluation on held-out tasks**, using metrics that were never part of the reward (loop detection, pass^k reliability, task completion), per language.
+1. **Distillation:** Aya Expanse 32B trajectories, filtered by the audit-grounded reward, are distilled into Tiny Aya Global (LoRA SFT; epoch chosen on the dev split). An ablation trains on the unfiltered trajectories.
+2. **GRPO:** the same model, data and settings with AgentTune's default tool reward or with ours (audit reward v1, v2), without and with a KL anchor to the distilled student.
+3. **DPO:** offline DPO on audit-ranked preference pairs mined from existing rollouts (unbalanced and balanced).
+4. **Evaluation on the held-out test split** (108 tasks × 5 trials), strict and semantic argument matching, tasks that need a call and tasks that need none reported separately, per language and category, paired permutation tests; plus two public benchmarks (When2Call, BFCL-Hi).
 
 ## Stack
 
@@ -35,20 +40,26 @@ A small multilingual agent for Indian public transit (train and metro search, fa
 | [Tiny Aya](https://huggingface.co/CohereLabs/tiny-aya-global) | Student model |
 | [Aya Expanse](https://huggingface.co/CohereLabs/aya-expanse-32b) | Teacher model |
 
-Models, adapters, datasets and logs will be published as public Hugging Face collections.
+Models (LoRA adapters), datasets, rollouts and logs are published as public Hugging Face collections (`scripts/publish_hf.py`).
 
 ## Repository layout
 
 ```
 src/audit_rewards/         AuditKIT agent metrics as AgentTune GRPO rewards (see its README)
-tests/                     unit tests (CPU): python -m pytest tests
-experiments/NN_name.py     one script per experiment -> results/NN_name.json
-results/                   experiment outputs
-docs/CODE_MAP.md           where everything lives in AgentTune and AuditKIT (file:line)
+src/transit_agent/         the 8 transit tools, mock backend, policy prompt, semantic argument matching
+src/latentspace_train/     the training pipeline (teacher, distill, GRPO, evaluate), one CLI
+configs/                   one config per stage (13_grpo.yaml holds run_A/B/B2/A3/B3)
+experiments/NN_name.py     one script per experiment -> results/NN_name.json (07 lenient rescoring,
+                           08 public benchmarks, 09 dataset audit, 10 audit-ranked DPO)
+scripts/                   round2.sh (full resumable pipeline), grpo_extra.sh, gpu_run.sh,
+                           make_writeup.py (regenerates docs/WRITEUP.md), publish_hf.py
+results/                   per-stage results; results/round1/ keeps the round-1 run
+docs/WRITEUP.md            the submission write-up; docs/RUN_LOCAL.md how to run locally
 FINDINGS.md                what works, what is broken, with file:line references
+tests/                     unit tests (CPU): python -m pytest tests
 ```
 
-## Experiments so far
+## Early experiments (01-04)
 
 | # | Experiment | Result |
 |---|---|---|
@@ -126,12 +137,11 @@ Held-out test split (108 tasks × 5 trials). "Needs a call" = single call, multi
 
 ## Next
 
-- Native-speaker review of the Hindi and Marathi tasks (`data/eval/review_checklist.csv`)
-- Fix distillation (it caused the confirmed-booking regression) and the truncated completions,
-  then rerun GRPO with more steps and 2-3 seeds
-- A lenient argument match for evaluation (free-text complaint descriptions, station names
-  across scripts)
+- Native-speaker review of the Hindi, Marathi and Hinglish tasks (`data/eval/review_checklist.csv`), then re-evaluation
+- 2-3 training seeds per method (all results above are one seed)
+- A public demo (Hugging Face Space) and upstream PRs for B15 (AgentTune) and A3 (AuditKIT)
+- Reward and optimiser work that beats the distilled student, not only matches it (e.g. dynamic sampling of prompts whose samples disagree)
 
 ## Status
 
-Work in progress during the hackathon (1 to 14 November 2026). Results and the Hugging Face article will be linked here.
+Stage 1 submission (Lexsi hackathon, deadline 15 November 2026 AoE). Write-up: [docs/WRITEUP.md](docs/WRITEUP.md). Hugging Face collections: see the write-up header.
