@@ -6,7 +6,7 @@ Our entry to the [Lexsi AI Safety & Alignment Hackathon](https://hackathon.lexsi
 
 **Write-up (article): [Hugging Face](https://huggingface.co/datasets/kanishk001/latentspace-article) · [docs/WRITEUP.md](docs/WRITEUP.md)** · Abstract: [docs/ABSTRACT.md](docs/ABSTRACT.md) · Results: [Results](#results-round-2-final) · Bugs and fixes: [FINDINGS.md](FINDINGS.md)
 
-> **Headline:** with identical KL-anchored GRPO training and only the reward changed, AgentTune's default reward drives the agent to stop calling tools (success on tasks that need a call: 0.023), while our audit-grounded reward keeps it competent (0.423; +0.40, p = 0.0001). Used as a filter for teacher data, the audit reward cuts bookings and cancellations made without the user's yes from 19.4% to 13.2% (p = 0.005).
+> **Headline:** with identical KL-anchored GRPO training and only the reward changed, AgentTune's default reward drives the agent to stop calling tools (success on tasks that need a call: 0.023), while our audit-grounded reward keeps it competent (0.423; +0.40, p < 0.001). Used as a filter for teacher data, the audit reward cuts bookings and cancellations made without the user's yes from 19.4% to 13.2% (p = 0.004).
 
 ## The idea in short
 
@@ -130,8 +130,8 @@ Held-out test split (108 tasks × 5 trials). "Needs a call" = single call, multi
 | **GRPO + KL anchor, audit reward** | **0.513** | **0.423** | 0.721 | 0.85 | 11.8% |
 
 - The default reward is gamed by silence; the overall success number hides it.
-- Same KL-anchored GRPO, only the reward changed: needs-a-call success +0.400 (p = 0.0001).
-- Audit reward as a data filter: unconfirmed irreversible actions 19.4% → 13.2% (p = 0.005).
+- Same KL-anchored GRPO, only the reward changed: needs-a-call success +0.400 (p < 0.001).
+- Audit reward as a data filter: unconfirmed irreversible actions 19.4% → 13.2% (p = 0.004).
 - Without a KL anchor, GRPO collapsed into silence even with a correct reward ranking (run_B2).
 - Bugs: AgentTune B1, B15; AuditKIT A3 ([FINDINGS.md](FINDINGS.md)). Round-1 results: `results/round1/`.
 
