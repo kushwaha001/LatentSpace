@@ -2,7 +2,7 @@
 
 **Lexsi AI Safety & Alignment Hackathon · Track 3 (Agentic Fine-tuning) · Problem 9: Reward design and reward-hacking defences** (also: reliable tool calling, agentic distillation, multilingual)
 **Repos:** AgentTune, AuditKIT · **Models:** Tiny Aya Global (student), Aya Expanse 32B (teacher)
-**Code:** https://github.com/kushwaha001/LatentSpace · **Models:** https://huggingface.co/kanishk001 · **Data, rollouts, logs:** https://huggingface.co/kanishk001
+**Code:** https://github.com/kushwaha001/LatentSpace · **Models collection:** https://huggingface.co/collections/kanishk001/latentspace-models-lexsi-hackathon-track-3-p9-6af84d1bbf8a687cc9e0b8d2 · **Datasets, rollouts and logs collection:** https://huggingface.co/collections/kanishk001/latentspace-datasets-and-logs-lexsi-hackathon-t3-p9-6af84d2c307f37a24ab2d708
 
 ## TL;DR
 We train a small multilingual tool-calling agent for Indian public transit (Tiny Aya Global, 3.35B; English, Hindi, Marathi, Hinglish; 8 tools including irreversible booking and cancellation on a deterministic mock backend) and study reward hacking in agentic RL with AgentTune and AuditKIT.

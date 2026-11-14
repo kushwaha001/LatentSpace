@@ -40,7 +40,7 @@ A small multilingual agent for Indian public transit (train and metro search, fa
 | [Tiny Aya](https://huggingface.co/CohereLabs/tiny-aya-global) | Student model |
 | [Aya Expanse](https://huggingface.co/CohereLabs/aya-expanse-32b) | Teacher model |
 
-Models (LoRA adapters), datasets, rollouts and logs are published as public Hugging Face collections (`scripts/publish_hf.py`).
+Models (LoRA adapters), datasets, rollouts and logs are public on Hugging Face: [models collection](https://huggingface.co/collections/kanishk001/latentspace-models-lexsi-hackathon-track-3-p9-6af84d1bbf8a687cc9e0b8d2) · [datasets collection](https://huggingface.co/collections/kanishk001/latentspace-datasets-and-logs-lexsi-hackathon-t3-p9-6af84d2c307f37a24ab2d708) (`scripts/publish_hf.py`).
 
 ## Repository layout
 
@@ -144,4 +144,4 @@ Held-out test split (108 tasks × 5 trials). "Needs a call" = single call, multi
 
 ## Status
 
-Stage 1 submission (Lexsi hackathon, deadline 15 November 2026 AoE). Write-up: [docs/WRITEUP.md](docs/WRITEUP.md). Hugging Face collections: see the write-up header.
+Stage 1 submission (Lexsi hackathon, deadline 15 November 2026 AoE). Write-up: [docs/WRITEUP.md](docs/WRITEUP.md). Hugging Face collections: [models](https://huggingface.co/collections/kanishk001/latentspace-models-lexsi-hackathon-track-3-p9-6af84d1bbf8a687cc9e0b8d2) · [datasets, rollouts and logs](https://huggingface.co/collections/kanishk001/latentspace-datasets-and-logs-lexsi-hackathon-t3-p9-6af84d2c307f37a24ab2d708).

@@ -45,9 +45,9 @@ DATASETS = {
                   "results/11_teacher_collect.json": "11_teacher_collect.json"},
     },
     "latentspace-rollouts-and-logs": {
-        "desc": "Everything behind the write-up: held-out test rollouts and audit-scored rollouts for every checkpoint, GRPO training trajectories, DPO pairs, dev checks, public-benchmark rows (When2Call, BFCL-Hi), and all results JSON files.",
+        "desc": "Everything behind the write-up: held-out test rollouts and audit-scored rollouts for every checkpoint, GRPO training trajectories, DPO pairs, dev checks, public-benchmark rows (When2Call, BFCL-Hi), all results JSON files, and the raw training / evaluation logs.",
         "files": {"outputs/evaluate": "evaluate", "outputs/benchmarks": "benchmarks", "outputs/dpo/audit/pairs.jsonl": "dpo/audit_pairs.jsonl",
-                  "outputs/dpo/bal/pairs.jsonl": "dpo/balanced_pairs.jsonl", "results": "results",
+                  "outputs/dpo/bal/pairs.jsonl": "dpo/balanced_pairs.jsonl", "results": "results", "logs": "logs",
                   **{f"outputs/grpo/{r}/trajectories.jsonl": f"grpo_trajectories/{r}.jsonl" for r in ("run_A", "run_B", "run_B2", "run_A3", "run_B3")}},
     },
 }
@@ -126,7 +126,7 @@ def main():
         print("published", repo)
     out = {}
     for title, kind in (("LatentSpace models (Lexsi hackathon, Track 3 P9)", "model"),
-                        ("LatentSpace datasets, rollouts and logs (Lexsi hackathon, Track 3 P9)", "dataset")):
+                        ("LatentSpace datasets and logs (Lexsi hackathon, T3 P9)", "dataset")):
         col = api.create_collection(title=title, namespace=NS, private=False, exists_ok=True,
                                     description="Reward hacking in a multilingual tool-calling agent: " + GH)
         for repo, k, *_ in plan:
