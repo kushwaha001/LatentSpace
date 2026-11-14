@@ -104,28 +104,25 @@ Details, memory defaults and a cost/time table are in
 On a local machine with two 24 GB GPUs: [docs/RUN_LOCAL.md](docs/RUN_LOCAL.md)
 (`bash scripts/run_local_2gpu.sh`).
 
-## Results so far (lab PC, one seed)
+## Results (round 2, final)
 
-Held-out test split, 108 tasks × 5 trials. run_A and run_B differ only in the reward.
+**Write-up: [docs/WRITEUP.md](docs/WRITEUP.md)** · abstract: [docs/ABSTRACT.md](docs/ABSTRACT.md) · every table there is generated from `results/` by `scripts/make_writeup.py`.
 
-| Model | success | validity | calls/task | unconfirmed irreversible |
-|---|---|---|---|---|
-| base Tiny Aya | 0.161 | 0.919 | 1.15 | 24.4% |
-| distilled | 0.170 | 0.768 | 1.05 | 21.3% |
-| run_A: AgentTune default reward | 0.239 | 0.817 | 0.69 | 14.8% |
-| run_B: audit reward | 0.202 | 0.841 | 0.86 | 13.3% |
+Held-out test split (108 tasks × 5 trials). "Needs a call" = single call, multi-step, confirmed booking; "no call" = declined, denied, missing argument, chit-chat.
 
-- The default reward is hacked by inaction: run_A learns to stop calling tools (no call on 99%
-  of confirmed-booking rollouts), and most of its gain is on tasks where no call is correct.
-- The audit reward prevents that collapse: run_B keeps calling tools (significantly more than
-  run_A), keeps its training calls valid (0.90 vs 0.75 in the last quarter), gets a learning
-  signal on 64/100 steps (run_A 32/100) and has the lowest unconfirmed-irreversible rate.
-- The run_A vs run_B difference in success is not significant (p = 0.15). Distillation caused
-  the drop in confirmed bookings, and neither GRPO run repaired it.
-- AuditKIT's `paired_bootstrap` returns p ≈ 0.5 for any effect (FINDINGS.md A3); the
-  comparisons now use a paired permutation test.
+| Model | Success | Needs a call | No call | Calls / task | Unconfirmed irreversible |
+|---|---|---|---|---|---|
+| Tiny Aya Global + policy prompt | 0.289 | 0.409 | 0.217 | 1.24 | 18.0% |
+| SFT, audit-filtered teacher data | 0.513 | 0.427 | 0.713 | 0.97 | 13.2% |
+| GRPO, AgentTune default reward | 0.481 | 0.000 | 1.000 | 0.00 | 0.0% |
+| GRPO + KL anchor, default reward | 0.485 | 0.023 | 0.996 | 0.03 | 0.6% |
+| **GRPO + KL anchor, audit reward** | **0.513** | **0.423** | 0.721 | 0.85 | 11.8% |
 
-Full tables, per-category results and caveats: [FINDINGS.md](FINDINGS.md#lab-pc-results-run_a-vs-run_b-held-out-test-split).
+- The default reward is gamed by silence; the overall success number hides it.
+- Same KL-anchored GRPO, only the reward changed: needs-a-call success +0.400 (p = 0.0001).
+- Audit reward as a data filter: unconfirmed irreversible actions 19.4% → 13.2% (p = 0.005).
+- Without a KL anchor, GRPO collapsed into silence even with a correct reward ranking (run_B2).
+- Bugs: AgentTune B1, B15; AuditKIT A3 ([FINDINGS.md](FINDINGS.md)). Round-1 results: `results/round1/`.
 
 ## Next
 
