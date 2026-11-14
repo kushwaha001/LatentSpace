@@ -1,6 +1,6 @@
 # Silence pays: reward hacking in a multilingual tool-calling agent, and an audit-grounded reward that resists it
 
-*LatentSpace team · Lexsi AI Safety & Alignment Hackathon, Track 3 (Agentic Fine-tuning), Problem Statement 9: reward design and reward-hacking defences*
+*Kanishk Kushwaha, Sambhav Verma, Vikrant Bansode (team LatentSpace) · Lexsi AI Safety & Alignment Hackathon, Track 3 (Agentic Fine-tuning), Problem Statement 9: reward design and reward-hacking defences*
 
 **Code:** https://github.com/kushwaha001/LatentSpace · **Models:** https://huggingface.co/collections/kanishk001/latentspace-models-lexsi-hackathon-track-3-p9-6af84d1bbf8a687cc9e0b8d2 · **Data, rollouts and logs:** https://huggingface.co/collections/kanishk001/latentspace-datasets-and-logs-lexsi-hackathon-t3-p9-6af84d2c307f37a24ab2d708
 
