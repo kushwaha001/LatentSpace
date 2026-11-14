@@ -4,7 +4,7 @@
 
 Our entry to the [Lexsi AI Safety & Alignment Hackathon](https://hackathon.lexsi.ai/), Track 3 (Agentic Fine-tuning), Problem Statement 9: *Reward design and reward-hacking defences*.
 
-**Write-up: [docs/WRITEUP.md](docs/WRITEUP.md)** · Abstract: [docs/ABSTRACT.md](docs/ABSTRACT.md) · Results: [Results](#results-round-2-final) · Bugs and fixes: [FINDINGS.md](FINDINGS.md)
+**Write-up (article): [Hugging Face](https://huggingface.co/datasets/kanishk001/latentspace-article) · [docs/WRITEUP.md](docs/WRITEUP.md)** · Abstract: [docs/ABSTRACT.md](docs/ABSTRACT.md) · Results: [Results](#results-round-2-final) · Bugs and fixes: [FINDINGS.md](FINDINGS.md)
 
 > **Headline:** with identical KL-anchored GRPO training and only the reward changed, AgentTune's default reward drives the agent to stop calling tools (success on tasks that need a call: 0.023), while our audit-grounded reward keeps it competent (0.423; +0.40, p = 0.0001). Used as a filter for teacher data, the audit reward cuts bookings and cancellations made without the user's yes from 19.4% to 13.2% (p = 0.005).
 
@@ -117,7 +117,7 @@ On a local machine with two 24 GB GPUs: [docs/RUN_LOCAL.md](docs/RUN_LOCAL.md)
 
 ## Results (round 2, final)
 
-**Write-up: [docs/WRITEUP.md](docs/WRITEUP.md)** · abstract: [docs/ABSTRACT.md](docs/ABSTRACT.md) · every table there is generated from `results/` by `scripts/make_writeup.py`.
+**Write-up (article): [Hugging Face](https://huggingface.co/datasets/kanishk001/latentspace-article) · [docs/WRITEUP.md](docs/WRITEUP.md)** · abstract: [docs/ABSTRACT.md](docs/ABSTRACT.md) · every table there comes from `results/`; `scripts/make_writeup.py` regenerates them in `docs/RESULTS_TABLES.md`.
 
 Held-out test split (108 tasks × 5 trials). "Needs a call" = single call, multi-step, confirmed booking; "no call" = declined, denied, missing argument, chit-chat.
 

@@ -1,4 +1,4 @@
-"""Write docs/WRITEUP.md (the submission write-up) and docs/ABSTRACT.md. Tables are generated from
+"""Write docs/RESULTS_TABLES.md: every results table and paired test of the article (docs/WRITEUP.md). Tables are generated from
 results/ and outputs/evaluate/, so the numbers match the result files exactly.
 
     python scripts/make_writeup.py
@@ -187,7 +187,6 @@ The distilled student is the only balanced model on When2Call. All trained model
 Everything runs on one machine with two 24 GB GPUs (RTX 4500 Ada) or Kaggle 2× T4 (`notebooks/`). `bash scripts/round2.sh` runs teacher → distill → dev selection → GRPO → evaluation → benchmarks (resumable); `scripts/grpo_extra.sh run_B3 1 1` for the KL-anchored runs; `experiments/10_audit_dpo.py` for DPO; `scripts/make_writeup.py` regenerates every table here from the result files. 141 unit tests (`pytest`). Configs: `configs/`; per-stage results: `results/`; rollouts and scored rollouts: the datasets collection.
 """
 (ROOT / "docs").mkdir(exist_ok=True)
-(ROOT / "docs/WRITEUP.md").write_text(W, encoding="utf-8")
-(ROOT / "docs/ABSTRACT.md").write_text(ABSTRACT + "\n", encoding="utf-8")
+(ROOT / "docs/RESULTS_TABLES.md").write_text(W, encoding="utf-8")  # the article is docs/WRITEUP.md
 print("words in abstract:", len(ABSTRACT.split()))
-print("wrote docs/WRITEUP.md and docs/ABSTRACT.md")
+print("wrote docs/RESULTS_TABLES.md")
