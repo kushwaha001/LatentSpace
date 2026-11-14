@@ -144,4 +144,4 @@ Held-out test split (108 tasks × 5 trials). "Needs a call" = single call, multi
 
 ## Status
 
-Stage 1 submission (Lexsi hackathon, deadline 15 November 2026 AoE). Write-up: [docs/WRITEUP.md](docs/WRITEUP.md). Hugging Face collections: [models](https://huggingface.co/collections/kanishk001/latentspace-models-lexsi-hackathon-track-3-p9-6af84d1bbf8a687cc9e0b8d2) · [datasets, rollouts and logs](https://huggingface.co/collections/kanishk001/latentspace-datasets-and-logs-lexsi-hackathon-t3-p9-6af84d2c307f37a24ab2d708).
+Stage 1 submission (Lexsi hackathon, deadline 15 November 2026 AoE). Write-up: [docs/WRITEUP.md](docs/WRITEUP.md). Hugging Face collections: [models](https://huggingface.co/collections/kanishk001/latentspace-models-lexsi-hackathon-track-3-p9-6af84d1bbf8a687cc9e0b8d2) · [datasets, rollouts and logs](https://huggingface.co/collections/kanishk001/latentspace-datasets-and-logs-lexsi-hackathon-t3-p9-6af84d2c307f37a24ab2d708) · [article](https://huggingface.co/collections/kanishk001/latentspace-article-lexsi-hackathon-t3-p9-6af86b146a5b1af4d9743ffe).
